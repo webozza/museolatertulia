@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        $('.popup-box').fadeIn('slow');
+        $('.popup-box').fadeIn(3000);
         // const title = data.title.rendered;
         // const content = data.content.rendered; 
         // const customContent = `
