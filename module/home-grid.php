@@ -21,6 +21,15 @@ $query = new WP_Query($args);
         <div class="zoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
         <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
+      <div class="info">
+        <p class="title">fdsfsdfd</p>
+        <p class="author">sdfsdf</p>
+        <p class="technical-date">dsfsdf</p>
+        <p class="year">sdfsdff</p>
+        <p class="catagories">sdfdsf</p>
+        <p class="country">sdfsdf</p>
+        <p class="tags">sdfsdfsdf</p>
+      </div>
       <div class="documentWindow">
 
       </div>
