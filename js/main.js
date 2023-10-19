@@ -140,3 +140,4 @@ jQuery(document).ready(function ($) {
     $(".info").slideToggle();
   });
 });
+ 
