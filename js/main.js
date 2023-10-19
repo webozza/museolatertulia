@@ -129,7 +129,7 @@ jQuery(document).ready(function ($) {
                     dataType: "json",
                     success: function (mediaData) {
                         const imageUrl = mediaData.source_url;
-                        $('.popup-box .img img').attr('src', imageUrl);
+                        $('.popup-box .img .main_image').attr('src', imageUrl);
                     },
                     error: function (error) {
                         console.error("Error fetching featured media:", error);

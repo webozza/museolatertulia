@@ -13,7 +13,7 @@ $query = new WP_Query($args);
         <div class="pre-loader">
             <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loader.gif" alt="">
         </div>
-        <img src="" alt="" />
+        <img class="main_image" src="" alt="" />
       </div>
       <div class="navigation">
         <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-plus.png" alt="" /></div>
