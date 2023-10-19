@@ -153,6 +153,7 @@ jQuery(document).ready(function ($) {
 
 
   $('.cross').on('click',()=>{
+    $('.pre-loader').hide();
     $('.popup-box').fadeOut()
     $('.main_image').attr('src','');
   })
