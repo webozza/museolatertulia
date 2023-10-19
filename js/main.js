@@ -116,7 +116,29 @@ jQuery(document).ready(function ($) {
   $('.clickable-thumbnail').on('click', function () {
     const postID = $(this).data('post-id');
 
-    console.log(postID)
+
+
+    // Define the REST API endpoint for getting post details
+    const restApiUrl = '/wp-json/wp/v2/obra/' + postID; // Adjust the URL as per your WordPress setup
+
+    // Make an AJAX request to the REST API endpoint
+    $.ajax({
+        url: restApiUrl,
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            // Once the data is retrieved, you can log it in the console
+            console.log('Post Details:', data);
+            
+            // You can access specific post properties like title, content, etc. as needed
+            console.log('Post Title:', data.title.rendered);
+            console.log('Post Content:', data.content.rendered);
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+    
 
 });
 
