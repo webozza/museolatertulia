@@ -10,7 +10,7 @@ $query = new WP_Query($args);
 
 <div class="popup-box">
       <div class="img">
-        <img src="<?= get_stylesheet_directory_uri();?>/el.jpg" alt="" />
+        <img src="" alt="" />
       </div>
       <div class="navigation">
         <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-plus.png" alt="" /></div>
