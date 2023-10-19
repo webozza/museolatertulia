@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
 
       $(".masonry-grid-item").each(function () {
         let thisItem = $(this);
-        if (!thisItem.find("img").attr("src").length) {
+        if (!thisItem.find("img").length) {
           thisItem.remove();
         }
       });
