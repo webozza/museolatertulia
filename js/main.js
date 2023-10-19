@@ -120,6 +120,7 @@ jQuery(document).ready(function ($) {
         type: "GET",
         dataType: "json",
         success: function (data) {
+          $('.popup-box').show();
             if (data.featured_media && data.featured_media !== 0) {
                 const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
                 $.ajax({
@@ -129,47 +130,21 @@ jQuery(document).ready(function ($) {
                     success: function (mediaData) {
                         const imageUrl = mediaData.source_url;
                         $('.popup-box .img img').attr('src', imageUrl);
-                        $('.popup-box').fadeIn('fast');
                     },
                     error: function (error) {
                         console.error("Error fetching featured media:", error);
                     }
                 });
             }
+
+
+
         },
         error: function (error) {
             console.error("Error fetching post data:", error);
         },
     });
 });
-
-
-
-  // $(".clickable-thumbnail").on("click", function () {
-  //   const postID = $(this).data("post-id");
-  //   const restApiUrl = "/wp-json/wp/v2/obra/" + postID; 
-  //   $.ajax({
-  //     url: restApiUrl,
-  //     type: "GET",
-  //     dataType: "json",
-  //     success: function (data) {
-  //       console.log(data)
-  //       $('.popup-box').fadeIn('fast', function(){
-  //         const imageUrl = data.image_url;
-  //         $('.img img').attr('src', imageUrl);
-  //         console.log(imageUrl)
-  //       console.log(data)
-
-  //       })
-  //     },
-  //     error: function (error) {
-  //       console.error("Error:", error);
-  //     },
-  //   });
-  // });
-
-
-
   $('.cross').on('click',()=>{
     $('.popup-box').fadeOut()
     $('.popup-box .img img').attr('src','');
