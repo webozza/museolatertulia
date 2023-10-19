@@ -109,31 +109,33 @@ jQuery(document).ready(function ($) {
 
   //   popup function
 
-  const postID = $(this).data("post-id");
-
-  const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
-  $.ajax({
-    url: restApiUrl,
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-      const title = data.title.rendered; 
-      const content = data.content.rendered; 
-
-      const customContent = `
-        <div>
-          <h2>${title}</h2>
-          <p>${content}</p>
-        </div>
-      `;
-      
-      $.fancybox.open({
-        src: customContent,
-        type: "html",
-      });
-    },
-    error: function (error) {
-      console.error("Error:", error);
-    },
+  $(".clickable-thumbnail").on("click", function () {
+    const postID = $(this).data("post-id");
+    const restApiUrl = "/wp-json/wp/v2/obra/" + postID; 
+    $.ajax({
+      url: restApiUrl,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        const title = data.title.rendered;
+        const content = data.content.rendered; 
+        const customContent = `
+          <div>
+            <h2>${title}</h2>
+            <p>${content}</p>
+          </div>
+        `;
+        $.fancybox.open({
+          src: customContent,
+          type: "html",
+        });
+      },
+      error: function (error) {
+        console.error("Error:", error);
+      },
+    });
   });
+
+
+  
 });
