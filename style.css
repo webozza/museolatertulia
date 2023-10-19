@@ -35,12 +35,15 @@ Text Domain:  helloelementorchild
 
 .popup-box {
   background-color: #9f9f9f;
-  height: 98vh;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
 }
 
 .img{
