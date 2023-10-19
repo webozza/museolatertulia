@@ -27,3 +27,19 @@ $query = new WP_Query($args);
     <p>No posts found.</p>
     <?php endif; ?>
 </div>
+
+
+<div class="popup-box">
+      <div class="img">
+        <img src="el.jpg" alt="" />
+      </div>
+      <div class="navigation">
+        <div class="plus"><img src="popUpIcon/icono-plus.png" alt="" /></div>
+        <div class="cross"><img src="popUpIcon/icono-x.png" alt="" /></div>
+        <div class="zoom"><img src="popUpIcon/icono-lupa+.png" alt="" /></div>
+        <div class="document"><img src="popUpIcon/icono-documentos.png" alt="" /></div>
+      </div>
+      <div class="documentWindow">
+
+      </div>
+    </div>
