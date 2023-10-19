@@ -1,5 +1,5 @@
 /*
-Theme Name:   Hello Elementor Child
+Theme Name:   Bienales
 Theme URI:    http://example.com/twenty-fifteen-child/
 Description:  Hello Elementor Child
 Author:       Yesid Mendoza
@@ -12,13 +12,11 @@ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, access
 Text Domain:  helloelementorchild
 */
 
-
 element.style {
 }
 .fwpl-layout.el-8yhzj .fwpl-result {
-    border-style: hidden !important; 
-    border-color: #e4e4e4;
-    border-width: 1px;
-    padding: 15px;
+  border-style: hidden !important;
+  border-color: #e4e4e4;
+  border-width: 1px;
+  padding: 15px;
 }
-
