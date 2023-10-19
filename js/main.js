@@ -109,57 +109,34 @@ jQuery(document).ready(function ($) {
 
   //   popup function
 
-
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
-    const imgUrl = $(this).attr('src')
+    const imgUrl = $(this).attr("src");
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
-    $('.popup-box').show();
-    $('.pre-loader').show();
-    $('.main_image').attr('src', imgUrl);
+    $(".popup-box").show();
+    $(".pre-loader").show();
+    $(".main_image").attr("src", imgUrl);
 
     $.ajax({
-        url: restApiUrl,
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            // if (data.featured_media && data.featured_media !== 0) {
-            //     const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
-            //     $.ajax({
-            //         url: featuredMediaUrl,
-            //         type: "GET",
-            //         dataType: "json",
-            //         success: function (mediaData) {
-            //             const imageUrl = mediaData.source_url;
-            //             $('.pre-loader').hide();
-            //             $('.main_image').attr('src', imageUrl);
-            //         },
-            //         error: function (error) {
-            //             console.error("Error fetching featured media:", error);
-            //         }
-            //     });
-            // }
-
-
-
-        },
-        error: function (error) {
-            console.error("Error fetching post data:", error);
-        },
+      url: restApiUrl,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console, log(data);
+      },
+      error: function (error) {
+        console.error("Error fetching post data:", error);
+      },
     });
-});
+  });
 
+  $(".cross").on("click", () => {
+    $(".pre-loader").hide();
+    $(".popup-box").fadeOut();
+    $(".main_image").attr("src", "");
+  });
 
-
-  $('.cross').on('click',()=>{
-    $('.pre-loader').hide();
-    $('.popup-box').fadeOut()
-    $('.main_image').attr('src','');
-  })
-
-  $('.plus').on('click',()=>{
-    $('.info').slideToggle();
-  })
-
-
+  $(".plus").on("click", () => {
+    $(".info").slideToggle();
+  });
 });
