@@ -20,6 +20,9 @@ Text Domain:  helloelementorchild
 }
 
 /*  home grid  */
+.masonry-grid-column {
+  width: 16.66% !important;
+}
 
 .my-masonry-grid-item {
   margin: 10px;

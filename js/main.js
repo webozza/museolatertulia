@@ -109,5 +109,24 @@ jQuery(document).ready(function ($) {
 
   //   popup function
 
+  $(".clickable-thumbnail").on("click", function () {
+    const postID = $(this).data("post-id");
 
+    // Define the REST API endpoint for getting post details
+    const restApiUrl = "/wp-json/wp/v2/obra/" + postID; // Adjust the URL as per your WordPress setup
+
+    // Make an AJAX request to the REST API endpoint
+    $.ajax({
+      url: restApiUrl,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console.log("Post Details:", data);
+        console.log("Post Title:", data.title.rendered);
+      },
+      error: function (error) {
+        console.error("Error:", error);
+      },
+    });
+  });
 });
