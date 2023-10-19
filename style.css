@@ -22,7 +22,5 @@ Text Domain:  helloelementorchild
 /*  home grid  */
 
 .my-masonry-grid-item {
-  padding: 10px;
-  background-color: #cccccc;
   margin: 10px;
 }
