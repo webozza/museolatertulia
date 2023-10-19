@@ -120,23 +120,15 @@ jQuery(document).ready(function ($) {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            // Check if "featured_media" field exists and contains the image URL
             if (data.featured_media && data.featured_media !== 0) {
-                // Make another API request to get the featured image details
                 const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
-
                 $.ajax({
                     url: featuredMediaUrl,
                     type: "GET",
                     dataType: "json",
                     success: function (mediaData) {
-                        // Get the image URL from the featured image details
                         const imageUrl = mediaData.source_url;
-
-                        // Set the src attribute of the image in the popup
                         $('.popup-box .img img').attr('src', imageUrl);
-                        
-                        // Show the popup with the image
                         $('.popup-box').fadeIn('fast');
                     },
                     error: function (error) {
@@ -180,6 +172,7 @@ jQuery(document).ready(function ($) {
 
   $('.cross').on('click',()=>{
     $('.popup-box').fadeOut()
+    $('.popup-box .img img').attr('src','');
   })
 
 
