@@ -134,4 +134,11 @@ jQuery(document).ready(function ($) {
       },
     });
   });
+
+  $('.cross').on('click',()=>{
+    $('.popup-box').hide()
+  })
+
+
+
 });
