@@ -158,9 +158,8 @@ jQuery(document).ready(function ($) {
   })
 
   $('.plus').on('click',()=>{
-    $('.info').slideDown();
+    $('.info').slideToggle();
   })
-
 
 
 });
