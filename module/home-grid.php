@@ -13,10 +13,10 @@ $query = new WP_Query($args);
         <img src="<?= get_stylesheet_directory_uri();?>/el.jpg" alt="" />
       </div>
       <div class="navigation">
-        <div class="plus"><img src="popUpIcon/icono-plus.png" alt="" /></div>
-        <div class="cross"><img src="popUpIcon/icono-x.png" alt="" /></div>
-        <div class="zoom"><img src="popUpIcon/icono-lupa+.png" alt="" /></div>
-        <div class="document"><img src="popUpIcon/icono-documentos.png" alt="" /></div>
+        <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-plus.png" alt="" /></div>
+        <div class="cross"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
+        <div class="zoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
+        <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
       <div class="documentWindow">
 
