@@ -57,6 +57,12 @@ body{
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.img > img{
+  z-index: 9;
+}
+.pre-loader{
+  z-index: 10;
+}
 
 .popup-box .navigation {
   position: absolute;
