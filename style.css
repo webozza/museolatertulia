@@ -44,6 +44,7 @@ Text Domain:  helloelementorchild
   top: 0;
   left: 0;
   display: none;
+  scale: 0;
 }
 
 .img{
