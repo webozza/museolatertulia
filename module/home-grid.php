@@ -7,8 +7,7 @@ $args = array(
 $query = new WP_Query($args);
 
 ?>
-<div class="my-masonry-grid">
-    
+
 <div class="popup-box">
       <div class="img">
         <img src="el.jpg" alt="" />
@@ -23,6 +22,9 @@ $query = new WP_Query($args);
 
       </div>
     </div>
+    
+<div class="my-masonry-grid">
+    
     <?php if ($query->have_posts()) : ?>
     <?php while ($query->have_posts()) : $query->the_post(); ?>
     <?php
