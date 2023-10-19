@@ -117,6 +117,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
+        console.log(data)
         $('.popup-box').fadeIn('fast', function(){
           const imageUrl = data.image_url;
           $('.img img').attr('src', imageUrl);
