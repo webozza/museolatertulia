@@ -123,6 +123,8 @@ jQuery(document).ready(function ($) {
           $('.popup-box').show();
           $('.pre-loader').show();
           $('.main_image').attr('src', imgUrl);
+          $('.pre-loader').hide();
+
             // if (data.featured_media && data.featured_media !== 0) {
             //     const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
             //     $.ajax({
