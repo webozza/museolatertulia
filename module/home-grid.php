@@ -1,7 +1,7 @@
 <?php
 $args = array(
     'post_type' => 'obra',
-    'posts_per_page' => 10,
+    'posts_per_page' => -1,
 );
 
 $query = new WP_Query($args);
