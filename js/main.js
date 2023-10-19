@@ -125,15 +125,14 @@ jQuery(document).ready(function ($) {
             <p>${content}</p>
           </div>
         `;
-        $.fancybox.open({
-          src: customContent,
-          type: "html",
-        });
+        $('body').prepend(customContent)
       },
       error: function (error) {
         console.error("Error:", error);
       },
     });
+
+
   });
 
 
