@@ -23,4 +23,5 @@ Text Domain:  helloelementorchild
 
 .my-masonry-grid-item {
   margin: 10px;
+  z-index: 99;
 }
