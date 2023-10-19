@@ -127,12 +127,8 @@ jQuery(document).ready(function ($) {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            // Once the data is retrieved, you can log it in the console
             console.log('Post Details:', data);
-            
-            // You can access specific post properties like title, content, etc. as needed
             console.log('Post Title:', data.title.rendered);
-            console.log('Post Content:', data.content.rendered);
         },
         error: function (error) {
             console.error('Error:', error);
