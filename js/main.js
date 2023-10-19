@@ -120,6 +120,7 @@ jQuery(document).ready(function ($) {
         $('.popup-box').fadeIn('fast', function(){
           const imageUrl = data.image_url;
           $('.img img').attr('src', imageUrl);
+          console.log(imageUrl)
         })
       },
       error: function (error) {
