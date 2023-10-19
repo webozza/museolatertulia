@@ -122,7 +122,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        console, log(data);
+        console.log(data);
       },
       error: function (error) {
         console.error("Error fetching post data:", error);
