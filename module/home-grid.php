@@ -9,10 +9,10 @@ $query = new WP_Query($args);
 ?>
 
 <div class="popup-box">
-      <div class="img">
         <div class="pre-loader">
             <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
         </div>
+      <div class="img">
         <img class="main_image" src="" alt="" />
       </div>
       <div class="navigation">
