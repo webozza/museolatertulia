@@ -117,17 +117,10 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        $('.popup-box').fadeIn('fast')
-
-        // const title = data.title.rendered;
-        // const content = data.content.rendered; 
-        // const customContent = `
-        //   <div class='popup-box'>
-        //     <h2>${title}</h2>
-        //     <p>${content}</p>
-        //   </div>
-        // `;
-        // $('body').prepend(customContent)
+        $('.popup-box').fadeIn('fast', function(){
+          const imageUrl = data.image_url;
+          $('.img img').attr('src', imageUrl);
+        })
       },
       error: function (error) {
         console.error("Error:", error);
