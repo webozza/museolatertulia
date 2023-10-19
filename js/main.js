@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
 });
   $('.cross').on('click',()=>{
     $('.popup-box').fadeOut()
-    $('.popup-box .img img').attr('src','');
+    $('.main_image').attr('src','');
   })
 
 
