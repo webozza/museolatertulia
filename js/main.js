@@ -109,18 +109,18 @@ jQuery(document).ready(function ($) {
 
   //   popup function
 
-
-
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
+
+    // Show the loader
+    $('.pre-loader').show();
 
     $.ajax({
         url: restApiUrl,
         type: "GET",
         dataType: "json",
         success: function (data) {
-          $('.popup-box').show();
             if (data.featured_media && data.featured_media !== 0) {
                 const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
                 $.ajax({
@@ -129,6 +129,20 @@ jQuery(document).ready(function ($) {
                     dataType: "json",
                     success: function (mediaData) {
                         const imageUrl = mediaData.source_url;
+
+                        // Create a new Image element
+                        const img = new Image();
+
+                        // Set the source of the Image to the main image URL
+                        img.src = imageUrl;
+
+                        // Add a 'load' event listener to the Image
+                        img.onload = function () {
+                            // Hide the loader when the main image has finished loading
+                            $('.pre-loader').hide();
+                        };
+
+                        // Set the 'src' attribute of the main image
                         $('.main_image').attr('src', imageUrl);
                     },
                     error: function (error) {
@@ -136,15 +150,15 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
-
-
-
         },
         error: function (error) {
             console.error("Error fetching post data:", error);
         },
     });
 });
+
+
+
   $('.cross').on('click',()=>{
     $('.popup-box').fadeOut()
     $('.main_image').attr('src','');
