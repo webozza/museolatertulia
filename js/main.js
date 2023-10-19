@@ -109,28 +109,74 @@ jQuery(document).ready(function ($) {
 
   //   popup function
 
+
+
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
-    const restApiUrl = "/wp-json/wp/v2/obra/" + postID; 
-    $.ajax({
-      url: restApiUrl,
-      type: "GET",
-      dataType: "json",
-      success: function (data) {
-        console.log(data)
-        $('.popup-box').fadeIn('fast', function(){
-          const imageUrl = data.image_url;
-          $('.img img').attr('src', imageUrl);
-          console.log(imageUrl)
-        console.log(data)
+    const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
 
-        })
-      },
-      error: function (error) {
-        console.error("Error:", error);
-      },
+    $.ajax({
+        url: restApiUrl,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            // Check if "featured_media" field exists and contains the image URL
+            if (data.featured_media && data.featured_media !== 0) {
+                // Make another API request to get the featured image details
+                const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
+
+                $.ajax({
+                    url: featuredMediaUrl,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (mediaData) {
+                        // Get the image URL from the featured image details
+                        const imageUrl = mediaData.source_url;
+
+                        // Set the src attribute of the image in the popup
+                        $('.popup-box .img img').attr('src', imageUrl);
+                        
+                        // Show the popup with the image
+                        $('.popup-box').fadeIn('fast');
+                    },
+                    error: function (error) {
+                        console.error("Error fetching featured media:", error);
+                    }
+                });
+            }
+        },
+        error: function (error) {
+            console.error("Error fetching post data:", error);
+        },
     });
-  });
+});
+
+
+
+  // $(".clickable-thumbnail").on("click", function () {
+  //   const postID = $(this).data("post-id");
+  //   const restApiUrl = "/wp-json/wp/v2/obra/" + postID; 
+  //   $.ajax({
+  //     url: restApiUrl,
+  //     type: "GET",
+  //     dataType: "json",
+  //     success: function (data) {
+  //       console.log(data)
+  //       $('.popup-box').fadeIn('fast', function(){
+  //         const imageUrl = data.image_url;
+  //         $('.img img').attr('src', imageUrl);
+  //         console.log(imageUrl)
+  //       console.log(data)
+
+  //       })
+  //     },
+  //     error: function (error) {
+  //       console.error("Error:", error);
+  //     },
+  //   });
+  // });
+
+
 
   $('.cross').on('click',()=>{
     $('.popup-box').fadeOut()
