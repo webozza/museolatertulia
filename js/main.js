@@ -120,7 +120,7 @@ jQuery(document).ready(function ($) {
         const title = data.title.rendered;
         const content = data.content.rendered; 
         const customContent = `
-          <div>
+          <div class='popup-box'>
             <h2>${title}</h2>
             <p>${content}</p>
           </div>
