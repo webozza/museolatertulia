@@ -121,6 +121,8 @@ jQuery(document).ready(function ($) {
           const imageUrl = data.image_url;
           $('.img img').attr('src', imageUrl);
           console.log(imageUrl)
+        console.log(data)
+
         })
       },
       error: function (error) {
