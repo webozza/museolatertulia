@@ -107,5 +107,19 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  console.log("sdfsadfasfasdfsdafasdfsdfsdfsaf");
+
+
+
+//   popup function 
+
+
+  $('.clickable-thumbnail').on('click', function () {
+    const postID = $(this).data('post-id');
+
+    console.log(postID)
+
+});
+
+
+
 });
