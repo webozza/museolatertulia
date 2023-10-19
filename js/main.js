@@ -136,7 +136,7 @@ jQuery(document).ready(function ($) {
   });
 
   $('.cross').on('click',()=>{
-    $('.popup-box').hide()
+    $('.popup-box').fadeOut()
   })
 
 
