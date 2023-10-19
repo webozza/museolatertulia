@@ -157,6 +157,10 @@ jQuery(document).ready(function ($) {
     $('.main_image').attr('src','');
   })
 
+  $('.plus').on('click',()=>{
+    $('.info').slideDown();
+  })
+
 
 
 });
