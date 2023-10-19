@@ -114,16 +114,15 @@ jQuery(document).ready(function ($) {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr('src')
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
+    $('.popup-box').show();
+    $('.pre-loader').show();
+    $('.main_image').attr('src', imgUrl);
 
     $.ajax({
         url: restApiUrl,
         type: "GET",
         dataType: "json",
         success: function (data) {
-          $('.popup-box').show();
-          $('.pre-loader').show();
-          $('.main_image').attr('src', imgUrl);
-
             // if (data.featured_media && data.featured_media !== 0) {
             //     const featuredMediaUrl = data._links['wp:featuredmedia'][0].href;
             //     $.ajax({
