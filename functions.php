@@ -5,7 +5,7 @@ function my_theme_enqueue_styles() {
 	$theme        = wp_get_theme();
 	wp_enqueue_style( $parenthandle,
 		get_template_directory_uri() . '/style.css',
-		array(),  // If the parent theme code has a dependency, copy it to here.
+		array(), 
 		$theme->parent()->get( 'Version' )
 	);
 	wp_enqueue_style( 'child-style',
@@ -16,20 +16,22 @@ function my_theme_enqueue_styles() {
 }
 
 
+function custom_image_sizes() {
+    add_image_size('custom-masonry-thumbnail', 300, 200, true); // Replace dimensions as needed
+}
+add_action('after_setup_theme', 'custom_image_sizes');
+
+
+// connect js file 
+
+function mainJs() {
+    wp_enqueue_script('mainJs', get_stylesheet_directory_uri() . '/js/main.js', array('jquery'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'mainJs');
+
+// create short code 
+
 function homeGrid() {
     include(get_stylesheet_directory() . '/module/home-grid.php');
-}
-
+} 
 add_shortcode('home_grid', 'homeGrid'); 
-
-function enqueue_masonry() {
-    wp_enqueue_script('masonry', 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', array('jquery'), '4.2.2', true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_masonry');
-
-
-function custom_theme_image_sizes() {
-    add_image_size('small-thumbnail', 150, 150, true);
-}
-
-add_action('after_setup_theme', 'custom_theme_image_sizes');
