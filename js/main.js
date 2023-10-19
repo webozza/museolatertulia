@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        $('popup-box').show()
+        $('.popup-box').show()
         // const title = data.title.rendered;
         // const content = data.content.rendered; 
         // const customContent = `
