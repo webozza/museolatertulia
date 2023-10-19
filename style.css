@@ -1,0 +1,24 @@
+/*
+Theme Name:   Hello Elementor Child
+Theme URI:    http://example.com/twenty-fifteen-child/
+Description:  Hello Elementor Child
+Author:       Yesid Mendoza
+Author URI:   http://example.com
+Template:     hello-elementor
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain:  helloelementorchild
+*/
+
+
+element.style {
+}
+.fwpl-layout.el-8yhzj .fwpl-result {
+    border-style: hidden !important; 
+    border-color: #e4e4e4;
+    border-width: 1px;
+    padding: 15px;
+}
+
