@@ -129,6 +129,7 @@ jQuery(document).ready(function ($) {
     image.onload = function() {
         $(".main_image").attr("src", imgUrl);
         $(".pre-loader").hide();
+        makeZoom()
     };
 
     $.ajax({
