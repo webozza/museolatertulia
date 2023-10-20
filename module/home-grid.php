@@ -12,9 +12,9 @@ $query = new WP_Query($args);
         <div class="pre-loader">
             <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
         </div>
-      <div class="img zoom-container">
-        <img class="main_image" src="" alt=""  id="zoom-image"/>
-      </div>
+        <div class="img zoom-container">
+            <img class="main_image" src="your-image.jpg" alt="" id="zoom-image">
+        </div>
       <div class="navigation">
         <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-plus.png" alt="" /></div>
         <div class="cross"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
