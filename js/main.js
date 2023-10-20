@@ -141,11 +141,21 @@ jQuery(document).ready(function ($) {
             // Populate the info elements
             $(".info .title").text(data.acf['obra-titulo_denominacion']);
             $(".info .author").text(data.acf["obra-nombre_completo"]);
-            $(".info .technical-date").text(data.acf["obra-dimensiones"]);
-            $(".info .year").text(data.acf["obra-fecha"]);
-            $(".info .catagories").text(data.acf["obra-categoria"]);
-            $(".info .country").text(data.acf["obra-nacionalidad"]);
-            $(".info .tags").text(data.acf["obra-etiqueta"]);
+
+            $(".info .dimension").text(data.acf["obra-dimensiones"]);
+            $(".info .edition").text(data.acf["obra-edicion"]);
+            $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
+            $(".info .nationality").text(data.acf["obra-nacionalidad"]);
+
+            const postCategories = data.categories.map(category => category.name).join(', ');
+            $(".info .categories").text(postCategories);
+            const tags = data.tags.map(tag => tag.name).join(', ');
+            $(".info .tags").text(tags);
+
+            $(".info .documents").text(data.acf["obra-documentos"]);
+            $(".info .source").text(data.acf["obra-fuente_y_notas"]);
+
+            $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
         },
         error: function (error) {
             console.error("Error fetching post data:", error);
