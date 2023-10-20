@@ -155,10 +155,9 @@ jQuery(document).ready(function ($) {
   //============================
   //                        zoom effect
   //============================
-  $('.zoomOut').hide()
-
-  $('.zoomOut').hide();
   let makeZoom = () => {
+    $('.zoomOut').hide()
+    $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
       maxScale: 3,
@@ -191,6 +190,8 @@ jQuery(document).ready(function ($) {
     $(".popup-box").fadeOut();
     $(".main_image").attr("src", "");
     $(".info").hide();
+
+
   });
 
   $(".plus").on("click", () => {
