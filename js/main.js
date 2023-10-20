@@ -114,33 +114,43 @@ jQuery(document).ready(function ($) {
   //                        PopUp
   //============================
 
-  $(".clickable-thumbnail").on("click", async function () {
+  $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
     $(".popup-box").show();
     $(".pre-loader").show();
-     $(".main_image").attr("src", imgUrl);
-      makeZoom();
+    
+    // Create a new image element and set its source
+    const image = new Image();
+    image.src = imgUrl;
+
+    // When the image has loaded, hide the pre-loader
+    image.onload = function() {
+        $(".main_image").attr("src", imgUrl);
+        $(".pre-loader").hide();
+    };
+
     $.ajax({
-      url: restApiUrl,
-      type: "GET",
-      dataType: "json",
-      success: function (data) {
-        $(".info .title").text(data.title.rendered);
-        $(".info .author").text(data.acf["obra-nombre"]);
-        $(".info .technical-date").text(data.acf["obra-tecnica_materiales"]);
-        $(".info .year").text(data.acf["obra-fecha"]);
-        $(".info .catagories").text(data.acf["obra-categoria"]);
-        $(".info .country").text(data.acf["obra-nacionalidad"]);
-        $(".info .tags").text(data.acf["obra-etiqueta"]);
-      },
-      error: function (error) {
-        console.error("Error fetching post data:", error);
-      },
+        url: restApiUrl,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            // Populate the info elements
+            $(".info .title").text(data.title.rendered);
+            $(".info .author").text(data.acf["obra-nombre"]);
+            $(".info .technical-date").text(data.acf["obra-tecnica_materiales"]);
+            $(".info .year").text(data.acf["obra-fecha"]);
+            $(".info .catagories").text(data.acf["obra-categoria"]);
+            $(".info .country").text(data.acf["obra-nacionalidad"]);
+            $(".info .tags").text(data.acf["obra-etiqueta"]);
+        },
+        error: function (error) {
+            console.error("Error fetching post data:", error);
+        },
     });
-    $(".pre-loader").hide();
-  });
+});
+
   //============================
   //                        zoom effect
   //============================
