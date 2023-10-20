@@ -147,6 +147,7 @@ jQuery(document).ready(function ($) {
 
   let makeZoom = () => {
     let zoomImage = $("#zoom-image");
+    console.log(zoomImage)
     const panzoom = Panzoom(zoomImage);
     panzoom.pan(10, 10);
     panzoom.zoom(2, { animate: true });
