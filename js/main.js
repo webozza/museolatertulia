@@ -121,8 +121,7 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
      $(".main_image").attr("src", imgUrl);
-    $(".pre-loader").hide();
-    makeZoom();
+      makeZoom();
     $.ajax({
       url: restApiUrl,
       type: "GET",
@@ -140,6 +139,7 @@ jQuery(document).ready(function ($) {
         console.error("Error fetching post data:", error);
       },
     });
+    $(".pre-loader").hide();
   });
   //============================
   //                        zoom effect
