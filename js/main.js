@@ -127,7 +127,7 @@ jQuery(document).ready(function ($) {
     $(".main_image").attr("src", imgUrl);
     // When the image has loaded, hide the pre-loader
     image.onload = function() {
-      $(".main_image").fadeIn()
+      $(".main_image").fadeIn('slow')
         $(".pre-loader").fadeOut('slow');
         makeZoom()
     };
@@ -159,11 +159,11 @@ jQuery(document).ready(function ($) {
   let makeZoom = () => {
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 4,
+      maxScale: 3,
       minScale: 0.5,
     });
     $(".zoom").on("click", () => {
-      panzoom.zoom(4);
+      panzoom.zoom(3);
     });
   };
 
