@@ -173,7 +173,8 @@ jQuery(document).ready(function ($) {
     });
   
     $(".zoomOut").on("click", () => {
-      panzoom.zoomOut(originalScale); // Zoom out to the original scale
+      panzoom.zoom(1, { animate: true })
+      ; // Zoom out to the original scale
   
       $(".zoom").show();
       $('.zoomOut').hide();
