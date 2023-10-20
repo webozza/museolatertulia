@@ -150,14 +150,15 @@ jQuery(document).ready(function ($) {
 
 
   let makeZoom = () => {
-    let zoomImage = $('#zoom-image')
+    let zoomImage = $('#zoom-image');
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 2,
-      minScale: 0.5,
+        maxScale: 2,
+        minScale: 0.5,
     });
 
-    $(".zoom").on("click", () => {});
-    panzoom.zoom(2);
+    $(".zoom").on("click", () => {
+        panzoom.zoom(2);
+    });
   };
 
 //============================
