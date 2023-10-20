@@ -19,6 +19,7 @@ $query = new WP_Query($args);
         <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-plus.png" alt="" /></div>
         <div class="cross"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
         <div class="zoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
+        <div class="zoomOut"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-minus.png" alt="" /></div>
         <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
       <div class="info">

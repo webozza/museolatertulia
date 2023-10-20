@@ -164,7 +164,17 @@ jQuery(document).ready(function ($) {
     });
     $(".zoom").on("click", () => {
       panzoom.zoom(3);
+
+      $(".zoom").hide()
+      $('.zoomOut').show()
     });
+    $(".zoomOut").on("click", () => {
+      panzoom.zoomOut(3);
+
+      $(".zoom").show()
+      $('.zoomOut').hide()
+    });
+
   };
 
   //============================
