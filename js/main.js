@@ -120,14 +120,14 @@ jQuery(document).ready(function ($) {
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
     $(".popup-box").show();
     $(".pre-loader").show();
-    
+    $(".main_image").hide()
     // Create a new image element and set its source
     const image = new Image();
     image.src = imgUrl;
-
+    $(".main_image").attr("src", imgUrl);
     // When the image has loaded, hide the pre-loader
     image.onload = function() {
-        $(".main_image").attr("src", imgUrl);
+      $(".main_image").fadeIn()
         $(".pre-loader").fadeOut('slow');
         makeZoom()
     };
