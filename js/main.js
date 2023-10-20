@@ -127,21 +127,20 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        console.log(data);
-        $(".info title").text();
-        $(".info author").text();
-        $(".info technical-date").text();
-        $(".info year").text();
-        $(".info catagories").text();
-        $(".info country").text();
-        $(".info tags").text(data);
+        // Update the text content of the .info elements
+        $(".info .title").text(data.title.rendered);
+        $(".info .author").text(data.acf['obra-nombre']);
+        $(".info .technical-date").text(data.acf['obra-tecnica_materiales']);
+        $(".info .year").text(data.acf['obra-fecha']);
+        $(".info .catagories").text(data.acf['obra-categoria']);
+        $(".info .country").text(data.acf['obra-nacionalidad']);
+        $(".info .tags").text(data.acf['obra-etiqueta']);
       },
       error: function (error) {
         console.error("Error fetching post data:", error);
       },
     });
   });
-
   //============================
   //                        zoom effect
   //============================
