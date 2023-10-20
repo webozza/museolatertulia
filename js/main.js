@@ -181,8 +181,7 @@ jQuery(document).ready(function ($) {
   };
   
   makeZoom();
-  By specifying the zoom factor directly in zoomIn() and zoomOut(), you can easily control the amount of zoom without the need for separate variables.
-  
+
   
   
   
