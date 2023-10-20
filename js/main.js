@@ -146,11 +146,11 @@ jQuery(document).ready(function ($) {
             $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
             $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
-            const postCategories = data.categories.map(category => category.name).join(', ');
-            $(".info .categories").text(postCategories);
+            // const postCategories = data.categories.map(category => category.name).join(', ');
+            // $(".info .categories").text(postCategories);
 
-            const tags = data.tags.map(tag => tag.name).join(', ');
-            $(".info .tags").text(tags);
+            // const tags = data.tags.map(tag => tag.name).join(', ');
+            // $(".info .tags").text(tags);
 
             $(".info .documents").text(data.acf["obra-documentos"]);
             $(".info .source").text(data.acf["obra-fuente_y_notas"]);
