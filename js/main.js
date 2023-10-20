@@ -155,8 +155,8 @@ jQuery(document).ready(function ($) {
   //============================
   //                        zoom effect
   //============================
+  $('.zoomOut').hide()
   let makeZoom = () => {
-    $('.zoomOut').hide()
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
