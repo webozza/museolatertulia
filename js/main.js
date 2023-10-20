@@ -114,7 +114,7 @@ jQuery(document).ready(function ($) {
   //                        PopUp
   //============================
 
-  $(".clickable-thumbnail").on("click", function () {
+$(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
@@ -125,7 +125,6 @@ jQuery(document).ready(function ($) {
     const image = new Image();
     image.src = imgUrl;
     $(".main_image").attr("src", imgUrl);
-    // When the image has loaded, hide the pre-loader
     image.onload = function () {
         $(".main_image").fadeIn('slow');
         $(".pre-loader").fadeOut('slow');
