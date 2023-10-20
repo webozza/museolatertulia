@@ -160,15 +160,14 @@ jQuery(document).ready(function ($) {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 5,
+      maxScale: 3,
       minScale: 0.5,
     });
   
     const originalScale = panzoom.getScale();
   
     $(".zoom").on("click", () => {
-      panzoom.zoomIn(4); // Zoom in with a factor of 4 (or adjust the value as needed)
-  
+      panzoom.zoom(3, { animate: true })
       $(".zoom").hide();
       $('.zoomOut').show();
     });
