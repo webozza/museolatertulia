@@ -123,7 +123,7 @@ jQuery(document).ready(function ($) {
       dataType: "json",
       success: function (data) {
         console.log(data);
-        $('.info title').text(data.title())
+        $('.info title').text(data.title)
         $('.info author').text()
         $('.info technical-date').text()
         $('.info year').text()
