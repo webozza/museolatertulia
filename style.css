@@ -115,6 +115,6 @@ body {
   line-height: 20px;
   text-align: left;
 }
-.info > p {
+.info > p ,.info > span {
   text-align: start;
 }

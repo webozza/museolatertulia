@@ -23,13 +23,13 @@ $query = new WP_Query($args);
         <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
       <div class="info">
-        <p class="title"></p>
-        <p class="author"></p>
-        <p class="technical-date"></p>
-        <p class="year"></p>
-        <p class="catagories"></p>
-        <p class="country"></p>
-        <p class="tags"></p>
+        <p ><strong><span class="title"></strong></span></p>
+        <p ><span class="author"></span></p>
+        <p><span class="technical-date"></span></p>
+        <p ><span class="year"></span></p>
+        <p ><span class="catagories"></span></p>
+        <p ><span class="country"></span></p>
+        <p ><span class="tags"></span></p>
       </div>
       <div class="documentWindow"> 
       </div>
