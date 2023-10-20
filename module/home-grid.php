@@ -8,11 +8,11 @@ $query = new WP_Query($args);
 
 ?>
 
-<div class="popup-box ">
+<div class="popup-box  zoom-container">
         <div class="pre-loader">
             <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
         </div>
-        <div class="img zoom-container">
+        <div class="img ">
             <img class="main_image" src="" alt="" id="zoom-image">
         </div>
       <div class="navigation">
