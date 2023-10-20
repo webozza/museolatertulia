@@ -23,7 +23,7 @@ $query = new WP_Query($args);
         <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
       <div class="info">
-        <p class="title"></p>
+        <p class="title"><span><strong>Title: </strong></span></p>
         <p class="author"></p>
         <p class="technical-date"></p>
         <p class="year"></p>

@@ -139,9 +139,9 @@ jQuery(document).ready(function ($) {
         success: function (data) {
           console.log('data', data)
             // Populate the info elements
-            $(".info .title").text(data.title.rendered);
-            $(".info .author").text(data.acf["obra-nombre"]);
-            $(".info .technical-date").text(data.acf["obra-tecnica_materiales"]);
+            $(".info .title").text(data.acf['obra-titulo_denominacion']);
+            $(".info .author").text(data.acf["obra-nombre_completo"]);
+            $(".info .technical-date").text(data.acf["obra-dimensiones"]);
             $(".info .year").text(data.acf["obra-fecha"]);
             $(".info .catagories").text(data.acf["obra-categoria"]);
             $(".info .country").text(data.acf["obra-nacionalidad"]);
@@ -156,6 +156,8 @@ jQuery(document).ready(function ($) {
   //============================
   //                        zoom effect
   //============================
+
+
   $('.zoomOut').hide()
   let makeZoom = () => {
     $(".zoom").show();
