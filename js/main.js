@@ -176,6 +176,7 @@ jQuery(document).ready(function ($) {
     });
 
   };
+  
 
   //============================
   //                        Nav Button Click
