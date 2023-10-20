@@ -132,7 +132,7 @@ jQuery(document).ready(function ($) {
         makeZoom();
     };
 
-    // Fetch post categories and tags based on the post ID
+    // Fetch post categories
     $.ajax({
         url: `/wp-json/wp/v2/obra/${postID}`,
         type: "GET",
@@ -146,11 +146,33 @@ jQuery(document).ready(function ($) {
             $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
             $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
-            // const postCategories = data.categories.map(category => category.name).join(', ');
-            // $(".info .categories").text(postCategories);
+            // Fetch post categories
+            $.ajax({
+                url: `/wp-json/wp/v2/obra/${postID}/categories`,
+                type: "GET",
+                dataType: "json",
+                success: function (postCategories) {
+                    const categoryNames = postCategories.map(category => category.name).join(', ');
+                    $(".info .categories").text(categoryNames);
+                },
+                error: function (error) {
+                    console.error("Error fetching post categories:", error);
+                }
+            });
 
-            // const tags = data.tags.map(tag => tag.name).join(', ');
-            // $(".info .tags").text(tags);
+            // Fetch post tags
+            $.ajax({
+                url: `/wp-json/wp/v2/obra/${postID}/tags`,
+                type: "GET",
+                dataType: "json",
+                success: function (postTags) {
+                    const tagNames = postTags.map(tag => tag.name).join(', ');
+                    $(".info .tags").text(tagNames);
+                },
+                error: function (error) {
+                    console.error("Error fetching post tags:", error);
+                }
+            });
 
             $(".info .documents").text(data.acf["obra-documentos"]);
             $(".info .source").text(data.acf["obra-fuente_y_notas"]);
@@ -161,6 +183,7 @@ jQuery(document).ready(function ($) {
         },
     });
 });
+
 
 
   //============================
@@ -193,7 +216,6 @@ jQuery(document).ready(function ($) {
     });
   };
   
-
   //============================
   //                        Nav Button Click
   //============================

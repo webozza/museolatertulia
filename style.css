@@ -114,8 +114,11 @@ body {
   font-weight: 700;
   line-height: 20px;
   text-align: left;
+  overflow-y: scroll;
+  padding-bottom: 100px;
 }
-.info > p ,.info > span {
+.info > p,
+.info > span {
   text-align: start;
   font-size: 16px;
   color: black;
