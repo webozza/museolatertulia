@@ -106,8 +106,15 @@ jQuery(document).ready(function ($) {
       columns: 6,
     });
   });
+  //============================
+  //                        Grid END
+  //============================
 
-  //   popup function
+
+
+  //============================
+  //                        PopUp
+  //============================
 
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
@@ -116,7 +123,7 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").attr("src", imgUrl);
-
+    makeZoom()
     $.ajax({
       url: restApiUrl,
       type: "GET",
@@ -137,24 +144,34 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  $(".cross").on("click", () => {
-    $(".pre-loader").hide();
-    $(".popup-box").fadeOut();
-    $(".main_image").attr("src", "");
-    $(".info").hide();
-  });
+  //============================
+  //                        zoom effect
+  //============================
 
-  $(".plus").on("click", () => {
-    $(".info").slideToggle();
-  });
 
-  // zoom effect
+  let makeZoom = () => {
+    const panzoom = Panzoom(zoomImage, {
+      maxScale: 2,
+      minScale: 0.5,
+    });
 
-  const panzoom = Panzoom(zoomImage, {
-    maxScale: 2, 
-    minScale: 0.5, 
-  });
+    $(".zoom").on("click", () => {});
+    panzoom.zoom(2);
+  };
 
-  $(".zoom").on("click", () => {});
-  panzoom.zoom(2)
+//============================
+//                        Nav Button Click
+//============================
+
+$(".cross").on("click", () => {
+  $(".pre-loader").hide();
+  $(".popup-box").fadeOut();
+  $(".main_image").attr("src", "");
+  $(".info").hide();
+});
+
+$(".plus").on("click", () => {
+  $(".info").slideToggle();
+});
+
 });
