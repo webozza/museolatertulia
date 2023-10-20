@@ -123,7 +123,7 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").attr("src", imgUrl);
-    // makeZoom()
+    makeZoom()
     $.ajax({
       url: restApiUrl,
       type: "GET",
