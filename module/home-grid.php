@@ -30,7 +30,7 @@ $query = new WP_Query($args);
         <p class="country"></p>
         <p class="tags"></p>
       </div>
-      <div class="documentWindow">
+      <div class="documentWindow"> 
       </div>
     </div>
 
