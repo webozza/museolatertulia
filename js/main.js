@@ -165,6 +165,7 @@ jQuery(document).ready(function ($) {
     });
   
     $(".zoom").on("click", () => {
+      panzoom.pan(0, 0,{ animate: true })
       panzoom.zoom(3, { animate: true })
       $(".zoom").hide();
       $('.zoomOut').show();
