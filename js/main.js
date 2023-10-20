@@ -155,29 +155,39 @@ jQuery(document).ready(function ($) {
   //============================
   //                        zoom effect
   //============================
-  $('.zoomOut').hide()
+  $('.zoomOut').hide();
   let makeZoom = () => {
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
       maxScale: 3,
       minScale: 0.5,
     });
+  
     const originalScale = panzoom.getScale();
+  
     $(".zoom").on("click", () => {
-      panzoom.zoom(3);
-
-      $(".zoom").hide()
-      $('.zoomOut').show()
+      panzoom.zoomIn(3); // Zoom in with a factor of 3
+  
+      $(".zoom").hide();
+      $('.zoomOut').show();
     });
+  
     $(".zoomOut").on("click", () => {
-      panzoom.zoomOut(originalScale);
-
-      $(".zoom").show()
-      $('.zoomOut').hide()
+      panzoom.zoomOut(originalScale); // Zoom out to the original scale
+  
+      $(".zoom").show();
+      $('.zoomOut').hide();
     });
-
   };
-
+  
+  makeZoom();
+  By specifying the zoom factor directly in zoomIn() and zoomOut(), you can easily control the amount of zoom without the need for separate variables.
+  
+  
+  
+  
+  
+  
 
   //============================
   //                        Nav Button Click
