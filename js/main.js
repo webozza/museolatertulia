@@ -127,7 +127,6 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
-        // Update the text content of the .info elements
         $(".info .title").text(data.title.rendered);
         $(".info .author").text(data.acf['obra-nombre']);
         $(".info .technical-date").text(data.acf['obra-tecnica_materiales']);
@@ -140,6 +139,7 @@ jQuery(document).ready(function ($) {
         console.error("Error fetching post data:", error);
       },
     });
+    $('.pre-loader').hide()
   });
   //============================
   //                        zoom effect
