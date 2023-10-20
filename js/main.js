@@ -139,7 +139,7 @@ jQuery(document).ready(function ($) {
         success: function (data) {
           console.log('data', data)
             // Populate the info elements
-            $(".info .title").html(data.acf['<span><strong>Title: </strong></span>obra-titulo_denominacion']);
+            $(".info .title").text(data.acf['obra-titulo_denominacion']);
             $(".info .author").text(data.acf["obra-nombre_completo"]);
             $(".info .technical-date").text(data.acf["obra-dimensiones"]);
             $(".info .year").text(data.acf["obra-fecha"]);
