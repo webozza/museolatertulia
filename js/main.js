@@ -119,7 +119,7 @@ jQuery(document).ready(function ($) {
     const imgUrl = $(this).attr("src");
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
     $(".popup-box").show();
-    $(".pre-loader").fadeOut('slow');
+    $(".pre-loader").show();
     
     // Create a new image element and set its source
     const image = new Image();
@@ -128,7 +128,7 @@ jQuery(document).ready(function ($) {
     // When the image has loaded, hide the pre-loader
     image.onload = function() {
         $(".main_image").attr("src", imgUrl);
-        $(".pre-loader").hide();
+        $(".pre-loader").fadeOut('slow');
         makeZoom()
     };
 
@@ -159,11 +159,11 @@ jQuery(document).ready(function ($) {
   let makeZoom = () => {
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 3,
+      maxScale: 4,
       minScale: 0.5,
     });
     $(".zoom").on("click", () => {
-      panzoom.zoom(3);
+      panzoom.zoom(4);
     });
   };
 
