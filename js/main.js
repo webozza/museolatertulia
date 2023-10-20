@@ -114,13 +114,14 @@ jQuery(document).ready(function ($) {
   //                        PopUp
   //============================
 
-  $(".clickable-thumbnail").on("click", function () {
+  $(".clickable-thumbnail").on("click", async function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
     const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
     $(".popup-box").show();
     $(".pre-loader").show();
-    $(".main_image").attr("src", imgUrl);
+     $(".main_image").attr("src", imgUrl);
+    $(".pre-loader").hide();
     makeZoom();
     $.ajax({
       url: restApiUrl,
@@ -128,31 +129,30 @@ jQuery(document).ready(function ($) {
       dataType: "json",
       success: function (data) {
         $(".info .title").text(data.title.rendered);
-        $(".info .author").text(data.acf['obra-nombre']);
-        $(".info .technical-date").text(data.acf['obra-tecnica_materiales']);
-        $(".info .year").text(data.acf['obra-fecha']);
-        $(".info .catagories").text(data.acf['obra-categoria']);
-        $(".info .country").text(data.acf['obra-nacionalidad']);
-        $(".info .tags").text(data.acf['obra-etiqueta']);
+        $(".info .author").text(data.acf["obra-nombre"]);
+        $(".info .technical-date").text(data.acf["obra-tecnica_materiales"]);
+        $(".info .year").text(data.acf["obra-fecha"]);
+        $(".info .catagories").text(data.acf["obra-categoria"]);
+        $(".info .country").text(data.acf["obra-nacionalidad"]);
+        $(".info .tags").text(data.acf["obra-etiqueta"]);
       },
       error: function (error) {
         console.error("Error fetching post data:", error);
       },
     });
-    $('.pre-loader').hide()
   });
   //============================
   //                        zoom effect
   //============================
 
   let makeZoom = () => {
-    const zoomImage = document.getElementById('zoom-image');
+    const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-        maxScale: 2,
-        minScale: 0.5,
+      maxScale: 2,
+      minScale: 0.5,
     });
     $(".zoom").on("click", () => {
-        panzoom.zoom(2);
+      panzoom.zoom(2);
     });
   };
 
