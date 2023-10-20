@@ -118,4 +118,6 @@ body {
 .info > p ,.info > span {
   text-align: start;
   font-size: 16px;
+  color: black;
+  font-weight: 400;
 }
