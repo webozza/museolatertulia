@@ -164,13 +164,13 @@ jQuery(document).ready(function ($) {
     });
     const originalScale = panzoom.getScale();
     $(".zoom").on("click", () => {
-      panzoom.zoomIn(3);
+      panzoom.zoomBy(3);
 
       $(".zoom").hide()
       $('.zoomOut').show()
     });
     $(".zoomOut").on("click", () => {
-      panzoom.zoomOut(originalScale);
+      panzoom.zoomTo(originalScale);
 
       $(".zoom").show()
       $('.zoomOut').hide()
