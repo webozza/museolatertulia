@@ -105,3 +105,6 @@ body {
   line-height: 20px;
   text-align: left;
 }
+.info > p{
+  text-align: start;
+}
