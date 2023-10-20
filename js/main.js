@@ -160,14 +160,14 @@ jQuery(document).ready(function ($) {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 3,
+      maxScale: 5,
       minScale: 0.5,
     });
   
     const originalScale = panzoom.getScale();
   
     $(".zoom").on("click", () => {
-      panzoom.zoomIn(); // Zoom in with a factor of 3
+      panzoom.zoomIn(4); // Zoom in with a factor of 4 (or adjust the value as needed)
   
       $(".zoom").hide();
       $('.zoomOut').show();
@@ -180,6 +180,7 @@ jQuery(document).ready(function ($) {
       $('.zoomOut').hide();
     });
   };
+  
 
   //============================
   //                        Nav Button Click
