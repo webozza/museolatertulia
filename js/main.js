@@ -110,8 +110,6 @@ jQuery(document).ready(function ($) {
   //                        Grid END
   //============================
 
-
-
   //============================
   //                        PopUp
   //============================
@@ -123,7 +121,7 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").attr("src", imgUrl);
-    makeZoom()
+    makeZoom();
     $.ajax({
       url: restApiUrl,
       type: "GET",
@@ -148,32 +146,30 @@ jQuery(document).ready(function ($) {
   //                        zoom effect
   //============================
 
-
   let makeZoom = () => {
-    let zoomImage = $('#zoom-image');
+    let zoomImage = $("#zoom-image");
     const panzoom = Panzoom(zoomImage, {
-        maxScale: 2,
-        minScale: 0.5,
+      maxScale: 2,
+      minScale: 0.5,
     });
+    panzoom.pan(10, 10);
+    panzoom.zoom(2, { animate: true });
 
-    $(".zoom").on("click", () => {
-        panzoom.zoom(2);
-    });
+    $(".zoom").on("click", panzoom.zoomIn);
   };
 
-//============================
-//                        Nav Button Click
-//============================
+  //============================
+  //                        Nav Button Click
+  //============================
 
-$(".cross").on("click", () => {
-  $(".pre-loader").hide();
-  $(".popup-box").fadeOut();
-  $(".main_image").attr("src", "");
-  $(".info").hide();
-});
+  $(".cross").on("click", () => {
+    $(".pre-loader").hide();
+    $(".popup-box").fadeOut();
+    $(".main_image").attr("src", "");
+    $(".info").hide();
+  });
 
-$(".plus").on("click", () => {
-  $(".info").slideToggle();
-});
-
+  $(".plus").on("click", () => {
+    $(".info").slideToggle();
+  });
 });
