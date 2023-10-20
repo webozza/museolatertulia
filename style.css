@@ -87,6 +87,7 @@ body {
   gap: 25px;
   background: #ffffff;
   z-index: 9;
+  user-select: none;
 }
 
 .popup-box .navigation > div {
