@@ -93,7 +93,7 @@ body {
 
 
 .zoomOut{
-  display: none;
+  display: none !important;
 }
 /* info tab  */
 
