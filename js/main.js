@@ -159,11 +159,11 @@ jQuery(document).ready(function ($) {
   let makeZoom = () => {
     const zoomImage = document.getElementById("zoom-image");
     const panzoom = Panzoom(zoomImage, {
-      maxScale: 2,
+      maxScale: 4,
       minScale: 0.5,
     });
     $(".zoom").on("click", () => {
-      panzoom.zoom(2);
+      panzoom.zoom(4);
     });
   };
 
