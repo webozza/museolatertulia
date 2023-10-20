@@ -155,6 +155,8 @@ jQuery(document).ready(function ($) {
   //============================
   //                        zoom effect
   //============================
+  $('.zoomOut').hide()
+
   $('.zoomOut').hide();
   let makeZoom = () => {
     const zoomImage = document.getElementById("zoom-image");
@@ -179,14 +181,6 @@ jQuery(document).ready(function ($) {
       $('.zoomOut').hide();
     });
   };
-  
-  makeZoom();
-
-  
-  
-  
-  
-  
 
   //============================
   //                        Nav Button Click
