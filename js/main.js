@@ -162,24 +162,21 @@ jQuery(document).ready(function ($) {
       maxScale: 3,
       minScale: 0.5,
     });
-  
     $(".zoom").on("click", () => {
       panzoom.zoom(2);
-      $(".zoom").hide();
-      $('.zoomOut').show();
-      zoomImage.style.transition = "transform 0.3s"; // Add a smooth transition
+
+      $(".zoom").hide()
+      $('.zoomOut').show()
     });
-  
     $(".zoomOut").on("click", () => {
-      panzoom.zoom(1); // Zoom back to the original scale (1)
-      $(".zoom").show();
-      $('.zoomOut').hide();
-      zoomImage.style.transition = "transform 0.3s"; // Add a smooth transition
+      panzoom.zoomOut(1);
+
+      $(".zoom").show()
+      $('.zoomOut').hide()
     });
+
   };
-  
-  makeZoom();
-  
+
 
   //============================
   //                        Nav Button Click
