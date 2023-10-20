@@ -164,7 +164,7 @@ jQuery(document).ready(function ($) {
     });
     const originalScale = panzoom.getScale();
     $(".zoom").on("click", () => {
-      panzoom.zoomIn(2);
+      panzoom.zoomIn(3);
 
       $(".zoom").hide()
       $('.zoomOut').show()
