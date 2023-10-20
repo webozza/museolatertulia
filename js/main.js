@@ -163,13 +163,13 @@ jQuery(document).ready(function ($) {
       minScale: 0.5,
     });
     $(".zoom").on("click", () => {
-      panzoom.zoom(3);
+      panzoom.zoom(2);
 
       $(".zoom").hide()
       $('.zoomOut').show()
     });
     $(".zoomOut").on("click", () => {
-      panzoom.zoomOut(3);
+      panzoom.zoomOut(1);
 
       $(".zoom").show()
       $('.zoomOut').hide()

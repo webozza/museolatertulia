@@ -91,6 +91,10 @@ body {
   cursor: pointer;
 }
 
+
+.zoomOut{
+  display: none;
+}
 /* info tab  */
 
 .info {
