@@ -117,31 +117,30 @@ jQuery(document).ready(function ($) {
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
-    const restApiUrl = "/wp-json/wp/v2/obra/" + postID;
+    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     $(".popup-box").show();
     $(".pre-loader").show();
-    $(".main_image").hide()
+    $(".main_image").hide();
     // Create a new image element and set its source
     const image = new Image();
     image.src = imgUrl;
     $(".main_image").attr("src", imgUrl);
     // When the image has loaded, hide the pre-loader
-    image.onload = function() {
-      $(".main_image").fadeIn('slow')
+    image.onload = function () {
+        $(".main_image").fadeIn('slow');
         $(".pre-loader").fadeOut('slow');
-        makeZoom()
+        makeZoom();
     };
 
+    // Fetch post categories and tags based on the post ID
     $.ajax({
-        url: restApiUrl,
+        url: `/wp-json/wp/v2/obra/${postID}`,
         type: "GET",
         dataType: "json",
         success: function (data) {
-          console.log('data', data)
             // Populate the info elements
             $(".info .title").text(data.acf['obra-titulo_denominacion']);
             $(".info .author").text(data.acf["obra-nombre_completo"]);
-
             $(".info .dimension").text(data.acf["obra-dimensiones"]);
             $(".info .edition").text(data.acf["obra-edicion"]);
             $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
@@ -149,12 +148,12 @@ jQuery(document).ready(function ($) {
 
             const postCategories = data.categories.map(category => category.name).join(', ');
             $(".info .categories").text(postCategories);
+
             const tags = data.tags.map(tag => tag.name).join(', ');
             $(".info .tags").text(tags);
 
             $(".info .documents").text(data.acf["obra-documentos"]);
             $(".info .source").text(data.acf["obra-fuente_y_notas"]);
-
             $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
         },
         error: function (error) {
@@ -162,6 +161,7 @@ jQuery(document).ready(function ($) {
         },
     });
 });
+
 
   //============================
   //                        zoom effect
