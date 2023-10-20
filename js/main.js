@@ -150,6 +150,7 @@ jQuery(document).ready(function ($) {
 
 
   let makeZoom = () => {
+    let zoomImage = $('#zoom-image')
     const panzoom = Panzoom(zoomImage, {
       maxScale: 2,
       minScale: 0.5,
