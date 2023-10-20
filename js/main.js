@@ -169,7 +169,7 @@ jQuery(document).ready(function ($) {
       $('.zoomOut').show()
     });
     $(".zoomOut").on("click", () => {
-      panzoom.zoomOut(1);
+      panzoom.zoomOut(.5);
 
       $(".zoom").show()
       $('.zoomOut').hide()
