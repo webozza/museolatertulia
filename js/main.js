@@ -174,7 +174,7 @@ jQuery(document).ready(function ($) {
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const imgTag = `<img src="${imageData.source_url}" class="documentImg my-masonry-grid-item">`;
+              const imgTag = `<img src="${imageData.source_url}" class="documentImg sidebar-grid-item">`;
               imageContainer.append(imgTag);
             },
             error: function (error) {
@@ -182,7 +182,11 @@ jQuery(document).ready(function ($) {
             }
           });
         });
-
+        // setTimeout(() => {
+        //   $(".sidebar-grid").masonryGrid({
+        //     columns: 3,
+        //   });
+        // }, 1000);
 
         // $(function () {
 
