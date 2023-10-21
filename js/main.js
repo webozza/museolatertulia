@@ -182,9 +182,11 @@ jQuery(document).ready(function ($) {
             }
           });
         });
-        $(".sidebar-grid").masonryGrid({
-          columns: 3,
-        });
+        setTimeout(() => {
+          $(".sidebar-grid").masonryGrid({
+            columns: 3,
+          });
+        }, 1000);
 
         // $(function () {
 
