@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
-    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+    const c = `/wp-json/wp/v2/obra/${postID}`;
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
     // Fetch post categories
 
     $.ajax({
-      url: `/wp-json/wp/v2/obra/${postID}`,
+      url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function (data) {
