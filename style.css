@@ -152,7 +152,7 @@ body {
   overflow-y: scroll;
 }
 
-.sidebar-grid.masonry-grid-item {
+.sidebar-grid .masonry-grid-item {
   padding: 20px;
 }
 
