@@ -156,14 +156,31 @@ jQuery(document).ready(function ($) {
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
 
+        //------------------------------------------------------------------------------------
+
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
+        
         imageIds.forEach(imageId => {
-          
-          console.log(imageId)
-
-
+          const img = $('<img>');
+        
+          $.ajax({
+            url: `/wp-json/wp/v2/media/${imageId}`,
+            type: "GET",
+            dataType: "json",
+            success: function (imageData) {
+              img.attr('src', imageData.source_url);
+              imageContainer.append(img);
+            },
+            error: function (error) {
+              console.error("Error fetching image data:", error);
+            }
+          });
         });
+
+        
+        //------------------------------------------------------------------------------------
+        
 
       },
       error: function (error) {
