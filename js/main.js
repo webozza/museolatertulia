@@ -203,14 +203,25 @@ jQuery(document).ready(function ($) {
   //                        Nav Button Click
   //============================
 
-  $(".cross").on("click", () => {
-    $(".pre-loader").hide();
-    $(".popup-box").fadeOut();
-    $(".main_image").attr("src", "");
-    $(".info").hide();
-  });
+  let closeWindow = ()=>{
+    $(".cross").on("click", () => {
+      $(".pre-loader").hide();
+      $(".popup-box").fadeOut();
+      $(".main_image").attr("src", "");
+      $(".info").hide();
+      $(".documentWindow").removeClass('slide-in')
+    });
+  
+  }
+
 
   $(".plus").on("click", () => {
     $(".info").slideToggle();
   });
 });
+
+
+
+
+
+closeWindow()
