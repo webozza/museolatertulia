@@ -121,7 +121,6 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-    handledocumentWindow()
     // Create a new image element and set its source
     const image = new Image();
     image.src = imgUrl;
@@ -130,9 +129,11 @@ jQuery(document).ready(function ($) {
       $(".main_image").fadeIn("slow");
       $(".pre-loader").fadeOut("slow");
       makeZoom();
+
     };
 
     // Fetch post categories
+
     $.ajax({
       url: `/wp-json/wp/v2/obra/${postID}`,
       type: "GET",
@@ -147,9 +148,9 @@ jQuery(document).ready(function ($) {
         $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
         // Fetch post categories
-        $(".info .categories").text('categoryNames');
-        $(".info .tags").text('tagNames');
-      
+
+        $(".info .categories").text("categoryNames");
+        $(".info .tags").text("tagNames");
 
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
@@ -167,6 +168,7 @@ jQuery(document).ready(function ($) {
       $(".closedocumentWindow").toggleClass("slide-in-btn");
     });
   };
+  handledocumentWindow();
 
   //============================
   //                        zoom effect
