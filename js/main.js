@@ -171,7 +171,7 @@ jQuery(document).ready(function ($) {
             success: function (imageData) {
               console.log('imageData', imageData)
               img.attr('src', imageData.source_url);
-              imageContainer.append(img);
+              imageContainer.html(`<div class="my-masonry-grid-item">${img}</div>`)
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
@@ -231,7 +231,7 @@ jQuery(document).ready(function ($) {
   };
 
   //============================
-  //                        Nav Button Click
+  //                        Clode Window
   //============================
 
   let closeWindow = () => {
@@ -242,6 +242,7 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".closedocumentWindow").removeClass("slide-in-btn");
+      $('.documentData').html('')
     });
   };
 
