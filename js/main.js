@@ -209,6 +209,7 @@ jQuery(document).ready(function ($) {
       $(".main_image").attr("src", "");
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
+      $(".closedocumentWindow").removeClass("slide-in-btn");
     });
   };
 
