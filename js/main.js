@@ -159,7 +159,7 @@ jQuery(document).ready(function ($) {
         //------------------------------------------------------------------------------------
 
         const imageIds = data.acf["obra-obra_participante_1"];
-        const imageContainer = $('.documentData');
+        const imageContainer = $('.documentImg');
         
         imageIds.forEach(imageId => {
           const img = $('<img>');
@@ -170,9 +170,8 @@ jQuery(document).ready(function ($) {
             dataType: "json",
             success: function (imageData) {
               console.log('imageData', imageData)
-              let imgUrl = img.attr('src', imageData.source_url);
-              console.log('imgUrl', imgUrl)
-              imageContainer.append(`<div class="my-masonry-grid-item">${imgUrl}</div>`);
+              img.attr('src', imageData.source_url);
+              imageContainer.append(img);
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
