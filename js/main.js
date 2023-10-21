@@ -159,9 +159,10 @@ jQuery(document).ready(function ($) {
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
         imageIds.forEach(imageId => {
-            const img = $('<img>');
-            img.attr('src', getImageUrlFromId(imageId));
-            imageContainer.append(img);
+          
+          console.log(imageId)
+
+
         });
 
       },
