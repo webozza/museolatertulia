@@ -52,7 +52,6 @@ $query = new WP_Query($args);
     <?php if ($query->have_posts()) : ?>
     <?php while ($query->have_posts()) : $query->the_post(); ?>
     <?php
-            // Get the post ID
             $post_id = get_the_ID();
             ?>
     <div class="my-masonry-grid-item">

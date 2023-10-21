@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
       url: restApiUrl,
       type: "GET",
       dataType: "json",
-      success: function (data) {
+      success: function async (data) {
         console.log(data)
         // Populate the info elements
         $(".info .title").text(data.acf["obra-titulo_denominacion"]);
@@ -166,6 +166,7 @@ jQuery(document).ready(function ($) {
         //------------------------------------------------------
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
+
         
         imageIds.forEach(imageId => {
           $.ajax({
@@ -175,20 +176,25 @@ jQuery(document).ready(function ($) {
             success: function (imageData) {
               const imgTag = `<img src="${imageData.source_url}" class="documentImg my-masonry-grid-item">`;
               imageContainer.append(imgTag);
-
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
             }
           });
         });
-        
+        $(".sidebar-grid").masonryGrid({
+          columns: 3,
+        });
 
+        // $(function () {
+
+        // });
 
         //------------------------------------------------------
 
 
       },
+
       error: function (error) {
         console.error("Error fetching post data:", error);
       },
@@ -199,11 +205,8 @@ jQuery(document).ready(function ($) {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".closedocumentWindow").toggleClass("slide-in-btn");
-      $(function () {
-        $(".sidebar-grid").masonryGrid({
-          columns: 3,
-        });
-      });
+
+
     });
   };
   handledocumentWindow();
