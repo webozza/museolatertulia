@@ -182,11 +182,7 @@ jQuery(document).ready(function ($) {
             }
           });
         });
-        setTimeout(() => {
-          $(".sidebar-grid").masonryGrid({
-            columns: 3,
-          });
-        }, 1000);
+
 
         // $(function () {
 
