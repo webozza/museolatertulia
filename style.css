@@ -106,10 +106,11 @@ body {
   right: -50%; 
   transition: right 0.3s;
   animation: ease-out;
-  overflow-y: scroll;
   padding: 20px;
 }
-
+.documentData{
+  overflow-y: scroll;
+}
 .slide-in {
   right: 0; /* Slide the window into view */
 }

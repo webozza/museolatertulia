@@ -106,6 +106,14 @@ jQuery(document).ready(function ($) {
       columns: 6,
     });
   });
+
+
+  $(function () {
+    $(".sidebar-grid").masonryGrid({
+      columns: 3,
+    });
+  });
+
   //============================
   //                        Grid END
   //============================
