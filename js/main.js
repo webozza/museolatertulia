@@ -138,6 +138,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function (data) {
+        console.log(data)
         // Populate the info elements
         $(".info .title").text(data.acf["obra-titulo_denominacion"]);
         $(".info .author").text(data.acf["obra-nombre_completo"]);
