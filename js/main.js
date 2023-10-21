@@ -147,32 +147,9 @@ jQuery(document).ready(function ($) {
         $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
         // Fetch post categories
-        $.ajax({
-          url: `/wp-json/wp/v2/obra/${postID}/categories`,
-          type: "GET",
-          dataType: "json",
-          success: function (postCategories) {
-            const categoryNames = postCategories.map((category) => category.name).join(", ");
-            $(".info .categories").text(categoryNames);
-          },
-          error: function (error) {
-            console.error("Error fetching post categories:", error);
-          },
-        });
-
-        // Fetch post tags
-        $.ajax({
-          url: `/wp-json/wp/v2/obra/${postID}/tags`,
-          type: "GET",
-          dataType: "json",
-          success: function (postTags) {
-            const tagNames = postTags.map((tag) => tag.name).join(", ");
-            $(".info .tags").text(tagNames);
-          },
-          error: function (error) {
-            console.error("Error fetching post tags:", error);
-          },
-        });
+        $(".info .categories").text('categoryNames');
+        $(".info .tags").text('tagNames');
+      
 
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
