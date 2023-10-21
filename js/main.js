@@ -169,7 +169,7 @@ jQuery(document).ready(function ($) {
             success: function (imageData) {
               img.attr('src', imageData.source_url);
               imgTag = `<div class="my-masonry-grid-item documentImg">${img}</div>`
-              imageContainer.html(imgTag);
+              imageContainer.append(imgTag);
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
