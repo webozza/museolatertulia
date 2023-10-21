@@ -144,6 +144,18 @@ body {
 
 
 
+.sidebar-grid >div {
+  width: 33% !important;
+}
+
+.sidebar-grid {
+  overflow-y: scroll;
+}
+
+.sidebar-grid.masonry-grid-item {
+  padding: 20px;
+}
+
 
 /* info tab  */
 
