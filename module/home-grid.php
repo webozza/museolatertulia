@@ -42,6 +42,8 @@ $query = new WP_Query($args);
       </div>
       <div class="documentWindow">
 
+      
+
         <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
       </div>
     </div>

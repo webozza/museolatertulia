@@ -129,7 +129,6 @@ jQuery(document).ready(function ($) {
       $(".main_image").fadeIn("slow");
       $(".pre-loader").fadeOut("slow");
       makeZoom();
-
     };
 
     // Fetch post categories
@@ -203,25 +202,21 @@ jQuery(document).ready(function ($) {
   //                        Nav Button Click
   //============================
 
-  let closeWindow = ()=>{
+  let closeWindow = () => {
     $(".cross").on("click", () => {
       $(".pre-loader").hide();
       $(".popup-box").fadeOut();
       $(".main_image").attr("src", "");
       $(".info").hide();
-      $(".documentWindow").removeClass('slide-in')
+      $(".documentWindow").removeClass("slide-in");
     });
-  
-  }
-
+  };
 
   $(".plus").on("click", () => {
     $(".info").slideToggle();
   });
+
+  // run the function
+
+  closeWindow();
 });
-
-
-
-
-
-closeWindow()
