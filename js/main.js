@@ -108,11 +108,9 @@ jQuery(document).ready(function ($) {
   });
 
 
-  $(function () {
-    $(".sidebar-grid").masonryGrid({
-      columns: 3,
-    });
-  });
+  
+
+
 
   //============================
   //                        Grid END
@@ -177,6 +175,11 @@ jQuery(document).ready(function ($) {
             success: function (imageData) {
               const imgTag = `<img src="${imageData.source_url}" class="documentImg my-masonry-grid-item">`;
               imageContainer.append(imgTag);
+              $(function () {
+                $(".sidebar-grid").masonryGrid({
+                  columns: 3,
+                });
+              });
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
