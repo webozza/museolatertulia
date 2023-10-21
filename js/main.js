@@ -155,20 +155,19 @@ jQuery(document).ready(function ($) {
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
+        
 
+        //------------------------------------------------------
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
-
+        
         imageIds.forEach(imageId => {
-          const img = $('<img>');
-
           $.ajax({
             url: `/wp-json/wp/v2/media/${imageId}`,
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              img.attr('src', imageData.source_url);
-              imgTag = `<div class="my-masonry-grid-item documentImg">${img}</div>`
+              const imgTag = `<img src="${imageData.source_url}" class="documentImg my-masonry-grid-item">`;
               imageContainer.append(imgTag);
             },
             error: function (error) {
@@ -176,6 +175,11 @@ jQuery(document).ready(function ($) {
             }
           });
         });
+        
+
+
+        //------------------------------------------------------
+
 
       },
       error: function (error) {
