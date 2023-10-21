@@ -106,6 +106,7 @@ body {
   right: -50%; 
   transition: right 0.3s;
   animation: ease-out;
+  overflow-y: scroll;
 }
 
 .slide-in {
