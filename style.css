@@ -96,6 +96,52 @@ body {
   cursor: pointer;
 }
 
+
+.documentWindow {
+  background-color: rgb(128, 128, 128);
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -50%; 
+  transition: right 0.3s;
+  animation: ease-out;
+}
+
+.slide-in {
+  right: 0; /* Slide the window into view */
+}
+
+.closedocumentWindow {
+  position: absolute;
+  bottom: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  display: inline-flex;
+  padding: 15px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background: #ffffff;
+  transition: 0.3s;
+  animation: ease-out;
+  cursor: pointer;
+}
+
+.slide-in-btn {
+  left: -51px;
+}
+.cross, .plus{
+  transition: .3s;
+}
+.cross:hover,.plus:hover {
+  transform: rotate(90deg);
+}
+
+
+
+
 /* info tab  */
 
 .info {

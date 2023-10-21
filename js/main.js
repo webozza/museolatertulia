@@ -114,83 +114,88 @@ jQuery(document).ready(function ($) {
   //                        PopUp
   //============================
 
-$(".clickable-thumbnail").on("click", function () {
+  $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
     const imgUrl = $(this).attr("src");
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
+    handledocumentWindow()
     // Create a new image element and set its source
     const image = new Image();
     image.src = imgUrl;
     $(".main_image").attr("src", imgUrl);
     image.onload = function () {
-        $(".main_image").fadeIn('slow');
-        $(".pre-loader").fadeOut('slow');
-        makeZoom();
+      $(".main_image").fadeIn("slow");
+      $(".pre-loader").fadeOut("slow");
+      makeZoom();
     };
 
     // Fetch post categories
     $.ajax({
-        url: `/wp-json/wp/v2/obra/${postID}`,
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            // Populate the info elements
-            $(".info .title").text(data.acf['obra-titulo_denominacion']);
-            $(".info .author").text(data.acf["obra-nombre_completo"]);
-            $(".info .dimension").text(data.acf["obra-dimensiones"]);
-            $(".info .edition").text(data.acf["obra-edicion"]);
-            $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
-            $(".info .nationality").text(data.acf["obra-nacionalidad"]);
+      url: `/wp-json/wp/v2/obra/${postID}`,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        // Populate the info elements
+        $(".info .title").text(data.acf["obra-titulo_denominacion"]);
+        $(".info .author").text(data.acf["obra-nombre_completo"]);
+        $(".info .dimension").text(data.acf["obra-dimensiones"]);
+        $(".info .edition").text(data.acf["obra-edicion"]);
+        $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
+        $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
-            // Fetch post categories
-            $.ajax({
-                url: `/wp-json/wp/v2/obra/${postID}/categories`,
-                type: "GET",
-                dataType: "json",
-                success: function (postCategories) {
-                    const categoryNames = postCategories.map(category => category.name).join(', ');
-                    $(".info .categories").text(categoryNames);
-                },
-                error: function (error) {
-                    console.error("Error fetching post categories:", error);
-                }
-            });
+        // Fetch post categories
+        $.ajax({
+          url: `/wp-json/wp/v2/obra/${postID}/categories`,
+          type: "GET",
+          dataType: "json",
+          success: function (postCategories) {
+            const categoryNames = postCategories.map((category) => category.name).join(", ");
+            $(".info .categories").text(categoryNames);
+          },
+          error: function (error) {
+            console.error("Error fetching post categories:", error);
+          },
+        });
 
-            // Fetch post tags
-            $.ajax({
-                url: `/wp-json/wp/v2/obra/${postID}/tags`,
-                type: "GET",
-                dataType: "json",
-                success: function (postTags) {
-                    const tagNames = postTags.map(tag => tag.name).join(', ');
-                    $(".info .tags").text(tagNames);
-                },
-                error: function (error) {
-                    console.error("Error fetching post tags:", error);
-                }
-            });
+        // Fetch post tags
+        $.ajax({
+          url: `/wp-json/wp/v2/obra/${postID}/tags`,
+          type: "GET",
+          dataType: "json",
+          success: function (postTags) {
+            const tagNames = postTags.map((tag) => tag.name).join(", ");
+            $(".info .tags").text(tagNames);
+          },
+          error: function (error) {
+            console.error("Error fetching post tags:", error);
+          },
+        });
 
-            $(".info .documents").text(data.acf["obra-documentos"]);
-            $(".info .source").text(data.acf["obra-fuente_y_notas"]);
-            $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
-        },
-        error: function (error) {
-            console.error("Error fetching post data:", error);
-        },
+        $(".info .documents").text(data.acf["obra-documentos"]);
+        $(".info .source").text(data.acf["obra-fuente_y_notas"]);
+        $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
+      },
+      error: function (error) {
+        console.error("Error fetching post data:", error);
+      },
     });
-});
+  });
 
-
+  let handledocumentWindow = () => {
+    $(".document, .closedocumentWindow").click(() => {
+      $(".documentWindow").toggleClass("slide-in");
+      $(".closedocumentWindow").toggleClass("slide-in-btn");
+    });
+  };
 
   //============================
   //                        zoom effect
   //============================
 
-
-  $('.zoomOut').hide()
+  $(".zoomOut").hide();
   let makeZoom = () => {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
@@ -198,23 +203,23 @@ $(".clickable-thumbnail").on("click", function () {
       maxScale: 3,
       minScale: 0.5,
     });
-  
+
     $(".zoom").on("click", () => {
-      panzoom.pan(0, 0,{ animate: true })
-      panzoom.zoom(3, { animate: true })
+      panzoom.pan(0, 0, { animate: true });
+      panzoom.zoom(3, { animate: true });
       $(".zoom").hide();
-      $('.zoomOut').show();
+      $(".zoomOut").show();
     });
-  
+
     $(".zoomOut").on("click", () => {
-      panzoom.zoom(1, { animate: true })
-      panzoom.pan(0, 0,{ animate: true })
-  
+      panzoom.zoom(1, { animate: true });
+      panzoom.pan(0, 0, { animate: true });
+
       $(".zoom").show();
-      $('.zoomOut').hide();
+      $(".zoomOut").hide();
     });
   };
-  
+
   //============================
   //                        Nav Button Click
   //============================
@@ -224,8 +229,6 @@ $(".clickable-thumbnail").on("click", function () {
     $(".popup-box").fadeOut();
     $(".main_image").attr("src", "");
     $(".info").hide();
-
-
   });
 
   $(".plus").on("click", () => {
