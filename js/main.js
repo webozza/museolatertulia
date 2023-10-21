@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
         $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
         $(".info .nationality").text(data.acf["obra-nacionalidad"]);
 
-        // Fetch post categories
+        // Fetch post categories  here leter*****
 
         $(".info .categories").text("categoryNames");
         $(".info .tags").text("tagNames");
@@ -155,6 +155,15 @@ jQuery(document).ready(function ($) {
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
+
+        const imageIds = data.acf["obra-obra_participante_1"];
+        const imageContainer = $('.documentData');
+        imageIds.forEach(imageId => {
+            const img = $('<img>');
+            img.attr('src', getImageUrlFromId(imageId));
+            imageContainer.append(img);
+        });
+
       },
       error: function (error) {
         console.error("Error fetching post data:", error);
@@ -166,6 +175,9 @@ jQuery(document).ready(function ($) {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".closedocumentWindow").toggleClass("slide-in-btn");
+
+
+
     });
   };
   handledocumentWindow();

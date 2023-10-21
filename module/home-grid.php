@@ -38,12 +38,11 @@ $query = new WP_Query($args);
         <p><strong>Fuente y notas: : </strong><span class="source"></span></p>
         <br>
         <p><strong>Otras colecciones : </strong><span class="other-ducuments"></span></p>
-
       </div>
       <div class="documentWindow">
+        <div class="documentData">
 
-      
-
+        </div>
         <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
       </div>
     </div>
