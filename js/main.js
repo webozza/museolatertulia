@@ -181,11 +181,6 @@ jQuery(document).ready(function ($) {
               console.error("Error fetching image data:", error);
             }
           });
-          $(function () {
-            $(".sidebar-grid").masonryGrid({
-              columns: 3,
-            });
-          });
         });
         
 
@@ -204,9 +199,11 @@ jQuery(document).ready(function ($) {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".closedocumentWindow").toggleClass("slide-in-btn");
-
-
-
+      $(function () {
+        $(".sidebar-grid").masonryGrid({
+          columns: 3,
+        });
+      });
     });
   };
   handledocumentWindow();
