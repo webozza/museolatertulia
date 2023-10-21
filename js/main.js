@@ -166,7 +166,6 @@ jQuery(document).ready(function ($) {
         //------------------------------------------------------
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
-
         
         imageIds.forEach(imageId => {
           $.ajax({
@@ -182,11 +181,14 @@ jQuery(document).ready(function ($) {
             }
           });
         });
-        // setTimeout(() => {
-        //   $(".sidebar-grid").masonryGrid({
-        //     columns: 3,
-        //   });
-        // }, 1000);
+        
+        $(window).on('load', function () {
+          // Initialize the Masonry grid after all images are loaded
+          $(".sidebar-grid").masonryGrid({
+            columns: 3,
+          });
+        });
+        
 
         // $(function () {
 
