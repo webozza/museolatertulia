@@ -166,6 +166,8 @@ jQuery(document).ready(function ($) {
         //------------------------------------------------------
         const imageIds = data.acf["obra-obra_participante_1"];
         const imageContainer = $('.documentData');
+        const imageCount = imageIds.length;
+        let loadedImages = 0;
         
         imageIds.forEach(imageId => {
           $.ajax({
@@ -173,8 +175,19 @@ jQuery(document).ready(function ($) {
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const imgTag = `<img src="${imageData.source_url}" class="documentImg sidebar-grid-item">`;
+              const imgTag = `<div class="documentImg sidebar-grid-item"><img src="${imageData.source_url}"></div>`;
               imageContainer.append(imgTag);
+        
+              // Increment the loaded image count
+              loadedImages++;
+        
+              // Check if all images have loaded
+              if (loadedImages === imageCount) {
+                // Initialize the Masonry grid
+                $(".sidebar-grid").masonryGrid({
+                  columns: 3,
+                });
+              }
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
@@ -182,12 +195,6 @@ jQuery(document).ready(function ($) {
           });
         });
         
-        $(window).on('load', function () {
-          // Initialize the Masonry grid after all images are loaded
-          $(".sidebar-grid").masonryGrid({
-            columns: 3,
-          });
-        });
         
 
         // $(function () {
