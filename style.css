@@ -107,7 +107,7 @@ body {
   transition: right 0.3s;
   animation: ease-out;
   overflow-y: scroll;
-  padding: 100px;
+  padding: 20px;
 }
 
 .slide-in {

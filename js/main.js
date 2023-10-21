@@ -242,7 +242,6 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".closedocumentWindow").removeClass("slide-in-btn");
-      $('.documentData').html('')
     });
   };
 
