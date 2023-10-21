@@ -168,14 +168,15 @@ jQuery(document).ready(function ($) {
             dataType: "json",
             success: function (imageData) {
               img.attr('src', imageData.source_url);
-              imageContainer.append(img);
+              imgTag = `<div class="my-masonry-grid-item documentImg">${img}</div>`
+              imageContainer.html(imgTag);
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
             }
           });
         });
-        
+
       },
       error: function (error) {
         console.error("Error fetching post data:", error);
@@ -224,7 +225,7 @@ jQuery(document).ready(function ($) {
   };
 
   //============================
-  //                        Nav Button Click
+  //                        Window Close
   //============================
 
   let closeWindow = () => {
