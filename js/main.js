@@ -159,7 +159,7 @@ jQuery(document).ready(function ($) {
         //------------------------------------------------------------------------------------
 
         const imageIds = data.acf["obra-obra_participante_1"];
-        const imageContainer = $('.documentImg');
+        const imageContainer = $('.documentData');
         
         imageIds.forEach(imageId => {
           const img = $('<img>');
@@ -169,7 +169,6 @@ jQuery(document).ready(function ($) {
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              console.log('imageData', imageData)
               img.attr('src', imageData.source_url);
               imageContainer.append(img);
             },
@@ -178,9 +177,6 @@ jQuery(document).ready(function ($) {
             }
           });
         });
-
-
-        //------------------------------------------------------------------------------------
         
 
       },
