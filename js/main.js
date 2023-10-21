@@ -171,8 +171,7 @@ jQuery(document).ready(function ($) {
             success: function (imageData) {
               console.log('imageData', imageData)
               img.attr('src', imageData.source_url);
-              console.log(img)
-              imageContainer.html(`<div class="my-masonry-grid-item">${img}</div>`)
+              imageContainer.append(`<div class="my-masonry-grid-item">${img}</div>`);
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
@@ -232,7 +231,7 @@ jQuery(document).ready(function ($) {
   };
 
   //============================
-  //                        Clode Window
+  //                        Nav Button Click
   //============================
 
   let closeWindow = () => {
