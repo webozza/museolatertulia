@@ -170,8 +170,9 @@ jQuery(document).ready(function ($) {
             dataType: "json",
             success: function (imageData) {
               console.log('imageData', imageData)
-              img.attr('src', imageData.source_url);
-              imageContainer.append(`<div class="my-masonry-grid-item">${img}</div>`);
+              let imgUrl = img.attr('src', imageData.source_url);
+              console.log('imgUrl', imgUrl)
+              imageContainer.append(`<div class="my-masonry-grid-item">${imgUrl}</div>`);
             },
             error: function (error) {
               console.error("Error fetching image data:", error);

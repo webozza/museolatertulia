@@ -40,8 +40,8 @@ $query = new WP_Query($args);
         <p><strong>Otras colecciones : </strong><span class="other-ducuments"></span></p>
       </div>
       <div class="documentWindow">
-        <div class="documentData">
-          
+        <div class="documentData my-masonry-grid">
+
 
         </div>
         <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
