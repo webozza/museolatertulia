@@ -251,6 +251,10 @@ jQuery(document).ready(function ($) {
     });
   };
 
+  let documentImgZoom = () =>{
+      
+  }
+
   //============================
   //                        Window Close
   //============================

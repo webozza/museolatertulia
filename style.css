@@ -181,16 +181,6 @@ body {
 }
 
 
-.info::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.info::-webkit-scrollbar-thumb {
-  background: #888; /* Background color of the thumb */
-  border-radius: 5px; /* Rounded corners for the thumb */
-}
-
 
 
 
@@ -205,6 +195,10 @@ body {
   font-style: normal;
 }
 
+
+.documentImg{
+  cursor: pointer;
+}
 
 
 ::-webkit-scrollbar {
