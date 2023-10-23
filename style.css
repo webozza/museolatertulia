@@ -116,13 +116,16 @@ body {
 }
 
 .closedocumentWindow {
+
+}
+.documentWindowNav{
   position: absolute;
   bottom: 0;
   position: absolute;
   bottom: 0;
-  left: 0px;
+  left:-54px;
   display: inline-flex;
-  padding: 15px 15px;
+  padding: 15px 25px;
   justify-content: center;
   align-items: center;
   gap: 25px;
@@ -131,6 +134,7 @@ body {
   animation: ease-out;
   cursor: pointer;
 }
+
 
 .slide-in-btn {
   left: -51px;
