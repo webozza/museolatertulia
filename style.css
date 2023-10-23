@@ -150,6 +150,7 @@ body {
 
 .sidebar-grid {
   overflow-y: scroll;
+  height: 100%;
 }
 
 .sidebar-grid .masonry-grid-item {
@@ -202,4 +203,16 @@ body {
   font-family: BLAA-alt;
   line-height: 20px;
   font-style: normal;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 0px; 
 }
