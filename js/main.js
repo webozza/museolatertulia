@@ -215,7 +215,7 @@ jQuery(document).ready(function ($) {
   let handledocumentWindow = () => {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
-      $(".closedocumentWindow").toggleClass("slide-in-btn");
+      $(".documentWindowNav").toggleClass("slide-in-btn");
 
 
     });
@@ -266,7 +266,7 @@ jQuery(document).ready(function ($) {
       $(".main_image").attr("src", "");
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
-      $(".closedocumentWindow").removeClass("slide-in-btn");
+      $(".documentWindowNav").removeClass("slide-in-btn");
       $('sidebar-grid').html('')
     });
   };
