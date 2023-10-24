@@ -237,6 +237,7 @@ jQuery(document).ready(function ($) {
       $(".documentWindowNav").toggleClass("slide-in-btn");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").hide();
+      $('.backArrow').hide()
     });
   };
   handledocumentWindow();
@@ -271,7 +272,11 @@ jQuery(document).ready(function ($) {
   };
 
   $(".documentWindowZoomout").hide()
+  $(".documentWindowZoomout").hide()
+  $('.backArrow').hide()
   let documentImgZoom = () => {
+    $('.backArrow').how()
+    $(".documentWindowZoomout").show()
     let sidebarImg = $(".sidebar-single-image");
     
     if (sidebarImg.length > 0) {
