@@ -182,7 +182,7 @@ jQuery(document).ready(function ($) {
                 imageContainer.append(imgTag);
                 loadedImages++;
                 if (loadedImages === imageCount) {
-                  $(".sidebar-grid").masonryGrid({
+                  $(containerClass).masonryGrid({
                     columns: 3,
                   });
                 }
