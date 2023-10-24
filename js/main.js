@@ -159,9 +159,9 @@ jQuery(document).ready(function ($) {
 
         //------------------------------------------------------
 
-        let appnedSidebarGalleries = (fieldName) => {
+        let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
-          const imageContainer = $(".documentData");
+          const imageContainer = $(containerClass);
           const imageCount = imageIds.length;
           let loadedImages = 0;
 
@@ -194,9 +194,8 @@ jQuery(document).ready(function ($) {
             });
           });
         };
-
-        appnedSidebarGalleries('obra-obra_participante_1')
-        appnedSidebarGalleries('obra-documentos')
+        appnedSidebarGalleries("obra-documentos", ".obra-documentos");
+        appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
         //------------------------------------------------------
       },
 
