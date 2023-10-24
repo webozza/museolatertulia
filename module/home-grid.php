@@ -23,21 +23,21 @@ $query = new WP_Query($args);
         <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
       <div class="info">
-        <p ><strong><span class="title"></span></strong></p>
-        <p ><strong><span class="author"></span></strong></p>
+        <p ><strong> <span class="title"></span></strong></p>
+        <p ><strong> <span class="author"></span></strong></p>
         <br>
-        <p><span class="dimension"></span></p>
-        <p><span class="edition"></span></p>
-        <p><strong>Técnica : </strong><span class="technique"></span></p>
-        <p><strong>Nacionalidad : </strong><span class="nationality"></span></p>
+        <p> <span class="dimension"></span></p>
+        <p> <span class="edition"></span></p>
+        <p><strong>Técnica : </strong> <span class="technique"></span></p>
+        <p><strong>Nacionalidad : </strong> <span class="nationality"></span></p>
         <br>
-        <p ><strong>Categoría : </strong><span class="catagories"></span></p>
-        <p ><strong>TAGS : </strong><span class="tags"></span></p>
+        <p ><strong>Categoría : </strong> <span class="catagories"></span></p>
+        <p ><strong>TAGS : </strong> <span class="tags"></span></p>
         <br>
-        <p ><strong>Tipo Documental : </strong><span class="documents"></span></p>
-        <p><strong>Fuente y notas: : </strong><span class="source"></span></p>
+        <p ><strong>Tipo Documental : </strong> <span class="documents"></span></p>
+        <p><strong>Fuente y notas: : </strong> <span class="source"></span></p>
         <br>
-        <p><strong>Otras colecciones : </strong><span class="other-ducuments"></span></p>
+        <p><strong>Otras colecciones : </strong> <span class="other-ducuments"></span></p>
       </div>
       <div class="documentWindow">
         <div class="documentData ">
