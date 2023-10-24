@@ -41,13 +41,33 @@ $query = new WP_Query($args);
       </div>
       <div class="documentWindow">
         <div class="documentData ">
-          <div class="obra-documentos sidebar-grid"></div>
-          <div class="obra-obra_participante_1 sidebar-grid"></div>
-          <div class="obra-obra_participante_2 sidebar-grid"></div>
-          <div class="obra-obra_participante_3 sidebar-grid"></div>
-          <div class="obra-obra_asociada_1 sidebar-grid"></div>
-          <div class="obra-obra_asociada_2 sidebar-grid"></div>
-          <div class="obra-obra_asociada_3 sidebar-grid"></div>
+          <div class="obra-documentos">
+            <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
+          <div class="obra-obra_participante_1">            
+            <h3 ></h3>
+            <div class="gallerie"></div></div>
+          <div class="obra-obra_participante_2">
+          <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
+          <div class="obra-obra_participante_3">
+          <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
+          <div class="obra-obra_asociada_1">
+          <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
+          <div class="obra-obra_asociada_2">
+          <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
+          <div class="obra-obra_asociada_3">
+          <h3 ></h3>
+            <div class="gallerie"></div>
+          </div>
         </div>
         <div class="documentSingleImage zoom-container"></div>
         <div class="documentWindowNav">

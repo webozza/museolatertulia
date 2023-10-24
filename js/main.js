@@ -158,9 +158,10 @@ jQuery(document).ready(function ($) {
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
 
         //------------------------------------------------------
+
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
-          const imageContainer = $(containerClass);
+          const imageContainer = $(containerClass).find('.gallerie');
           console.log('imageContainer', imageContainer);
           
           if (Array.isArray(imageIds)) {
@@ -173,6 +174,7 @@ jQuery(document).ready(function ($) {
                 type: "GET",
                 dataType: "json",
                 success: function (imageData) {
+                  console.log('imageData', imageData)
                   const semiHighResURL = imageData.media_details.sizes.large.source_url;
                   const highResImgURL = imageData.source_url;
                   const imgTag = `<div class="documentImg sidebar-grid-item">
@@ -181,10 +183,11 @@ jQuery(document).ready(function ($) {
                     data-highres="${highResImgURL}"
                     id="${imageData.id}">
                   </div>`;
+                  containerClass.find('h3').text('Heading')
                   imageContainer.append(imgTag);
                   loadedImages++;
                   if (loadedImages === imageCount) {
-                    $(containerClass).masonryGrid({
+                    imageContainer.masonryGrid({
                       columns: 3,
                     });
                   }
