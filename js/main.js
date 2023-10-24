@@ -227,7 +227,10 @@ jQuery(document).ready(function ($) {
     });
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
-      $(".documentSingleImage").hide();
+      $(".documentSingleImage").fadeOut();
+      $('.backArrow').fadeOut()
+      $(".documnetImgzoom").fadeOut()
+    $(".documentWindowZoomout").fadeOut()
     });
   }
 
@@ -236,8 +239,8 @@ jQuery(document).ready(function ($) {
       $(".documentWindow").toggleClass("slide-in");
       $(".documentWindowNav").toggleClass("slide-in-btn");
       $(".documentSingleImage").html("");
-      $(".documentSingleImage").hide();
-      $('.backArrow').hide()
+      $(".documentSingleImage").fadeOut();
+      $('.backArrow').fadeOut()
     });
   };
   handledocumentWindow();
@@ -274,12 +277,7 @@ jQuery(document).ready(function ($) {
   $(".documentWindowZoomout").hide()
   $(".documnetImgzoom").hide()
   $('.backArrow').hide()
-  $('.backArrow').click(()=>{
-    $('.backArrow').hide()
-    $(".documnetImgzoom").hide()
-  $(".documentWindowZoomout").hide()
 
-  })
   let documentImgZoom = () => {
     $('.backArrow').show()
     $(".documnetImgzoom").show()
