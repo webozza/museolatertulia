@@ -107,11 +107,6 @@ jQuery(document).ready(function ($) {
     });
   });
 
-
-  
-
-
-
   //============================
   //                        Grid END
   //============================
@@ -143,8 +138,8 @@ jQuery(document).ready(function ($) {
       url: restApiUrl,
       type: "GET",
       dataType: "json",
-      success: function async (data) {
-        console.log(data)
+      success: function async(data) {
+        console.log(data);
         // Populate the info elements
         $(".info .title").text(data.acf["obra-titulo_denominacion"]);
         $(".info .author").text(data.acf["obra-nombre_completo"]);
@@ -161,29 +156,23 @@ jQuery(document).ready(function ($) {
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
-        
 
         //------------------------------------------------------
         const imageIds = data.acf["obra-obra_participante_1"];
-        const imageContainer = $('.documentData');
+        const imageContainer = $(".documentData");
         const imageCount = imageIds.length;
         let loadedImages = 0;
-        
-        imageIds.forEach(imageId => {
+
+        imageIds.forEach((imageId) => {
           $.ajax({
             url: `/wp-json/wp/v2/media/${imageId}`,
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const imgTag = `<div class="documentImg sidebar-grid-item"><img src="${imageData.source_url}"></div>`;
+              const imgTag = `<div class="documentImg sidebar-grid-item"><img src="${imageData.source_url}" id="${imageData.id}"></div>`;
               imageContainer.append(imgTag);
-        
-              // Increment the loaded image count
               loadedImages++;
-        
-              // Check if all images have loaded
               if (loadedImages === imageCount) {
-                // Initialize the Masonry grid
                 $(".sidebar-grid").masonryGrid({
                   columns: 3,
                 });
@@ -191,10 +180,9 @@ jQuery(document).ready(function ($) {
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
-            }
+            },
           });
         });
-        
         
 
         // $(function () {
@@ -202,8 +190,6 @@ jQuery(document).ready(function ($) {
         // });
 
         //------------------------------------------------------
-
-
       },
 
       error: function (error) {
@@ -212,19 +198,25 @@ jQuery(document).ready(function ($) {
     });
   });
 
+
+
+
+
   let handledocumentWindow = () => {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".documentWindowNav").toggleClass("slide-in-btn");
-
-
     });
   };
   handledocumentWindow();
 
-  //============================
-  //                        zoom effect
-  //============================
+  let documntWindowPopup = () =>{
+
+  }
+
+  //=========================================
+  //                                          zoom effect
+  //=========================================
 
   $(".zoomOut").hide();
   let makeZoom = () => {
@@ -251,17 +243,9 @@ jQuery(document).ready(function ($) {
     });
   };
 
-  let documentImgZoom = () =>{
-
-    $('.documnetImgzoom').on('click',()=>{
-
-      
-
-    })
-
-
-      
-  }
+  let documentImgZoom = () => {
+    $(".documnetImgzoom").on("click", () => {});
+  };
 
   //============================
   //                        Window Close
@@ -275,7 +259,7 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
-      $('sidebar-grid').html('')
+      $("sidebar-grid").html("");
     });
   };
 
