@@ -119,38 +119,38 @@ jQuery(document).ready(function ($) {
 
 
     const postID = $(this).data("post-id");
-    if (postID) {
-      const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
-      $(".popup-box").show();
-      $(".pre-loader").show();
-      $(".main_image").hide();
+    const postDetailsUrl = `/wp-json/wp/v2/obra/${postID}`;
     
-      // Create a new image element
-      const image = new Image();
+    $(".popup-box").show();
+    $(".pre-loader").show();
+    $(".main_image").hide();
     
-      // Make an Ajax request to get the image source URL
-      $.ajax({
-        url: restApiUrl,
-        type: "GET",
-        dataType: "json",
-        success: function(data) {
-          console.log('data', data);
-          const imgUrl = data.source_url;
-          image.src = imgUrl;
-          $(".main_image").attr("src", imgUrl);
-          image.onload = function() {
-            $(".main_image").fadeIn("slow");
-            $(".pre-loader").fadeOut("slow");
-            makeZoom();
-          };
-        },
-        error: function(error) {
-          console.error("Error fetching image data:", error);
-        },
-      });
-    } else {
-      console.error("Invalid post ID");
-    }
+    // Create a new image element
+    const image = new Image();
+    
+    // Make an Ajax request to get post details
+    $.ajax({
+      url: postDetailsUrl,
+      type: "GET",
+      dataType: "json",
+      success: function(postData) {
+        console.log('post data', postData);
+    
+        // Extract the thumbnail URL from the post details
+        const imgUrl = postData.acf.thumbnail_url; // Assuming 'thumbnail_url' is the field
+        image.src = imgUrl;
+        $(".main_image").attr("src", imgUrl);
+    
+        image.onload = function() {
+          $(".main_image").fadeIn("slow");
+          $(".pre-loader").fadeOut("slow");
+          makeZoom();
+        };
+      },
+      error: function(error) {
+        console.error("Error fetching post details:", error);
+      },
+    });
     
     
 
