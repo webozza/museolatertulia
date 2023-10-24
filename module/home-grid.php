@@ -76,10 +76,11 @@ $query = new WP_Query($args);
                 <div class="documnetImgzoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
                 <div class="documentWindowZoomout"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-minus.png" alt="" /></div>
         </div>
+        <div class="sidebarLoader">
+        <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
+        </div>
       </div>
-      <div class="sidebarLoader">
-      <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
-      </div>
+
     </div>
 
 <div class="my-masonry-grid">
