@@ -40,14 +40,14 @@ $query = new WP_Query($args);
         <p><strong>Otras colecciones : </strong><span class="other-ducuments"></span></p>
       </div>
       <div class="documentWindow">
-        <div class="documentData sidebar-grid">
-          <div class="obra-documentos"></div>
-          <div class="obra-obra_participante_1"></div>
-          <div class="obra-obra_participante_2"></div>
-          <div class="obra-obra_participante_3"></div>
-          <div class="obra-obra_asociada_1"></div>
-          <div class="obra-obra_asociada_2"></div>
-          <div class="obra-obra_asociada_3"></div>
+        <div class="documentData ">
+          <div class="obra-documentos sidebar-grid"></div>
+          <div class="obra-obra_participante_1 sidebar-grid"></div>
+          <div class="obra-obra_participante_2 sidebar-grid"></div>
+          <div class="obra-obra_participante_3 sidebar-grid"></div>
+          <div class="obra-obra_asociada_1 sidebar-grid"></div>
+          <div class="obra-obra_asociada_2 sidebar-grid"></div>
+          <div class="obra-obra_asociada_3 sidebar-grid"></div>
         </div>
         <div class="documentSingleImage zoom-container"></div>
         <div class="documentWindowNav">
