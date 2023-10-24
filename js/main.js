@@ -252,6 +252,14 @@ jQuery(document).ready(function ($) {
   };
 
   let documentImgZoom = () =>{
+
+    $('.documnetImgzoom').on('click',()=>{
+
+      
+
+    })
+
+
       
   }
 
