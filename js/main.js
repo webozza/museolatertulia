@@ -158,43 +158,45 @@ jQuery(document).ready(function ($) {
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
 
         //------------------------------------------------------
-        const imageIds = data.acf["obra-obra_participante_1"];
-        const imageContainer = $(".documentData");
-        const imageCount = imageIds.length;
-        let loadedImages = 0;
 
-        imageIds.forEach((imageId) => {
-          $.ajax({
-            url: `/wp-json/wp/v2/media/${imageId}`,
-            type: "GET",
-            dataType: "json",
-            success: function (imageData) {
-              const semiHighResURL = imageData.media_details.sizes.large.source_url;
-              const highResImgURL = imageData.source_url;
-              const imgTag = `<div class="documentImg sidebar-grid-item">
+        let appnedSidebarGalleries = (fieldName) => {
+          const imageIds = data.acf[fieldName];
+          const imageContainer = $(".documentData");
+          const imageCount = imageIds.length;
+          let loadedImages = 0;
+
+          imageIds.forEach((imageId) => {
+            $.ajax({
+              url: `/wp-json/wp/v2/media/${imageId}`,
+              type: "GET",
+              dataType: "json",
+              success: function (imageData) {
+                const semiHighResURL = imageData.media_details.sizes.large.source_url;
+                const highResImgURL = imageData.source_url;
+                const imgTag = `<div class="documentImg sidebar-grid-item">
                 <img
                   src="${semiHighResURL}" 
                   data-highres="${highResImgURL}"
                   id="${imageData.id}">
                 </div>`;
-              imageContainer.append(imgTag);
-              loadedImages++;
-              if (loadedImages === imageCount) {
-                $(".sidebar-grid").masonryGrid({
-                  columns: 3,
-                });
-              }
-              handleDocumentSingleImage();
-            },
-            error: function (error) {
-              console.error("Error fetching image data:", error);
-            },
+                imageContainer.append(imgTag);
+                loadedImages++;
+                if (loadedImages === imageCount) {
+                  $(".sidebar-grid").masonryGrid({
+                    columns: 3,
+                  });
+                }
+                handleDocumentSingleImage();
+              },
+              error: function (error) {
+                console.error("Error fetching image data:", error);
+              },
+            });
           });
-        });
+        };
 
+        appnedSidebarGalleries('obra-obra_participante_1')
         //------------------------------------------------------
-
-
       },
 
       error: function (error) {
@@ -207,7 +209,7 @@ jQuery(document).ready(function ($) {
   //                                     document single image window popup
   //========================================================
 
-  async function handleDocumentSingleImage () {
+  async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {
       $(".documentSingleImage").show();
       let imageId = $(this).find("img").attr("id");
@@ -219,7 +221,7 @@ jQuery(document).ready(function ($) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
-          documentImgZoom()
+          documentImgZoom();
         },
         error: function (error) {
           console.error("Error fetching image data:", error);
@@ -229,9 +231,9 @@ jQuery(document).ready(function ($) {
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
-      $('.backArrow').hide()
-      $(".documnetImgzoom").hide()
-    $(".documentWindowZoomout").hide()
+      $(".backArrow").hide();
+      $(".documnetImgzoom").hide();
+      $(".documentWindowZoomout").hide();
     });
   }
 
@@ -241,7 +243,7 @@ jQuery(document).ready(function ($) {
       $(".documentWindowNav").toggleClass("slide-in-btn");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
-      $('.backArrow').hide()
+      $(".backArrow").hide();
     });
   };
   handledocumentWindow();
@@ -275,39 +277,38 @@ jQuery(document).ready(function ($) {
     });
   };
 
-  $(".documentWindowZoomout").hide()
-  $(".documnetImgzoom").hide()
-  $('.backArrow').hide()
+  $(".documentWindowZoomout").hide();
+  $(".documnetImgzoom").hide();
+  $(".backArrow").hide();
 
   let documentImgZoom = () => {
-    $('.backArrow').show()
-    $(".documnetImgzoom").show()
+    $(".backArrow").show();
+    $(".documnetImgzoom").show();
     let sidebarImg = $(".sidebar-single-image");
-    
+
     if (sidebarImg.length > 0) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
         maxScale: 3,
         minScale: 0.5,
       });
-  
+
       $(".documnetImgzoom").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(3, { animate: true });
-        console.log('Zoomed in');
-        $(".documnetImgzoom").hide()
-        $(".documentWindowZoomout").show()
+        console.log("Zoomed in");
+        $(".documnetImgzoom").hide();
+        $(".documentWindowZoomout").show();
       });
-  
+
       $(".documentWindowZoomout").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(1, { animate: true });
-        console.log('Zoomed out');
-        $(".documentWindowZoomout").hide()
-        $(".documnetImgzoom").show()
+        console.log("Zoomed out");
+        $(".documentWindowZoomout").hide();
+        $(".documnetImgzoom").show();
       });
     }
   };
-  
 
   //====================================
   //                                 Window Close
