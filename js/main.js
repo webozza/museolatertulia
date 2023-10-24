@@ -206,7 +206,7 @@ jQuery(document).ready(function ($) {
   //========================================================
 
   async function handleDocumentSingleImage () {
-    $(".documentImg").on("click", function () {
+    $(".documentImg").on("click", async function () {
       $(".documentSingleImage").show();
       let imageId = $(this).find("img").attr("id");
       $.ajax({
@@ -222,10 +222,8 @@ jQuery(document).ready(function ($) {
           console.error("Error fetching image data:", error);
         },
       });
+      documentImgZoom()
     });
-
-    documentImgZoom()
-
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").hide();
