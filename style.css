@@ -108,6 +108,17 @@ body {
   animation: ease-out;
   padding: 20px;
 }
+
+
+.gallerie > div {
+  width: 33.33% !important;
+}
+
+.gallerie > div >div {
+  padding: 10px;
+}
+
+
 .documentData{
   overflow-y: scroll;
 }

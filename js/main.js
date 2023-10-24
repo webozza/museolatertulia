@@ -333,9 +333,10 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
-      $(".sidebar-grid").html("");
+      $(".gallerie").html("");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").hide();
+
     });
   };
 
