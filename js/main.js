@@ -116,35 +116,26 @@ jQuery(document).ready(function ($) {
   //============================
 
   $(".clickable-thumbnail").on("click", function () {
-const postID = $(this).data("post-id");
-const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
-$(".popup-box").show();
-$(".pre-loader").show();
-$(".main_image").hide();
+    const postID = $(this).data("post-id");
+    console.log('postID', postID)
+    const imgUrl = $(this).attr("src");
+    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+    $(".popup-box").show();
+    $(".pre-loader").show();
+    $(".main_image").hide();
+    // Create a new image element and set its source
 
-// Create a new image element
-const image = new Image();
-
-// Make an Ajax request to get the image source URL
-$.ajax({
-  url: restApiUrl,
-  type: "GET",
-  dataType: "json",
-  success: function(data) {
-    const imgUrl = data.source_url; // Assuming 'source_url' is the image URL field in the response
+    const image = new Image();
     image.src = imgUrl;
     $(".main_image").attr("src", imgUrl);
-    image.onload = function() {
+    image.onload = function () {
+
       $(".main_image").fadeIn("slow");
       $(".pre-loader").fadeOut("slow");
-      makeZoom();
-    };
-  },
-  error: function(error) {
-    console.error("Error fetching image data:", error);
-  },
-});
 
+      makeZoom();
+
+    };
 
     // Fetch post categories
 
