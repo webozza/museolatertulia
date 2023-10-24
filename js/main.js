@@ -205,7 +205,7 @@ jQuery(document).ready(function ($) {
   //                                     document single image window popup
   //========================================================
 
-  function handleDocumentSingleImage() {
+  async function handleDocumentSingleImage () {
     $(".documentImg").on("click", function () {
       $(".documentSingleImage").show();
       let imageId = $(this).find("img").attr("id");
@@ -223,6 +223,8 @@ jQuery(document).ready(function ($) {
         },
       });
     });
+
+    documentImgZoom()
 
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
@@ -278,6 +280,7 @@ jQuery(document).ready(function ($) {
     $(".documnetImgzoom").on("click", () => {
       sidebarImgZoom.pan(0, 0, { animate: true });
       sidebarImgZoom.zoom(3, { animate: true });
+      console.log('dsfsfsdfsdfsdfsdf')
     });
     $(".documentWindowZoomout").on("click", () => {
       sidebarImgZoom.pan(0, 0, { animate: true });
