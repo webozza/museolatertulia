@@ -158,44 +158,50 @@ jQuery(document).ready(function ($) {
         $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
 
         //------------------------------------------------------
-
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
           const imageContainer = $(containerClass);
-          console.log('imageContainer', imageContainer)
-          const imageCount = imageIds.length;
-          let loadedImages = 0;
-
-          imageIds.forEach((imageId) => {
-            $.ajax({
-              url: `/wp-json/wp/v2/media/${imageId}`,
-              type: "GET",
-              dataType: "json",
-              success: function (imageData) {
-                const semiHighResURL = imageData.media_details.sizes.large.source_url;
-                const highResImgURL = imageData.source_url;
-                const imgTag = `<div class="documentImg sidebar-grid-item">
-                <img
-                  src="${semiHighResURL}" 
-                  data-highres="${highResImgURL}"
-                  id="${imageData.id}">
-                </div>`;
-                imageContainer.append(imgTag);
-                loadedImages++;
-                if (loadedImages === imageCount) {
-                  $(containerClass).masonryGrid({
-                    columns: 3,
-                  });
-                }
-                handleDocumentSingleImage();
-              },
-              error: function (error) {
-                console.error("Error fetching image data:", error);
-              },
+          console.log('imageContainer', imageContainer);
+          
+          if (Array.isArray(imageIds)) {
+            const imageCount = imageIds.length;
+            let loadedImages = 0;
+        
+            imageIds.forEach((imageId) => {
+              $.ajax({
+                url: `/wp-json/wp/v2/media/${imageId}`,
+                type: "GET",
+                dataType: "json",
+                success: function (imageData) {
+                  const semiHighResURL = imageData.media_details.sizes.large.source_url;
+                  const highResImgURL = imageData.source_url;
+                  const imgTag = `<div class="documentImg sidebar-grid-item">
+                  <img
+                    src="${semiHighResURL}" 
+                    data-highres="${highResImgURL}"
+                    id="${imageData.id}">
+                  </div>`;
+                  imageContainer.append(imgTag);
+                  loadedImages++;
+                  if (loadedImages === imageCount) {
+                    $(containerClass).masonryGrid({
+                      columns: 3,
+                    });
+                  }
+                  handleDocumentSingleImage();
+                },
+                error: function (error) {
+                  console.error("Error fetching image data:", error);
+                },
+              });
             });
-          });
+          } else {
+            console.error(`"${fieldName}" is not an array of image IDs.`);
+          }
         };
+        
         appnedSidebarGalleries("obra-documentos", ".obra-documentos");
+        
         appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
         //------------------------------------------------------
       },
