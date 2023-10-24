@@ -272,7 +272,7 @@ jQuery(document).ready(function ($) {
   };
 
   $(".documentWindowZoomout").hide()
-  $(".documentWindowZoomout").hide()
+  $(".documnetImgzoom").hide()
   $('.backArrow').hide()
   let documentImgZoom = () => {
     $('.backArrow').how()
