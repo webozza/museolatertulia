@@ -127,7 +127,7 @@ jQuery(document).ready(function ($) {
     
     // Make an Ajax request to get the image source URL
     $.ajax({
-      url: `/wp-json/wp/v2/media/${postID}`;,
+      url: `/wp-json/wp/v2/media/${postID}`,
       type: "GET",
       dataType: "json",
       success: function(data) {
