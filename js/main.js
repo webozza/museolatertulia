@@ -224,6 +224,11 @@ jQuery(document).ready(function ($) {
         },
       });
     });
+
+    $('.backArrow').on('click', ()=>{
+      $('.documentSingleImage').html('')
+      $('.documentSingleImage').hide();
+    })
   }
   
 
@@ -234,6 +239,8 @@ jQuery(document).ready(function ($) {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".documentWindowNav").toggleClass("slide-in-btn");
+      $('.documentSingleImage').html('')
+      $('.documentSingleImage').hide();
     });
   };
   handledocumentWindow();
