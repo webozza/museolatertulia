@@ -162,6 +162,7 @@ jQuery(document).ready(function ($) {
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
           const imageContainer = $(containerClass);
+          console.log('imageContainer', imageContainer)
           const imageCount = imageIds.length;
           let loadedImages = 0;
 
@@ -182,7 +183,7 @@ jQuery(document).ready(function ($) {
                 imageContainer.append(imgTag);
                 loadedImages++;
                 if (loadedImages === imageCount) {
-                  $(".sidebar-grid").masonryGrid({
+                  $(containerClass).masonryGrid({
                     columns: 3,
                   });
                 }
