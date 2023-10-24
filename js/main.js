@@ -161,9 +161,9 @@ jQuery(document).ready(function ($) {
 
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
-          const imageContainer = $(containerClass).find('.gallerie');
-          console.log('imageContainer', imageContainer);
-          
+          const $imageContainer = $(containerClass).find('.gallerie'); // Select the container with jQuery
+          console.log('imageContainer', $imageContainer);
+        
           if (Array.isArray(imageIds)) {
             const imageCount = imageIds.length;
             let loadedImages = 0;
@@ -174,20 +174,20 @@ jQuery(document).ready(function ($) {
                 type: "GET",
                 dataType: "json",
                 success: function (imageData) {
-                  console.log('imageData', imageData)
+                  console.log('imageData', imageData);
                   const semiHighResURL = imageData.media_details.sizes.large.source_url;
                   const highResImgURL = imageData.source_url;
                   const imgTag = `<div class="documentImg sidebar-grid-item">
-                  <img
-                    src="${semiHighResURL}" 
-                    data-highres="${highResImgURL}"
-                    id="${imageData.id}">
+                    <img
+                      src="${semiHighResURL}" 
+                      data-highres="${highResImgURL}"
+                      id="${imageData.id}">
                   </div>`;
-                  containerClass.find('h3').text('Heading')
-                  imageContainer.append(imgTag);
+                  $imageContainer.find('h3').text('Heading'); // Use $imageContainer to find elements
+                  $imageContainer.append(imgTag);
                   loadedImages++;
                   if (loadedImages === imageCount) {
-                    $(containerClass).find('.gallerie').masonryGrid({
+                    $imageContainer.masonryGrid({
                       columns: 3,
                     });
                   }
@@ -206,6 +206,7 @@ jQuery(document).ready(function ($) {
         appnedSidebarGalleries("obra-documentos", ".obra-documentos");
         
         appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
+        
         //------------------------------------------------------
       },
 
