@@ -156,9 +156,6 @@ jQuery(document).ready(function ($) {
     
     
     
-
-    // Fetch post categories
-
     $.ajax({
       url: restApiUrl,
       type: "GET",
@@ -175,12 +172,12 @@ jQuery(document).ready(function ($) {
 
         // Fetch post categories  here leter*****
 
-        $(".info .categories").text("categoryNames");
-        $(".info .tags").text("tagNames");
+        $(".info .categories").text();
+        $(".info .tags").text();
 
         $(".info .documents").text(data.acf["obra-documentos"]);
         $(".info .source").text(data.acf["obra-fuente_y_notas"]);
-        $(".info .other-ducuments").text(data.acf["obra-otras_colecciones"]);
+        
 
         //------------------------------------------------------
 
