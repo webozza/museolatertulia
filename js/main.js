@@ -119,44 +119,31 @@ jQuery(document).ready(function ($) {
 
 
     const postID = $(this).data("post-id");
-
-    // Debugging: Check the value of postID
-    console.log('postID:', postID);
-    
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
-    
-    // Debugging: Check the constructed URL
-    console.log('restApiUrl:', restApiUrl);
     
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-    
-    const image = new Image();
-    
+   
     $.ajax({
       url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function(postData) {
         console.log('post data', postData);
-        const imgUrl = postData.acf.thumbnail_url;
-        $(".main_image").attr("src", imgUrl);
-    
-        image.onload = function() {
-          $(".main_image").fadeIn("slow");
-          $(".pre-loader").fadeOut("slow");
-          makeZoom();
-        };
-    
-        // Load the image
-        image.src = imgUrl;
+        // const imgUrl = postData.acf.thumbnail_url; 
+        // $(".main_image").attr("src", imgUrl);
+        
+        // image.onload = function() {
+        //   $(".main_image").fadeIn("slow");
+        //   $(".pre-loader").fadeOut("slow");
+        //   makeZoom();
+        // };
       },
       error: function(error) {
         console.error("Error fetching post details:", error);
       },
     });
-    
     
 
     // Fetch post categories
