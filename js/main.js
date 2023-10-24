@@ -196,6 +196,7 @@ jQuery(document).ready(function ($) {
         };
 
         appnedSidebarGalleries('obra-obra_participante_1')
+        appnedSidebarGalleries('obra-documentos')
         //------------------------------------------------------
       },
 
