@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
 
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
-    const postDetailsUrl = `/wp-json/wp/v2/obra/${postID}`;
+    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     
     $(".popup-box").show();
     $(".pre-loader").show();
@@ -128,7 +128,7 @@ jQuery(document).ready(function ($) {
     
     // Make an Ajax request to get post details
     $.ajax({
-      url: postDetailsUrl,
+      url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function(postData) {
