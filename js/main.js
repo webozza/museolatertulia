@@ -117,20 +117,34 @@ jQuery(document).ready(function ($) {
 
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
-    const imgUrl = $(this).attr("src");
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-    // Create a new image element and set its source
+    
+    // Create a new image element
     const image = new Image();
-    image.src = imgUrl;
-    $(".main_image").attr("src", imgUrl);
-    image.onload = function () {
-      $(".main_image").fadeIn("slow");
-      $(".pre-loader").fadeOut("slow");
-      makeZoom();
-    };
+    
+    // Make an Ajax request to get the image source URL
+    $.ajax({
+      url: restApiUrl,
+      type: "GET",
+      dataType: "json",
+      success: function(data) {
+        const imgUrl = data.source_url; // Assuming 'source_url' is the image URL field in the response
+        image.src = imgUrl;
+        $(".main_image").attr("src", imgUrl);
+        image.onload = function() {
+          $(".main_image").fadeIn("slow");
+          $(".pre-loader").fadeOut("slow");
+          makeZoom();
+        };
+      },
+      error: function(error) {
+        console.error("Error fetching image data:", error);
+      },
+    });
+    
 
     // Fetch post categories
 
@@ -333,7 +347,7 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
-      $(".gallerie ").html("");
+      $(".gallerie").html("");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").hide();
 
