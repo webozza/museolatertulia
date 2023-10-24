@@ -272,21 +272,29 @@ jQuery(document).ready(function ($) {
   };
 
   let documentImgZoom = () => {
+    // Wrap Panzoom initialization within a check
     let sidebarImg = $(".sidebar-single-image");
-    const sidebarImgZoom = Panzoom(sidebarImg, {
-      maxScale: 3,
-      minScale: 0.5,
-    });
-    $(".documnetImgzoom").on("click", () => {
-      sidebarImgZoom.pan(0, 0, { animate: true });
-      sidebarImgZoom.zoom(3, { animate: true });
-      console.log('dsfsfsdfsdfsdfsdf')
-    });
-    $(".documentWindowZoomout").on("click", () => {
-      sidebarImgZoom.pan(0, 0, { animate: true });
-      sidebarImgZoom.zoom(1, { animate: true });
-    });
+    
+    if (sidebarImg.length > 0) {
+      const sidebarImgZoom = Panzoom(sidebarImg[0], {
+        maxScale: 3,
+        minScale: 0.5,
+      });
+  
+      $(".documnetImgzoom").on("click", () => {
+        sidebarImgZoom.pan(0, 0, { animate: true });
+        sidebarImgZoom.zoom(3, { animate: true });
+        console.log('Zoomed in');
+      });
+  
+      $(".documentWindowZoomout").on("click", () => {
+        sidebarImgZoom.pan(0, 0, { animate: true });
+        sidebarImgZoom.zoom(1, { animate: true });
+        console.log('Zoomed out');
+      });
+    }
   };
+  
 
   //====================================
   //                                 Window Close
