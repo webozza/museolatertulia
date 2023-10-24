@@ -119,13 +119,20 @@ jQuery(document).ready(function ($) {
 
 
     const postID = $(this).data("post-id");
+
+    // Debugging: Check the value of postID
+    console.log('postID:', postID);
+    
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+    
+    // Debugging: Check the constructed URL
+    console.log('restApiUrl:', restApiUrl);
     
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
     
-    const image = new Image(); // Define the image object
+    const image = new Image();
     
     $.ajax({
       url: restApiUrl,
