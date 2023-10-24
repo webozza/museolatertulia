@@ -138,6 +138,7 @@ body {
 
 .documentData{
   overflow-y: scroll;
+  height: 100%;
 }
 .slide-in {
   right: 0; /* Slide the window into view */
