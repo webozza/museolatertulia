@@ -170,10 +170,11 @@ jQuery(document).ready(function ($) {
             dataType: "json",
             success: function (imageData) {
               const lowResImgURL = imageData.media_details.sizes.medium.source_url;
+              const semiHighResURL = imageData.media_details.sizes.large.source_url;
               const highResImgURL = imageData.source_url;
               const imgTag = `<div class="documentImg sidebar-grid-item">
                 <img
-                  src="${lowResImgURL}" 
+                  src="${semiHighResURL}" 
                   data-highres="${highResImgURL}"
                   id="${imageData.id}">
                 </div>`;
@@ -181,7 +182,7 @@ jQuery(document).ready(function ($) {
               loadedImages++;
               if (loadedImages === imageCount) {
                 $(".sidebar-grid").masonryGrid({
-                  columns: 3,
+                  columns: 4,
                 });
               }
               handleDocumentSingleImage();
@@ -209,9 +210,6 @@ jQuery(document).ready(function ($) {
     $(".documentImg").on("click", async function () {
       $(".documentSingleImage").show();
       let imageId = $(this).find("img").attr("id");
-      setTimeout(()=>{
-        console.log('First')
-      },1000)
       $.ajax({
         url: `/wp-json/wp/v2/media/${imageId}`,
         type: "GET",
@@ -226,7 +224,6 @@ jQuery(document).ready(function ($) {
           console.error("Error fetching image data:", error);
         },
       });
-      console.log('2nd')
     });
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
