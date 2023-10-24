@@ -117,25 +117,39 @@ jQuery(document).ready(function ($) {
 
   $(".clickable-thumbnail").on("click", function () {
     const postID = $(this).data("post-id");
-    console.log('postID', postID)
-    const imgUrl = $(this).attr("src");
-    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+    const postDetailsUrl = `/wp-json/wp/v2/obra/${postID}`;
+    
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-    // Create a new image element and set its source
-
+    
+    // Create a new image element
     const image = new Image();
-    image.src = imgUrl;
-    $(".main_image").attr("src", imgUrl);
-    image.onload = function () {
-
-      $(".main_image").fadeIn("slow");
-      $(".pre-loader").fadeOut("slow");
-
-      makeZoom();
-
-    };
+    
+    // Make an Ajax request to get post details
+    $.ajax({
+      url: postDetailsUrl,
+      type: "GET",
+      dataType: "json",
+      success: function(postData) {
+        console.log('post data', postData);
+    
+        // Extract the thumbnail URL from the post details
+        const imgUrl = postData.acf.thumbnail_url; // Assuming 'thumbnail_url' is the field
+        image.src = imgUrl;
+        $(".main_image").attr("src", imgUrl);
+    
+        image.onload = function() {
+          $(".main_image").fadeIn("slow");
+          $(".pre-loader").fadeOut("slow");
+          makeZoom();
+        };
+      },
+      error: function(error) {
+        console.error("Error fetching post details:", error);
+      },
+    });
+    
 
     // Fetch post categories
 
