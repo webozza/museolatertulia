@@ -275,8 +275,8 @@ jQuery(document).ready(function ($) {
   $(".documnetImgzoom").hide()
   $('.backArrow').hide()
   let documentImgZoom = () => {
-    $('.backArrow').how()
-    $(".documentWindowZoomout").show()
+    $('.backArrow').show()
+    $(".documnetImgzoom").show()
     let sidebarImg = $(".sidebar-single-image");
     
     if (sidebarImg.length > 0) {
