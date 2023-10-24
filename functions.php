@@ -44,23 +44,3 @@ function homeGrid() {
 } 
 add_shortcode('home_grid', 'homeGrid'); 
 
-
-function custom_theme_fonts() {
-    // Enqueue BLAA-alt Regular
-    wp_enqueue_style('BLAA-alt-Regular', get_stylesheet_directory_uri() . '/fonts/BLAA-alt-Regular.woff', array(), '1.0', 'all');
-
-    // Enqueue BLAA-alt Bold
-    wp_enqueue_style('BLAA-alt-Bold', get_stylesheet_directory_uri() . '/fonts/BLAA-alt-Bold.woff', array(), '1.0', 'all');
-
-    // Enqueue BLAA-alt Bold Italic
-    wp_enqueue_style('BLAA-alt-Bold-Italic', get_stylesheet_directory_uri() . '/fonts/BLAA-alt-Bolditalic.woff', array(), '1.0', 'all');
-
-    // Enqueue BLAA-alt Extra Light
-    wp_enqueue_style('BLAA-alt-Extra-Light', get_stylesheet_directory_uri() . '/fonts/BLAA-alt-ExtraLight.woff', array(), '1.0', 'all');
-
-    // Enqueue BLAA-alt Extra Light Italic
-    wp_enqueue_style('BLAA-alt-Extra-Light-Italic', get_stylesheet_directory_uri() . '/fonts/BLAA-alt-ExtraLightitalic.woff', array(), '1.0', 'all');
-    
-    // Continue enqueuing other variations as needed
-}
-add_action('wp_enqueue_scripts', 'custom_theme_fonts');
