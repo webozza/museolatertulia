@@ -117,33 +117,44 @@ jQuery(document).ready(function ($) {
 
   $(".clickable-thumbnail").on("click", function () {
 
-
     const postID = $(this).data("post-id");
-    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+    const restApiUrl = `/wp-json/wp/v2/obra/${postID}?_embed`;
     
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-   
+    
     $.ajax({
       url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function(postData) {
         console.log('post data', postData);
-        // const imgUrl = postData.acf.thumbnail_url; 
-        // $(".main_image").attr("src", imgUrl);
         
-        // image.onload = function() {
-        //   $(".main_image").fadeIn("slow");
-        //   $(".pre-loader").fadeOut("slow");
-        //   makeZoom();
-        // };
+        if (postData._embedded && postData._embedded["wp:featuredmedia"] && postData._embedded["wp:featuredmedia"][0]) {
+          // Check if the featured image data exists
+          const featuredMedia = postData._embedded["wp:featuredmedia"][0];
+          const imgUrl = featuredMedia.source_url; // Get the URL of the featured image
+          $(".main_image").attr("src", imgUrl);
+    
+          const image = new Image();
+          image.src = imgUrl;
+          
+          image.onload = function() {
+            $(".main_image").fadeIn("slow");
+            $(".pre-loader").fadeOut("slow");
+            makeZoom();
+          };
+        } else {
+          console.error("No featured image found for the post.");
+        }
       },
       error: function(error) {
         console.error("Error fetching post details:", error);
       },
     });
+    
+    
     
 
     // Fetch post categories
