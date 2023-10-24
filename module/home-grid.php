@@ -43,7 +43,7 @@ $query = new WP_Query($args);
         <div class="documentData sidebar-grid">
         
         </div>
-        <div class="DocumentSingleImage"></div>
+        <div class="documentSingleImage"></div>
         <div class="documentWindowNav">
                 <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
                 <div class="backArrow"><img src="<?= get_stylesheet_directory_uri(); ?>/popUpIcon/icono _-.png" alt=""></div>

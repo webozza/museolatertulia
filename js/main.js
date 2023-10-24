@@ -187,6 +187,7 @@ jQuery(document).ready(function ($) {
                   columns: 3,
                 });
               }
+              handleDocumentSingleImage()
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
@@ -205,6 +206,27 @@ jQuery(document).ready(function ($) {
   });
 
 
+  function handleDocumentSingleImage() {
+    $('.documentImg').on('click', function() {
+      $('.documentSingleImage').show();
+      let imageId = $(this).find('img').attr('id');
+      $.ajax({
+        url: `/wp-json/wp/v2/media/${imageId}`,
+        type: 'GET',
+        dataType: 'json', 
+        success: function(imageData) {
+          let imgURL = imageData.source_url
+          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`
+          $('.documentSingleImage').html(imgTag)
+        },
+        error: function(error) {
+          console.error('Error fetching image data:', error);
+        },
+      });
+    });
+  }
+  
+
 
 
 
@@ -215,10 +237,6 @@ jQuery(document).ready(function ($) {
     });
   };
   handledocumentWindow();
-
-  let documntWindowPopup = () =>{
-
-  }
 
   //=========================================
   //                                          zoom effect

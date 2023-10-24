@@ -205,8 +205,18 @@ body {
 }
 
 
-.DocumentSingleImage{
-  
+.documentSingleImage{
+  background-color: aliceblue;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
 }
 
 ::-webkit-scrollbar {
