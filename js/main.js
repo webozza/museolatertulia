@@ -118,8 +118,10 @@ jQuery(document).ready(function ($) {
   $(".clickable-thumbnail").on("click", function () {
 
 
+    let restApiUrl; // Declare the variable
+
     const postID = $(this).data("post-id");
-    const postDetailsUrl = `/wp-json/wp/v2/obra/${postID}`;
+    restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     
     $(".popup-box").show();
     $(".pre-loader").show();
@@ -128,19 +130,16 @@ jQuery(document).ready(function ($) {
     // Create a new image element
     const image = new Image();
     
-    // Make an Ajax request to get post details
+    // Make an Ajax request to get the image source URL
     $.ajax({
-      url: postDetailsUrl,
+      url: restApiUrl,
       type: "GET",
       dataType: "json",
-      success: function(postData) {
-        console.log('post data', postData);
-    
-        // Extract the thumbnail URL from the post details
-        const imgUrl = postData.acf.thumbnail_url; // Assuming 'thumbnail_url' is the field
+      success: function(data) {
+        console.log('data', data);
+        const imgUrl = data.source_url;
         image.src = imgUrl;
         $(".main_image").attr("src", imgUrl);
-    
         image.onload = function() {
           $(".main_image").fadeIn("slow");
           $(".pre-loader").fadeOut("slow");
@@ -148,9 +147,10 @@ jQuery(document).ready(function ($) {
         };
       },
       error: function(error) {
-        console.error("Error fetching post details:", error);
+        console.error("Error fetching image data:", error);
       },
     });
+    
     
     
 
