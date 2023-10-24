@@ -116,29 +116,24 @@ jQuery(document).ready(function ($) {
   //============================
 
   $(".clickable-thumbnail").on("click", function () {
+
+
     const postID = $(this).data("post-id");
     const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-    
-    // Create a new image element
-    const image = new Image();
-    
-    // Make an Ajax request to get post details
+   
     $.ajax({
       url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function(postData) {
         console.log('post data', postData);
-    
-        // Extract the thumbnail URL from the post details
-        const imgUrl = postData.acf.thumbnail_url; // Assuming 'thumbnail_url' is the field
-        image.src = imgUrl;
+        const imgUrl = postData.acf.thumbnail_url; 
         $(".main_image").attr("src", imgUrl);
-    
+        
         image.onload = function() {
           $(".main_image").fadeIn("slow");
           $(".pre-loader").fadeOut("slow");
