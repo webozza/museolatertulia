@@ -124,26 +124,32 @@ jQuery(document).ready(function ($) {
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
-   
+    
+    const image = new Image(); // Define the image object
+    
     $.ajax({
       url: restApiUrl,
       type: "GET",
       dataType: "json",
       success: function(postData) {
         console.log('post data', postData);
-        const imgUrl = postData.acf.thumbnail_url; 
+        const imgUrl = postData.acf.thumbnail_url;
         $(".main_image").attr("src", imgUrl);
-        
+    
         image.onload = function() {
           $(".main_image").fadeIn("slow");
           $(".pre-loader").fadeOut("slow");
           makeZoom();
         };
+    
+        // Load the image
+        image.src = imgUrl;
       },
       error: function(error) {
         console.error("Error fetching post details:", error);
       },
     });
+    
     
 
     // Fetch post categories
