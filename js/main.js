@@ -169,7 +169,6 @@ jQuery(document).ready(function ($) {
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const lowResImgURL = imageData.media_details.sizes.medium.source_url;
               const semiHighResURL = imageData.media_details.sizes.large.source_url;
               const highResImgURL = imageData.source_url;
               const imgTag = `<div class="documentImg sidebar-grid-item">
@@ -194,6 +193,8 @@ jQuery(document).ready(function ($) {
         });
 
         //------------------------------------------------------
+
+
       },
 
       error: function (error) {
