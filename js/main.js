@@ -187,7 +187,7 @@ jQuery(document).ready(function ($) {
                   imageContainer.append(imgTag);
                   loadedImages++;
                   if (loadedImages === imageCount) {
-                    imageContainer.masonryGrid({
+                    $(containerClass).find('.gallerie').masonryGrid({
                       columns: 3,
                     });
                   }
