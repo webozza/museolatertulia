@@ -228,9 +228,9 @@ jQuery(document).ready(function ($) {
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
-      $('.backArrow').fadeOut()
-      $(".documnetImgzoom").fadeOut()
-    $(".documentWindowZoomout").fadeOut()
+      $('.backArrow').hide()
+      $(".documnetImgzoom").hide()
+    $(".documentWindowZoomout").hide()
     });
   }
 
@@ -240,7 +240,7 @@ jQuery(document).ready(function ($) {
       $(".documentWindowNav").toggleClass("slide-in-btn");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
-      $('.backArrow').fadeOut()
+      $('.backArrow').hide()
     });
   };
   handledocumentWindow();
