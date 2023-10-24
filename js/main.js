@@ -163,13 +163,23 @@ jQuery(document).ready(function ($) {
         const imageCount = imageIds.length;
         let loadedImages = 0;
 
+
+
+        
         imageIds.forEach((imageId) => {
           $.ajax({
             url: `/wp-json/wp/v2/media/${imageId}`,
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const imgTag = `<div class="documentImg sidebar-grid-item"><img src="${imageData.source_url}" id="${imageData.id}"></div>`;
+              const lowResImgURL = imageData.media_details.sizes.medium.source_url; // Adjust this URL as needed.
+              const highResImgURL = imageData.source_url;
+              const imgTag = `<div class="documentImg sidebar-grid-item">
+                <img
+                  src="${lowResImgURL}" 
+                  data-highres="${highResImgURL}"
+                  id="${imageData.id}">
+                </div>`;
               imageContainer.append(imgTag);
               loadedImages++;
               if (loadedImages === imageCount) {
@@ -183,11 +193,7 @@ jQuery(document).ready(function ($) {
             },
           });
         });
-        
 
-        // $(function () {
-
-        // });
 
         //------------------------------------------------------
       },
