@@ -283,7 +283,6 @@ jQuery(document).ready(function ($) {
       sidebarImgZoom.pan(0, 0, { animate: true });
       sidebarImgZoom.zoom(1, { animate: true });
     });
-
   };
 
   //====================================
