@@ -116,36 +116,35 @@ jQuery(document).ready(function ($) {
   //============================
 
   $(".clickable-thumbnail").on("click", function () {
-    const postID = $(this).data("post-id");
-    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
-    $(".popup-box").show();
-    $(".pre-loader").show();
-    $(".main_image").hide();
-    
-    // Create a new image element
-    const image = new Image();
-    
-    // Make an Ajax request to get the image source URL
-    $.ajax({
-      url: restApiUrl,
-      type: "GET",
-      dataType: "json",
-      success: function(data) {
-        console.log('data', data)
-        const imgUrl = data.source_url;
-        image.src = imgUrl;
-        $(".main_image").attr("src", imgUrl);
-        image.onload = function() {
-          $(".main_image").fadeIn("slow");
-          $(".pre-loader").fadeOut("slow");
-          makeZoom();
-        };
-      },
-      error: function(error) {
-        console.error("Error fetching image data:", error);
-      },
-    });
-    
+const postID = $(this).data("post-id");
+const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
+$(".popup-box").show();
+$(".pre-loader").show();
+$(".main_image").hide();
+
+// Create a new image element
+const image = new Image();
+
+// Make an Ajax request to get the image source URL
+$.ajax({
+  url: restApiUrl,
+  type: "GET",
+  dataType: "json",
+  success: function(data) {
+    const imgUrl = data.source_url; // Assuming 'source_url' is the image URL field in the response
+    image.src = imgUrl;
+    $(".main_image").attr("src", imgUrl);
+    image.onload = function() {
+      $(".main_image").fadeIn("slow");
+      $(".pre-loader").fadeOut("slow");
+      makeZoom();
+    };
+  },
+  error: function(error) {
+    console.error("Error fetching image data:", error);
+  },
+});
+
 
     // Fetch post categories
 
@@ -176,17 +175,20 @@ jQuery(document).ready(function ($) {
 
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
-          const $imageContainer = $(containerClass).find('.gallerie'); 
+          const $imageContainer = $(containerClass).find('.gallerie'); // Select the container with jQuery
+          console.log('imageContainer', $imageContainer);
+        
           if (Array.isArray(imageIds)) {
             const imageCount = imageIds.length;
             let loadedImages = 0;
-      
+        
             imageIds.forEach((imageId) => {
               $.ajax({
                 url: `/wp-json/wp/v2/media/${imageId}`,
                 type: "GET",
                 dataType: "json",
                 success: function (imageData) {
+                  console.log('imageData', imageData);
                   const semiHighResURL = imageData.media_details.sizes.large.source_url;
                   const highResImgURL = imageData.source_url;
                   const imgTag = `<div class="documentImg sidebar-grid-item">
