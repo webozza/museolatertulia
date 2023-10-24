@@ -165,14 +165,14 @@ jQuery(document).ready(function ($) {
 
 
 
-        
+
         imageIds.forEach((imageId) => {
           $.ajax({
             url: `/wp-json/wp/v2/media/${imageId}`,
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const lowResImgURL = imageData.media_details.sizes.medium.source_url; // Adjust this URL as needed.
+              const lowResImgURL = imageData.media_details.sizes.medium.source_url; 
               const highResImgURL = imageData.source_url;
               const imgTag = `<div class="documentImg sidebar-grid-item">
                 <img
@@ -265,7 +265,7 @@ jQuery(document).ready(function ($) {
       $(".info").hide();
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
-      $("sidebar-grid").html("");
+      $(".sidebar-grid").html("");
     });
   };
 
