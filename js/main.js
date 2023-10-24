@@ -209,6 +209,9 @@ jQuery(document).ready(function ($) {
     $(".documentImg").on("click", async function () {
       $(".documentSingleImage").show();
       let imageId = $(this).find("img").attr("id");
+      setTimeout(()=>{
+        console.log('First')
+      },1000)
       $.ajax({
         url: `/wp-json/wp/v2/media/${imageId}`,
         type: "GET",
@@ -217,12 +220,13 @@ jQuery(document).ready(function ($) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
+          documentImgZoom()
         },
         error: function (error) {
           console.error("Error fetching image data:", error);
         },
       });
-      documentImgZoom()
+      console.log('2nd')
     });
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
@@ -270,7 +274,6 @@ jQuery(document).ready(function ($) {
   };
 
   let documentImgZoom = () => {
-    // Wrap Panzoom initialization within a check
     let sidebarImg = $(".sidebar-single-image");
     
     if (sidebarImg.length > 0) {
