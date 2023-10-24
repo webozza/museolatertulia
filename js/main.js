@@ -131,7 +131,8 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function(data) {
-        const imgUrl = data.source_url; // Assuming 'source_url' is the image URL field in the response
+        console.log('data', data)
+        const imgUrl = data.source_url;
         image.src = imgUrl;
         $(".main_image").attr("src", imgUrl);
         image.onload = function() {
@@ -175,20 +176,17 @@ jQuery(document).ready(function ($) {
 
         let appnedSidebarGalleries = (fieldName, containerClass) => {
           const imageIds = data.acf[fieldName];
-          const $imageContainer = $(containerClass).find('.gallerie'); // Select the container with jQuery
-          console.log('imageContainer', $imageContainer);
-        
+          const $imageContainer = $(containerClass).find('.gallerie'); 
           if (Array.isArray(imageIds)) {
             const imageCount = imageIds.length;
             let loadedImages = 0;
-        
+      
             imageIds.forEach((imageId) => {
               $.ajax({
                 url: `/wp-json/wp/v2/media/${imageId}`,
                 type: "GET",
                 dataType: "json",
                 success: function (imageData) {
-                  console.log('imageData', imageData);
                   const semiHighResURL = imageData.media_details.sizes.large.source_url;
                   const highResImgURL = imageData.source_url;
                   const imgTag = `<div class="documentImg sidebar-grid-item">
