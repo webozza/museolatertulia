@@ -223,7 +223,8 @@ img.sidebar-single-image {
   transform: translate(-50%, -50%);
   object-fit: contain;
   width: 100%;
-  height: 100%;
+  height: 100% !important;
+  padding: 40px;
 }
 
 ::-webkit-scrollbar {

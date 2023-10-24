@@ -163,16 +163,13 @@ jQuery(document).ready(function ($) {
         const imageCount = imageIds.length;
         let loadedImages = 0;
 
-
-
-
         imageIds.forEach((imageId) => {
           $.ajax({
             url: `/wp-json/wp/v2/media/${imageId}`,
             type: "GET",
             dataType: "json",
             success: function (imageData) {
-              const lowResImgURL = imageData.media_details.sizes.medium.source_url; 
+              const lowResImgURL = imageData.media_details.sizes.medium.source_url;
               const highResImgURL = imageData.source_url;
               const imgTag = `<div class="documentImg sidebar-grid-item">
                 <img
@@ -187,14 +184,13 @@ jQuery(document).ready(function ($) {
                   columns: 3,
                 });
               }
-              handleDocumentSingleImage()
+              handleDocumentSingleImage();
             },
             error: function (error) {
               console.error("Error fetching image data:", error);
             },
           });
         });
-
 
         //------------------------------------------------------
       },
@@ -205,42 +201,41 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  //========================================================
+  //                                     document single image window popup
+  //========================================================
 
   function handleDocumentSingleImage() {
-    $('.documentImg').on('click', function() {
-      $('.documentSingleImage').show();
-      let imageId = $(this).find('img').attr('id');
+    $(".documentImg").on("click", function () {
+      $(".documentSingleImage").show();
+      let imageId = $(this).find("img").attr("id");
       $.ajax({
         url: `/wp-json/wp/v2/media/${imageId}`,
-        type: 'GET',
-        dataType: 'json', 
-        success: function(imageData) {
-          let imgURL = imageData.source_url
-          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`
-          $('.documentSingleImage').html(imgTag)
+        type: "GET",
+        dataType: "json",
+        success: function (imageData) {
+          let imgURL = imageData.source_url;
+          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
+          $(".documentSingleImage").html(imgTag);
         },
-        error: function(error) {
-          console.error('Error fetching image data:', error);
+        error: function (error) {
+          console.error("Error fetching image data:", error);
         },
       });
     });
 
-    $('.backArrow').on('click', ()=>{
-      $('.documentSingleImage').html('')
-      $('.documentSingleImage').hide();
-    })
+    $(".backArrow").on("click", () => {
+      $(".documentSingleImage").html("");
+      $(".documentSingleImage").hide();
+    });
   }
-  
-
-
-
 
   let handledocumentWindow = () => {
     $(".document, .closedocumentWindow").click(() => {
       $(".documentWindow").toggleClass("slide-in");
       $(".documentWindowNav").toggleClass("slide-in-btn");
-      $('.documentSingleImage').html('')
-      $('.documentSingleImage').hide();
+      $(".documentSingleImage").html("");
+      $(".documentSingleImage").hide();
     });
   };
   handledocumentWindow();
@@ -275,12 +270,25 @@ jQuery(document).ready(function ($) {
   };
 
   let documentImgZoom = () => {
-    $(".documnetImgzoom").on("click", () => {});
+    let sidebarImg = $(".sidebar-single-image");
+    const sidebarImgZoom = Panzoom(sidebarImg, {
+      maxScale: 3,
+      minScale: 0.5,
+    });
+    $(".documnetImgzoom").on("click", () => {
+      sidebarImgZoom.pan(0, 0, { animate: true });
+      sidebarImgZoom.zoom(3, { animate: true });
+    });
+    $(".documentWindowZoomout").on("click", () => {
+      sidebarImgZoom.pan(0, 0, { animate: true });
+      sidebarImgZoom.zoom(1, { animate: true });
+    });
+
   };
 
-  //============================
-  //                        Window Close
-  //============================
+  //====================================
+  //                                 Window Close
+  //====================================
 
   let closeWindow = () => {
     $(".cross").on("click", () => {
@@ -291,8 +299,8 @@ jQuery(document).ready(function ($) {
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
       $(".sidebar-grid").html("");
-      $('.documentSingleImage').html('')
-      $('.documentSingleImage').hide();
+      $(".documentSingleImage").html("");
+      $(".documentSingleImage").hide();
     });
   };
 
