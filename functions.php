@@ -15,6 +15,14 @@ function my_theme_enqueue_styles() {
 	);
 }
 
+function add_custom_mime_types($mimes) {
+    $mimes['woff'] = 'application/font-woff';
+    $mimes['woff2'] = 'application/font-woff2';
+    return $mimes;
+}
+add_filter('upload_mimes', 'add_custom_mime_types');
+
+
 
 function custom_image_sizes() {
     add_image_size('custom-masonry-thumbnail', 300, 200, true); // Replace dimensions as needed
