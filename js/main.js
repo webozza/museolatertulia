@@ -272,8 +272,8 @@ jQuery(document).ready(function ($) {
       $(".zoomOut").hide();
     });
   };
-  
-  $(".documentWindowZoomout").show()
+
+  $(".documentWindowZoomout").hide()
   let documentImgZoom = () => {
     let sidebarImg = $(".sidebar-single-image");
     
