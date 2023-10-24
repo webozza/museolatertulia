@@ -272,7 +272,8 @@ jQuery(document).ready(function ($) {
       $(".zoomOut").hide();
     });
   };
-
+  
+  $(".documentWindowZoomout").show()
   let documentImgZoom = () => {
     let sidebarImg = $(".sidebar-single-image");
     
@@ -286,12 +287,16 @@ jQuery(document).ready(function ($) {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(3, { animate: true });
         console.log('Zoomed in');
+        $(".documnetImgzoom").hide()
+        $(".documentWindowZoomout").show()
       });
   
       $(".documentWindowZoomout").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(1, { animate: true });
         console.log('Zoomed out');
+        $(".documentWindowZoomout").hide()
+        $(".documnetImgzoom").show()
       });
     }
   };
