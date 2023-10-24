@@ -116,13 +116,8 @@ jQuery(document).ready(function ($) {
   //============================
 
   $(".clickable-thumbnail").on("click", function () {
-
-
-    let restApiUrl; // Declare the variable
-
     const postID = $(this).data("post-id");
-    restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
-    
+    const restApiUrl = `/wp-json/wp/v2/obra/${postID}`;
     $(".popup-box").show();
     $(".pre-loader").show();
     $(".main_image").hide();
@@ -136,7 +131,7 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "json",
       success: function(data) {
-        console.log('data', data);
+        console.log('data', data)
         const imgUrl = data.source_url;
         image.src = imgUrl;
         $(".main_image").attr("src", imgUrl);
@@ -150,8 +145,6 @@ jQuery(document).ready(function ($) {
         console.error("Error fetching image data:", error);
       },
     });
-    
-    
     
 
     // Fetch post categories
