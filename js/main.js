@@ -291,6 +291,8 @@ jQuery(document).ready(function ($) {
       $(".documentWindow").removeClass("slide-in");
       $(".documentWindowNav").removeClass("slide-in-btn");
       $(".sidebar-grid").html("");
+      $('.documentSingleImage').html('')
+      $('.documentSingleImage').hide();
     });
   };
 
