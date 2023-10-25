@@ -219,6 +219,7 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             height: 75px;
             position: fixed;
             z-index: 999;
+            display: flex;
         }
 
         #anoGuardado {
@@ -229,9 +230,9 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             color: black;
         }
 
-        #desplegableMenu {
+        /* #desplegableMenu {
             margin-left: -91px;
-        }
+        } */
 
         #menu {
             // Add any additional CSS styles for the menu here
@@ -240,10 +241,10 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
         .submenu {
             // Add any additional CSS styles for the submenu here
         }
-
+/* 
         #filtrosBienal {
             margin-top: 20px;
-        }
+        } */
 
 
 
