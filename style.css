@@ -14,16 +14,16 @@ Text Domain:  helloelementorchild
 
 @font-face {
   font-family: 'BLAA-alt-Regular';
-  src: url('/wp-content/themes/Bienales/fonts/BLAA-alt-Regular.woff') format('woff'),
-       url('/wp-content/themes/Bienales/fonts/BLAA-alt-Regular.woff2') format('woff2');
+  src: url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff') format('woff'),
+       url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'BLAA-alt-Bold';
-  src: url('/wp-content/themes/Bienales/fonts/BLAA-alt-Bold.woff') format('woff'),
-       url('/wp-content/themes/Bienales/fonts/BLAA-alt-Bold.woff2') format('woff2');
+  src: url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff') format('woff'),
+       url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
 }
