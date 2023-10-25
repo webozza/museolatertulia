@@ -266,7 +266,7 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                 <p id="anoGuardado">1971</p>
             </div>
 
-            <div id="desplegableMenu" class="col-lg-1">
+            <div id="desplegableMenu">
                 <div class='toggle-btn'>
                 <a href="#menu" id="toggle"><span></span></a>
                 </div>
