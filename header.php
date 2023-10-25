@@ -167,8 +167,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
     #toggle span,
     #toggle span:after,
     #toggle span:before {
-        width: 100%;
-        height: 6px;
+        width: 38px;
+        height: 2px;
         background-color: #0c0d0e;
         transition: all 0.3s;
         backface-visibility: hidden;
@@ -250,6 +250,19 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             margin-left: 50px;
             text-align: start;
         }
+
+
+        .menu-section>*{
+            height: inherit;
+            }
+
+            .row.menu-section {
+                padding: 18px 25px;
+            }
+
+            .row.menu-section >div {
+            height: 100%;
+            }
 
 
 

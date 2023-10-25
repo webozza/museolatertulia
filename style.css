@@ -268,14 +268,3 @@ img.sidebar-single-image {
  */
 
 
- .menu-section>*{
-  height: inherit;
- }
-
- .row.menu-section {
-  padding: 10px;
-}
-
-.row.menu-section >div {
-  height: 100%;
-}
