@@ -13,24 +13,22 @@ Text Domain:  helloelementorchild
 */
 
 @font-face {
-  font-family: 'BLAA-alt-Regular';
-  src: url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff') format('woff'),
-       url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff2') format('woff2');
+  font-family: "BLAA-alt-Regular";
+  src: url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff") format("woff"), url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'BLAA-alt-Bold';
-  src: url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff') format('woff'),
-       url('/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff2') format('woff2');
+  font-family: "BLAA-alt-Bold";
+  src: url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff") format("woff"), url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 body {
   overflow-x: hidden;
-  font-family: 'BLAA-alt-Regular' !important;
+  font-family: "BLAA-alt-Regular" !important;
 }
 
 .fwpl-layout.el-8yhzj .fwpl-result {
@@ -113,30 +111,27 @@ body {
   cursor: pointer;
 }
 
-
 .documentWindow {
   background-color: rgb(255, 255, 255);
   width: 50%;
   height: 100%;
   position: fixed;
   top: 0;
-  right: -50%; 
+  right: -50%;
   transition: right 0.3s;
   animation: ease-out;
   padding: 20px;
 }
 
-
 .gallerie > div {
   width: 33.33% !important;
 }
 
-.gallerie > div >div {
+.gallerie > div > div {
   padding: 10px;
 }
 
-
-.documentData{
+.documentData {
   overflow-y: scroll;
   height: 100%;
 }
@@ -145,14 +140,13 @@ body {
 }
 
 .closedocumentWindow {
-
 }
-.documentWindowNav{
+.documentWindowNav {
   position: absolute;
   bottom: 0;
   position: absolute;
   bottom: 0;
-  left:0px;
+  left: 0px;
   display: inline-flex;
   padding: 15px 25px;
   justify-content: center;
@@ -164,20 +158,19 @@ body {
   cursor: pointer;
 }
 
-
 .slide-in-btn {
   left: -54px;
 }
-.cross, .plus{
-  transition: .3s;
+.cross,
+.plus {
+  transition: 0.3s;
 }
-.cross:hover,.plus:hover {
+.cross:hover,
+.plus:hover {
   transform: rotate(90deg);
 }
 
-
-
-.sidebar-grid >div {
+.sidebar-grid > div {
   width: 33% !important;
 }
 
@@ -189,7 +182,6 @@ body {
 .sidebar-grid .masonry-grid-item {
   padding: 10px;
 }
-
 
 /* info tab  */
 
@@ -212,10 +204,6 @@ body {
   padding-bottom: 100px;
 }
 
-
-
-
-
 .info > p,
 .info > span {
   text-align: start;
@@ -226,13 +214,11 @@ body {
   font-style: normal;
 }
 
-
-.documentImg{
+.documentImg {
   cursor: pointer;
 }
 
-
-.documentSingleImage{
+.documentSingleImage {
   background-color: white;
   height: 100%;
   width: 100%;
@@ -257,14 +243,135 @@ img.sidebar-single-image {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 0px; 
+  background: #888;
+  border-radius: 0px;
 }
-
-
 
 /*
                 ------------ HEADER -------------
  */
 
+.header {
+  /* background-color: rgb(243, 243, 243); */
+  color: #1e1e1e;
+  display: flex;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+}
 
+
+
+.toggel-menue span:after,
+.toggel-menue span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -9px;
+}
+
+.toggel-menue span:after {
+    top: 9px;
+}
+
+.toggel-menue span {
+    position: relative;
+    display: block;
+}
+
+.toggel-menue span,
+.toggel-menue span:after,
+.toggel-menue span:before {
+    width: 100%;
+    height: 4px;
+    background-color: #888;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+/* on activation */
+.toggel-menue.on span {
+    background-color: transparent;
+}
+
+.toggel-menue.on span:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.toggel-menue.on span:after {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+
+.toggel-menue.on+#menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.toggel-menue span,
+.toggel-menue span:after,
+.toggel-menue span:before {
+  width: 38px;
+  height: 2px;
+  background-color: #0c0d0e;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+  border-radius: 2px;
+}
+
+
+
+
+
+.logo-container {
+  display: flex;
+  padding: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+}
+.log h1{
+  color: #1E1E1E;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+.menu {
+  display: flex;
+  justify-content: end;
+  background-color: white;
+height: fit-content;
+}
+
+.menu > ul {
+  display: flex;
+  list-style: none;
+  display: inline-flex;
+  padding: 10px 44px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 64px;
+}
+
+.menu > ul > li {
+  display: flex;
+padding: 10px;
+justify-content: flex-end;
+align-items: center;
+gap: 10px;
+cursor: pointer;
+
+
+font-family: BLAA-alt-Bold;
+color: #000;
+text-align: right;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
