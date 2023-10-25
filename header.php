@@ -241,12 +241,11 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
         .submenu {
             // Add any additional CSS styles for the submenu here
         }
-/* 
-        #filtrosBienal {
-            margin-top: 20px;
-        } */
 
-
+        .nav-link {
+            margin-left: 50px;
+            text-align: start;
+        }
 
 
 
@@ -270,35 +269,35 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                 <a href="#menu" id="toggle"><span></span></a>
                 <div id="menu">
                     <ul class="nav flex-column sidebar" id="nav_accordion">
-                        <li><a class="nav-link" href="https://bienales.museolatertulia.com/">Inicio </a></li>
+                        <li><a class="nav-link" href="https://bienales.museolatertulia.com/">Inicio</a></li>
                         <li class="nav-item has-submenu">
-                            <a class="nav-link" style="font-size: 21px;" href=""> 1971 </a>
+                            <a class="nav-link" style="font-size: 21px;" href="">1971</a>
                             <ul class="submenu collapse">
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" onclick="irMapa('1971'); return false;">mapa </a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=i-bienal">bienal</a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
+                                <li><a class="nav-link" onclick="irMapa('1971'); return false;">mapa</a></li>
+                                <li><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=i-bienal">bienal</a></li>
+                                <li><a class="nav-link" href="#">categorias</a></li>
+                                <li><a class="nav-link" href="#">artistas</a></li>
+                                <li><a class="nav-link" href="#">recursos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-submenu">
-                            <a class="nav-link" style="font-size: 21px;" href="#"> 1973</a>
+                            <a class="nav-link" style="font-size: 21px;" href="#">1973</a>
                             <ul class="submenu collapse">
-                                <li style="margin-left: 50px;text-align: start;"><a class "nav-link" onclick="irMapa('1973'); return false;">mapa </a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=ii-bienal">bienal</a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
+                                <li><a class="nav-link" onclick="irMapa('1973'); return false;">mapa</a></li>
+                                <li><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=ii-bienal">bienal</a></li>
+                                <li><a class="nav-link" href="#">categorias</a></li>
+                                <li><a class="nav-link" href="#">artistas</a></li>
+                                <li><a class="nav-link" href="#">recursos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-submenu">
-                            <a class="nav-link" style="font-size: 21px;" href="#"> 1976 </a>
+                            <a class="nav-link" style="font-size: 21px;" href="#">1976</a>
                             <ul class="submenu collapse">
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" onclick="irMapa('1976');">mapa </a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=iii-bienal">bienal</a></li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
+                                <li><a class="nav-link" onclick="irMapa('1976');">mapa</a></li>
+                                <li><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=iii-bienal">bienal</a></li>
+                                <li><a class="nav-link" href="#">categorias</a></li>
+                                <li><a class="nav-link" href="#">artistas</a></li>
+                                <li><a class="nav-link" href="#">recursos</a></li>
                             </ul>
                         </li>
                     </ul>
