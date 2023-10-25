@@ -260,3 +260,14 @@ img.sidebar-single-image {
   background: #888; 
   border-radius: 0px; 
 }
+
+
+
+/*
+                ------------ HEADER -------------
+ */
+
+
+ .menu-section{
+  height: inherit;
+ }

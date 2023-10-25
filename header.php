@@ -228,7 +228,7 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
 
 
     <div class="row" style="background-color: #ffffff00;height: 75px;position:relative;z-index: 999;">
-        <div class="row" style="height: 75px;position:fixed;z-index: 999;">
+        <div class="row menu-section" style="height: 75px;position:fixed;z-index: 999;">
             <div class="col-lg-1">
                 <p id="anoGuardado" style="
     margin: auto;
