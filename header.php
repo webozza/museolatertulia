@@ -16,21 +16,51 @@
 </head>
 <body <?php body_class()?>>
 
-<div class="header">
+<div class="header-left">
     <div class="logo-container">
         <div class="logo"><h1>1971</h1></div>
-        <div class="toggel-menue">
+        <div class="toggle-menue">
             <span></span>
         </div>
     </div>
-    <div class="menu">
-         <ul>
-            <li>Bienal</li>
-            <li>Artista</li>
-            <li>País</li>
-            <li>Categoría</li>
-         </ul>
+</div>
+<div class="header-right">
+        <div class="menu">
+            <ul>
+                <li>Bienal</li>
+                <li>Artista</li>
+                <li>País</li>
+                <li>Categoría</li>
+            </ul>
+        </div>
     </div>
 
-</div>
-    
+
+    <script>
+
+        $(document).ready(function(){
+
+
+            var theToggle = $('.toggle-menue');
+                function toggleClass(elem, className) {
+                    var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, " ") + ' ';
+                    if (hasClass(elem, className)) {
+                        while (newClass.indexOf(" " + className + " ") >= 0) {
+                            newClass = newClass.replace(" " + className + " ", " ");
+                        }
+                        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+                    } else {
+                        elem.className += ' ' + className;
+                    }
+                }
+
+                theToggle.onclick = function() {
+                    toggleClass(this, 'on');
+                    console.log('clicked')
+                    return false;
+                }
+
+
+        })
+
+    </script>

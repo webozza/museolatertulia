@@ -251,7 +251,7 @@ img.sidebar-single-image {
                 ------------ HEADER -------------
  */
 
-.header {
+.header-left {
   /* background-color: rgb(243, 243, 243); */
   color: #1e1e1e;
   display: flex;
@@ -263,27 +263,38 @@ img.sidebar-single-image {
 }
 
 
+.header-right {
+  color: #1e1e1e;
+  display: flex;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  right: 0;
+}
 
-.toggel-menue span:after,
-.toggel-menue span:before {
+
+
+.toggle-menue span:after,
+.toggle-menue span:before {
     content: "";
     position: absolute;
     left: 0;
     top: -9px;
 }
 
-.toggel-menue span:after {
+.toggle-menue span:after {
     top: 9px;
 }
 
-.toggel-menue span {
+.toggle-menue span {
     position: relative;
     display: block;
 }
 
-.toggel-menue span,
-.toggel-menue span:after,
-.toggel-menue span:before {
+.toggle-menue span,
+.toggle-menue span:after,
+.toggle-menue span:before {
     width: 100%;
     height: 4px;
     background-color: #888;
@@ -293,27 +304,27 @@ img.sidebar-single-image {
 }
 
 /* on activation */
-.toggel-menue.on span {
+.toggle-menue.on span {
     background-color: transparent;
 }
 
-.toggel-menue.on span:before {
+.toggle-menue.on span:before {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.toggel-menue.on span:after {
+.toggle-menue.on span:after {
     transform: rotate(-45deg) translate(7px, -8px);
 }
 
-.toggel-menue.on+#menu {
+.toggle-menue.on+#menu {
     opacity: 1;
     visibility: visible;
 }
 
 
-.toggel-menue span,
-.toggel-menue span:after,
-.toggel-menue span:before {
+.toggle-menue span,
+.toggle-menue span:after,
+.toggle-menue span:before {
   width: 38px;
   height: 2px;
   background-color: #0c0d0e;
@@ -332,14 +343,25 @@ img.sidebar-single-image {
   justify-content: center;
   align-items: center;
   gap: 40px;
-
 }
-.log h1{
+.logo{
+  cursor: pointer;
+}
+.logo > h1{
   color: #1E1E1E;
   font-size: 48px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
+  margin: auto !important;
+  padding-top: 7px;
+
+}
+.log > h1 > font{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 .menu {
   display: flex;
