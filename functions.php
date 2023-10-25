@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.2');
+    define('_T_VERSION', '1.0.3');
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
