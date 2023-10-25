@@ -30,7 +30,7 @@ Text Domain:  helloelementorchild
 
 body {
   overflow-x: hidden;
-  font-family: 'BLAA-alt-Regular';
+  font-family: 'BLAA-alt-Regular' !important;
 }
 
 .fwpl-layout.el-8yhzj .fwpl-result {
