@@ -241,6 +241,10 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
         .submenu {
             // Add any additional CSS styles for the submenu here
         }
+/* 
+        #filtrosBienal {
+            margin-top: 20px;
+        } */
 
         .nav-link {
             margin-left: 50px;
@@ -265,11 +269,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             <div class="col-lg-1">
                 <p id="anoGuardado">1971</p>
             </div>
-
             <div id="desplegableMenu" class="col-lg-1">
-                
                 <a href="#menu" id="toggle"><span></span></a>
-
                 <div id="menu">
                     <ul class="nav flex-column sidebar" id="nav_accordion">
                         <li><a class="nav-link" href="https://bienales.museolatertulia.com/">Inicio</a></li>
@@ -306,7 +307,6 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                     </ul>
                 </div>
             </div>
-
             <div class="col-lg-5">
             </div>
             <div id="filtrosBienal" class="col-lg-5">
