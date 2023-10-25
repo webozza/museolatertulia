@@ -256,7 +256,7 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             height: inherit;
             }
 
-            .row.menu-section {
+            .menu-section {
                 padding: 18px 25px;
             }
 
