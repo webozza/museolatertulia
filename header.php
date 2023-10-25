@@ -36,13 +36,6 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
 
     <style>
     /* Important styles */
-    #toggle {
-        display: block;
-        width: 28px;
-        height: 30px;
-        margin: 30px auto 10px;
-    }
-
     #toggle span:after,
     #toggle span:before {
         content: "";
@@ -143,10 +136,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
 
     /* demo styles */
     body {
-        margin-top: 3em;
         background: #eee;
         color: #555;
-        font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
     }
 
     p,
@@ -185,10 +176,6 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
     }
 
     #toggle {
-        display: block;
-        width: 28px;
-        height: 30px;
-        margin: 28px auto 8px;
         margin-left: 5px;
     }
 
