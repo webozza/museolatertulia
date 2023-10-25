@@ -267,9 +267,9 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             </div>
 
             <div id="desplegableMenu" class="col-lg-1">
-                <div class='toggle-btn'>
+                
                 <a href="#menu" id="toggle"><span></span></a>
-                </div>
+
                 <div id="menu">
                     <ul class="nav flex-column sidebar" id="nav_accordion">
                         <li><a class="nav-link" href="https://bienales.museolatertulia.com/">Inicio</a></li>
