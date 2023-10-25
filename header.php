@@ -25,8 +25,8 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- panZoom  CDN-->
-<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+    <!-- panZoom  CDN-->
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
 
     <!-- ======= Icons used for dropdown (you can use your own) ======== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
@@ -203,6 +203,52 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
             transform: scale(0.68) translate(-300px, -68px) !important;
         }
     }
+
+
+
+
+
+    .row {
+            background-color: #ffffff00;
+            height: 75px;
+            position: relative;
+            z-index: 999;
+        }
+
+        .menu-section {
+            height: 75px;
+            position: fixed;
+            z-index: 999;
+        }
+
+        #anoGuardado {
+            margin: auto;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 900;
+            color: black;
+        }
+
+        #desplegableMenu {
+            margin-left: -91px;
+        }
+
+        #menu {
+            // Add any additional CSS styles for the menu here
+        }
+
+        .submenu {
+            // Add any additional CSS styles for the submenu here
+        }
+
+        #filtrosBienal {
+            margin-top: 20px;
+        }
+
+
+
+
+
     </style>
 </head>
 
@@ -214,23 +260,14 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
     </header>
 
 
-    <div class="row" style="background-color: #ffffff00;height: 75px;position:relative;z-index: 999;">
-        <div class="row menu-section" style="height: 75px;position:fixed;z-index: 999;">
+    <div class="row">
+        <div class="menu-section">
             <div class="col-lg-1">
-                <p id="anoGuardado" style="
-    margin: auto;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 900;
-    color: black;
-">1971</p>
+                <p id="anoGuardado">1971</p>
             </div>
-
             <div id="desplegableMenu" class="col-lg-1">
                 <a href="#menu" id="toggle"><span></span></a>
-
-
-                <div style="margin-left: -91px;" id="menu">
+                <div id="menu">
                     <ul class="nav flex-column sidebar" id="nav_accordion">
                         <li><a class="nav-link" href="https://bienales.museolatertulia.com/">Inicio </a></li>
                         <li class="nav-item has-submenu">
@@ -241,18 +278,16 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
-
                             </ul>
                         </li>
                         <li class="nav-item has-submenu">
                             <a class="nav-link" style="font-size: 21px;" href="#"> 1973</a>
                             <ul class="submenu collapse">
-                                <li style="margin-left: 50px;text-align: start;"><a class="nav-link" onclick="irMapa('1973'); return false;">mapa </a></li>
+                                <li style="margin-left: 50px;text-align: start;"><a class "nav-link" onclick="irMapa('1973'); return false;">mapa </a></li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="https://bienales.museolatertulia.com/mapaview/?_bienales=ii-bienal">bienal</a></li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
-
                             </ul>
                         </li>
                         <li class="nav-item has-submenu">
@@ -263,13 +298,10 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">categorias</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">artistas</a> </li>
                                 <li style="margin-left: 50px;text-align: start;"><a class="nav-link" href="#">recursos</a> </li>
-
                             </ul>
                         </li>
                     </ul>
-
                 </div>
-
             </div>
             <div class="col-lg-5">
             </div>
@@ -277,35 +309,33 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
                 <div class="row" style="margin-top: 20px;">
                     <div class="col-lg-3">
                         <?php
-      if (function_exists('facetwp_display')) {
-          echo facetwp_display('facet', 'bienales');
-      }
-      ?>
+                        if (function_exists('facetwp_display')) {
+                            echo facetwp_display('facet', 'bienales');
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-3">
                         <?php
-      if (function_exists('facetwp_display')) {
-          echo facetwp_display('facet', 'artistas');
-      }
-      ?>
+                        if (function_exists('facetwp_display')) {
+                            echo facetwp_display('facet', 'artistas');
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-3">
                         <?php
-      if (function_exists('facetwp_display')) {
-          echo facetwp_display('facet', 'tcnicas');
-      }
-      ?>
+                        if (function_exists('facetwp_display')) {
+                            echo facetwp_display('facet', 'tcnicas');
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-3">
                         <?php
-      if (function_exists('facetwp_display')) {
-          echo facetwp_display('facet', 'pases');
-      }
-      ?>
+                        if (function_exists('facetwp_display')) {
+                            echo facetwp_display('facet', 'pases');
+                        }
+                        ?>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

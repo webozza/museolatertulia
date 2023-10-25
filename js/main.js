@@ -132,14 +132,12 @@ jQuery(document).ready(function ($) {
         console.log('post data', postData);
         
         if (postData._embedded && postData._embedded["wp:featuredmedia"] && postData._embedded["wp:featuredmedia"][0]) {
-          // Check if the featured image data exists
           const featuredMedia = postData._embedded["wp:featuredmedia"][0];
-          const imgUrl = featuredMedia.source_url; // Get the URL of the featured image
+          const imgUrl = featuredMedia.source_url; 
           $(".main_image").attr("src", imgUrl);
     
           const image = new Image();
           image.src = imgUrl;
-          
           image.onload = function() {
             $(".main_image").fadeIn("slow");
             $(".pre-loader").fadeOut("slow");
