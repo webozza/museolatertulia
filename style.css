@@ -277,26 +277,26 @@ img.sidebar-single-image {
 
 
 
-.toggle-menue span:after,
-.toggle-menue span:before {
+.toggle-menu span:after,
+.toggle-menu span:before {
     content: "";
     position: absolute;
     left: 0;
     top: -9px;
 }
 
-.toggle-menue span:after {
+.toggle-menu span:after {
     top: 9px;
 }
 
-.toggle-menue span {
+.toggle-menu span {
     position: relative;
     display: block;
 }
 
-.toggle-menue span,
-.toggle-menue span:after,
-.toggle-menue span:before {
+.toggle-menu span,
+.toggle-menu span:after,
+.toggle-menu span:before {
     width: 100%;
     height: 4px;
     background-color: #888;
@@ -306,33 +306,41 @@ img.sidebar-single-image {
 }
 
 /* on activation */
-.toggle-menue.on span {
+.toggle-menu.on span {
     background-color: transparent;
 }
 
-.toggle-menue.on span:before {
+.toggle-menu.on span:before {
     transform: rotate(45deg) translate(5px, 5px);
 }
 
-.toggle-menue.on span:after {
+.toggle-menu.on span:after {
     transform: rotate(-45deg) translate(7px, -8px);
 }
 
-.toggle-menue.on+#menu {
+.toggle-menu.on+#menu {
     opacity: 1;
     visibility: visible;
 }
 
 
-.toggle-menue span,
-.toggle-menue span:after,
-.toggle-menue span:before {
+.toggle-menu span,
+.toggle-menu span:after,
+.toggle-menu span:before {
   width: 38px;
   height: 2px;
   background-color: #0c0d0e;
   transition: all 0.3s;
   backface-visibility: hidden;
   border-radius: 2px;
+}
+
+
+.toggle-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 
