@@ -409,3 +409,10 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
+
+
+.site-footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
