@@ -63,6 +63,7 @@ body {
   top: 0;
   left: 0;
   display: none;
+  z-index: 2;
 }
 
 .img {
@@ -271,6 +272,7 @@ img.sidebar-single-image {
   top: 0;
   justify-content: space-between;
   right: 0;
+  z-index: 1;
 }
 
 
@@ -334,7 +336,17 @@ img.sidebar-single-image {
 }
 
 
-
+.site-footer {
+  -webkit-padding-before: 1rem;
+  padding-block-start: 1rem;
+  -webkit-padding-after: 1rem;
+  padding-block-end: 1rem;
+  position: relative;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: -1;
+}
 
 
 .logo-container {
