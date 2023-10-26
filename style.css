@@ -412,7 +412,7 @@ line-height: normal;
 
 
 .site-footer{
-  position: fixed;
+  position: fixed !important;
   width: 100%;
   bottom: 0;
 }
