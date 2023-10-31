@@ -117,8 +117,10 @@ $query = new WP_Query($args);
 
       $('.drop_down_menu').click(function () {
           let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-          let id = $(this).attr('id');
 
+          let id = $(this).attr('id');
+          console.log('parentMenu',parentMenu)
+          console.log('id',id)
           $.ajax({
               url: '/wp-admin/admin-ajax.php',
               type: 'post',
