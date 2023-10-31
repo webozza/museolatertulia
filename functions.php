@@ -52,13 +52,13 @@ function get_filtered_img() {
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
-    $art_nonce = $_POST['security']; // Retrieve the nonce value from the request
+    // $art_nonce = $_POST['security']; // Retrieve the nonce value from the request
 
-    // Verify the nonce
-    if ( ! wp_verify_nonce($art_nonce, 'art_nonce') ) {
-        // Nonce is invalid; handle the request accordingly, e.g., deny access.
-        wp_die('Invalid nonce.');
-    }
+    // // Verify the nonce
+    // if ( ! wp_verify_nonce($art_nonce, 'art_nonce') ) {
+    //     // Nonce is invalid; handle the request accordingly, e.g., deny access.
+    //     wp_die('Invalid nonce.');
+    // }
 
     // $args = array(
     //     'post_type' => 'obra',

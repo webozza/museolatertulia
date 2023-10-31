@@ -125,7 +125,6 @@ $query = new WP_Query($args);
                   action: 'get_filtered_img',
                   parentMenu: parentMenu,
                   menuId: id,
-                  security: art_nonce, // Include the nonce in the data
               },
               success: function(response) {
                   console.log(response);
