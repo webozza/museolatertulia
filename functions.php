@@ -70,38 +70,15 @@ function my_ajax_action() {
         ),
     );
     $query = new WP_Query($args);
-    ?>
 
-    <div class="my-masonry-grid">
-    
-    <?php if ($query->have_posts()) : ?>
-    <?php while ($query->have_posts()) : $query->the_post(); ?>
-    <?php
-            $post_id = get_the_ID();
-            ?>
-    <div class="my-masonry-grid-item">
-        <?php the_post_thumbnail('large', array(
-                    'class' => 'clickable-thumbnail',
-                    'data-post-id' => $post_id, 
-                ));
-                ?>
-    </div>
-    <?php endwhile; ?>
-    <?php wp_reset_postdata(); ?>
-    <?php else : ?>
-    <p>No posts found.</p>
-    <?php endif; ?>
-    </div>
-    <?php
-
-    // if ($query->have_posts()) {
-    //     while ($query->have_posts()) {
-    //         $query->the_post();
-    //         the_title();
-    //     }
-    // } else {
-    //     echo 'No posts found.';
-    // }
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            the_title();
+        }
+    } else {
+        echo 'No posts found.';
+    }
     wp_die();
 }
 
