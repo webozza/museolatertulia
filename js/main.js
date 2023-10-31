@@ -257,7 +257,7 @@ jQuery(document).ready(function ($) {
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
           $(".documentSingleImage").prepend(sidebarLoader);
-
+          hideSideLoader()
           documentImgZoom();
         },
         error: function (error) {
@@ -265,6 +265,12 @@ jQuery(document).ready(function ($) {
         },
       });
     });
+
+    function hideSideLoader(){
+      $('.sidebar-single-image .documnetImgzoom').click(()=>{
+        sidebarLoader.fadeOut()
+      })
+    }
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
