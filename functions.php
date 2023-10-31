@@ -63,7 +63,7 @@ function get_filtered_img() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                // 'value' => $menuId,
+                'value' => $menuId,
             ),
         ),
     );
