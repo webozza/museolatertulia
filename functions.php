@@ -49,40 +49,36 @@ add_shortcode('home_grid', 'homeGrid');
 // filter grid 
 
 function get_filtered_img() {
+
+    if ( ! wp_verify_nonce($nonce, 'get_filtered_img') ) {
+        echo 'nonce is invalide';
+    }
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
-    // $art_nonce = $_POST['security']; // Retrieve the nonce value from the request
+    $args = array(
+        'post_type' => 'obra',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => $parentMenu,
+                // 'value' => $menuId,
+            ),
+        ),
+    );
 
-    // // Verify the nonce
-    // if ( ! wp_verify_nonce($art_nonce, 'art_nonce') ) {
-    //     // Nonce is invalid; handle the request accordingly, e.g., deny access.
-    //     wp_die('Invalid nonce.');
-    // }
+    $query = new WP_Query($args);
 
-    // $args = array(
-    //     'post_type' => 'obra',
-    //     'posts_per_page' => -1,
-    //     'meta_query' => array(
-    //         array(
-    //             'key' => $parentMenu,
-    //             // 'value' => $menuId,
-    //         ),
-    //     ),
-    // );
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            the_title();
+        }
+    } else {
+        echo 'No posts found.';
+    }
 
-    // $query = new WP_Query($args);
-
-    // if ($query->have_posts()) {
-    //     while ($query->have_posts()) {
-    //         $query->the_post();
-    //         the_title();
-    //     }
-    // } else {
-    //     echo 'No posts found.';
-    // }
-
-    echo $parentMenu;
+    // echo $parentMenu;
 
     wp_reset_postdata();
 
