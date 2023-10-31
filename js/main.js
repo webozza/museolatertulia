@@ -264,6 +264,7 @@ jQuery(document).ready(function ($) {
           console.error("Error fetching image data:", error);
         },
       });
+      $(".documentSingleImage").fadeOut(sidebarLoader);
     });
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
