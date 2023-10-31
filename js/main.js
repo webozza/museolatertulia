@@ -244,10 +244,10 @@ jQuery(document).ready(function ($) {
     
     $(".documentImg").on("click", async function () {
       let sidebarLoader = `<div class="sidebarLoader">
-        <img src="${themeDir}/popUpIcon/loading.gif" alt="">
+      <img src="${themeDir}/popUpIcon/loading.gif" alt="">
       </div>`
       $(".documentSingleImage").show();
-    
+
       let imageId = $(this).find("img").attr("id");
       $.ajax({
         url: `/wp-json/wp/v2/media/${imageId}`,
@@ -255,21 +255,23 @@ jQuery(document).ready(function ($) {
         dataType: "json",
         success: function (imageData) {
           let imgURL = imageData.source_url;
-          let imgTag = `<img class='sidebar-single-image' onload="hideLoader(this)" src='${imgURL}'> </img>`;
+          let imgTag = `<img class='sidebar-single-image' onload="hideLoader(this) src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
           $(".documentSingleImage").prepend(sidebarLoader);
+
+
         },
         error: function (error) {
           console.error("Error fetching image data:", error);
         },
       });
+      
     });
-    
+
     function hideLoader(image) {
       // This function will be called when the image is fully loaded.
       $(".sidebarLoader").fadeOut();
     }
-    
 
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
