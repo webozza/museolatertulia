@@ -52,13 +52,21 @@ function get_filtered_img() {
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
+    $art_nonce = $_POST['security']; // Retrieve the nonce value from the request
+
+    // Verify the nonce
+    if ( ! wp_verify_nonce($art_nonce, 'art_nonce') ) {
+        // Nonce is invalid; handle the request accordingly, e.g., deny access.
+        wp_die('Invalid nonce.');
+    }
+
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => $parentMenu, 
-                // 'value' => $menuId, 
+                'key' => $parentMenu,
+                // 'value' => $menuId,
             ),
         ),
     );
@@ -79,3 +87,4 @@ function get_filtered_img() {
     wp_die();
 }
 add_action('wp_ajax_get_filtered_img', 'get_filtered_img');
+
