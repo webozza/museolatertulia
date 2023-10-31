@@ -359,12 +359,18 @@ jQuery(document).ready(function ($) {
 
     });
   };
-
   $(".plus").on("click", () => {
     $(".info").slideToggle();
   });
-
   // run the function
 
   closeWindow();
+
+  // filter left menu 
+
+
+  
+
+
+  
 });
