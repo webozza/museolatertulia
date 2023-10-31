@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.9');
+    define('_T_VERSION', '1.0.10');
 }
 
 error_reporting(E_ALL);
@@ -48,41 +48,77 @@ add_shortcode('home_grid', 'homeGrid');
 
 // filter grid 
 
-function get_filtered_img() {
+// function get_filtered_img() {
 
-    if ( ! wp_verify_nonce($nonce, 'get_filtered_img') ) {
-        echo 'nonce is invalide';
-    }
+//     $parentMenu = $_POST['parentMenu'];
+//     $menuId = $_POST['menuId'];
+
+//     $args = array(
+//         'post_type' => 'obra',
+//         'posts_per_page' => -1,
+//         'meta_query' => array(
+//             array(
+//                 'key' => $parentMenu,
+//                 // 'value' => $menuId,
+//             ),
+//         ),
+//     );
+
+//     $query = new WP_Query($args);
+
+//     if ($query->have_posts()) {
+//         while ($query->have_posts()) {
+//             $query->the_post();
+//             the_title();
+//         }
+//     } else {
+//         echo 'No posts found.';
+//     }
+
+//     // echo $parentMenu;
+
+//     wp_reset_postdata();
+
+//     wp_die();
+// }
+// add_action('wp_ajax_get_filtered_img', 'get_filtered_img');
+
+
+
+//======================
+
+
+
+function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
-    $menuId = $_POST['menuId'];
+    $menuId = $_POST['id'];
 
-    $args = array(
+    $data = 'Data fetched from the server';
+
+        $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
                 // 'value' => $menuId,
-            ),
-        ),
-    );
+                    ),
+                ),
+            );
 
-    $query = new WP_Query($args);
+            $query = new WP_Query($args);
 
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            the_title();
-        }
-    } else {
-        echo 'No posts found.';
-    }
-
-    // echo $parentMenu;
-
-    wp_reset_postdata();
-
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    the_title();
+                }
+            } else {
+                echo 'No posts found.';
+            }
     wp_die();
 }
-add_action('wp_ajax_get_filtered_img', 'get_filtered_img');
+
+add_action('wp_ajax_my_ajax_action', 'my_ajax_action');
+//add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
 

@@ -115,23 +115,44 @@ $query = new WP_Query($args);
 
      
 
-      $('.drop_down_menu').click(function () {
-          let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-          let id = $(this).attr('id');
-          $.ajax({
-              url: '/wp-admin/admin-ajax.php',
-              type: 'post',
-              data: {
-                  action: 'get_filtered_img',
-                  parentMenu: parentMenu,
-                  menuId: id,
-              },
-              success: function(response) {
-                  console.log(response);
-              }
-          });
-      });
+      // $('.drop_down_menu').click(function () {
+      //     let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+      //     let id = $(this).attr('id');
+      //     $.ajax({
+      //         url: '/wp-admin/admin-ajax.php',
+      //         type: 'post',
+      //         data: {
+      //             action: 'get_filtered_img',
+      //             parentMenu: parentMenu,
+      //             menuId: id,
+      //         },
+      //         success: function(response) {
+      //             console.log(response);
+      //         }
+      //     });
+      // });
 
 
+
+	jQuery(document).ready(function($) {
+    $('.drop_down_menu').on('click', function() {
+      let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+      let id = $(this).attr('id');
+
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php', 
+				type: 'POST',
+				data: {
+					action: 'my_ajax_action',
+					parentMenu: parentMenu,
+          id : id ,
+				},
+
+				success: function(response) {
+					console.log('ajax request ok', response);
+				}
+			});
+		});
+	});
 
 </script>
