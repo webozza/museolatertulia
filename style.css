@@ -452,7 +452,7 @@ p.parent_menu {
   display: flex;
   list-style: none;
   display: inline-flex;
-  padding: 0px 44px;
+  padding: 0px 44px !important;
   justify-content: flex-end;
   align-items: center;
   gap: 64px;
