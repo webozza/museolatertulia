@@ -52,7 +52,7 @@ function get_filtered_img() {
 
     $parentMenu = $_POST['parentMenu'];
     $menu_id_with_underscore = $_POST['menuId'];
-    $menuId = str_replace( ' - ' , '  ' , $menu_id_with_underscore);
+    $menuId = str_replace( ' - '  ,  '  '  ,  $menu_id_with_underscore);
 
     error_log('Parent Menu: ' . $parentMenu);
     error_log('Menu ID: ' . $menuId);
