@@ -51,8 +51,7 @@ add_shortcode('home_grid', 'homeGrid');
 function get_filtered_img() {
 
     $parentMenu = $_POST['parentMenu'];
-    $menu_id_with_underscore = $_POST['menuId'];
-    $menuId = str_replace( ' - '  ,  '  '  ,  $menu_id_with_underscore);
+    $menuId = $_POST['menuId'];
 
     error_log('Parent Menu: ' . $parentMenu);
     error_log('Menu ID: ' . $menuId);
@@ -63,7 +62,7 @@ function get_filtered_img() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                // 'value' => $menuId,
+                'value' => $menuId,
             ),
         ),
     );
