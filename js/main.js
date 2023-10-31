@@ -366,7 +366,19 @@ jQuery(document).ready(function ($) {
 
   closeWindow();
 
-  // filter left menu 
+  // =================================//
+  //                             Filter left menu 
+  // =================================//
+
+  $('.drop_down_menu').click(function () {
+    let parentMenu = $(this).parent().parent().children()[0]
+
+    let id = $(this).attr('id')
+    $
+
+});
+
+
 
 
   
