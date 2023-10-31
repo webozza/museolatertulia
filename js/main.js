@@ -371,11 +371,31 @@ jQuery(document).ready(function ($) {
   // =================================//
 
   $('.drop_down_menu').click(function () {
-    let parentMenu = $('.drop_down_menu').closest('.menu-item').find('.parent_menu').text()
+    let parentMenu = $(this).parent().parent().find('.parent_menu').find('font').eq(1).text();
     let id = $(this).attr('id')
-    console.log(parentMenu)
-    console.log(id)
+    // console.log(parentMenu)
+    // console.log(id)
+
+        $.ajax({
+            url:'/wp-admin/admin-ajax.php',
+            type : 'post',
+            data : {
+              action : 'get_filtered_img',
+              parentMenu : parentMenu,
+              menuId : id,
+            },
+            success:function(response){
+                console.log(response)
+            }
+        })
+
+
+
+
+
 });
+
+
 
 
 

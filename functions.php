@@ -40,3 +40,15 @@ function homeGrid() {
     include(get_stylesheet_directory() . '/module/home-grid.php');
 }
 add_shortcode('home_grid', 'homeGrid');
+
+
+
+// filter grid 
+
+ function get_filtered_img(){
+    $parentMenu = $_POST['parentMenu'];
+    $menuId = $_POST['menuId'];
+
+    echo $menuId;
+
+ }
