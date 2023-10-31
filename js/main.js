@@ -241,12 +241,12 @@ jQuery(document).ready(function ($) {
   //========================================================
 
   async function handleDocumentSingleImage() {
-    
     $(".documentImg").on("click", async function () {
       let sidebarLoader = `<div class="sidebarLoader">
       <img src="${themeDir}/popUpIcon/loading.gif" alt="">
       </div>`
       $(".documentSingleImage").show();
+      $(".documentSingleImage").html(sidebarLoader);
 
       let imageId = $(this).find("img").attr("id");
       $.ajax({
@@ -257,17 +257,13 @@ jQuery(document).ready(function ($) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
-          $(".documentSingleImage").prepend(sidebarLoader);
-            $(".sidebarLoader").fadeOut();
-
+          documentImgZoom();
         },
         error: function (error) {
           console.error("Error fetching image data:", error);
         },
       });
-      
     });
-
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
