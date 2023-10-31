@@ -241,31 +241,38 @@ jQuery(document).ready(function ($) {
   //========================================================
 
   async function handleDocumentSingleImage() {
-    $(".documentImg").on("click", async function () {
-      let sidebarLoader = `<div class="sidebarLoader">
-      <img src="${themeDir}/popUpIcon/loading.gif" alt="">
-      </div>`
-      $(".documentSingleImage").show();
 
-      let imageId = $(this).find("img").attr("id");
-      $.ajax({
-        url: `/wp-json/wp/v2/media/${imageId}`,
-        type: "GET",
-        dataType: "json",
-        success: function (imageData) {
-          let imgURL = imageData.source_url;
-          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
-          $(".documentSingleImage").html(imgTag);
-          $(".documentSingleImage").prepend(sidebarLoader);
+$(".documentImg").on("click", async function () {
+  let sidebarLoader = `<div class="sidebarLoader">
+    <img src="${themeDir}/popUpIcon/loading.gif" alt="">
+  </div>`;
+  $(".documentSingleImage").show();
 
-          documentImgZoom();
-        },
-        error: function (error) {
-          console.error("Error fetching image data:", error);
-        },
-      });
-      $(".documentSingleImage").fadeOut(sidebarLoader);
+  let imageId = $(this).find("img").attr("id");
+  let imgElement = new Image();
+  let loaderClass = "loader";
+
+  $(".documentSingleImage").prepend(sidebarLoader);
+  $(".documentSingleImage .sidebarLoader").addClass(loaderClass);
+
+  imgElement.src = `/wp-json/wp/v2/media/${imageId}`;
+  imgElement.onload = function () {
+    $(".documentSingleImage .sidebarLoader." + loaderClass).fadeOut(500, function () {
+      $(this).remove();
     });
+
+    let imgURL = imgElement.src;
+    let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
+    $(".documentSingleImage").html(imgTag);
+    documentImgZoom();
+  };
+
+  imgElement.onerror = function () {
+    console.error("Error fetching image data");
+  };
+});
+
+
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
