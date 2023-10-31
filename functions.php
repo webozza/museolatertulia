@@ -46,9 +46,47 @@ add_shortcode('home_grid', 'homeGrid');
 
 
 
-//===================================
-//         Filter Home Grid 
-//===================================
+// filter grid 
+
+// function get_filtered_img() {
+
+//     $parentMenu = $_POST['parentMenu'];
+//     $menuId = $_POST['menuId'];
+
+//     $args = array(
+//         'post_type' => 'obra',
+//         'posts_per_page' => -1,
+//         'meta_query' => array(
+//             array(
+//                 'key' => $parentMenu,
+//                 // 'value' => $menuId,
+//             ),
+//         ),
+//     );
+
+//     $query = new WP_Query($args);
+
+//     if ($query->have_posts()) {
+//         while ($query->have_posts()) {
+//             $query->the_post();
+//             the_title();
+//         }
+//     } else {
+//         echo 'No posts found.';
+//     }
+
+//     // echo $parentMenu;
+
+//     wp_reset_postdata();
+
+//     wp_die();
+// }
+// add_action('wp_ajax_get_filtered_img', 'get_filtered_img');
+
+
+
+//======================
+
 
 
 function my_ajax_action() {
