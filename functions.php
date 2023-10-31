@@ -48,11 +48,15 @@ add_shortcode('home_grid', 'homeGrid');
 
 // filter grid 
 
- function get_filtered_img(){
+function get_filtered_img() {
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
-    echo $menuId;
+    error_log('Parent Menu: ' . $parentMenu);
+    error_log('Menu ID: ' . $menuId);
 
- }
+    echo 'Response data';
+
+    wp_die(); 
+}
  add_action('wp_ajax_get_filtered_img','get_filtered_img');
