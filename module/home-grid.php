@@ -112,22 +112,23 @@ $query = new WP_Query($args);
   // =================================//
 
       $('.drop_down_menu').click(function () {
-        let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id')
-        let id = $(this).attr('id')
+        let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+        let id = $(this).attr('id');
 
-            $.ajax({
-              url: '/wp-admin/admin-ajax.php',
-              type: 'post',
-              data: {
-                  action: 'get_filtered_img',
-                  parentMenu: parentMenu,
-                  menuId: id
-              },
-              success: function(response) {
-                  console.log(response);
-              }
-          });
+        $.ajax({
+            url: '/wp-admin/admin-ajax.php',
+            type: 'post',
+            data: {
+                action: 'get_filtered_img',
+                parentMenu: parentMenu,
+                menuId: id
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
     });
+
 
 
 </script>

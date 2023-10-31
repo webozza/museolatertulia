@@ -49,7 +49,6 @@ add_shortcode('home_grid', 'homeGrid');
 // filter grid 
 
 function get_filtered_img() {
-
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
@@ -58,8 +57,8 @@ function get_filtered_img() {
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => $parentMenu,
-                // 'value' => $menuId,
+                'key' => $parentMenu, // Custom field name to search
+                'value' => $menuId,    // Value to match
             ),
         ),
     );
@@ -79,4 +78,4 @@ function get_filtered_img() {
 
     wp_die();
 }
- add_action('wp_ajax_get_filtered_img','get_filtered_img');
+add_action('wp_ajax_get_filtered_img', 'get_filtered_img');
