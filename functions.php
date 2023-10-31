@@ -64,8 +64,8 @@ function my_ajax_action() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                'value' => $menuId,
-                'compare' => '=',
+                // 'value' => $menuId,
+                // 'compare' => '=',
             ),
         ),
     );
