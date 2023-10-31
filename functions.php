@@ -57,8 +57,8 @@ function get_filtered_img() {
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => $parentMenu, // Custom field name to search
-                'value' => $menuId,    // Value to match
+                'key' => $parentMenu, 
+                // 'value' => $menuId, 
             ),
         ),
     );
