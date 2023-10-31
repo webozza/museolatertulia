@@ -108,11 +108,11 @@ jQuery(document).ready(function ($) {
   });
 
   //============================
-  //                        Grid END
+  //          rid END
   //============================
 
   //============================
-  //                        PopUp
+  //            PopUp
   //============================
 
   $(".clickable-thumbnail").on("click", function () {
@@ -237,7 +237,7 @@ jQuery(document).ready(function ($) {
   });
 
   //========================================================
-  //                                     document single image window popup
+  //           document single image window popup
   //========================================================
 
   async function handleDocumentSingleImage() {
@@ -251,7 +251,7 @@ jQuery(document).ready(function ($) {
         success: function (imageData) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
-          $(".documentSingleImage").html(imgTag);
+          $(".documentSingleImage").append(imgTag);
           documentImgZoom();
         },
         error: function (error) {
@@ -280,7 +280,7 @@ jQuery(document).ready(function ($) {
   handledocumentWindow();
 
   //=========================================
-  //                                          zoom effect
+  //               zoom effect
   //=========================================
 
   $(".zoomOut").hide();
@@ -342,7 +342,7 @@ jQuery(document).ready(function ($) {
   };
 
   //====================================
-  //                                 Window Close
+  //           Window Close
   //====================================
 
   let closeWindow = () => {
