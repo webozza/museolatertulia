@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.8');
+    define('_T_VERSION', '1.0.9');
 }
 
 error_reporting(E_ALL);
