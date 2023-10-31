@@ -52,4 +52,4 @@ add_shortcode('home_grid', 'homeGrid');
     echo $menuId;
 
  }
- add_action('wp_get_filtered_img','get_filtered_img');
+ add_action('wp_ajax_get_filtered_img','get_filtered_img');
