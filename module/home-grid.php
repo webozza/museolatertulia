@@ -115,8 +115,6 @@ $query = new WP_Query($args);
         let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id')
         let id = $(this).attr('id')
 
-        console.log(parentMenu,id)
-
             $.ajax({
               url: '/wp-admin/admin-ajax.php',
               type: 'post',
