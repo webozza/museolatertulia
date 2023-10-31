@@ -53,9 +53,6 @@ function get_filtered_img() {
     $parentMenu = $_POST['parentMenu'];
     $menuId = $_POST['menuId'];
 
-    error_log('Parent Menu: ' . $parentMenu);
-    error_log('Menu ID: ' . $menuId);
-
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
