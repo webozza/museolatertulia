@@ -372,10 +372,9 @@ jQuery(document).ready(function ($) {
 
   $('.drop_down_menu').click(function () {
     let parentMenu = $('.drop_down_menu').closest('.menu-item').find('.parent_menu').text()
-
     let id = $(this).attr('id')
-    $
-
+    console.log(parentMenu)
+    console.log(id)
 });
 
 
