@@ -74,7 +74,7 @@ $query = new WP_Query($args);
         <div class="documentWindowNav">
                 <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>
                 <div class="backArrow"><img src="<?= get_stylesheet_directory_uri(); ?>/popUpIcon/icono _-.png" alt=""></div>
-                <div class="documnetImgzoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
+                <div class="documentImgZoom"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-lupa+.png" alt="" /></div>
                 <div class="documentWindowZoomout"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-minus.png" alt="" /></div>
         </div>
       </div>
