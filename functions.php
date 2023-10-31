@@ -3,6 +3,9 @@ if (!defined('_T_VERSION')) {
     define('_T_VERSION', '1.0.7');
 }
 
+error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 function my_theme_enqueue_styles() {
     $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
