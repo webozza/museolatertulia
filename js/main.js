@@ -377,17 +377,17 @@ jQuery(document).ready(function ($) {
     // console.log(id)
 
         $.ajax({
-            url:'/wp-admin/admin-ajax.php',
-            type : 'post',
-            data : {
-              action : 'get_filtered_img',
-              parentMenu : parentMenu,
-              menuId : id,
-            },
-            success:function(response){
-                console.log(response)
-            }
-        })
+          url: '/wp-admin/admin-ajax.php',
+          type: 'post',
+          data: {
+              action: 'get_filtered_img',
+              parentMenu: parentMenu,
+              menuId: id
+          },
+          success: function(response) {
+              console.log(response);
+          }
+      });
 
 
 
