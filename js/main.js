@@ -267,7 +267,7 @@ jQuery(document).ready(function ($) {
     });
 
     function hideSideLoader(){
-      $('.documentImgZoom .documentSingleImage').click(() => {
+      $('.documentSingleImage').click(() => {
         $('.sidebarLoader').fadeOut()
       })
     }
