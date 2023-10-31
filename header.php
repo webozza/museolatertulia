@@ -109,25 +109,25 @@ function querry_menu($menu_category){
     <div class="menu-right">
         <ul>
             <li class="menu-item">
-                <p class="parent_menu">Bienales</p>
+                <p class="parent_menu" id='obra-bienal'>Bienales</p>
                 <ul class="submenu">
                     <?php querry_menu('obra-bienal')?>
                 </ul>
             </li>
             <li class="menu-item">
-            <p class="parent_menu">Artistas</p>
+            <p class="parent_menu" id='obra-nombre_completo'>Artistas</p>
                 <ul class="submenu">
                     <?php querry_menu('obra-nombre_completo')?> 
                 </ul>
             </li>
             <li class="menu-item">
-            <p class="parent_menu">Técnicas</p>
+            <p class="parent_menu" id='obra-tecnica_materiales'>Técnicas</p>
                 <ul class="submenu">
                     <?php querry_menu('obra-tecnica_materiales')?>
                 </ul>
             </li>
             <li class="menu-item">       
-            <p class="parent_menu">Nacionalidad</p>
+            <p class="parent_menu" id='obra-nacionalidad'>Nacionalidad</p>
                 <ul class="submenu">
                     <?php querry_menu('obra-nacionalidad')?>
                 </ul>

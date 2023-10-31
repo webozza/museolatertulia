@@ -112,7 +112,7 @@ $query = new WP_Query($args);
   // =================================//
 
       $('.drop_down_menu').click(function () {
-        let parentMenu = $(this).parent().parent().find('.parent_menu').find('font').eq(1).text();
+        let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id')
         let id = $(this).attr('id')
 
         console.log(parentMenu,id)
