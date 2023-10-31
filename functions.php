@@ -63,21 +63,24 @@ function get_filtered_img() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                'value' => $menuId,
+                // 'value' => $menuId,
             ),
         ),
     );
 
     $query = new WP_Query($args);
 
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            the_title();
-        }
-    } else {
-        echo 'No posts found.';
-    }
+    // if ($query->have_posts()) {
+    //     while ($query->have_posts()) {
+    //         $query->the_post();
+    //         the_title();
+    //     }
+    // } else {
+    //     echo 'No posts found.';
+    // }
+
+    echo $menuId;
+
 
     wp_reset_postdata();
 
