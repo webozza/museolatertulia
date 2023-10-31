@@ -254,10 +254,10 @@ jQuery(document).ready(function ($) {
         dataType: "json",
         success: function (imageData) {
           let imgURL = imageData.source_url;
-          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
+          let imgTag = `<img class='sidebar-single-image' onload="hideLoader()" src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
           $(".documentSingleImage").prepend(sidebarLoader);
-          hideSideLoader()
+          // hideSideLoader()
           documentImgZoom();
         },
         error: function (error) {
@@ -266,10 +266,11 @@ jQuery(document).ready(function ($) {
       });
     });
 
-    function hideSideLoader(){
-      $('.documentImgZoom .sidebar-single-image').click(() => {
+    function hideLoader(){
+      // $('.documentImgZoom .documentSingleImage').click(() => {
+
         $('.sidebarLoader').fadeOut()
-      })
+      // })
     }
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
