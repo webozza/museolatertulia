@@ -246,7 +246,6 @@ jQuery(document).ready(function ($) {
       <img src="${themeDir}/popUpIcon/loading.gif" alt="">
       </div>`
       $(".documentSingleImage").show();
-      $(".documentSingleImage").html(sidebarLoader);
 
       let imageId = $(this).find("img").attr("id");
       $.ajax({
@@ -256,7 +255,9 @@ jQuery(document).ready(function ($) {
         success: function (imageData) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
-          $(".documentSingleImage").append(imgTag);
+          $(".documentSingleImage").html(imgTag);
+          $(".documentSingleImage").prepend(sidebarLoader);
+
           documentImgZoom();
         },
         error: function (error) {

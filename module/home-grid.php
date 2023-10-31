@@ -70,9 +70,6 @@ $query = new WP_Query($args);
           </div>
         </div>
         <div class="documentSingleImage zoom-container">
-        <div class="sidebarLoader">
-        <img src="<?= get_stylesheet_directory_uri(  )?>/popUpIcon/loading.gif" alt="">
-        </div>
         </div>
         <div class="documentWindowNav">
                 <div class="closedocumentWindow"><img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" /></div>

@@ -545,3 +545,9 @@ line-height: 22px; ;
   bottom: 0;
   z-index: -1;
 }
+
+/* sidebar Loader */
+
+.sidebarLoader{
+  position: absolute;
+}
