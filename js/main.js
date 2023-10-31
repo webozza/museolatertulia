@@ -373,8 +373,6 @@ jQuery(document).ready(function ($) {
   $('.drop_down_menu').click(function () {
     let parentMenu = $(this).parent().parent().find('.parent_menu').find('font').eq(1).text();
     let id = $(this).attr('id')
-    // console.log(parentMenu)
-    // console.log(id)
 
         $.ajax({
           url: '/wp-admin/admin-ajax.php',
@@ -385,12 +383,9 @@ jQuery(document).ready(function ($) {
               menuId: id
           },
           success: function(response) {
-              console.log(response);
+              console.log('response');
           }
       });
-
-
-
 
 
 });
