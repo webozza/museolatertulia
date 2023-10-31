@@ -141,6 +141,7 @@ function querry_menu($menu_category){
 
 
     <script>
+       let themeDir = <?= get_stylesheet_directory() ?>
 
 
 

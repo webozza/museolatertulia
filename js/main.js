@@ -242,7 +242,9 @@ jQuery(document).ready(function ($) {
 
   async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {
+      let sidebarLoader = ``
       $(".documentSingleImage").show();
+
       let imageId = $(this).find("img").attr("id");
       $.ajax({
         url: `/wp-json/wp/v2/media/${imageId}`,
@@ -251,7 +253,7 @@ jQuery(document).ready(function ($) {
         success: function (imageData) {
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
-          $(".documentSingleImage").append(imgTag);
+          $(".documentSingleImage").html(imgTag);
           documentImgZoom();
         },
         error: function (error) {
