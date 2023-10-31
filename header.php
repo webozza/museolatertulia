@@ -145,7 +145,7 @@ function querry_menu($menu_category){
 
 
         $(document).ready(function(){
-        let themeDir = <?= get_stylesheet_directoryuri() ?>
+        let themeDir = <?= get_stylesheet_directory_uri() ?>
 
             $('.left-toggle-container').click(function(){
                 $('.toggle-menu').toggleClass('on')
