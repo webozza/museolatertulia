@@ -91,31 +91,32 @@ add_shortcode('home_grid', 'homeGrid');
 
 function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
-    $menuId = $_POST['id'];
+    $menuId_with_underscore = $_POST['id'];
+    $menuId = str_replace( ' - ' , ' ' , $menuId_with_underscore);
 
-    $data = 'Data fetched from the server';
+    $data = 'Data fetched from the server'; 
 
-        $args = array(
+    $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                // 'value' => $menuId,
-                    ),
-                ),
-            );
+                'value' => $menuId,
+                'compare' => '=',
+            ),
+        ),
+    );
+    $query = new WP_Query($args);
 
-            $query = new WP_Query($args);
-
-            if ($query->have_posts()) {
-                while ($query->have_posts()) {
-                    $query->the_post();
-                    the_title();
-                }
-            } else {
-                echo 'No posts found.';
-            }
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            the_title();
+        }
+    } else {
+        echo 'No posts found.';
+    }
     wp_die();
 }
 
