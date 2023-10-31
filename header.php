@@ -46,8 +46,8 @@ function querry_menu($menu_category){
     ksort($value_counts);
     
     foreach ($value_counts as $value => $count) {
-        $id= str_replace(' ','',$value);
-        echo '<li class="drop_down_menu id="'.$id.'">' . $value;
+        $id = str_replace(' ', '_', $value);
+        echo '<li class="drop_down_menu" id="' . $id . '">' . $value;        
         if ($count > 1) {
             echo ' (' . $count . ')';
         }
