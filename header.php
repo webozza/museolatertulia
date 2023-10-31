@@ -141,11 +141,12 @@ function querry_menu($menu_category){
 
 
     <script>
-       let themeDir = <?= get_stylesheet_directory() ?>
 
 
 
         $(document).ready(function(){
+        let themeDir = <?= get_stylesheet_directoryuri() ?>
+
             $('.left-toggle-container').click(function(){
                 $('.toggle-menu').toggleClass('on')
                 $('#left-menu').toggleClass('active')
