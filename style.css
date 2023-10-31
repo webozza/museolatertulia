@@ -493,7 +493,7 @@ p.parent_menu {
 margin-left: -25px !important;
 }
 .menu-item:first-child .submenu{
-  left: 0% !important;
+  left: -40% !important;
   }
   
 .submenu > .drop_down_menu {
