@@ -445,7 +445,9 @@ img.sidebar-single-image {
   height: fit-content;
   position: relative;
 }
-
+p.parent_menu {
+  margin: 0;
+}
 .menu-right > ul {
   display: flex;
   list-style: none;
