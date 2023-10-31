@@ -255,10 +255,10 @@ jQuery(document).ready(function ($) {
         dataType: "json",
         success: function (imageData) {
           let imgURL = imageData.source_url;
-          let imgTag = `<img class='sidebar-single-image' onload="hideLoader(this) src='${imgURL}'> </img>`;
+          let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
           $(".documentSingleImage").prepend(sidebarLoader);
-
+            $(".sidebarLoader").fadeOut();
 
         },
         error: function (error) {
@@ -267,11 +267,6 @@ jQuery(document).ready(function ($) {
       });
       
     });
-
-    function hideLoader(image) {
-      // This function will be called when the image is fully loaded.
-      $(".sidebarLoader").fadeOut();
-    }
 
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
