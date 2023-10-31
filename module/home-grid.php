@@ -113,7 +113,7 @@ $query = new WP_Query($args);
 
 
 
-      let art_nonce = "<?php echo wp_create_nonce('wp_rest'); ?>";
+     
 
       $('.drop_down_menu').click(function () {
           let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
