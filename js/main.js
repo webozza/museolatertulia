@@ -366,14 +366,4 @@ jQuery(document).ready(function ($) {
 
   closeWindow();
 
-
-
-
-
-
-
-  
-
-
-  
 });

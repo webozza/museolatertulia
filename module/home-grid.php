@@ -115,6 +115,8 @@ $query = new WP_Query($args);
         let parentMenu = $(this).parent().parent().find('.parent_menu').find('font').eq(1).text();
         let id = $(this).attr('id')
 
+        console.log(parentMenu,id)
+        
             $.ajax({
               url: '/wp-admin/admin-ajax.php',
               type: 'post',
@@ -124,8 +126,10 @@ $query = new WP_Query($args);
                   menuId: id
               },
               success: function(response) {
-                  console.log('response');
+                  console.log(response);
               }
           });
     });
+
+
 </script>
