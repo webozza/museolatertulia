@@ -242,8 +242,11 @@ jQuery(document).ready(function ($) {
 
   async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {
-      let sidebarLoader = ``
+      let sidebarLoader = `<div class="sidebarLoader">
+      <img src="${themeDir}/popUpIcon/loading.gif" alt="">
+      </div>`
       $(".documentSingleImage").show();
+      $(".documentSingleImage").html(sidebarLoader);
 
       let imageId = $(this).find("img").attr("id");
       $.ajax({
