@@ -140,7 +140,7 @@ function querry_menu($menu_category){
 
     <script>
 
-        let art_nonce = <?=   wp_create_nonce('art_nonce');?>
+        let art_nonce = '<?=   wp_create_nonce('art_nonce');?>'
 
         $(document).ready(function(){
             $('.left-toggle-container').click(function(){
