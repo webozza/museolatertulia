@@ -123,7 +123,7 @@ $query = new WP_Query($args);
           $('.my-masonry-grid').html(response)
           $('.my-masonry-grid').prepend($('.pre-loader'))
           setTimeout(() => {
-          $('.pre-loader').fadeOut()
+          // $('.pre-loader').fadeOut()
           }, 2000);
           $(".my-masonry-grid").masonryGrid({
             columns: 6,
