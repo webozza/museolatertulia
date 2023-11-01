@@ -54,7 +54,7 @@ add_shortcode('home_grid', 'homeGrid');
 function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
     $menuId_with_underscore = $_POST['id'];
-    $menuId = str_replace( ' - ' , ' ' , $menuId_with_underscore);
+    $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
 
     $data = 'Data fetched from the server'; 
 
@@ -72,7 +72,7 @@ function my_ajax_action() {
     $query = new WP_Query($args);
 
     ?>
-            <!-- <?php if ($query->have_posts()) : ?>
+            <?php if ($query->have_posts()) : ?>
             <?php while ($query->have_posts()) : $query->the_post(); ?>
             <?php $post_id = get_the_ID();?>
                     <div class="my-masonry-grid-item">
@@ -87,10 +87,10 @@ function my_ajax_action() {
             <?php wp_reset_postdata(); ?>
             <?php else : ?>
             <p>No posts found.</p>
-            <?php endif; ?> -->
+            <?php endif; ?>
     <?php
 
-    echo $menuId;
+    // echo $menuId;
 
     wp_die();
 }
