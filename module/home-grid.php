@@ -119,6 +119,7 @@ $query = new WP_Query($args);
 				},
 
 				success: function(response) {
+          console.log(response)
           $('.my-masonry-grid').html(response)
           $(".my-masonry-grid").masonryGrid({
             columns: 6,
