@@ -1,7 +1,11 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.11');
+    define('_T_VERSION', '1.0.12');
 }
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);
+
 
 error_reporting(E_ALL);
     ini_set('display_errors', 1);
