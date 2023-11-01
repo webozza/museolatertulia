@@ -94,7 +94,7 @@ function querry_menu($menu_category){
                         </li>
                         <li class="top-level-menu">
                             <p class='menu_date'>1976</p>
-                            <ul class="submenu">
+                            <ul  class="submenu">
                                 <li>map</li>
                                 <li>biennial</li>
                                 <li>categories</li>

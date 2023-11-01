@@ -1,11 +1,4 @@
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maps</title>
-
-
 
    <style>
         .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
@@ -68,27 +61,17 @@
         .butt-country:hover {
             fill: #a4fffa;
         }
-        .map_container{
-            display: flex;
-        }
-        #map{
-            flex:1;
-        }
-        #map_sidebar{
-            flex:1;
-        }
+
+
+
    </style>
 
-  </head>
-  <body>
+
     <div class="map_container">
         <div id="map">
             <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
         </div>
-        <div id="map_sidebar">
-        </div>
     </div>
-
 
     <div id="zoom-controls">
         <button id="zoomIn">
@@ -109,22 +92,21 @@
         <button id="moveDown">
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
         </button>
-      </div>
+    </div>
     
     <script>
+        const svg = document.querySelector("svg");
+                let scale = 0.9;
+                let translateX = 0;
+                let translateY = 40;
+                updateTransform();
 
-     const svg = document.querySelector("svg");
-            let scale = 0.9;
-            let translateX = 0;
-            let translateY = 40;
-            updateTransform();
+        function updateTransform() {
+                    svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+                }
 
-      function updateTransform() {
-                svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
-            }
-
-            function mapController(){
-                document.getElementById("zoomIn").addEventListener("click", () => {
+        function mapController(){
+            document.getElementById("zoomIn").addEventListener("click", () => {
                 scale += 0.1;
                 updateTransform();
             });
@@ -156,8 +138,5 @@
             
       }
       mapController()
-
-      
     </script>
-  </body>
-</html>
+

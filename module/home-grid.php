@@ -3,10 +3,36 @@ $args = array(
     'post_type' => 'obra',
     'posts_per_page' => -1,
 );
-
 $query = new WP_Query($args);
-
 ?>
+
+<div class="home_section">
+    <div class="map">
+    <?php include get_stylesheet_directory() . '/module/map.php'?>
+    </div>
+
+    <div class="my-masonry-grid">  
+        <?php if ($query->have_posts()) : ?>
+        <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <?php
+                $post_id = get_the_ID();
+            ?>
+        <div class="my-masonry-grid-item">
+            <?php the_post_thumbnail('large', 
+              array(
+                  'class' => 'clickable-thumbnail',
+                  'data-post-id' => $post_id, 
+              ));
+            ?>
+        </div>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        <?php else : ?>
+        <p>No posts found.</p>
+        <?php endif; ?>
+    </div>
+</div>
+
 
 <div class="popup-box  zoom-container">
         <div class="pre-loader">
@@ -79,66 +105,42 @@ $query = new WP_Query($args);
         </div>
       </div>
 
-    </div>
-
-<div class="my-masonry-grid">
-    
-    <?php if ($query->have_posts()) : ?>
-    <?php while ($query->have_posts()) : $query->the_post(); ?>
-    <?php
-            $post_id = get_the_ID();
-            ?>
-    <div class="my-masonry-grid-item">
-        <?php the_post_thumbnail('large', array(
-                    'class' => 'clickable-thumbnail',
-                    'data-post-id' => $post_id, 
-                ));
-                ?>
-    </div>
-    <?php endwhile; ?>
-    <?php wp_reset_postdata(); ?>
-    <?php else : ?>
-    <p>No posts found.</p>
-    <?php endif; ?>
 </div>
 
 <script>
-
-jQuery(document).ready(function($) {
-    let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
-    let preLoader = '<div class="pre-loader-filtered">' +
-    '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
-
-    $('.drop_down_menu').on('click', function() {
-        let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-        let id = $(this).attr('id');
-        
+    jQuery(document).ready(function($) {
+        let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
+        let preLoader = '<div class="pre-loader-filtered">' +
+        '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
+        $('.drop_down_menu').on('click', function() {
+            let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+            let id = $(this).attr('id');
+            
 
 
-        $.ajax({
-            url: '/wp-admin/admin-ajax.php', 
-            type: 'POST',
-            data: {
-                action: 'my_ajax_action',
-                parentMenu: parentMenu,
-                id: id,
-                security: nonce, 
-            },
-            success: function(response) {
-                console.log(response)
-                $('.my-masonry-grid').html(response)
-                $('.my-masonry-grid').prepend(preLoader)
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'my_ajax_action',
+                    parentMenu: parentMenu,
+                    id: id,
+                    security: nonce, 
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $('.my-masonry-grid').prepend(preLoader)
 
-                setTimeout(() => {
-                    $('.pre-loader-filtered').fadeOut()
-                }, 2000);
-                $(".my-masonry-grid").masonryGrid({
-                    columns: 6,
-                });
-                ImgPopupFunction()
-            }
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 6,
+                    });
+                    ImgPopupFunction()
+                }
+            });
         });
     });
-});
-
 </script>
