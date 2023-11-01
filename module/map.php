@@ -88,23 +88,10 @@
             <button id="zoomOut">
             <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomout.png" />
             </button>
-            <button id="moveLeft">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-izq.png" />
-            </button>
-            <button id="moveRight">
-            <img style="width:35px;height: 35px !important; padding: 5px;" class="disenoImg" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-der.png" />
-            </button>
-            <button id="moveUp">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-arri.png" />
-            </button>
-            <button id="moveDown">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
+            <button id="map_close">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" />
             </button>
         </div>
-        <div class="map_close">
-            <img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" />
-        </div>
-
     </div>
 
 
@@ -119,39 +106,16 @@
         function updateTransform() {
                     svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
                 }
-
         function mapController(){
             document.getElementById("zoomIn").addEventListener("click", () => {
                 scale += 0.1;
                 updateTransform();
             });
-
             document.getElementById("zoomOut").addEventListener("click", () => {
                 scale -= 0.1;
                 updateTransform();
-            });
-
-            document.getElementById("moveLeft").addEventListener("click", () => {
-                translateX -= 30;
-                updateTransform();
-            });
-
-            document.getElementById("moveRight").addEventListener("click", () => {
-                translateX += 30;
-                updateTransform();
-            });
-
-            document.getElementById("moveUp").addEventListener("click", () => {
-                translateY -= 30;
-                updateTransform();
-            });
-
-            document.getElementById("moveDown").addEventListener("click", () => {
-                translateY += 30;
-                updateTransform();
-            });
-            
-      }
+            });  
+        }
       mapController()
     </script>
 
