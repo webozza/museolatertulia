@@ -70,7 +70,8 @@ function querry_menu($menu_category){
             <div id="left-menu">
                 <div>
                     <ul>
-                        <li class="top-level-menu">Start
+                        <li class="top-level-menu">
+                            <a href="<?= site_url();?>">Start</a>
                         </li>
                         <li class="top-level-menu">
                         <p class='menu_date'>1971</p>

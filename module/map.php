@@ -31,8 +31,7 @@
             fill: #394D62;
         }
         #zoom-controls {
-            position: fixed;
-            z-index: 10;
+            position:absolute;
             background-color: #ffffff;
             padding: 5px;
             display: flex;
