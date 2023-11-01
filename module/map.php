@@ -68,6 +68,15 @@
         .butt-country:hover {
             fill: #a4fffa;
         }
+        .map_container{
+            display: flex;
+        }
+        #map{
+            flex:1;
+        }
+        #map_sidebar{
+            flex:1;
+        }
    </style>
 
   </head>
@@ -101,10 +110,9 @@
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
         </button>
       </div>
-
-
-
+    
     <script>
+
      const svg = document.querySelector("svg");
             let scale = 0.9;
             let translateX = 0;
