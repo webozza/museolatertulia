@@ -369,8 +369,11 @@ img.sidebar-single-image {
   font-weight: normal;
   list-style: none;
 }
-.submenu > li {
+
+p.menu_date {
+  margin: auto;
 }
+
 
 #left-menu .submenu {
   display: none; /* Initially hide the submenus */
@@ -585,18 +588,12 @@ line-height: 22px; ;
 
 /* after toggle   */
 
-/* .home_section {
-  display: flex;
-  transition: .3s;
-  justify-content: space-between;
-}
+/*
 .map {
   width: 50%;
 }
 
-.my-masonry-grid.masonry-grid-origin {
+.my-masonry-grid{
   width: 48%;
-  height: 100vh;
-  overflow: auto;
 } */
 
