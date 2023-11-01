@@ -90,7 +90,6 @@ function my_ajax_action() {
             <?php endif; ?>
     <?php
 
-    // echo $menuId;
 
     wp_die();
 }

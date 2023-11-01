@@ -91,7 +91,14 @@ body {
   transform: translate(-50%, -50%);
   user-select: none;
 }
-
+.pre-loader-filtered {
+  z-index: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
 .popup-box .navigation {
   position: absolute;
   bottom: 0;
