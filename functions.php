@@ -40,15 +40,23 @@ function mainJs() {
 }
 add_action('wp_enqueue_scripts', 'mainJs');
 
+
+//===================================
+//                              Add shortcode 
+//===================================
+
 function homeGrid() {
     include(get_stylesheet_directory() . '/module/home-grid.php');
 }
 add_shortcode('home_grid', 'homeGrid');
 
-
+function map() {
+    include(get_stylesheet_directory() . '/module/map.php');
+}
+add_shortcode('map', 'map');
 
 //===================================
-//         Filter Home Grid 
+//                              Filter Home Grid 
 //===================================
 
 
@@ -96,5 +104,5 @@ function my_ajax_action() {
 }
 
 add_action('wp_ajax_my_ajax_action', 'my_ajax_action');
-//add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
+add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
 
