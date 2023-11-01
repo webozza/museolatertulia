@@ -11,7 +11,7 @@
             padding: 0px;
         }
         #map{
-            width: 104%;
+            width: 100%;
             height: 100%;
             top: 0;
         }
@@ -65,6 +65,12 @@
             position: relative;
         }
 
+        .map_close{
+            position: absolute;
+            top: 0;
+            right:0;
+        }
+
 
 
    </style>
@@ -76,25 +82,29 @@
         </div>
 
         <div id="zoom-controls">
-        <button id="zoomIn">
-          <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomin.png" />
-        </button>
-        <button id="zoomOut">
-          <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomout.png" />
-        </button>
-        <button id="moveLeft">
-          <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-izq.png" />
-        </button>
-        <button id="moveRight">
-          <img style="width:35px;height: 35px !important; padding: 5px;" class="disenoImg" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-der.png" />
-        </button>
-        <button id="moveUp">
-          <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-arri.png" />
-        </button>
-        <button id="moveDown">
-          <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
-        </button>
-    </div>
+            <button id="zoomIn">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomin.png" />
+            </button>
+            <button id="zoomOut">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomout.png" />
+            </button>
+            <button id="moveLeft">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-izq.png" />
+            </button>
+            <button id="moveRight">
+            <img style="width:35px;height: 35px !important; padding: 5px;" class="disenoImg" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-der.png" />
+            </button>
+            <button id="moveUp">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-arri.png" />
+            </button>
+            <button id="moveDown">
+            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
+            </button>
+        </div>
+        <div class="map_close">
+            <img src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" alt="" />
+        </div>
+
     </div>
 
 

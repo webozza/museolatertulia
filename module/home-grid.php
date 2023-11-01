@@ -142,5 +142,23 @@ $query = new WP_Query($args);
                 }
             });
         });
+
+        $('.submenu li').click(function () {
+          let key =  $(this).text();
+          let date = $(this).parent().parent().find('.menu_date').text();
+          console.log(key);
+          console.log(date);
+
+          if (key === 'map') {
+            // Change the CSS of elements with class '.map' and '.my-masonry-grid'
+            $('.map').css('width', '50%');
+            $('.my-masonry-grid').css('width', '50%');
+          }
+        });
+        $('.map_close').click(()=>{
+          $('.map').css('width', '0%');
+            $('.my-masonry-grid').css('width', '100%');
+        })
+
     });
 </script>
