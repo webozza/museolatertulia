@@ -142,7 +142,7 @@ $query = new WP_Query($args);
                 }
             });
         });
-        $('#zoom-controls').css('left','100%')
+        $('#zoom-controls').css('width','0')
         $('.submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();
@@ -153,13 +153,13 @@ $query = new WP_Query($args);
             // Change the CSS of elements with class '.map' and '.my-masonry-grid'
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
-            $('#zoom-controls').css('left','0')
+            $('#zoom-controls').css('width','fit-content')
           }
         });
         $('#map_close').click(()=>{
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
-            $('#zoom-controls').css('left','100%')
+            $('#zoom-controls').css('width','0')
         })
 
     });
