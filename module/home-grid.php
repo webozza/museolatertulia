@@ -233,9 +233,7 @@ $query = new WP_Query($args);
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
                 data: {
-                    action: 'mapFilter',
-                    parentMenu: key,
-                    id: countryName,
+                    action: 'defaultGrid',
                 },
                 success: function(response) {
                     console.log(response)
@@ -251,6 +249,9 @@ $query = new WP_Query($args);
                     ImgPopupFunction()
                 }
             });
+
+
+
             $('.masonry-grid-column').css('width','33.33%')
 
         })

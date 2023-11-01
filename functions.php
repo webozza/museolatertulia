@@ -249,5 +249,5 @@ function defaultGrid() {
 
 
 
-add_action('wp_ajax_mapFilter', 'mapFilter');
-add_action('wp_ajax_nopriv_mapFilter', 'mapFilter');
+add_action('wp_ajax_defaultGrid', 'defaultGrid');
+add_action('wp_ajax_nopriv_defaultGrid', 'defaultGrid');
