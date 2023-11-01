@@ -137,15 +137,19 @@ $query = new WP_Query($args);
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
-                    let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width()
-                    if(windowWidthCalc == 1){
-                        let grid = 6
-                      } else{
-                        let grid = 3
-                      }
+                    let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width();
+                    let grid;
+
+                    if (windowWidthCalc == 1) {
+                      grid = 6;
+                    } else {
+                      grid = 3;
+                    }
+
                     $(".my-masonry-grid").masonryGrid({
-                      columns: grid,
+                      columns: grid
                     });
+
                     ImgPopupFunction()
                 }
             });
