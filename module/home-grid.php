@@ -105,6 +105,7 @@ $query = new WP_Query($args);
 <script>
 
 jQuery(document).ready(function($) {
+    let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
     let preLoader = '<div class="pre-loader-filtered">' +
     '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
 
@@ -112,8 +113,7 @@ jQuery(document).ready(function($) {
         let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
         let id = $(this).attr('id');
         
-        // Include the nonce in the AJAX data
-        let nonce = ajax_object.nonce;
+
 
         $.ajax({
             url: ajax_object.ajax_url, 
@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
                 action: 'my_ajax_action',
                 parentMenu: parentMenu,
                 id: id,
-                security: nonce, // Include the nonce in the data
+                security: nonce, 
             },
             success: function(response) {
                 console.log(response)
