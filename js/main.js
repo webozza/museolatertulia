@@ -100,15 +100,15 @@ jQuery(document).ready(function ($) {
       }
     });
   };
-
-  $(function () {
+  function homeGrid(gridValue){
     $(".my-masonry-grid").masonryGrid({
-      columns: 6,
+      columns: gridValue,
     });
-  });
-
+  }
+  homeGrid(6)
+  window.homeGrid = homeGrid;
   //============================
-  //          rid END
+  //          Grid END
   //============================
 
   //============================
