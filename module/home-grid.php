@@ -119,6 +119,7 @@ $query = new WP_Query($args);
 				},
 
 				success: function(response) {
+          $('.my-masonry-grid').html(response)
 					console.log('ajax request ok', response);
 				}
 			});

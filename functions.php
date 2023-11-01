@@ -1,11 +1,7 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.13');
+    define('_T_VERSION', '1.0.10');
 }
-
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
-
 
 error_reporting(E_ALL);
     ini_set('display_errors', 1);
@@ -68,12 +64,31 @@ function my_ajax_action() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                'value' => $menuId,
-                'compare' => '=',
+                // 'value' => $menuId,
+                // 'compare' => '=',
             ),
         ),
     );
     $query = new WP_Query($args);
+
+    ?>
+            <?php if ($query->have_posts()) : ?>
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <?php $post_id = get_the_ID();?>
+                    <div class="my-masonry-grid-item">
+                        <?php the_post_thumbnail('large',
+                            array(
+                                        'class' => 'clickable-thumbnail',
+                                        'data-post-id' => $post_id, 
+                            ));
+                        ?>
+                    </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+            <p>No posts found.</p>
+            <?php endif; ?>
+    <?php
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
