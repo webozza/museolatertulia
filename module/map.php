@@ -89,8 +89,16 @@
    </style>
   </head>
   <body>
-    <div id="map-l">
-        <div id="zoom-controls">
+    <div class="map_container">
+        <div id="map-l">
+            <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
+        </div>
+        <div id="map_sidebar">
+        </div>
+    </div>
+
+
+    <div id="zoom-controls">
         <button id="zoomIn">
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomin.png" />
         </button>
@@ -110,164 +118,54 @@
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
         </button>
       </div>
-        <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
-    </div>
-    <div id="map-r">
 
-      
-    </div>
+
+
     <script>
-        document.getElementById('colombia').addEventListener('click', function() {
-    openPais("colombia");
-});
-
-  document.getElementById('argentina').addEventListener('click', function() {
-    openPais("argentina");
-});
-
- document.getElementById('chile').addEventListener('click', function() {
-    openPais("chile");
-});
-
- document.getElementById('bolivia').addEventListener('click', function() {
-    openPais("bolivia");
-});
-
- document.getElementById('brasil').addEventListener('click', function() {
-    openPais("brasil");
-});
-
- document.getElementById('cuba').addEventListener('click', function() {
-    openPais("cuba");
-});
-
- document.getElementById('ecuador').addEventListener('click', function() {
-    openPais("ecuador");
-});
-
- document.getElementById('usa').addEventListener('click', function() {
-    openPais("estados-unidos");
-});
-
- document.getElementById('canada').addEventListener('click', function() {
-    openPais("canada");
-});
-
-
- document.getElementById('venezuela').addEventListener('click', function() {
-    openPais("venezuela");
-});
-
-
-function openPais(pais) {
-    
-  var url1 = "https://bienales.museolatertulia.com/mapaview/?_bienales=i-bienal&_pases=";
-  var url2 = "https://bienales.museolatertulia.com/mapaview/?_bienales=ii-bienal&_pases=";
-  var url3 = "https://bienales.museolatertulia.com/mapaview/?_bienales=iii-bienal&_pases=";
-  var anoGuardado = localStorage.getItem('anoGuardado');
-
-  if (anoGuardado === null) {
-    window.location = "https://bienales.museolatertulia.com/mapaview/"
-  } else {
-    if (anoGuardado == "1971") {
-      url1 = url1+pais;
-      window.location = url1;
-    }
-    if (anoGuardado == "1973") {
-      url2 = url2+pais;
-      window.location = url2;
-    }
-    if (anoGuardado == "1976") {
-      url3 = url3+pais;
-      window.location = url3;
-    }
-    localStorage.setItem('paisGuardado', pais);
-  }
-  
-   
-
-}
-
-document.addEventListener("DOMContentLoaded", function() {
- var paisGuardado = localStorage.getItem('paisGuardado');
-
-var urlActual = window.location.href;
-
-if (urlActual == "https://bienales.museolatertulia.com/mapaview/?_bienales=i-bienal") {
-    
-} else if (urlActual == "https://bienales.museolatertulia.com/mapaview/?_bienales=ii-bienal") {
-    
-} else if (urlActual == "https://bienales.museolatertulia.com/mapaview/?_bienales=iii-bienal") {
-    
-} else {
-    var miDiv = document.getElementById(paisGuardado);
-    // Agrega un estilo al elemento <div>
-    
-    if (paisGuardado == "estados-unidos") {
-        miDiv = document.getElementById("usa");
-    }
-    miDiv.style.fill = "#394d62";
-}
-
- 
-});
-
-
-function loadCountryData(countryName) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'get_country_data.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-        if (this.status == 200) {
-            document.getElementById('map-r').innerHTML = this.responseText;
-        }
-    };
-    xhr.send('country=' + countryName);
-}
-
-
-
-
-const svg = document.querySelector("svg");
-      let scale = 0.9;
-      let translateX = 0;
-      let translateY = 40;
-      updateTransform();
+     const svg = document.querySelector("svg");
+            let scale = 0.9;
+            let translateX = 0;
+            let translateY = 40;
+            updateTransform();
 
       function updateTransform() {
-        svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+                svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+            }
+
+            function mapController(){
+                document.getElementById("zoomIn").addEventListener("click", () => {
+                scale += 0.1;
+                updateTransform();
+            });
+
+            document.getElementById("zoomOut").addEventListener("click", () => {
+                scale -= 0.1;
+                updateTransform();
+            });
+
+            document.getElementById("moveLeft").addEventListener("click", () => {
+                translateX -= 30;
+                updateTransform();
+            });
+
+            document.getElementById("moveRight").addEventListener("click", () => {
+                translateX += 30;
+                updateTransform();
+            });
+
+            document.getElementById("moveUp").addEventListener("click", () => {
+                translateY -= 30;
+                updateTransform();
+            });
+
+            document.getElementById("moveDown").addEventListener("click", () => {
+                translateY += 30;
+                updateTransform();
+            });
+            
       }
+      mapController()
 
-      document.getElementById("zoomIn").addEventListener("click", () => {
-        scale += 0.1;
-        updateTransform();
-      });
-
-      document.getElementById("zoomOut").addEventListener("click", () => {
-        scale -= 0.1;
-        updateTransform();
-      });
-
-      document.getElementById("moveLeft").addEventListener("click", () => {
-        translateX -= 30;
-        updateTransform();
-      });
-
-      document.getElementById("moveRight").addEventListener("click", () => {
-        translateX += 30;
-        updateTransform();
-      });
-
-      document.getElementById("moveUp").addEventListener("click", () => {
-        translateY -= 30;
-        updateTransform();
-      });
-
-      document.getElementById("moveDown").addEventListener("click", () => {
-        translateY += 30;
-        updateTransform();
-      });
-      
       
     </script>
   </body>
