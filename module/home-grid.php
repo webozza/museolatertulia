@@ -149,10 +149,35 @@ $query = new WP_Query($args);
           console.log(date);
 
           if (key === 'map') {
-            // Change the CSS of elements with class '.map' and '.my-masonry-grid'
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
+
+            // ajax request 
+            $.ajax({
+              url: '/wp-admin/admin-ajax.php',
+              methode: 'POST',
+              data : {
+                action: 'mapData',
+                key : key,
+                date : date,
+
+              },
+              success : function(response){
+                    $('.my-masonry-grid').html(response)
+                    $('.my-masonry-grid').prepend(preLoader)
+
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    ImgPopupFunction()
+              }
+
+            })
+
           }
         });
         $('#map_close').click(()=>{

@@ -103,6 +103,57 @@ function my_ajax_action() {
     wp_die();
 }
 
+
+
 add_action('wp_ajax_my_ajax_action', 'my_ajax_action');
 add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
 
+
+
+// 
+
+
+function mapData() {
+    $date = $_POST['date'];
+    $key = $_POST['key'];
+
+    $args = array(
+        'post_type' => 'obra',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'obra-fecha',
+                'value' => $date,
+                'compare' => '=',
+            ),
+        ),
+    );
+    $query = new WP_Query($args);
+
+    ?>
+            <?php if ($query->have_posts()) : ?>
+            <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <?php $post_id = get_the_ID();?>
+                    <div class="my-masonry-grid-item">
+                        <?php the_post_thumbnail('large',
+                            array(
+                                        'class' => 'clickable-thumbnail',
+                                        'data-post-id' => $post_id, 
+                            ));
+                        ?>
+                    </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+            <p>No posts found.</p>
+            <?php endif; ?>
+    <?php
+
+
+    wp_die();
+}
+
+
+
+add_action('wp_ajax_mapData', 'mapData');
+add_action('wp_ajax_nopriv_mapData', 'mapData');
