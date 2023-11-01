@@ -194,9 +194,6 @@ $query = new WP_Query($args);
           let countryName = $(this).attr('id')
           $(this).css('fill', '#a4fffa');
 
-          console.log(countryName)
-
-
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
