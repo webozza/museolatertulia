@@ -198,7 +198,7 @@ $query = new WP_Query($args);
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
                 data: {
-                    action: 'my_ajax_action',
+                    action: 'mapFilter',
                     parentMenu: key,
                     id: countryName,
                 },
