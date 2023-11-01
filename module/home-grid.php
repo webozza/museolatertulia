@@ -239,6 +239,7 @@ $query = new WP_Query($args);
                     console.log(response)
                     $('.my-masonry-grid').html(response)
                     $('.my-masonry-grid').prepend(preLoader)
+                    $('.masonry-grid-column').css('width','16.66%')
 
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
@@ -252,7 +253,6 @@ $query = new WP_Query($args);
 
 
 
-            $('.masonry-grid-column').css('width','16.66%')
 
         })
 
