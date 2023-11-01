@@ -64,8 +64,8 @@ function my_ajax_action() {
         'meta_query' => array(
             array(
                 'key' => $parentMenu,
-                // 'value' => $menuId,
-                // 'compare' => '=',
+                'value' => $menuId,
+                'compare' => '=',
             ),
         ),
     );
@@ -89,6 +89,7 @@ function my_ajax_action() {
             <p>No posts found.</p>
             <?php endif; ?>
     <?php
+
     wp_die();
 }
 
