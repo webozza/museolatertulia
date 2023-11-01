@@ -159,6 +159,7 @@ $query = new WP_Query($args);
         $('#map_close').click(()=>{
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
+            $('zoom-controls').css('left','100%')
         })
 
     });
