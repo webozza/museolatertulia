@@ -190,6 +190,7 @@ $query = new WP_Query($args);
 
         $('path').click(function () {
           let countryName = $(this).attr('id')
+          console.log(countryName)
           $.ajax({
               url: '/wp-admin/admin-ajax.php',
               methode: 'POST',
