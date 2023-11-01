@@ -141,7 +141,7 @@ $query = new WP_Query($args);
                     if(windowWidthCalc == 1){
                         let grid = 6
                       } else{
-                        let grid = 3,
+                        let grid = 3
                       }
                     $(".my-masonry-grid").masonryGrid({
                       columns: grid,
