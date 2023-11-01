@@ -116,7 +116,7 @@ jQuery(document).ready(function($) {
 
 
         $.ajax({
-            url: ajax_object.ajax_url, 
+            url: '/wp-admin/admin-ajax.php', 
             type: 'POST',
             data: {
                 action: 'my_ajax_action',
