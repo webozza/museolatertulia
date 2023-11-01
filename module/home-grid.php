@@ -244,7 +244,7 @@ $query = new WP_Query($args);
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
                     $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
+                        columns: 6,
                     });
                     ImgPopupFunction()
                 }
@@ -252,7 +252,7 @@ $query = new WP_Query($args);
 
 
 
-            $('.masonry-grid-column').css('width','33.33%')
+            $('.masonry-grid-column').css('width','16.66%')
 
         })
 
