@@ -565,6 +565,12 @@ line-height: 22px; ;
 /*               map              */
 
 /* before toggle  */
+
+.home_section {
+  display: flex;
+  transition: .3s;
+  justify-content: space-between;
+}
 .map {
   width: 0%;
 }
@@ -578,6 +584,7 @@ line-height: 22px; ;
 
 
 /* after toggle   */
+
 /* .home_section {
   display: flex;
   transition: .3s;
