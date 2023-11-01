@@ -142,7 +142,6 @@ $query = new WP_Query($args);
                 }
             });
         });
-        $('#zoom-controls').css('width','0')
         $('.submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();

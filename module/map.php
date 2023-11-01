@@ -37,6 +37,8 @@
             display: flex;
             bottom: 0;
             left: 0;
+            width:0;
+            overflow:hidden;
         }
         button {
             display: block;
