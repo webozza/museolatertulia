@@ -113,7 +113,7 @@ $query = new WP_Query($args);
         let preLoader = '<div class="pre-loader-filtered">' +
         '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
 
-        
+
         $('.drop_down_menu').on('click', function() {
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
@@ -174,7 +174,7 @@ $query = new WP_Query($args);
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
-                    $(".my-masonry-grid").masonryGrid({
+                    $(".my-masonry-grid map-grid").masonryGrid({
                         columns: 3,
                     });
                     ImgPopupFunction()

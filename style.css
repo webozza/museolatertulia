@@ -585,6 +585,11 @@ line-height: 22px; ;
 }
 
 
+.map-grid{
+  width: 33.33% !important;
+}
+
+
 
 /* after toggle   */
 
