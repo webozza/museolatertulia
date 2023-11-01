@@ -72,7 +72,8 @@ function querry_menu($menu_category){
                     <ul>
                         <li class="top-level-menu">Start
                         </li>
-                        <li class="top-level-menu">1971
+                        <li class="top-level-menu">
+                        <p class='menu_date'>1971</p>
                             <ul class="submenu">
                                 <li>map</li>
                                 <li>biennial</li>
@@ -81,7 +82,8 @@ function querry_menu($menu_category){
                                 <li>resources</li>
                             </ul>
                         </li>
-                        <li class="top-level-menu">1973
+                        <li class="top-level-menu">
+                        <p class='menu_date'>1973</p>
                             <ul class="submenu">
                                 <li>map</li>
                                 <li>biennial</li>
@@ -90,7 +92,8 @@ function querry_menu($menu_category){
                                 <li>resources</li>
                             </ul>
                         </li>
-                        <li class="top-level-menu">1976
+                        <li class="top-level-menu">
+                            <p class='menu_date'>1976</p>
                             <ul class="submenu">
                                 <li>map</li>
                                 <li>biennial</li>
