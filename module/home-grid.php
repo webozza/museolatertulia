@@ -105,29 +105,29 @@ $query = new WP_Query($args);
 <script>
 
 	jQuery(document).ready(function($) {
-    // $('.drop_down_menu').on('click', function() {
-    //   let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-    //   let id = $(this).attr('id');
+    $('.drop_down_menu').on('click', function() {
+      let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+      let id = $(this).attr('id');
 
-		// 	$.ajax({
-		// 		url: '/wp-admin/admin-ajax.php', 
-		// 		type: 'POST',
-		// 		data: {
-		// 			action: 'my_ajax_action',
-		// 			parentMenu: parentMenu,
-    //       id : id ,
-		// 		},
+			$.ajax({
+				url: '/wp-admin/admin-ajax.php', 
+				type: 'POST',
+				data: {
+					action: 'my_ajax_action',
+					parentMenu: parentMenu,
+          id : id ,
+				},
 
-		// 		success: function(response) {
-    //       console.log(response)
-    //       $('.my-masonry-grid').html(response)
-    //       $(".my-masonry-grid").masonryGrid({
-    //         columns: 6,
-    //       });
-    //       ImgPopupFunction()
-		// 		}
-		// 	});
-		// });
+				success: function(response) {
+          console.log(response)
+          $('.my-masonry-grid').html(response)
+          $(".my-masonry-grid").masonryGrid({
+            columns: 6,
+          });
+          ImgPopupFunction()
+				}
+			});
+		});
     
 	});
 

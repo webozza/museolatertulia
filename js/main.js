@@ -115,31 +115,30 @@ jQuery(document).ready(function ($) {
   //            PopUp
   //============================
 
-  function ImgPopupFunction(){
+  function ImgPopupFunction() {
     $(".clickable-thumbnail").on("click", function () {
-
       const postID = $(this).data("post-id");
       const restApiUrl = `/wp-json/wp/v2/obra/${postID}?_embed`;
-      
+
       $(".popup-box").show();
       $(".pre-loader").show();
       $(".main_image").hide();
-      
+
       $.ajax({
         url: restApiUrl,
         type: "GET",
         dataType: "json",
-        success: function(postData) {
-          console.log('post data', postData);
-          
+        success: function (postData) {
+          console.log("post data", postData);
+
           if (postData._embedded && postData._embedded["wp:featuredmedia"] && postData._embedded["wp:featuredmedia"][0]) {
             const featuredMedia = postData._embedded["wp:featuredmedia"][0];
-            const imgUrl = featuredMedia.source_url; 
+            const imgUrl = featuredMedia.source_url;
             $(".main_image").attr("src", imgUrl);
-      
+
             const image = new Image();
             image.src = imgUrl;
-            image.onload = function() {
+            image.onload = function () {
               $(".main_image").fadeIn("slow");
               $(".pre-loader").fadeOut("slow");
               makeZoom();
@@ -148,13 +147,11 @@ jQuery(document).ready(function ($) {
             console.error("No featured image found for the post.");
           }
         },
-        error: function(error) {
+        error: function (error) {
           console.error("Error fetching post details:", error);
         },
       });
-      
-      
-      
+
       $.ajax({
         url: restApiUrl,
         type: "GET",
@@ -168,34 +165,33 @@ jQuery(document).ready(function ($) {
           $(".info .edition").text(data.acf["obra-edicion"]);
           $(".info .technique").text(data.acf["obra-tecnica_materiales"]);
           $(".info .nationality").text(data.acf["obra-nacionalidad"]);
-  
+
           // Fetch post categories  here leter*****
-  
+
           $(".info .categories").text();
           $(".info .tags").text();
-  
+
           $(".info .documents").text(data.acf["obra-documentos"]);
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
-          
-  
+
           //------------------------------------------------------
-  
+
           let appnedSidebarGalleries = (fieldName, containerClass) => {
             const imageIds = data.acf[fieldName];
-            const $imageContainer = $(containerClass).find('.gallerie'); // Select the container with jQuery
-            console.log('imageContainer', $imageContainer);
-          
+            const $imageContainer = $(containerClass).find(".gallerie"); // Select the container with jQuery
+            console.log("imageContainer", $imageContainer);
+
             if (Array.isArray(imageIds)) {
               const imageCount = imageIds.length;
               let loadedImages = 0;
-          
+
               imageIds.forEach((imageId) => {
                 $.ajax({
                   url: `/wp-json/wp/v2/media/${imageId}`,
                   type: "GET",
                   dataType: "json",
                   success: function (imageData) {
-                    console.log('imageData', imageData);
+                    console.log("imageData", imageData);
                     const semiHighResURL = imageData.media_details.sizes.large.source_url;
                     const highResImgURL = imageData.source_url;
                     const imgTag = `<div class="documentImg sidebar-grid-item">
@@ -204,7 +200,7 @@ jQuery(document).ready(function ($) {
                         data-highres="${highResImgURL}"
                         id="${imageData.id}">
                     </div>`;
-                    $imageContainer.find('h3').text('Heading'); // Use $imageContainer to find elements
+                    $imageContainer.find("h3").text("Heading"); // Use $imageContainer to find elements
                     $imageContainer.append(imgTag);
                     loadedImages++;
                     if (loadedImages === imageCount) {
@@ -223,24 +219,23 @@ jQuery(document).ready(function ($) {
               console.error(`"${fieldName}" is not an array of image IDs.`);
             }
           };
-          
+
           appnedSidebarGalleries("obra-documentos", ".obra-documentos");
-          
+
           appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
-          
+
           //------------------------------------------------------
         },
-  
+
         error: function (error) {
           console.error("Error fetching post data:", error);
         },
       });
     });
-  
-  } 
+  }
 
-
-  ImgPopupFunction()
+  ImgPopupFunction();
+  window.ImgPopupFunction = ImgPopupFunction;
 
   //========================================================
   //                                      document single image window popup
@@ -250,7 +245,7 @@ jQuery(document).ready(function ($) {
     $(".documentImg").on("click", async function () {
       let sidebarLoader = `<div class="sidebarLoader">
       <img src="${themeDir}/popUpIcon/loading.gif" alt="">
-      </div>`
+      </div>`;
       $(".documentSingleImage").show();
 
       let imageId = $(this).find("img").attr("id");
@@ -263,7 +258,7 @@ jQuery(document).ready(function ($) {
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
           $(".documentSingleImage").prepend(sidebarLoader);
-          hideSideLoader()
+          hideSideLoader();
           documentImgZoom();
         },
         error: function (error) {
@@ -272,10 +267,10 @@ jQuery(document).ready(function ($) {
       });
     });
 
-    function hideSideLoader(){
-      $('.documentSingleImage').click(() => {
-        $('.sidebarLoader').fadeOut()
-      })
+    function hideSideLoader() {
+      $(".documentSingleImage").click(() => {
+        $(".sidebarLoader").fadeOut();
+      });
     }
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
@@ -374,7 +369,6 @@ jQuery(document).ready(function ($) {
       $(".gallerie").html("");
       $(".documentSingleImage").html("");
       $(".documentSingleImage").hide();
-
     });
   };
   $(".plus").on("click", () => {
@@ -382,38 +376,5 @@ jQuery(document).ready(function ($) {
   });
   // run the function
 
-
-
-  $('.drop_down_menu').on('click', function() {
-    let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-    let id = $(this).attr('id');
-
-    $.ajax({
-      url: '/wp-admin/admin-ajax.php', 
-      type: 'POST',
-      data: {
-        action: 'my_ajax_action',
-        parentMenu: parentMenu,
-        id : id ,
-      },
-
-      success: function(response) {
-        console.log(response)
-        $('.my-masonry-grid').html(response)
-        $(".my-masonry-grid").masonryGrid({
-          columns: 6,
-        });
-        ImgPopupFunction()
-      }
-    });
-  });
-
-
-
-
-
-
-
   closeWindow();
-
 });
