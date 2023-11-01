@@ -185,6 +185,37 @@ $query = new WP_Query($args);
 
           }
         });
+
+        // filter the data from map 
+
+        $('path').click(function () {
+          let countryName = $(this).attr('id')
+          $.ajax({
+              url: '/wp-admin/admin-ajax.php',
+              methode: 'POST',
+              data : {
+                action: 'filterMapData',
+                key : countryName,
+              },
+              success : function(response){
+                    $('.my-masonry-grid').html(response)
+                    $('.my-masonry-grid').prepend(preLoader)
+
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    ImgPopupFunction()
+              }
+
+            })
+        })
+
+
+
+
         $('#map_close').click(()=>{
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
