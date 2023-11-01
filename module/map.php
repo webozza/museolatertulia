@@ -110,7 +110,7 @@
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
         </button>
       </div>
-        <?php include get_stylesheet_directory_uri(  ) . '/src/map_svj.php'?>
+        <?php echo include get_stylesheet_directory_uri(  ) . '/src/map_svj.php'?>
     </div>
     <div id="map-r">
 
