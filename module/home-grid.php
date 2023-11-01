@@ -108,7 +108,7 @@ $query = new WP_Query($args);
     $('.drop_down_menu').on('click', function() {
       let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
       let id = $(this).attr('id');
-
+      
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php', 
 				type: 'POST',
@@ -123,7 +123,7 @@ $query = new WP_Query($args);
           $('.my-masonry-grid').html(response)
           $('.my-masonry-grid').prepend($('.pre-loader'))
           setTimeout(() => {
-          // $('.pre-loader').fadeOut()
+          $('.pre-loader').fadeOut()
           }, 2000);
           $(".my-masonry-grid").masonryGrid({
             columns: 6,
