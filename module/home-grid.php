@@ -156,7 +156,7 @@ $query = new WP_Query($args);
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
-
+            $('.my-masonry-grid').html('')
             // ajax request 
             $.ajax({
               url: '/wp-admin/admin-ajax.php',
@@ -174,13 +174,14 @@ $query = new WP_Query($args);
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
-                    $(".my-masonry-grid map-grid").masonryGrid({
+                    $(".my-masonry-grid").masonryGrid({
                         columns: 3,
                     });
                     ImgPopupFunction()
               }
 
             })
+            $('.masonry-grid-column').css('width','33.33% !important')
 
           }
         });
@@ -188,6 +189,7 @@ $query = new WP_Query($args);
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
             $('#zoom-controls').css('width','0')
+            $('.masonry-grid-column').css('width','166.66% !important')
         })
 
     });
