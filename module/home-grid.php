@@ -137,8 +137,14 @@ $query = new WP_Query($args);
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
+                    let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width()
                     $(".my-masonry-grid").masonryGrid({
+                      
+                      if(windowWidthCalc == 1){
                         columns: 6,
+                      } else{
+                        columns: 3,
+                      }
                     });
                     ImgPopupFunction()
                 }
