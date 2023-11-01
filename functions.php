@@ -164,7 +164,7 @@ add_action('wp_ajax_nopriv_mapData', 'mapData');
 
 
 function filterMapData() {
-    $countryName = ucfirst($_POST['countryName']);
+    $countryName = $_POST['countryName'];
 
     $args = array(
         'post_type' => 'obra',
