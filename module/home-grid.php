@@ -189,16 +189,21 @@ $query = new WP_Query($args);
         // filter the data from map 
 
         $('path').click(function () {
+          let key = 'obra-nacionalidad'
           let countryName = $(this).attr('id')
           console.log(countryName)
-          $.ajax({
-              url: '/wp-admin/admin-ajax.php',
-              methode: 'POST',
-              data : {
-                action: 'filterMapData',
-                countryName : countryName,
-              },
-              success : function(response){
+
+
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'my_ajax_action',
+                    parentMenu: key,
+                    id: countryName,
+                },
+                success: function(response) {
+                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $('.my-masonry-grid').prepend(preLoader)
 
@@ -206,12 +211,11 @@ $query = new WP_Query($args);
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
                     $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
+                        columns: 6,
                     });
                     ImgPopupFunction()
-              }
-
-            })
+                }
+            });
         })
 
 
