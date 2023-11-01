@@ -137,7 +137,7 @@ function querry_menu($menu_category){
 </div>
 
 
-<?php  wp_create_nonce('get_filtered_img'); ?>
+<!-- <?php  wp_create_nonce('get_filtered_img'); ?> -->
 
 
     <script>

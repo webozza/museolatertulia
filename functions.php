@@ -2,6 +2,10 @@
 if (!defined('_T_VERSION')) {
     define('_T_VERSION', '1.0.14');
 }
+// Create and localize the nonce
+wp_enqueue_script('your-script-handle', get_template_directory_uri() . '/your-js-file.js', array('jquery'), null, true);
+wp_localize_script('your-script-handle', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('your_nonce')));
+
 
 error_reporting(E_ALL);
     ini_set('display_errors', 1);
@@ -52,6 +56,7 @@ add_shortcode('home_grid', 'homeGrid');
 
 
 function my_ajax_action() {
+    check_ajax_referer('your_nonce', 'security'); 
     $parentMenu = $_POST['parentMenu'];
     $menuId_with_underscore = $_POST['id'];
     $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);

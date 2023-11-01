@@ -104,38 +104,41 @@ $query = new WP_Query($args);
 
 <script>
 
-	jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
     let preLoader = '<div class="pre-loader-filtered">' +
     '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
 
     $('.drop_down_menu').on('click', function() {
-      let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
-      let id = $(this).attr('id');
-
-			$.ajax({
-				url: '/wp-admin/admin-ajax.php', 
-				type: 'POST',
-				data: {
-					action: 'my_ajax_action',
-					parentMenu: parentMenu,
-          id : id ,
-				},
-
-				success: function(response) {
-          console.log(response)
-          $('.my-masonry-grid').html(response)
-          $('.my-masonry-grid').prepend(preLoader)
-          setTimeout(() => {
-            $('.pre-loader-filtered').fadeOut()
-          }, 2000);
-          $(".my-masonry-grid").masonryGrid({
-            columns: 6,
-          });
-          ImgPopupFunction()
-				}
+        let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+        let id = $(this).attr('id');
         
-			});
-		});
-	});
+        // Include the nonce in the AJAX data
+        let nonce = ajax_object.nonce;
+
+        $.ajax({
+            url: ajax_object.ajax_url, 
+            type: 'POST',
+            data: {
+                action: 'my_ajax_action',
+                parentMenu: parentMenu,
+                id: id,
+                security: nonce, // Include the nonce in the data
+            },
+            success: function(response) {
+                console.log(response)
+                $('.my-masonry-grid').html(response)
+                $('.my-masonry-grid').prepend(preLoader)
+
+                setTimeout(() => {
+                    $('.pre-loader-filtered').fadeOut()
+                }, 2000);
+                $(".my-masonry-grid").masonryGrid({
+                    columns: 6,
+                });
+                ImgPopupFunction()
+            }
+        });
+    });
+});
 
 </script>
