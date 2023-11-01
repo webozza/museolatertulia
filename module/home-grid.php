@@ -228,7 +228,7 @@ $query = new WP_Query($args);
             $('#zoom-controls').css('width','0')
             $('.masonry-grid-column').css('width','16.66% !important')
 
-
+            $('.my-masonry-grid').html('')
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
