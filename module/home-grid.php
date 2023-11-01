@@ -189,7 +189,7 @@ $query = new WP_Query($args);
         // filter the data from map 
 
         $('path').click(function () {
-          $('.path').css('fill', '#ffffff');
+          $('path').css('fill', '#ffffff');
           let key = 'obra-nacionalidad'
           let countryName = $(this).attr('id')
           $(this).css('fill', '#a4fffa');
