@@ -189,7 +189,7 @@ $query = new WP_Query($args);
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
             $('#zoom-controls').css('width','0')
-            $('.masonry-grid-column').css('width','166.66% !important')
+            $('.masonry-grid-column').css('width','16.66% !important')
         })
 
     });

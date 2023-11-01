@@ -40,7 +40,7 @@ body {
 
 /*  home grid  */
 .masonry-grid-column {
-  width: 16.66% !important;
+  width: 16.66%;
 }
 
 .my-masonry-grid-item {
