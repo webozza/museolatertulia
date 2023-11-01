@@ -106,7 +106,7 @@ jQuery(document).ready(function ($) {
     });
   }
   homeGrid(6)
-  window.homeGrid = homeGrid;
+  
   //============================
   //          Grid END
   //============================

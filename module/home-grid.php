@@ -153,13 +153,12 @@ $query = new WP_Query($args);
             // Change the CSS of elements with class '.map' and '.my-masonry-grid'
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
-            homeGrid(3)
+            
           }
         });
         $('.map_close').click(()=>{
           $('.map').css('width', '0%');
             $('.my-masonry-grid').css('width', '100%');
-            homeGrid(6)
         })
 
     });
