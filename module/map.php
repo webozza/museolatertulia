@@ -62,6 +62,10 @@
             fill: #a4fffa;
         }
 
+        .map_container{
+            position: relative;
+        }
+
 
 
    </style>
@@ -71,9 +75,8 @@
         <div id="map">
             <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
         </div>
-    </div>
 
-    <div id="zoom-controls">
+        <div id="zoom-controls">
         <button id="zoomIn">
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomin.png" />
         </button>
@@ -93,6 +96,9 @@
           <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-abaj.png" />
         </button>
     </div>
+    </div>
+
+
     
     <script>
         const svg = document.querySelector("svg");
