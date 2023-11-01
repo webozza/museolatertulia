@@ -164,7 +164,7 @@ add_action('wp_ajax_nopriv_mapData', 'mapData');
 
 
 function filterMapData() {
-    $key = $_POST['key'];
+    $countryName = $_POST['countryName'];
 
     $args = array(
         'post_type' => 'obra',
@@ -172,7 +172,7 @@ function filterMapData() {
         'meta_query' => array(
             array(
                 'key' => 'obra-nacionalidad',
-                'value' => $key,
+                'value' => $countryName,
                 'compare' => '=',
             ),
         ),

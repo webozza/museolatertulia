@@ -195,7 +195,7 @@ $query = new WP_Query($args);
               methode: 'POST',
               data : {
                 action: 'filterMapData',
-                key : countryName,
+                countryName : countryName,
               },
               success : function(response){
                     $('.my-masonry-grid').html(response)
