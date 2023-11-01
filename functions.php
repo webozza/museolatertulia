@@ -122,8 +122,8 @@ function mapData() {
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => 'obra-fecha',
-                'value' => $date,
+                'key' => 'obra-nacionalidad',
+                'value' => 'Argentina',
                 'compare' => '=',
             ),
         ),

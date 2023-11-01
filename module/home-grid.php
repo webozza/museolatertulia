@@ -112,6 +112,8 @@ $query = new WP_Query($args);
         let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
         let preLoader = '<div class="pre-loader-filtered">' +
         '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
+
+        
         $('.drop_down_menu').on('click', function() {
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
@@ -142,6 +144,8 @@ $query = new WP_Query($args);
                 }
             });
         });
+
+
         $('.submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();
