@@ -135,7 +135,7 @@ $query = new WP_Query($args);
                     $('.my-masonry-grid').prepend(preLoader)
 
                     setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
+                        // $('.pre-loader-filtered').fadeOut()
                     }, 2000);
                     let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width();
                     let grid;
