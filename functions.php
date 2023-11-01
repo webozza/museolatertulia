@@ -172,7 +172,7 @@ function filterMapData() {
         'meta_query' => array(
             array(
                 'key' => 'obra-nacionalidad',
-                'value' => $countryName,
+                'value' => 'Estados_Unidos',
                 'compare' => '=',
             ),
         ),
