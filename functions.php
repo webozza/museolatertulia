@@ -123,7 +123,7 @@ function mapData() {
         'meta_query' => array(
             array(
                 'key' => 'obra-nacionalidad',
-                'value' => 'Argentina',
+                'value' => 'Brasil',
                 'compare' => '=',
             ),
         ),
