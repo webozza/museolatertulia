@@ -227,6 +227,29 @@ $query = new WP_Query($args);
             $('.my-masonry-grid').css('width', '100%');
             $('#zoom-controls').css('width','0')
             $('.masonry-grid-column').css('width','16.66% !important')
+            
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'defaultGrid',
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $('.my-masonry-grid').prepend(preLoader)
+
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 6,
+                    });
+                    ImgPopupFunction()
+                }
+            });
+            $('.masonry-grid-column').css('width','16.66%')
+
         })
 
     });
