@@ -575,34 +575,6 @@ p.parent_menu {
   width: 0%;
 }
 
-.artists {
-  width: 0%;
-  background-color: #ff8ec3;
-  height: 100vh;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-}
-.artists ul {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 60px;
-  padding: 120px 50px;
-  justify-content: space-evenly;
-}
-.artists li {
-  list-style: none;
-  width: 200px;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  display: inline-block;
-}
-.artists li:hover {
-  opacity: 0.7;
-}
 .my-masonry-grid {
   width: 100%;
   height: 100vh;
@@ -619,10 +591,8 @@ p.parent_menu {
 }
 
 
-/* catagories page  */
 
-
-.categories{
+.artists, .categories, .biennial {
   width: 0%;
   background-color: #ff8ec3;
   height: 100vh;
@@ -630,50 +600,33 @@ p.parent_menu {
   display: flex;
 }
 
-.categories ul {
+.artists ul, .categories ul, .biennial ul {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   column-gap: 60px;
   padding: 120px 50px;
 }
-.categories li {
+
+.artists li, .categories li, .biennial li {
   list-style: none;
   width: 200px;
   cursor: pointer;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: inline-block;
 }
 
-.categories li:hover {
+.artists li:hover, .categories li:hover, .biennial li:hover {
   opacity: 0.7;
 }
 
-
-.biennial{
-  width: 0%;
-  background-color: #ff8ec3;
-  height: 100vh;
-  overflow: auto;
-  display: flex;
-}
-
-.biennial ul {
-  display: flex;
+/* Specific styles for different sections */
+.categories, .biennial {
   flex-direction: column;
-  flex-wrap: wrap;
-  column-gap: 60px;
-  padding: 120px 50px;
-}
-.biennial li {
-  list-style: none;
-  width: 200px;
-  cursor: pointer;
-
 }
 
-.biennial li:hover {
-  opacity: 0.7;
-}
 
 
 
@@ -681,5 +634,25 @@ p.parent_menu {
     .menu-right{
       display: none;
     }
+    .artists ul, .categories ul, .biennial ul {
+      padding: 50px 10px;
+    }
+
+    .logo-container{
+      flex-direction:row-reverse
+    }
+    #left-menu {
+      background-color: white;
+      padding: 10px;
+      position: absolute;
+      left: -10%;
+      top: 69px;
+      border-radius: 5px;
+      display: none;
+      min-width: 88vw;
+  }
+  #left-menu::before{
+    display: none;
+  }
   
 }
