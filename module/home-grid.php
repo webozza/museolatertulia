@@ -157,7 +157,7 @@ $query = new WP_Query($args);
 
 
         //============================
-        //                     filter from map 
+        //                     Filter from map 
         //============================
 
 
