@@ -1,3 +1,4 @@
+<div class="artists_list">
 <?php
         $args = array(
             'post_type' => 'obra', 
@@ -32,3 +33,4 @@
             echo '</li>';
         }
 ?>
+</div>
