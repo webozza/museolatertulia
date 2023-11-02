@@ -593,8 +593,17 @@ p.parent_menu {
 
 
 
-.map, .artists, .categories, .biennial {
+.map, .categories, .biennial {
   /* width: 0%; */
+  flex: 1;
+  background-color: #ff8ec3;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  display: none;
+  flex-direction: column;
+}
+.artists{
   flex: 1;
   background-color: #ff8ec3;
   height: 100vh;
