@@ -80,7 +80,7 @@ function querry_menu($menu_category){
                                 <li>biennial</li>
                                 <li>categories</li>
                                 <li>artists</li>
-                                <li>resources</li>
+                                <!-- <li>resources</li> -->
                             </ul>
                         </li>
                         <li class="top-level-menu">
@@ -90,7 +90,7 @@ function querry_menu($menu_category){
                                 <li>biennial</li>
                                 <li>categories</li>
                                 <li>artists</li>
-                                <li>resources</li>
+                                <!-- <li>resources</li> -->
                             </ul>
                         </li>
                         <li class="top-level-menu">
@@ -100,7 +100,7 @@ function querry_menu($menu_category){
                                 <li>biennial</li>
                                 <li>categories</li>
                                 <li>artists</li>
-                                <li>resources</li>
+                                <!-- <li>resources</li> -->
                             </ul>
                         </li>
                     </ul>
