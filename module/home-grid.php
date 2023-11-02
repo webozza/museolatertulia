@@ -171,6 +171,7 @@ $query = new WP_Query($args);
           console.log(date);
 
           if (key === 'map') {
+            $('.artists').css({'width':'0%'})
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
@@ -205,6 +206,7 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
+            $('.map').css('width', '0%');
             $('.artists').css({'width':'50%'})
             $('.my-masonry-grid').css('width', '50%');
 
