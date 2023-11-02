@@ -1,5 +1,4 @@
-<div class="artists">
-    <?php
+<?php
         $args = array(
             'post_type' => 'obra', 
             'posts_per_page' => -1,
@@ -32,5 +31,4 @@
             }
             echo '</li>';
         }
-    ?>
-</div>
+?>
