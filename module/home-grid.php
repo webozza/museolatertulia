@@ -253,14 +253,14 @@ $query = new WP_Query($args);
         //============================
 
         $('.categories ul li').click(function () {
-          catagory = $(this).attr('class')
-          
+          let category = $(this).attr('class')
+          console.log(catagory)
           $.ajax({
             url : '/wp-admin/admin-ajax.php',
             type : 'POST',
             data : {
               action : 'catagoryFilter',
-              terms : catagory,
+              terms : category,
             },
             success : function(response){
               console.log(response)
