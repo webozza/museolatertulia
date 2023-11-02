@@ -674,3 +674,12 @@ p.parent_menu {
 .biennial li:hover {
   opacity: 0.7;
 }
+
+
+
+@media (max-width:768px) {
+  home{
+    background-color: red;
+  }
+  
+}
