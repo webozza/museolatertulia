@@ -230,7 +230,7 @@ $query = new WP_Query($args);
         })
 
 
-
+// map close function 
 
         $('#map_close').click(()=>{
           $('.map').css('width', '0%');
@@ -251,9 +251,10 @@ $query = new WP_Query($args);
                     $('.my-masonry-grid').prepend(preLoader)
                     $('.masonry-grid-column').css('width','16.66%')
 
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
+                    // setTimeout(() => {
+                    //     $('.pre-loader-filtered').fadeOut()
+                    // }, 2000);
+                    
                     $(".my-masonry-grid").masonryGrid({
                         columns: 6,
                     });
