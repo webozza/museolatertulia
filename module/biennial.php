@@ -26,7 +26,7 @@
                 
                 foreach ($value_counts as $value => $count) {
                     $id = str_replace(' ', '_', $value);
-                    echo '<li class="biennial" id="' . $id . '">' . $value;        
+                    echo '<li id="' . $id . '">' . $value;        
                     if ($count > 1) {
                         echo ' (' . $count . ')';
                     }
