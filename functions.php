@@ -261,7 +261,7 @@ function catagoryFilter(){
         'meta_query' => array(
             array(
                 'taxonomy' => 'categoria',
-                'terms' => 'dibujo',
+                'terms' => $terms,
             ),
         ),
     );
@@ -284,7 +284,6 @@ function catagoryFilter(){
             <p>No posts found.</p>
             <?php endif; ?>
     <?php
-    echo $terms;
 }
 
 add_action('wp_ajax_catagoryFilter', 'catagoryFilter');
