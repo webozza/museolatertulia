@@ -3,6 +3,7 @@
         if (!empty($terms)) {
             echo '<ul>';
             foreach ($terms as $term) {
+                var_dump($term);
                 $term_count = $term->count;
                 echo '<li id="' . $term->id . '">';
                 echo  $term->name;
