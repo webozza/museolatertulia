@@ -267,7 +267,7 @@ function catagoryFilter(){
     );
     $query = new WP_Query($args);
     ?>
-            <?php if ($query->have_posts()) : ?>
+            <!-- <?php if ($query->have_posts()) : ?>
             <?php while ($query->have_posts()) : $query->the_post(); ?>
             <?php $post_id = get_the_ID();?>
                     <div class="my-masonry-grid-item">
@@ -282,9 +282,9 @@ function catagoryFilter(){
             <?php wp_reset_postdata(); ?>
             <?php else : ?>
             <p>No posts found.</p>
-            <?php endif; ?>
+            <?php endif; ?> -->
     <?php
-
+    echo $terms;
 }
 
 add_action('wp_ajax_catagoryFilter', 'catagoryFilter');
