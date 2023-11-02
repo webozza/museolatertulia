@@ -160,13 +160,16 @@ function querry_menu($menu_category){
                 $(this).find('.submenu').slideToggle(300);
             });
             $('.menu-item').click(function() {
-             $('.menu-item').not(this).find('.submenu').slideUp(300);
+                $('.menu-item').not(this).find('.submenu').slideUp(300);
                 $(this).find('.submenu').slideToggle(300);
-                $('#left-menu').removeClass('active')
-                $('#left-menu').fadeOut(300);
             });
             $('.drop_down_menu').click(function(){
                 $menu_item = $(this).text()
+            })
+
+            $('.submenu').click(()=>{
+                $('#left-menu').removeClass('active')
+                $('#left-menu').hide(300);  
             })
         })
 
