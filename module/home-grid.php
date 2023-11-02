@@ -114,6 +114,9 @@ $query = new WP_Query($args);
 
 <script>
     jQuery(document).ready(function($) {
+      
+
+
         let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
         let preLoader = '<div class="pre-loader-filtered">' +
         '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
@@ -166,11 +169,15 @@ $query = new WP_Query($args);
         //============================
 
 
+
+        var selectedYear
         $('.submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();
+          selectedYear = date
           console.log(key);
           console.log(date);
+          console.log(selectedYear)
 
           if (key === 'map') {
             $('.categories').css('width','0%')
