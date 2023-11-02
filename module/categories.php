@@ -8,8 +8,8 @@
                 $term_count = $term->count;
 
                 echo '<li class="' . $term->slug . '">';
-                echo 'Term Name: ' . $term->name;
-                echo ' (Posts: ' . $term_count . ')';
+                echo  $term->name;
+                echo '( ' . $term_count . ')';
                 echo '</li>';
             }
             echo '</ul>';
