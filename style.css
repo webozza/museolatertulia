@@ -632,18 +632,18 @@ p.parent_menu {
 
 .categories ul {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   column-gap: 60px;
   padding: 120px 50px;
-  justify-content: space-evenly;
 }
 .categories li {
   list-style: none;
   width: 200px;
   cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  display: inline-block;
+
+}
+
+.categories li:hover {
+  opacity: 0.7;
 }
