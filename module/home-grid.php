@@ -114,7 +114,7 @@ $query = new WP_Query($args);
         '<img src="' + '<?php echo get_stylesheet_directory_uri(); ?>' + '/popUpIcon/loading.gif" alt="">' + '</div>';
 
         //============================
-        //                     Inital load on map page 
+        //                     Filter from right menu 
         //============================
 
         $('.drop_down_menu').on('click', function() {
@@ -157,7 +157,7 @@ $query = new WP_Query($args);
 
 
         //============================
-        //                     Filter from map 
+        //          Filter from map  on initial load
         //============================
 
 
@@ -203,7 +203,7 @@ $query = new WP_Query($args);
         });
 
         //============================
-        //                  Map Close function  
+        //                            Map filter 
         //============================
 
 
@@ -228,7 +228,7 @@ $query = new WP_Query($args);
                         columns: 3,
                     });
                     $('.my-masonry-grid').prepend(preLoader)
-                    $('.pre-loader-filtered').css('position','relative')
+                    $('.pre-loader-filtered').css('position','absolute')
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
@@ -239,7 +239,10 @@ $query = new WP_Query($args);
         })
 
 
-// map close function 
+        //============================
+        //                            Map close 
+        //============================
+
 
         $('#map_close').click(()=>{
           $('.map').css('width', '0%');
@@ -258,14 +261,13 @@ $query = new WP_Query($args);
                     console.log(response)
                     $('.my-masonry-grid').html(response)
                     $('.my-masonry-grid').prepend(preLoader)
-                    $('.masonry-grid-column').css('width','16.66%')
-
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
                     $(".my-masonry-grid").masonryGrid({
                         columns: 6,
                     });
+                    $('.masonry-grid-column').css('width','16.66%')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
                     ImgPopupFunction()
                 }
             });
