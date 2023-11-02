@@ -205,7 +205,7 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
-            $('.artists').css({'width':'50%','overflow':'auto'})
+            $('.artists').css({'width':'50%','overflow':'auto', 'padding':'0'})
             $('.my-masonry-grid').css('width', '50%');
 
           }
