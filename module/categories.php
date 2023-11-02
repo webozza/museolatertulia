@@ -4,7 +4,7 @@
             echo '<ul>';
             foreach ($terms as $term) {
                 $term_count = $term->count;
-                echo '<li class="' . $term->slug . '">';
+                echo '<li id="' . $term->id . '">';
                 echo  $term->name;
                 echo '( ' . $term_count . ')';
                 echo '</li>';
