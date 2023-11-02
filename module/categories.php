@@ -3,9 +3,7 @@
         if (!empty($terms)) {
             echo '<ul>';
             foreach ($terms as $term) {
-                // Get the number of posts associated with the term
                 $term_count = $term->count;
-
                 echo '<li class="' . $term->slug . '">';
                 echo  $term->name;
                 echo '( ' . $term_count . ')';

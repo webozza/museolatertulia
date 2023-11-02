@@ -173,6 +173,7 @@ $query = new WP_Query($args);
           console.log(date);
 
           if (key === 'map') {
+            $('.categories').css('width','0%')
             $('.artists').css({'width':'0%'})
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
@@ -208,6 +209,7 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
+            $('.categories').css('width','0%')
             $('.map').css('width', '0%');
             $('.artists').css({'width':'50%'})
             $('.my-masonry-grid').css('width', '50%');
@@ -247,9 +249,38 @@ $query = new WP_Query($args);
         });
 
         //============================
-        //                            Map filter 
+        //                        Catagories filter 
         //============================
 
+        $('.categories ul li').click(function () {
+          catagory = $(this).attr('class')
+          
+          $.ajax({
+            url : '/wp-admin/admin-ajax.php',
+            type : 'POST',
+            data : {
+              action : 'catagoryFilter',
+              terms : catagory,
+            },
+            success : function(response){
+              console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $('.pre-loader-filtered').css('position','absolute')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    ImgPopupFunction()
+            }
+          })
+        })
+
+        //============================
+        //                          Map filter 
+        //============================
 
         $('path').click(function () {
           $('path').css('fill', '#ffffff');
