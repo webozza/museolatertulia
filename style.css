@@ -578,13 +578,14 @@ p.parent_menu {
 .artists {
   width: 0%;
   background-color: #ff8ec3;
-  padding: 0px;
   height: 100vh;
+  overflow: auto;
 }
 .artists ul {
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
+  padding: 100px 50px;
 }
 .artists li {
   list-style: none;
