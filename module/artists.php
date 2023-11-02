@@ -1,5 +1,4 @@
-<div class="artists_list">
-    <ul>
+ <ul>
         <?php
                 $args = array(
                     'post_type' => 'obra', 
@@ -34,5 +33,4 @@
                     echo '</li>';
                 }
         ?>
-    </ul>
-</div>
+</ul>
