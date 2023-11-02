@@ -174,11 +174,13 @@ $query = new WP_Query($args);
         $('.submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();
+
           selectedYear = date
           console.log(key);
           console.log(date);
           console.log(selectedYear)
 
+          $('.logo h1').text(date)
           if (key === 'map') {
             $('.categories').css('width','0%')
             $('.artists').css({'width':'0%'})
