@@ -254,15 +254,14 @@ add_action('wp_ajax_nopriv_defaultGrid', 'defaultGrid');
 
 
 function catagoryFilter(){
-    $terms = $_POST['terms'];
+    $id = $_POST['id'];
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
         'tax_query' => array(  // Use 'tax_query' instead of 'meta_query'
             array(
                 'taxonomy' => 'categoria',
-                'field' =>$terms,  // Specify the field, e.g., 'slug'
-                // 'terms' => $terms,
+                'id' =>$id,  
             ),
         ),
     );

@@ -5,7 +5,7 @@
             foreach ($terms as $term) {
                 // var_dump($term);
                 $term_count = $term->count;
-                echo '<li id="' . $term->term_id . '">';
+                echo '<li data-id="' . $term->term_id . '">';
                 echo  $term->name;
                 echo '( ' . $term_count . ')';
                 echo '</li>';

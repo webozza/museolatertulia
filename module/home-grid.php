@@ -275,14 +275,14 @@ $query = new WP_Query($args);
         //============================
 
         $('.categories ul li').click(function () {
-          let category = $(this).attr('class')
+          let id = $(this).data('id')
           console.log(category)
           $.ajax({
             url : '/wp-admin/admin-ajax.php',
             type : 'POST',
             data : {
               action : 'catagoryFilter',
-              terms : category,
+              id : id,
             },
             success : function(response){
                     $('.my-masonry-grid').html(response)
