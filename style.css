@@ -581,7 +581,7 @@ line-height: 22px; ;
   background-color: #FF8EC3;
   padding: 100px 50px;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
