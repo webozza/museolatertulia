@@ -10,6 +10,9 @@ $query = new WP_Query($args);
     <div class="map">
     <?php include get_stylesheet_directory() . '/module/map.php'?>
     </div>
+    <div class="artists">
+      <?php include get_stylesheet_directory_uri() . '/module/artists.php'?>
+    </div>
 
     <div class="my-masonry-grid">  
         <?php if ($query->have_posts()) : ?>
@@ -198,6 +201,10 @@ $query = new WP_Query($args);
 
             })
             $('.masonry-grid-column').css('width','33.33%')
+
+          }
+
+          if (key === 'artists') {
 
           }
         });
