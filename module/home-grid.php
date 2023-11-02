@@ -218,11 +218,11 @@ $query = new WP_Query($args);
                 success: function(response) {
                     console.log(response)
                     $('.my-masonry-grid').html(response)
-                    $('.my-masonry-grid').prepend(preLoader)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
                     });
-                    $('.masonry-grid-column').css('width','16.66%')
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $('.pre-loader-filtered').css('position','absolute')
                     setTimeout(() => {
                         $('.pre-loader-filtered').fadeOut()
                     }, 2000);
