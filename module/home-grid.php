@@ -11,7 +11,7 @@ $query = new WP_Query($args);
     <?php include get_stylesheet_directory() . '/module/map.php'?>
     </div>
     <div class="artists">
-      <?php include get_stylesheet_directory_uri() . '/module/artists.php'?>
+      <?php include get_stylesheet_directory() . '/module/artists.php'?>
     </div>
 
     <div class="my-masonry-grid">  
