@@ -580,6 +580,8 @@ p.parent_menu {
   background-color: #ff8ec3;
   height: 100vh;
   overflow: auto;
+  display: flex;
+  align-items: center;
 }
 .artists ul {
   display: flex;
