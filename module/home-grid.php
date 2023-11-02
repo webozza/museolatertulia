@@ -186,9 +186,11 @@ $query = new WP_Query($args);
           $('.logo h1').text(date)
 
           if (key === 'map') {
-            $('.biennial').css('width','0%')
-            $('.categories').css('width','0%')
-            $('.artists').css({'width':'0%'})
+
+            $('.biennial, .categories, .artists').css({
+              'width': '0%',
+              'height': '0'
+            });
             $('.map').css('width', '50%');
             $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
@@ -223,9 +225,10 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
-            $('.biennial').css('width','0%')
-            $('.categories').css('width','0%')
-            $('.map').css('width', '0%');
+            $('.biennial, .categories, .map').css({
+              'width': '0%',
+              'height': '0'
+            });
             $('.artists').css({'width':'50%'})
             $('.my-masonry-grid').css('width', '50%');
 
@@ -254,9 +257,10 @@ $query = new WP_Query($args);
           }
 
           if (key === 'categories') {
-            $('.biennial').css('width','0%')
-            $('.map').css('width', '0%');
-            $('.artists').css('width','0%')
+            $('.biennial, .map, .artists').css({
+              'width': '0%',
+              'height': '0'
+            });
             $('.categories').css('width','50%')
             $('.my-masonry-grid').css('width', '50%');
 
@@ -285,10 +289,11 @@ $query = new WP_Query($args);
           }
 
           if (key === 'biennial') {
+            $('.map, .artists, .categories').css({
+              'width': '0%',
+              'height': '0'
+            });
             $('.biennial').css('width','50%')
-            $('.map').css('width', '0%');
-            $('.artists').css('width','0%')
-            $('.categories').css('width','0%')
             $('.my-masonry-grid').css('width', '50%');
 
             $.ajax({

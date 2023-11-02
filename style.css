@@ -661,5 +661,13 @@ p.parent_menu {
     font-size: 22px;
     padding: 10px;
 }
+.artists, .categories, .biennial{
+  height: auto;
+  width: 100%;
+}
+.home_section {
+flex-direction: column;
+}
+
   
 }
