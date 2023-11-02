@@ -208,6 +208,29 @@ $query = new WP_Query($args);
             $('.artists').css({'width':'50%','overflow':'auto', 'padding':'100px 50px'})
             $('.my-masonry-grid').css('width', '50%');
 
+            $('.my-masonry-grid').html('')
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'defaultGrid',
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    $('.masonry-grid-column').css('width','16.66%')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    ImgPopupFunction()
+                }
+            });
+            $('.masonry-grid-column').css('width','33.33%')
+
           }
         });
 
@@ -218,17 +241,18 @@ $query = new WP_Query($args);
 
         $('path').click(function () {
           $('path').css('fill', '#ffffff');
+
           let key = 'obra-nacionalidad'
-          let countryName = $(this).attr('id')
+          let value = $(this).attr('id')
           $(this).css('fill', '#a4fffa');
 
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
                 data: {
-                    action: 'mapFilter',
-                    parentMenu: key,
-                    id: countryName,
+                    action: 'filterData',
+                    key: key,
+                    value: value,
                 },
                 success: function(response) {
                     console.log(response)
@@ -244,7 +268,9 @@ $query = new WP_Query($args);
                     ImgPopupFunction()
                 }
             });
+
             $('.masonry-grid-column').css('width','33.33%')
+
         })
 
 

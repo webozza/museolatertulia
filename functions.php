@@ -165,10 +165,10 @@ add_action('wp_ajax_nopriv_mapData', 'mapData');
 //===================================
 
 
-function mapFilter() {
-    $parentMenu = $_POST['parentMenu'];
-    $menuId_with_underscore = $_POST['id'];
-    $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
+function filterData() {
+    $key = $_POST['key'];
+    $menuId_with_underscore = $_POST['value'];
+    $value = str_replace( '_' , ' ' , $menuId_with_underscore);
 
     $data = 'Data fetched from the server'; 
 
@@ -177,8 +177,8 @@ function mapFilter() {
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => $parentMenu,
-                'value' => $menuId,
+                'key' => $key,
+                'value' => $value,
                 'compare' => '=',
             ),
         ),
@@ -210,8 +210,8 @@ function mapFilter() {
 
 
 
-add_action('wp_ajax_mapFilter', 'mapFilter');
-add_action('wp_ajax_nopriv_mapFilter', 'mapFilter');
+add_action('wp_ajax_filterData', 'filterData');
+add_action('wp_ajax_nopriv_filterData', 'filterData');
 
 
 // back to default grid 
