@@ -160,7 +160,7 @@ $query = new WP_Query($args);
 
 
         //============================
-        //          Filter from map  on initial load
+        //          Filter from left menu  on initial load
         //============================
 
 
@@ -205,6 +205,8 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
+            $('.artists').css('width','50%')
+            $('.my-masonry-grid').css('width', '50%');
 
           }
         });
