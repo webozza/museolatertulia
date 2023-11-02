@@ -261,7 +261,7 @@ function catagoryFilter(){
         'tax_query' => array(  // Use 'tax_query' instead of 'meta_query'
             array(
                 'taxonomy' => 'categoria',
-                'field' => $terms,  
+                'field' =>$terms,  // Specify the field, e.g., 'slug'
                 'terms' => $terms,
             ),
         ),
@@ -292,3 +292,4 @@ function catagoryFilter(){
 
 add_action('wp_ajax_catagoryFilter', 'catagoryFilter');
 add_action('wp_ajax_nopriv_catagoryFilter', 'catagoryFilter');
+
