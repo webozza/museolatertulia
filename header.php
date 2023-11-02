@@ -168,8 +168,7 @@ function querry_menu($menu_category){
             })
 
             $('.submenu').click(()=>{
-                $('#left-menu').removeClass('active')
-                $('#left-menu').hide(300);  
+                $('.left-toggle-container').click()
             })
         })
 
