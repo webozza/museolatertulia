@@ -572,7 +572,7 @@ p.parent_menu {
   justify-content: space-between;
 }
 .map {
-  width: 0%;
+  /* width: 0%; */
 }
 
 .my-masonry-grid {
@@ -592,12 +592,14 @@ p.parent_menu {
 
 
 
-.artists, .categories, .biennial {
-  width: 0%;
+.map, .artists, .categories, .biennial {
+  /* width: 0%; */
+  flex: 1;
   background-color: #ff8ec3;
   height: 100vh;
   overflow: auto;
   display: flex;
+  display: none;
 }
 
 .artists ul, .categories ul, .biennial ul {

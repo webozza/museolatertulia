@@ -187,12 +187,14 @@ $query = new WP_Query($args);
 
           if (key === 'map') {
 
-            $('.biennial, .categories, .artists').css({
-              'width': '0%',
-              'height': '0'
-            });
-            $('.map').css('width', '50%');
-            $('.my-masonry-grid').css('width', '50%');
+            // $('.biennial, .categories, .artists').css({
+            //   'width': '0%',
+            //   'height': '0'
+            // });
+            $('.biennial, .categories, .artists').hide()
+            // $('.map').css('width', '50%');
+            $('.map').show()
+            // $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
             $('.my-masonry-grid').html('')
             // ajax request 
