@@ -623,7 +623,7 @@ p.parent_menu {
 
 
 .categories{
-  width: 50%;
+  width: 0%;
   background-color: #ff8ec3;
   height: 100vh;
   overflow: auto;
