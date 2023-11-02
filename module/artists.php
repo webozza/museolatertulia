@@ -25,7 +25,7 @@
         
         foreach ($value_counts as $value => $count) {
             $id = str_replace(' ', '_', $value);
-            echo '<li class="drop_down_menu" id="' . $id . '">' . $value;        
+            echo '<li class="artists_name" id="' . $id . '">' . $value;        
             if ($count > 1) {
                 echo ' (' . $count . ')';
             }
