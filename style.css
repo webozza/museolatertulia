@@ -675,5 +675,11 @@ p.parent_menu {
 flex-direction: column;
 }
 
+.artists ul {
+  height: 50vh;
+}
+
+
+
   
 }
