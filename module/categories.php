@@ -1,6 +1,5 @@
 <?php
         $terms = get_terms('categoria');
-
         if (!empty($terms)) {
             echo '<ul>';
             foreach ($terms as $term) {
