@@ -236,6 +236,14 @@ $query = new WP_Query($args);
             $('.masonry-grid-column').css('width','33.33%')
 
           }
+
+
+          if (key === 'artists') {
+            $('.map').css('width', '0%');
+            $('.artists').css('width','0%')
+            $('.categories').css('width','50%')
+            $('.my-masonry-grid').css('width', '50%');
+          }
         });
 
         //============================
