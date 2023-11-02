@@ -571,12 +571,8 @@ p.parent_menu {
   transition: 0.3s;
   justify-content: space-between;
 }
-.map {
-  /* width: 0%; */
-}
 
 .my-masonry-grid {
-  /* width: 100%; */
   height: 100vh;
   overflow: auto;
   position: relative;
@@ -645,7 +641,7 @@ p.parent_menu {
       display: none;
     }
     .artists ul, .categories ul, .biennial ul {
-      padding: 50px 10px;
+      padding: 120px 20px;
     }
 
     .logo-container{

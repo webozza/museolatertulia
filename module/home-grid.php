@@ -222,8 +222,6 @@ $query = new WP_Query($args);
           if (key === 'artists') {
             $('.biennial, .categories, .map').hide()
             $('.artists').show()
-            $('.my-masonry-grid').css('width', '50%');
-
             $('.my-masonry-grid').html('')
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
@@ -251,7 +249,6 @@ $query = new WP_Query($args);
           if (key === 'categories') {
             $('.biennial, .map, .artists').hide()
             $('.categories').show()
-            $('.my-masonry-grid').css('width', '50%');
 
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
@@ -280,8 +277,6 @@ $query = new WP_Query($args);
           if (key === 'biennial') {
             $('.map, .artists, .categories').hide()
             $('.biennial').show()
-            $('.my-masonry-grid').css('width', '50%');
-
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
