@@ -276,7 +276,7 @@ $query = new WP_Query($args);
 
         $('.categories ul li').click(function () {
           let id = $(this).data('id')
-          console.log(category)
+          console.log(id)
           $.ajax({
             url : '/wp-admin/admin-ajax.php',
             type : 'POST',
