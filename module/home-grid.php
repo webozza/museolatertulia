@@ -186,15 +186,8 @@ $query = new WP_Query($args);
           $('.logo h1').text(date)
 
           if (key === 'map') {
-
-            // $('.biennial, .categories, .artists').css({
-            //   'width': '0%',
-            //   'height': '0'
-            // });
             $('.biennial, .categories, .artists').hide()
-            // $('.map').css('width', '50%');
             $('.map').show()
-            // $('.my-masonry-grid').css('width', '50%');
             $('#zoom-controls').css('width','fit-content')
             $('.my-masonry-grid').html('')
             // ajax request 
@@ -227,11 +220,8 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
-            $('.biennial, .categories, .map').css({
-              'width': '0%',
-              'height': '0'
-            });
-            $('.artists').css({'width':'50%'})
+            $('.biennial, .categories, .map').hide()
+            $('.artists').show()
             $('.my-masonry-grid').css('width', '50%');
 
             $('.my-masonry-grid').html('')
@@ -259,11 +249,8 @@ $query = new WP_Query($args);
           }
 
           if (key === 'categories') {
-            $('.biennial, .map, .artists').css({
-              'width': '0%',
-              'height': '0'
-            });
-            $('.categories').css('width','50%')
+            $('.biennial, .map, .artists').hide()
+            $('.categories').show()
             $('.my-masonry-grid').css('width', '50%');
 
             $.ajax({
@@ -291,11 +278,8 @@ $query = new WP_Query($args);
           }
 
           if (key === 'biennial') {
-            $('.map, .artists, .categories').css({
-              'width': '0%',
-              'height': '0'
-            });
-            $('.biennial').css('width','50%')
+            $('.map, .artists, .categories').hide()
+            $('.biennial').show()
             $('.my-masonry-grid').css('width', '50%');
 
             $.ajax({
@@ -473,8 +457,7 @@ $query = new WP_Query($args);
 
 
         $('#map_close').click(()=>{
-          $('.map').css('width', '0%');
-            $('.my-masonry-grid').css('width', '100%');
+          $('.map, .artists, .categories, .biennial').hide()
             $('#zoom-controls').css('width','0')
             $('.masonry-grid-column').css('width','16.66% !important')
 
