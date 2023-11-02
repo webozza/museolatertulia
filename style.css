@@ -617,3 +617,15 @@ p.parent_menu {
 #Brasil {
   fill: #a4fffa;
 }
+
+
+/* catagories page  */
+
+
+.categories{
+  width: 50%;
+  background-color: #ff8ec3;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+}

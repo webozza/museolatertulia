@@ -13,7 +13,9 @@ $query = new WP_Query($args);
     <div class="artists">
       <?php include get_stylesheet_directory() . '/module/artists.php'?>
     </div>
-
+    <div class="categories">
+      <?php include get_stylesheet_directory( ) . '/module/categories.php'?>
+    </div>
     <div class="my-masonry-grid">  
         <?php if ($query->have_posts()) : ?>
         <?php while ($query->have_posts()) : $query->the_post(); ?>
