@@ -262,7 +262,7 @@ function catagoryFilter(){
             array(
                 'taxonomy' => 'categoria',
                 'field' =>$terms,  // Specify the field, e.g., 'slug'
-                'terms' => $terms,
+                // 'terms' => $terms,
             ),
         ),
     );
@@ -293,3 +293,4 @@ function catagoryFilter(){
 add_action('wp_ajax_catagoryFilter', 'catagoryFilter');
 add_action('wp_ajax_nopriv_catagoryFilter', 'catagoryFilter');
 
+ 
