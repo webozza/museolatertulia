@@ -16,6 +16,9 @@ $query = new WP_Query($args);
     <div class="categories">
       <?php include get_stylesheet_directory( ) . '/module/categories.php'?>
     </div>
+    <div class="biennial">
+      <?php include get_stylesheet_directory(  ) . '/module/biennial.php'?>
+    </div>
     <div class="my-masonry-grid">  
         <?php if ($query->have_posts()) : ?>
         <?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -181,7 +184,9 @@ $query = new WP_Query($args);
           console.log(selectedYear)
 
           $('.logo h1').text(date)
+
           if (key === 'map') {
+            $('.biennial').css('width','0%')
             $('.categories').css('width','0%')
             $('.artists').css({'width':'0%'})
             $('.map').css('width', '50%');
@@ -218,6 +223,7 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
+            $('.biennial').css('width','0%')
             $('.categories').css('width','0%')
             $('.map').css('width', '0%');
             $('.artists').css({'width':'50%'})
@@ -247,8 +253,8 @@ $query = new WP_Query($args);
             $('.masonry-grid-column').css('width','33.33%')
           }
 
-
           if (key === 'categories') {
+            $('.biennial').css('width','0%')
             $('.map').css('width', '0%');
             $('.artists').css('width','0%')
             $('.categories').css('width','50%')
@@ -277,6 +283,44 @@ $query = new WP_Query($args);
             $('.masonry-grid-column').css('width','33.33%')
 
           }
+
+          if (key === 'biennial') {
+            $('.biennial').css('width','50%')
+            $('.map').css('width', '0%');
+            $('.artists').css('width','0%')
+            $('.categories').css('width','0%')
+            $('.my-masonry-grid').css('width', '50%');
+
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'defaultGrid',
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $('.pre-loader-filtered').css('position','absolute')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    ImgPopupFunction()
+                }
+            });
+            $('.masonry-grid-column').css('width','33.33%')
+
+          }
+
+
+
+
+
+
+
         });
 
         //============================
