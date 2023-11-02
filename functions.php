@@ -261,7 +261,8 @@ function catagoryFilter(){
         'tax_query' => array(  // Use 'tax_query' instead of 'meta_query'
             array(
                 'taxonomy' => 'categoria',
-                'id' =>$id,  
+                'field' =>'term_id',  
+                'terms' => $id,
             ),
         ),
     );
