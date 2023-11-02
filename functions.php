@@ -261,7 +261,7 @@ function catagoryFilter(){
         'tax_query' => array(  // Use 'tax_query' instead of 'meta_query'
             array(
                 'taxonomy' => 'categoria',
-                'field' => 'slug',  // Specify the field, e.g., 'slug'
+                'field' => $terms,  
                 'terms' => $terms,
             ),
         ),
