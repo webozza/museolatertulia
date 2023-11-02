@@ -264,8 +264,9 @@ $query = new WP_Query($args);
                     }, 2000);
                     ImgPopupFunction()
                 }
-                $('.masonry-grid-column').css('width','33.33%')
             });
+            $('.masonry-grid-column').css('width','33.33%')
+
           }
         });
 
@@ -295,8 +296,9 @@ $query = new WP_Query($args);
                     }, 2000);
                     ImgPopupFunction()
             }
-            $('.masonry-grid-column').css('width','33.33%')
           })
+          $('.masonry-grid-column').css('width','33.33%')
+
         })
 
         //============================
