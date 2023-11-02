@@ -238,7 +238,7 @@ $query = new WP_Query($args);
           }
 
 
-          if (key === 'artists') {
+          if (key === 'categories') {
             $('.map').css('width', '0%');
             $('.artists').css('width','0%')
             $('.categories').css('width','50%')
