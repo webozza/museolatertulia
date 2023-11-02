@@ -678,8 +678,8 @@ p.parent_menu {
 
 
 @media (max-width:768px) {
-  home{
-    background-color: red;
-  }
+    .menu-right{
+      display: none;
+    }
   
 }
