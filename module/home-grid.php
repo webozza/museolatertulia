@@ -273,6 +273,41 @@ $query = new WP_Query($args);
 
         })
 
+       //============================
+        //            Filter Data for Artists name 
+        //============================
+
+        $('.artists_name').click(function(){
+          let key = 'obra-nombre_completo'
+          let value = $(this).attr('id')
+          $(this).css('fill', '#a4fffa');
+
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'filterData',
+                    key: key,
+                    value: value,
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    $(".my-masonry-grid").masonryGrid({
+                        columns: 3,
+                    });
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $('.pre-loader-filtered').css('position','absolute')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+                    ImgPopupFunction()
+                }
+            });
+
+            $('.masonry-grid-column').css('width','33.33%')
+        })
+
 
         //============================
         //                            Map close 
@@ -306,10 +341,6 @@ $query = new WP_Query($args);
                     ImgPopupFunction()
                 }
             });
-
-
-
-
         })
 
     });
