@@ -254,7 +254,7 @@ $query = new WP_Query($args);
 
         $('.categories ul li').click(function () {
           let category = $(this).attr('class')
-          console.log(catagory)
+          console.log(category)
           $.ajax({
             url : '/wp-admin/admin-ajax.php',
             type : 'POST',
