@@ -700,20 +700,30 @@ p.parent_menu {
 }
 
 
-.right-menu-for-mobile .menu {
+/* Add this CSS to style the mobile menu and submenus */
+
+.mobile-menu {
   list-style: none;
   padding: 0;
 }
 
-.right-menu-for-mobile .menu-item {
+.mobile-menu-item {
   cursor: pointer;
 }
 
-.right-menu-for-mobile .submenu {
+.mobile-submenu {
   display: none;
+  padding-left: 20px; /* Adjust the indentation of submenus */
 }
 
-/* Styles for mobile menu */
-.mobile-active .submenu {
-  display: block;
+/* Style the mobile menu items and submenus as needed */
+.mobile-parent_menu {
+  color: #333;
+  font-weight: bold;
 }
+
+.mobile-submenu li {
+  list-style: disc;
+}
+
+/* You can customize the styles further based on your design preferences */

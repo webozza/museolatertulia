@@ -106,33 +106,33 @@ function querry_menu($menu_category){
                     </ul>
                 </div>
                 <div class="right-menu-for-mobile">
-                    <ul class="menu">
-                        <li class="menu-item">
-                            <p class="parent_menu" id="obra-bienal">Bienales</p>
-                            <ul class="submenu">
-                                <?php querry_menu('obra-bienal')?>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <p class="parent_menu" id="obra-nombre_completo">Artistas</p>
-                            <ul class="submenu">
-                                <?php querry_menu('obra-nombre_completo')?>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <p class="parent_menu" id="obra-tecnica_materiales">Técnicas</p>
-                            <ul class="submenu">
-                                <?php querry_menu('obra-tecnica_materiales')?>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <p class="parent_menu" id="obra-nacionalidad">Nacionalidad</p>
-                            <ul class="submenu">
-                                <?php querry_menu('obra-nacionalidad')?>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                        <ul class="mobile-menu">
+                            <li class="mobile-menu-item">
+                                <p class="mobile-parent_menu" id="obra-bienal">Bienales</p>
+                                <ul class="mobile-submenu">
+                                    <?php querry_menu('obra-bienal')?>
+                                </ul>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <p class="mobile-parent_menu" id="obra-nombre_completo">Artistas</p>
+                                <ul class="mobile-submenu">
+                                    <?php querry_menu('obra-nombre_completo')?>
+                                </ul>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <p class="mobile-parent_menu" id="obra-tecnica_materiales">Técnicas</p>
+                                <ul class="mobile-submenu">
+                                    <?php querry_menu('obra-tecnica_materiales')?>
+                                </ul>
+                            </li>
+                            <li class="mobile-menu-item">
+                                <p class="mobile-parent_menu" id="obra-nacionalidad">Nacionalidad</p>
+                                <ul class="mobile-submenu">
+                                    <?php querry_menu('obra-nacionalidad')?>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
             </div>
         </div>
     </div>
@@ -198,6 +198,9 @@ function querry_menu($menu_category){
             $('.submenu').click(()=>{
                 $('.left-toggle-container').click()
             })
+            $('.mobile-menu-item').click(function() {
+                $(this).find('.mobile-submenu').slideToggle();
+            });
         })
 
         
