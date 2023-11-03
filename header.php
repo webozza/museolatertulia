@@ -108,33 +108,34 @@ function querry_menu($menu_category){
             </div>
         </div>
         <div class="right-menu-for-mobile">
-            <ul>
+            <ul class="menu">
                 <li class="menu-item">
-                    <p class="parent_menu" id='obra-bienal'>Bienales</p>
+                    <p class="parent_menu" id="obra-bienal">Bienales</p>
                     <ul class="submenu">
                         <?php querry_menu('obra-bienal')?>
                     </ul>
                 </li>
                 <li class="menu-item">
-                <p class="parent_menu" id='obra-nombre_completo'>Artistas</p>
+                    <p class="parent_menu" id="obra-nombre_completo">Artistas</p>
                     <ul class="submenu">
-                        <?php querry_menu('obra-nombre_completo')?> 
+                        <?php querry_menu('obra-nombre_completo')?>
                     </ul>
                 </li>
                 <li class="menu-item">
-                <p class="parent_menu" id='obra-tecnica_materiales'>Técnicas</p>
+                    <p class="parent_menu" id="obra-tecnica_materiales">Técnicas</p>
                     <ul class="submenu">
                         <?php querry_menu('obra-tecnica_materiales')?>
                     </ul>
                 </li>
-                <li class="menu-item">       
-                <p class="parent_menu" id='obra-nacionalidad'>Nacionalidad</p>
+                <li class="menu-item">
+                    <p class="parent_menu" id="obra-nacionalidad">Nacionalidad</p>
                     <ul class="submenu">
                         <?php querry_menu('obra-nacionalidad')?>
                     </ul>
                 </li>
             </ul>
         </div>
+
     </div>
 </div>
 <div class="header-right">
@@ -198,6 +199,11 @@ function querry_menu($menu_category){
             $('.submenu').click(()=>{
                 $('.left-toggle-container').click()
             })
+
+            $('.right-menu-for-mobile .menu-item').click(function() {
+                // Toggle the submenu when a menu item is clicked
+                $(this).find('.submenu').slideToggle();
+            });
         })
 
         

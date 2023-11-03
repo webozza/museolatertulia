@@ -698,3 +698,22 @@ p.parent_menu {
     line-height: 35px; /* 175% */
   }
 }
+
+
+.right-menu-for-mobile .menu {
+  list-style: none;
+  padding: 0;
+}
+
+.right-menu-for-mobile .menu-item {
+  cursor: pointer;
+}
+
+.right-menu-for-mobile .submenu {
+  display: none;
+}
+
+/* Styles for mobile menu */
+.mobile-active .submenu {
+  display: block;
+}
