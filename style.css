@@ -701,7 +701,7 @@ p.parent_menu {
     line-height: 35px; /* 175% */
   }
   .right-menu-for-mobile{
-    display: block;
+    display: block !important;
   }
 }
 
