@@ -685,6 +685,7 @@ p.parent_menu {
   }
   .home_section {
     flex-direction: column;
+    margin-top: 52px;
   }
 
   .artists ul {
