@@ -587,9 +587,10 @@ p.parent_menu {
   fill: #a4fffa;
 }
 
-
-
-.map, .artists, .categories, .biennial {
+.map,
+.artists,
+.categories,
+.biennial {
   /* width: 0%; */
   flex: 1;
   background-color: #ff8ec3;
@@ -599,21 +600,24 @@ p.parent_menu {
   display: none;
 }
 
- .categories ul, .biennial ul {
+.categories ul,
+.biennial ul {
   display: flex;
   flex-wrap: wrap;
   column-gap: 60px;
   padding: 120px 50px;
   flex-direction: column;
 }
-.artists ul{
+.artists ul {
   display: flex;
   flex-wrap: wrap;
   column-gap: 60px;
   padding: 120px 50px;
 }
 
-.artists li, .categories li, .biennial li {
+.artists li,
+.categories li,
+.biennial li {
   list-style: none;
   width: 200px;
   cursor: pointer;
@@ -624,40 +628,46 @@ p.parent_menu {
   display: inline-block;
 }
 
-.artists li:hover, .categories li:hover, .biennial li:hover {
+.artists li:hover,
+.categories li:hover,
+.biennial li:hover {
   opacity: 0.7;
 }
 
 /* Specific styles for different sections */
-.categories, .biennial {
+.categories,
+.biennial {
   flex-direction: column;
 }
 
-
-
-
-@media (max-width:768px) {
-    .menu-right{
-      display: none;
-    }
-    .artists ul, .categories ul, .biennial ul {
-      padding: 120px 20px;
-    }
-
-    .logo-container{
-      flex-direction:row-reverse
-    }
-    #left-menu {
-      background-color: white;
-      padding: 10px;
-      position: absolute;
-      left: -10%;
-      top: 69px;
-      border-radius: 5px;
-      display: none;
-      min-width: 88vw;
+@media (max-width: 768px) {
+  .menu-right {
+    display: none;
   }
-  #left-menu::before{
+  .artists ul,
+  .categories ul,
+  .biennial ul {
+    padding: 120px 20px;
+  }
+
+  .logo-container {
+    flex-direction: row-reverse;
+    height: 60px;
+    background-color: white;
+    justify-content: start;
+    width: 100vw;
+  }
+  #left-menu {
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    left: -10%;
+    top: 45px;
+    border-radius: 5px;
+    display: none;
+    min-width: 88vw;
+  }
+  #left-menu::before {
     display: none;
   }
   #left-menu > div > ul > li {
@@ -666,20 +676,25 @@ p.parent_menu {
     font-weight: 500;
     font-size: 22px;
     padding: 10px;
-}
-.artists, .categories, .biennial{
-  height: auto;
-  width: 100%;
-}
-.home_section {
-flex-direction: column;
-}
+  }
+  .artists,
+  .categories,
+  .biennial {
+    height: auto;
+    width: 100%;
+  }
+  .home_section {
+    flex-direction: column;
+  }
 
-.artists ul {
-  height: 50vh;
-}
+  .artists ul {
+    height: 50vh;
+  }
 
-
-
-  
+  .logo > h1 {
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px; /* 175% */
+  }
 }
