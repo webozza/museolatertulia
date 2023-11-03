@@ -666,6 +666,8 @@ p.parent_menu {
     border-radius: 5px;
     display: none;
     min-width: 88vw;
+    max-height: 90vh;
+    overflow: auto;
   }
   #left-menu::before {
     display: none;
@@ -698,11 +700,16 @@ p.parent_menu {
     font-weight: 700;
     line-height: 35px; /* 175% */
   }
+  .right-menu-for-mobile{
+    display: block;
+  }
 }
 
 
 /* Add this CSS to style the mobile menu and submenus */
-
+.right-menu-for-mobile{
+  display: none;
+}
 .mobile-menu {
     list-style: none;
     padding: 0;
@@ -724,7 +731,8 @@ p.parent_menu {
 }
 
 .mobile-submenu li {
-    list-style: disc;
+    list-style: none;
+    font-size: 18px;
 }
 
 /* You can customize the styles further based on your design preferences */
