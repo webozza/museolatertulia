@@ -703,27 +703,27 @@ p.parent_menu {
 /* Add this CSS to style the mobile menu and submenus */
 
 .mobile-menu {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .mobile-menu-item {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .mobile-submenu {
-  display: none;
-  padding-left: 20px; /* Adjust the indentation of submenus */
+    display: none;
+    padding-left: 20px; /* Adjust the indentation of submenus */
 }
 
 /* Style the mobile menu items and submenus as needed */
 .mobile-parent_menu {
-  color: #333;
-  font-weight: bold;
+    color: #333;
+    font-weight: bold;
 }
 
 .mobile-submenu li {
-  list-style: disc;
+    list-style: disc;
 }
 
 /* You can customize the styles further based on your design preferences */

@@ -199,7 +199,7 @@ function querry_menu($menu_category){
                 $('.left-toggle-container').click()
             })
             $('.mobile-menu-item').click(function() {
-                $(this).find('.mobile-submenu').slideToggle();
+                $(this).find('.mobile-submenu').slideToggle(300);
             });
         })
 
