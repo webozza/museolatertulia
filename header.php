@@ -198,8 +198,11 @@ function querry_menu($menu_category){
             $('.submenu').click(()=>{
                 $('.left-toggle-container').click()
             })
-            $('.mobile-menu-item').click(function() {
-                $(this).find('.mobile-submenu').slideToggle(300);
+
+            
+            $('.mobile-parent_menu').click(function() {
+                $('.mobile-menu-item').not(this).find('.mobile-submenu').slideUp(300);
+                $(this).closest('.mobile-submenu').slideToggle(300);
             });
         })
 
