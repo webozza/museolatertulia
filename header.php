@@ -201,7 +201,7 @@ function querry_menu($menu_category){
 
 
             $('.mobile-parent_menu').click(function() {
-                $('.mobile-menu-item').not(this).find('.mobile-submenu').slideUp(300);
+                $('.mobile-parent_menu').not(this).next('.mobile-submenu').slideUp(300);
                 $(this).next('.mobile-submenu').slideToggle(300);
             });
         })
