@@ -703,6 +703,20 @@ p.parent_menu {
   .right-menu-for-mobile{
     display: block !important;
   }
+
+  .documentWindow {
+    padding: 50px 20px;
+    width: 100%;
+    z-index: 9;
+  }
+
+  .gallerie > div {
+    width: 100% !important;
+}
+.slide-in-btn {
+  left: 0px;
+}
+
 }
 
 

@@ -74,7 +74,7 @@ $query = new WP_Query($args);
             <p><strong>Otras colecciones : </strong> <span class="other-ducuments"></span></p>
       </div>
       <div class="documentWindow">
-        <div class="documentData ">
+        <div class="documentData">
           <div class="obra-documentos">
             <h3 ></h3>
             <div class="gallerie"></div>

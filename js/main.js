@@ -178,7 +178,7 @@ jQuery(document).ready(function ($) {
 
           let appnedSidebarGalleries = (fieldName, containerClass) => {
             const imageIds = data.acf[fieldName];
-            const $imageContainer = $(containerClass).find(".gallerie"); // Select the container with jQuery
+            const $imageContainer = $(containerClass).find(".gallerie");
             console.log("imageContainer", $imageContainer);
 
             if (Array.isArray(imageIds)) {
@@ -204,9 +204,19 @@ jQuery(document).ready(function ($) {
                     $imageContainer.append(imgTag);
                     loadedImages++;
                     if (loadedImages === imageCount) {
+
+                      let windowWidthCalc = $('.documentWindow ').width() / $('body').width();
+                      let grid;
+                      if (windowWidthCalc == 1) {
+                        grid = 1;
+                      } else {
+                        grid = 3;
+                      }
                       $imageContainer.masonryGrid({
-                        columns: 3,
+                        columns: grid
                       });
+
+
                     }
                     handleDocumentSingleImage();
                   },
