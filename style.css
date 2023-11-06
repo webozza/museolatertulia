@@ -147,8 +147,6 @@ body {
   right: 0; /* Slide the window into view */
 }
 
-.closedocumentWindow {
-}
 .documentWindowNav {
   position: absolute;
   bottom: 0;
@@ -188,6 +186,11 @@ body {
 }
 
 .sidebar-grid .masonry-grid-item {
+  padding: 10px;
+}
+
+
+.documentImg.sidebar-grid-item.masonry-grid-item {
   padding: 10px;
 }
 
@@ -705,7 +708,7 @@ p.parent_menu {
   }
 
   .documentWindow {
-    padding: 50px 20px;
+    padding: 54px 20px;
     width: 100%;
     z-index: 9;
   }
