@@ -183,14 +183,16 @@ function querry_menu($menu_category){
                 $('#left-menu').toggleClass('active')
                 $('#left-menu').fadeToggle(300);
             })
-            $('.top-level-menu').on('click', function() {
-                $('.top-level-menu').not(this).find('.submenu').slideUp(300);
-                $(this).find('.submenu').slideToggle(300);
+            $('.menu_date').on('click', function() {
+                $('.menu_date').not(this).next('.submenu').slideUp(300);
+                $(this).next('.submenu').slideToggle(300);
             });
+
             $('.menu-item').click(function() {
                 $('.menu-item').not(this).find('.submenu').slideUp(300);
                 $(this).find('.submenu').slideToggle(300);
             });
+
             $('.drop_down_menu').click(function(){
                 $menu_item = $(this).text()
             })
