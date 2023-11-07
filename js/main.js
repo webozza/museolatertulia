@@ -410,6 +410,9 @@ function handleHeader(){
     })
 
     $('#left-menu .submenu, #left-menu .mobile-submenu').click(()=>{
+        $('.menu_date').next('.submenu').slideUp(300);
+        $('.menu-item').find('.submenu').slideUp(300);
+        $('.mobile-parent_menu').next('.mobile-submenu').slideUp(300);
         $('.left-toggle-container').click()
     })
 
