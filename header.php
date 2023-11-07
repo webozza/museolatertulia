@@ -68,7 +68,7 @@ function querry_menu($menu_category){
                 </a>
             </div>
             <div id="left-menu">
-                <div>
+                <div class="date-menu">
                     <ul>
                         <li class="top-level-menu">
                             <a href="<?= site_url();?>">Start</a>
@@ -197,7 +197,7 @@ function querry_menu($menu_category){
                 $menu_item = $(this).text()
             })
 
-            $('.submenu').click(()=>{
+            $('.left-menu .submenu, .left-menu .mobile-submenu').click(()=>{
                 $('.left-toggle-container').click()
             })
 
