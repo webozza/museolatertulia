@@ -13,8 +13,10 @@ if ($page) {
         ?>
     </div>
     <div class="content">
-        <?=  $page->post_title ?>
-        <?=  $page->post_content ?>
+        <div class="page-title">
+            <h2><?=  $page->post_title ?></h2>
+        </div>
+        <div class="page-body"><?=  $page->post_content ?></div>
     </div>
     <?php
 } else {
