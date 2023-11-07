@@ -174,40 +174,4 @@ function querry_menu($menu_category){
 
     <script>
         let themeDir = '<?= get_stylesheet_directory_uri() ?>'
-
-
-        $(document).ready(function(){
-
-            $('.left-toggle-container').click(function(){
-                $('.toggle-menu').toggleClass('on')
-                $('#left-menu').toggleClass('active')
-                $('#left-menu').fadeToggle(300);
-            })
-            $('.menu_date').on('click', function() {
-                $('.menu_date').not(this).next('.submenu').slideUp(300);
-                $(this).next('.submenu').slideToggle(300);
-            });
-
-            $('.menu-item').click(function() {
-                $('.menu-item').not(this).find('.submenu').slideUp(300);
-                $(this).find('.submenu').slideToggle(300);
-            });
-
-            $('.drop_down_menu').click(function(){
-                $menu_item = $(this).text()
-            })
-
-            $('.left-menu .submenu, .left-menu .mobile-submenu').click(()=>{
-                $('.left-toggle-container').click()
-            })
-
-
-            $('.mobile-parent_menu').click(function() {
-                $('.mobile-parent_menu').not(this).next('.mobile-submenu').slideUp(300);
-                $(this).next('.mobile-submenu').slideToggle(300);
-            });
-        })
-
-        
-
     </script> 
