@@ -646,7 +646,7 @@ p.parent_menu {
 
 
 
-.page_popup {
+.popup_page > div {
   /* display: flex; */
   padding: 10px;
   align-items: center;
@@ -655,7 +655,7 @@ p.parent_menu {
   min-height: 100vh;
   display: none;
 }
-.page_popup .thumbnail {
+.popup_page > div .thumbnail {
     flex: 1;
     padding: 10px;
     display: flex;
@@ -663,7 +663,7 @@ p.parent_menu {
     justify-content: center;
 }
 
-.page_popup .content {
+.popup_page > div .content {
   flex: 1;
   padding: 40px;
 }
@@ -687,10 +687,10 @@ p.parent_menu {
 
 @media (max-width: 768px) {
 
-  .page_popup {
+  .popup_page > div {
     flex-direction: column;
   }
-  .page_popup .content {
+  .popup_page > div .content {
     padding: 10px;
   }
 

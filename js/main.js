@@ -428,15 +428,29 @@ function handleHeader(){
   //                           Page template controle 
   //====================================
 
-  $('.el_projecto').click(()=>{
-    $('.home_section').fadeOut()
-    $('.page_popup').fadeIn()
-    $('.page_popup').css('display','flex')
-  })
+  function handlePageMenu(){
+    $('.page_link ul li').click(function(){
+      if($(this).attr('class') == 'el_projecto'){
+        $('.home_section').fadeOut()
+        $('.la_porjecto_page_popup').fadeIn()
+        $('.la_porjecto_page_popup').css('display','flex')
+      }
+      if($(this).attr('class') == 'equipo'){
+        $('.home_section').fadeOut()
+        $('.la_porjecto_page_popup').fadeOut()
+        $('.equipo_page_popup').fadeOut()
+        $('.equipo_page_popup').css('display','flex')
+      }
+    })
+
+  }
+
+
 
 
 // run the function
 closeWindow();
-handleHeader()
+handleHeader();
+handlePageMenu();
 
 });

@@ -6,8 +6,13 @@ $args = array(
 $query = new WP_Query($args);
 ?>
 
-<div class="page_popup">
-          <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
+<div class="popup_page">
+    <div class="la_porjecto_page_popup">
+              <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
+    </div>
+    <div class="equipo_page_popup">
+              <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
+    </div>
 </div>
 
 <div class="home_section">

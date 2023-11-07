@@ -1,5 +1,5 @@
 <?php
-$slug = 'el-projecto'; // Replace with the slug of the page you want to retrieve
+$slug = 'el-projecto';
 
 $page = get_page_by_path($slug);
 
