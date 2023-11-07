@@ -465,10 +465,11 @@ function handleHeader(){
 
 
 
-
 // run the function
 closeWindow();
 handleHeader();
 handlePageMenu();
 handledocumentWindow();
+hidePage();
+
 });
