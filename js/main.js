@@ -431,14 +431,16 @@ function handleHeader(){
   function handlePageMenu(){
     $('.page_link ul li').click(function(){
       if($(this).attr('class') == 'el_projecto'){
+        console.log($(this).attr('class'))
         $('.home_section').fadeOut()
         $('.la_porjecto_page_popup').fadeIn()
         $('.la_porjecto_page_popup').css('display','flex')
       }
       if($(this).attr('class') == 'equipo'){
+        console.log($(this).attr('class'))
         $('.home_section').fadeOut()
         $('.la_porjecto_page_popup').fadeOut()
-        $('.equipo_page_popup').fadeOut()
+        $('.equipo_page_popup').fadeIn()
         $('.equipo_page_popup').css('display','flex')
       }
     })
