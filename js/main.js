@@ -424,6 +424,17 @@ function handleHeader(){
 }
 
 
+  //====================================
+  //                           Page template controle 
+  //====================================
+
+  $('.el_projecto').click(()=>{
+    $('.home_section').fadeOut()
+    $('.page_popup').fadeIn()
+    $('.page_popup').css('display','flex')
+  })
+
+
 // run the function
 closeWindow();
 handleHeader()
