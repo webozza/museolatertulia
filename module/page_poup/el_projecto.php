@@ -12,7 +12,7 @@ if ($page) {
         }
         ?>
     </div>
-    <div class="content"><?= $apply_filters('the_content', $page->post_content); ?></div>
+    <div class="content"><?=  $page->post_content ?></div>
     <?php
 } else {
     echo 'Page not found';
