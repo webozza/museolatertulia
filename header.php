@@ -109,8 +109,8 @@ function querry_menu($menu_category){
                 </div>
                 <div class="page_link">
                     <ul>
-                        <li>El Projecto</li>
-                        <li>Epuipo</li>
+                        <li class='el_projecto'>El Projecto</li>
+                        <li class='equipo'>Epuipo</li>
                     </ul>
                 </div>
                 <div class="right-menu-for-mobile">
