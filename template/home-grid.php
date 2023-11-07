@@ -6,6 +6,10 @@ $args = array(
 $query = new WP_Query($args);
 ?>
 
+<div class="page_popup">
+          <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
+</div>
+
 <div class="home_section">
     <div class="map">
     <?php include get_stylesheet_directory() . '/module/map.php'?>
@@ -41,9 +45,7 @@ $query = new WP_Query($args);
     </div>
 </div>
 
-<div class="page_popup">
-          <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
-</div>
+
 
 <div class="popup-box  zoom-container">
         <div class="pre-loader">
