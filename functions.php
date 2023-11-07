@@ -46,7 +46,7 @@ add_action('wp_enqueue_scripts', 'mainJs');
 //===================================
 
 function homeGrid() {
-    include(get_stylesheet_directory() . '/module/home-grid.php');
+    include(get_stylesheet_directory() . '/template/home-grid.php');
 }
 add_shortcode('home_grid', 'homeGrid');
 

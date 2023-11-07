@@ -60,7 +60,9 @@ function querry_menu($menu_category){
 
 <div class="header-left">
     <div class="logo-container">
-        <div class="logo"><h1>1971</h1></div>
+        <a href="<?= site_url();?>">
+            <div class="logo"><h1>1971</h1></div>
+        </a>
         <div class="toggle-container">
             <div class='left-toggle-container'>
                 <a href='#left-menu' class="toggle-menu">
@@ -103,6 +105,12 @@ function querry_menu($menu_category){
                                 <!-- <li>resources</li> -->
                             </ul>
                         </li>
+                    </ul>
+                </div>
+                <div class="page_link">
+                    <ul>
+                        <li>El Projecto</li>
+                        <li>Epuipo</li>
                     </ul>
                 </div>
                 <div class="right-menu-for-mobile">
