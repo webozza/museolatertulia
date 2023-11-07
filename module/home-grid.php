@@ -128,7 +128,7 @@ $query = new WP_Query($args);
         //                     Filter from right menu 
         //============================
 
-        $('.submenu li').on('click', function() {
+        $('.menu-right ul .menu-item .submenu li').on('click', function() {
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
             $.ajax({
