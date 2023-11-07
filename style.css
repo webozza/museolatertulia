@@ -725,7 +725,7 @@ p.parent_menu {
   z-index: 0;
   position: fixed !important;
   left: 50%;
-  top: 75%;
+  top: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
 }
