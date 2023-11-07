@@ -658,11 +658,14 @@ p.parent_menu {
   /* flex-direction: column; */
 }
 .page_popup .thumbnail {
-    flex: 1;
-    padding: 10px;
+  .page_popup {
     display: flex;
+    padding: 10px;
     align-items: center;
-    justify-content: center;
+    z-index: 1;
+    background-color: white;
+    min-height: 100vh;
+}
 
 }
 
