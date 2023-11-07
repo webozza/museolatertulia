@@ -128,7 +128,7 @@ $query = new WP_Query($args);
         //                     Filter from right menu 
         //============================
 
-        $('.drop_down_menu').on('click', function() {
+        $('.submenu li').on('click', function() {
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
             $.ajax({
@@ -166,6 +166,47 @@ $query = new WP_Query($args);
             });
         });
 
+        //============================
+        //         Filter from right menu  on mobile
+        //============================
+
+        $('.mobile-submenu li').on('click', function() {
+            let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+            let id = $(this).attr('id');
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php', 
+                type: 'POST',
+                data: {
+                    action: 'my_ajax_action',
+                    parentMenu: parentMenu,
+                    id: id,
+                    security: nonce, 
+                },
+                success: function(response) {
+                    console.log(response)
+                    $('.my-masonry-grid').html(response)
+                    let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width();
+                    let grid;
+
+                    if (windowWidthCalc == 1) {
+                      grid = 6;
+                    } else {
+                      grid = 3;
+                    }
+
+                    $(".my-masonry-grid").masonryGrid({
+                      columns: grid
+                    });
+                    $('.my-masonry-grid').prepend(preLoader)
+                    $('.pre-loader-filtered').css('position','absolute')
+                    setTimeout(() => {
+                        $('.pre-loader-filtered').fadeOut()
+                    }, 2000);
+
+                    ImgPopupFunction()
+                }
+            });
+        });
 
         //============================
         //          Filter from left menu  on initial load
