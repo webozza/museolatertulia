@@ -413,7 +413,6 @@ function handleHeader(){
         $('.left-toggle-container').click()
     })
 
-
     $('.mobile-parent_menu').click(function() {
         $('.mobile-parent_menu').not(this).next('.mobile-submenu').slideUp(300);
         $(this).next('.mobile-submenu').slideToggle(300);

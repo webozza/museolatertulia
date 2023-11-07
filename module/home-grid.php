@@ -215,7 +215,7 @@ $query = new WP_Query($args);
 
 
         var selectedYear
-        $('.submenu li').click(function () {
+        $('.top-level-menu .submenu li').click(function () {
           let key =  $(this).text();
           let date = $(this).parent().parent().find('.menu_date').text();
 
