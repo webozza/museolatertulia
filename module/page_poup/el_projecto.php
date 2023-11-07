@@ -15,6 +15,7 @@ if ($page) {
     <div class="content">
         <div class="page-title">
             <h2><?=  $page->post_title ?></h2>
+            <div class="divider"></div>
         </div>
         <div class="page-body"><?=  $page->post_content ?></div>
     </div>

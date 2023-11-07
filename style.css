@@ -671,6 +671,18 @@ p.parent_menu {
   padding: 40px;
 }
 
+.page-title h2 {
+  padding-bottom: 20px;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.divider{
+  background-color: rgb(168, 168, 168);
+  height: 2px;
+  width: 30%;
+}
+
 @media (max-width: 768px) {
 
   .page_popup {
@@ -679,7 +691,7 @@ p.parent_menu {
   .page_popup .content {
     padding: 10px;
   }
-  
+
   .menu-right {
     display: none;
   }
