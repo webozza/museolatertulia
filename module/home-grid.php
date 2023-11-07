@@ -171,7 +171,7 @@ $query = new WP_Query($args);
         //============================
 
         $('.mobile-submenu li').on('click', function() {
-            let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
+            let parentMenu = $(this).parent().parent().find('.mobile-parent_menu').attr('id');
             let id = $(this).attr('id');
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
