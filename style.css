@@ -679,9 +679,13 @@ p.parent_menu {
 }
 
 .divider{
-  background-color: rgb(168, 168, 168);
+  background-color: #a8a8a854;
   height: 2px;
   width: 30%;
+}
+
+.page-body {
+  color: #565656;
 }
 
 @media (max-width: 768px) {
