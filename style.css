@@ -670,9 +670,10 @@ p.parent_menu {
   flex: 1;
   padding: 40px;
 }
-
-.page-title h2 {
+.page-title{
   padding-bottom: 20px;
+}
+.page-title h2 {
   font-size: 42px;
   font-weight: 600;
 }
