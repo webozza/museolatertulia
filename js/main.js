@@ -461,7 +461,12 @@ function handleHeader(){
       $('.home_section').fadeIn()
       $('.equipo_page_popup').fadeOut()
       $('.la_porjecto_page_popup').fadeOut()
+      scrollToTop()
     })
+  }
+
+  function scrollToTop(){
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
   }
 
 
