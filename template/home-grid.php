@@ -11,7 +11,7 @@ $query = new WP_Query($args);
               <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
     </div>
     <div class="equipo_page_popup">
-              <?php include get_stylesheet_directory() . '/module/page_poup/el_projecto.php'?>
+              <?php include get_stylesheet_directory() . '/module/page_poup/equipo.php'?>
     </div>
 </div>
 
