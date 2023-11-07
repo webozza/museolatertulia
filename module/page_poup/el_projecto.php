@@ -12,7 +12,10 @@ if ($page) {
         }
         ?>
     </div>
-    <div class="content"><?=  $page->post_content ?></div>
+    <div class="content">
+        <?=  $page->post_title ?>
+        <?=  $page->post_content ?>
+    </div>
     <?php
 } else {
     echo 'Page not found';
