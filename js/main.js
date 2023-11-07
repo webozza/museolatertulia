@@ -458,6 +458,7 @@ function handleHeader(){
 
   function hidePage(){
     $('top-level-menu li, .mobile-submenu li').click(()=>{
+      $('.home_section').fadeIn()
       $('.equipo_page_popup').fadeOut()
       $('.la_porjecto_page_popup').fadeOut()
     })
