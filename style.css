@@ -643,7 +643,43 @@ p.parent_menu {
   flex-direction: column;
 }
 
+
+
+
+.page_popup {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  height: 100vh;
+  /* flex-direction: column; */
+}
+.page_popup .thumbnail {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.page_popup .content {
+  flex: 1;
+  padding: 40px;
+}
+
 @media (max-width: 768px) {
+
+  .page_popup {
+    flex-direction: column;
+  }
+  .page_popup .content {
+    padding: 10px;
+  }
+  
   .menu-right {
     display: none;
   }
@@ -768,3 +804,4 @@ p.parent_menu {
 }
 
 /* You can customize the styles further based on your design preferences */
+
