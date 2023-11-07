@@ -433,6 +433,7 @@ function handleHeader(){
       if($(this).attr('class') == 'el_projecto'){
         console.log($(this).attr('class'))
         $('.home_section').fadeOut()
+        $('.equipo_page_popup').fadeOut()
         $('.la_porjecto_page_popup').fadeIn()
         $('.la_porjecto_page_popup').css('display','flex')
       }
