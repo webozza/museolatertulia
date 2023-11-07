@@ -100,6 +100,9 @@ jQuery(document).ready(function ($) {
       }
     });
   };
+
+
+
   function homeGrid(gridValue){
     $(".my-masonry-grid").masonryGrid({
       columns: gridValue,
@@ -300,13 +303,13 @@ jQuery(document).ready(function ($) {
       $(".backArrow").hide();
     });
   };
-  handledocumentWindow();
-
+ 
   //=========================================
   //                                    zoom effect
   //=========================================
 
   $(".zoomOut").hide();
+
   let makeZoom = () => {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
@@ -423,7 +426,6 @@ function handleHeader(){
 
 }
 
-
   //====================================
   //                           Page template controle 
   //====================================
@@ -436,6 +438,7 @@ function handleHeader(){
         $('.equipo_page_popup').fadeOut()
         $('.la_porjecto_page_popup').fadeIn()
         $('.la_porjecto_page_popup').css('display','flex')
+        closeMenu()
       }
       if($(this).attr('class') == 'equipo'){
         console.log($(this).attr('class'))
@@ -443,9 +446,21 @@ function handleHeader(){
         $('.la_porjecto_page_popup').fadeOut()
         $('.equipo_page_popup').fadeIn()
         $('.equipo_page_popup').css('display','flex')
+        closeMenu()
       }
     })
 
+  }
+
+  function closeMenu(){
+    $('.left-toggle-container').click()
+  }
+
+  function hidePage(){
+    $('top-level-menu li, .mobile-submenu li').click(()=>{
+      $('.equipo_page_popup').fadeOut()
+      $('.la_porjecto_page_popup').fadeOut()
+    })
   }
 
 
@@ -455,5 +470,5 @@ function handleHeader(){
 closeWindow();
 handleHeader();
 handlePageMenu();
-
+handledocumentWindow();
 });

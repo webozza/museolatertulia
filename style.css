@@ -399,9 +399,7 @@ p.menu_date {
   padding: 10px 36px 10px 80px;
 }
 
-#left-menu > div > ul > li:first-child {
-  opacity: 0.7;
-}
+
 
 #left-menu > div > ul > li > ul > li:first-child {
   opacity: 0.7;
