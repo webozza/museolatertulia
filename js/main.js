@@ -303,7 +303,7 @@ jQuery(document).ready(function ($) {
   handledocumentWindow();
 
   //=========================================
-  //                                   zoom effect
+  //                                    zoom effect
   //=========================================
 
   $(".zoomOut").hide();
@@ -365,7 +365,7 @@ jQuery(document).ready(function ($) {
   };
 
   //====================================
-  //           Window Close
+  //                                Window Close
   //====================================
 
   let closeWindow = () => {
@@ -385,6 +385,9 @@ jQuery(document).ready(function ($) {
     $(".info").slideToggle();
   });
 
+  //====================================
+  //                                Header Handler
+  //====================================
 
 function handleHeader(){
   $('.left-toggle-container').click(function(){
@@ -406,7 +409,7 @@ function handleHeader(){
         $menu_item = $(this).text()
     })
 
-    $('.left-menu .submenu, .left-menu .mobile-submenu').click(()=>{
+    $('#left-menu .submenu, #left-menu .mobile-submenu').click(()=>{
         $('.left-toggle-container').click()
     })
 

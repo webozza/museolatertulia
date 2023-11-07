@@ -167,11 +167,6 @@ function querry_menu($menu_category){
         </ul>
     </div>
 </div>
-
-
-
-
-
     <script>
         let themeDir = '<?= get_stylesheet_directory_uri() ?>'
     </script> 
