@@ -647,12 +647,13 @@ p.parent_menu {
 
 
 .page_popup {
-  display: flex;
+  /* display: flex; */
   padding: 10px;
   align-items: center;
   z-index: 1;
   background-color: white;
   min-height: 100vh;
+  display: none;
 }
 .page_popup .thumbnail {
     flex: 1;
