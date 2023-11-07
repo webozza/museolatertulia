@@ -65,7 +65,7 @@ function querry_menu($menu_category){
         </a>
         <div class="toggle-container">
             <div class='left-toggle-container'>
-                <a href='#left-menu' class="toggle-menu">
+                <a class="toggle-menu">
                     <span></span>
                 </a>
             </div>
