@@ -443,8 +443,8 @@ function handleHeader(){
       if($(this).attr('class') == 'equipo'){
         console.log($(this).attr('class'))
         $('.home_section').fadeOut()
-        $('.la_porjecto_page_popup').fadeOut()
         $('.equipo_page_popup').fadeIn()
+        $('.la_porjecto_page_popup').fadeOut()
         $('.equipo_page_popup').css('display','flex')
         closeMenu()
       }
