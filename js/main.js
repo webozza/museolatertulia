@@ -171,7 +171,20 @@ jQuery(document).ready(function ($) {
 
           // Fetch post categories  here leter*****
 
-          $(".info .categories").text();
+          $.ajax({
+                url: 'restApiUrl',
+                type: 'GET',
+                success: function(post) {
+                    var categories = [];
+                    $.each(post.categories, function(index, categoryId) {
+                        var category = post._embedded['wp:term'][0][index].name;
+                        categories.push(category);
+                    });
+                    $(".info .categories").text(categories.join(', '));
+                }
+            });
+
+          // $(".info .categories").text();
           $(".info .tags").text();
 
           $(".info .documents").text(data.acf["obra-documentos"]);
