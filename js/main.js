@@ -185,6 +185,20 @@ jQuery(document).ready(function ($) {
                 }
             });
 
+            $.ajax({
+              url: restApiUrl,
+              type: 'GET',
+              success: function(post) {
+                  var categoriaData = [];
+                  $.each(post.etiqueta, function(index, categoryId) {
+                    console.log('v',post.categoria)
+                      var categoriaTerm = post._embedded['wp:term'][2][index].name;
+                      categoriaData.push(categoriaTerm);
+                  });
+                  $(".info .tags").text(categoriaData.join(', '));
+              }
+          });
+
           // $(".info .categories").text();
           $(".info .tags").text();
 
