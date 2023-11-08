@@ -219,8 +219,6 @@ $query = new WP_Query($args);
         //          Filter from left menu  on initial load
         //============================
 
-
-
         var selectedYear
         $('.top-level-menu .submenu li').click(function () {
           let key =  $(this).text();
@@ -349,7 +347,6 @@ $query = new WP_Query($args);
         //                        Bienal filter 
         //============================
 
-
         $('.biennial ul li').click(function(){
           let key = 'obra-bienal'
           let value = $(this).attr('id')
@@ -380,8 +377,6 @@ $query = new WP_Query($args);
 
             $('.masonry-grid-column').css('width','33.33%')
         })
-
-
 
         //============================
         //                        Catagories filter 

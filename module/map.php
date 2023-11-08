@@ -10,22 +10,21 @@
             background-color: #eeeeee;
             padding: 0px;
         }
+
         #map{
             width: 100%;
             height: 100%;
             top: 0;
-        }
-        #map{
             left: 0;
             background-color: #FF8EC3;
-            overflow: hidden; /* Enmascara el contenido desbordado */
+            overflow: hidden; 
             z-index: 1;
             height: 100vh;
             display: flex;
             align-content: center;
             justify-content: center;
             align-items: center;
-            
+
         }
         #map svg .country:hover {
             fill: #394D62;
@@ -64,7 +63,7 @@
         }
 
         .map_container{
-            position: relative;
+            /* position: relative; */
         }
 
         .map_close{
@@ -79,45 +78,19 @@
 
 
     <div class="map_container">
-        <div id="map">
+        <div id="map zoom-image">
             <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
         </div>
 
         <div id="zoom-controls">
-            <button id="zoomIn">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomin.png" />
+            <button class="zoom">
+                <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-lupa+.png" alt="" />
             </button>
-            <button id="zoomOut">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomout.png" />
+            <button class="zoomOut">
+                <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-minus.png" alt="" />
             </button>
             <button id="map_close">
-            <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-x.png" alt="" />
+                <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-x.png" alt="" />
             </button>
         </div>
     </div>
-
-
-    
-    <script>
-        const svg = document.querySelector("svg");
-                let scale = 0.9;
-                let translateX = 0;
-                let translateY = 40;
-                updateTransform();
-
-        function updateTransform() {
-                    svg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
-                }
-        function mapController(){
-            document.getElementById("zoomIn").addEventListener("click", () => {
-                scale += 0.1;
-                updateTransform();
-            });
-            document.getElementById("zoomOut").addEventListener("click", () => {
-                scale -= 0.1;
-                updateTransform();
-            });  
-        }
-      mapController()
-    </script>
-
