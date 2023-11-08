@@ -121,7 +121,9 @@
                 $(".zoomOut").hide();
                 });
             }
-
+            setTimeout(() => {
             mapZoom()
+            }, 1000);
+
         })
     </script>
