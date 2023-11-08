@@ -259,10 +259,6 @@ jQuery(document).ready(function ($) {
     });
   };
 
-
-
-
-
   $(".documentWindowZoomout").hide();
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
@@ -368,6 +364,7 @@ function handleHeader(){
         $('.la_porjecto_page_popup').fadeIn()
         $('.la_porjecto_page_popup').css('display','flex')
         closeMenu()
+        scrollToTop()
       }
       if($(this).attr('class') == 'equipo'){
         console.log($(this).attr('class'))
@@ -376,6 +373,7 @@ function handleHeader(){
         $('.equipo_page_popup').fadeIn()
         $('.equipo_page_popup').css('display','flex')
         closeMenu()
+        scrollToTop()
       }
     })
 
@@ -386,7 +384,7 @@ function handleHeader(){
   }
 
   function hidePage(){
-    $('top-level-menu li, .mobile-submenu li').click(()=>{
+    $('.top-level-menu li, .mobile-submenu li').click(()=>{
       $('.home_section').fadeIn()
       $('.equipo_page_popup').fadeOut()
       $('.la_porjecto_page_popup').fadeOut()
