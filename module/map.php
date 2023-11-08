@@ -105,7 +105,7 @@
         jQuery(document).ready(function($){
                 let mapZoom = () =>{
                 $(".zoom").show();
-                const zoomImage = $("#zoom-image");
+                const zoomImage = document.querySelector('#zoom-image');
                 const panzoom = Panzoom(zoomImage, {
                 maxScale: 3,
                 minScale: 0.5,
