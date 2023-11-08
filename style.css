@@ -396,7 +396,7 @@ p.menu_date {
   font-family: BLAA-alt-Bold;
   font-weight: 500;
   font-size: 22px;
-  padding: 10px 36px 10px 80px;
+  padding: 10px 30px 10px 30px;
 }
 
 
@@ -720,6 +720,15 @@ p.parent_menu {
     max-height: 90vh;
     overflow: auto;
   }
+
+  #left-menu::-webkit-scrollbar{
+    width:5px;
+    border-radius:5px
+}
+#left-menu::-webkit-scrollbar-thumb{
+  border-radius:4px
+}
+
   #left-menu::before {
     display: none;
   }
