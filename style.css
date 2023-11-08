@@ -402,7 +402,11 @@ p.menu_date {
 .zoom-controls > button:hover{
   background-color: transparent !important;
 }
-
+[type=button]:focus, [type=button]:hover, [type=submit]:focus, [type=submit]:hover, button:focus, button:hover {
+  color: #fff;
+  background-color: transparent !important;
+  text-decoration: none;
+}
 
 
 #left-menu > div > ul > li > ul > li:first-child {
