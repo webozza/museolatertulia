@@ -172,32 +172,28 @@ jQuery(document).ready(function ($) {
           // Fetch post categories  here leter*****
 
           $.ajax({
-                url: restApiUrl,
-                type: 'GET',
-                success: function(post) {
-                    var categoriaData = [];
-                    $.each(post.categoria, function(index, categoryId) {
-                      console.log('v',post.categoria)
-                        var categoriaTerm = post._embedded['wp:term'][2][index].name;
-                        categoriaData.push(categoriaTerm);
+            url: restApiUrl,
+            type: 'GET',
+            success: function(post) {
+                var categoriaData = [];
+                $.each(post.categoria, function(index, categoryId) {
+                    // Fetch the taxonomy name based on the category ID
+                    $.ajax({
+                        url: '/wp-json/wp/v2/categoria/' + categoryId, // Adjust the URL to your taxonomy endpoint
+                        type: 'GET',
+                        success: function(taxonomy) {
+                            categoriaData.push(taxonomy.name);
+                            // Update the content when all names are fetched
+                            if (categoriaData.length === post.categoria.length) {
+                                $(".info .categoria-data").text(categoriaData.join(', '));
+                            }
+                        }
                     });
-                    $(".info .categoria-data").text(categoriaData.join(', '));
-                }
-            });
+                });
+            }
+        });
+        
 
-            $.ajax({
-              url: restApiUrl,
-              type: 'GET',
-              success: function(post) {
-                  var categoriaData = [];
-                  $.each(post.etiqueta, function(index, categoryId) {
-                    console.log('v',post.categoria)
-                      var categoriaTerm = post._embedded['wp:term'][2][index].name;
-                      categoriaData.push(categoriaTerm);
-                  });
-                  $(".info .tags").text(categoriaData.join(', '));
-              }
-          });
 
           // $(".info .categories").text();
           $(".info .tags").text();
