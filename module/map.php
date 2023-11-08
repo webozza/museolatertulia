@@ -105,7 +105,7 @@
         jQuery(document).ready(function($){
                 let mapZoom = () =>{
                 $(".zoom").show();
-                const zoomImage = $(".map_container #zoom-image");
+                const zoomImage = $("#zoom-image");
                 const panzoom = Panzoom(zoomImage, {
                 maxScale: 3,
                 minScale: 0.5,
@@ -127,9 +127,6 @@
                 $(".zoomOut").hide();
                 });
             }
-            setTimeout(() => {
             mapZoom()
-            }, 1000);
-
         })
     </script>
