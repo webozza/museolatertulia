@@ -259,6 +259,10 @@ jQuery(document).ready(function ($) {
     });
   };
 
+
+
+
+
   $(".documentWindowZoomout").hide();
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
