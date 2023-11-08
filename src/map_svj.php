@@ -1,4 +1,4 @@
-<svg id="america" width="810px" height="956px">
+<svg id="america">
         <path
           id="Brasil"
           class="butt-country"

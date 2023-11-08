@@ -78,7 +78,7 @@
 
 
     <div class="map_container">
-        <div id="map zoom-image">
+        <div id="zoom-image">
             <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
         </div>
 
