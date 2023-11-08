@@ -420,6 +420,7 @@ $query = new WP_Query($args);
 
         $('path').click(function () {
           $('path').css('fill', '#ffffff');
+          console.log('selectedYear',selectedYear)
 
           let key = 'obra-nacionalidad'
           let value = $(this).attr('id')
