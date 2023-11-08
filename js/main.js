@@ -177,6 +177,7 @@ jQuery(document).ready(function ($) {
                 success: function(post) {
                     var categoriaData = [];
                     $.each(post.categoria, function(index, categoryId) {
+                      console.log('v',post.categoria)
                         var categoriaTerm = post._embedded['wp:term'][2][index].name;
                         categoriaData.push(categoriaTerm);
                     });
