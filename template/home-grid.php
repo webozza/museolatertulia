@@ -80,8 +80,6 @@ $query = new WP_Query($args);
             <br>
             <p ><strong>Tipo Documental : </strong> <span class="documents"></span></p>
             <p><strong>Fuente y notas: : </strong> <span class="source"></span></p>
-            <br>
-            <p><strong>Otras colecciones : </strong> <span class="other-ducuments"></span></p>
       </div>
       <div class="documentWindow">
         <div class="documentData">
@@ -151,7 +149,6 @@ $query = new WP_Query($args);
                     security: nonce, 
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width();
                     let grid;
@@ -194,7 +191,6 @@ $query = new WP_Query($args);
                 },
 
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     let windowWidthCalc = $('.my-masonry-grid').width() / $('body').width();
                     let grid;
@@ -231,9 +227,7 @@ $query = new WP_Query($args);
           let date = $(this).parent().parent().find('.menu_date').text();
 
           selectedYear = date
-          console.log(key);
-          console.log(date);
-          console.log(selectedYear)
+          // console.log(key);
 
           $('.logo h1').text(date)
 
@@ -250,7 +244,6 @@ $query = new WP_Query($args);
                 action: 'mapData',
                 key : key,
                 date : date,
-
               },
               success : function(response){
                     $('.my-masonry-grid').html(response)
@@ -282,7 +275,6 @@ $query = new WP_Query($args);
                     action: 'defaultGrid',
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -309,7 +301,6 @@ $query = new WP_Query($args);
                     action: 'defaultGrid',
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -336,7 +327,6 @@ $query = new WP_Query($args);
                     action: 'defaultGrid',
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -374,7 +364,6 @@ $query = new WP_Query($args);
                     value: value,
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -399,7 +388,6 @@ $query = new WP_Query($args);
 
         $('.categories ul li').click(function () {
           let id = $(this).data('id')
-          console.log(id)
           $.ajax({
             url : '/wp-admin/admin-ajax.php',
             type : 'POST',
@@ -444,7 +432,6 @@ $query = new WP_Query($args);
                     value: value,
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -480,7 +467,6 @@ $query = new WP_Query($args);
                     value: value,
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $(".my-masonry-grid").masonryGrid({
                         columns: 3,
@@ -516,7 +502,6 @@ $query = new WP_Query($args);
                     action: 'defaultGrid',
                 },
                 success: function(response) {
-                    console.log(response)
                     $('.my-masonry-grid').html(response)
                     $('.my-masonry-grid').prepend(preLoader)
                     $(".my-masonry-grid").masonryGrid({
@@ -530,6 +515,6 @@ $query = new WP_Query($args);
                 }
             });
         })
-
+        console.log(selectedYear);
     });
 </script>
