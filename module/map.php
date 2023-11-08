@@ -70,7 +70,7 @@
             align-items: center;
             justify-content: center;
         }
-        .map_container #zoom-image {
+        .map_container #zoom-map {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -85,7 +85,7 @@
 
 
     <div class="map_container">
-        <div id="zoom-image">
+        <div id="zoom-map">
             <?php include get_stylesheet_directory(  ) . '/src/map_svj.php'?>
         </div>
 
@@ -108,7 +108,7 @@
             $(".map-zoomOut").hide();
                 let mapZoom = () =>{
                 $(".map-zoom").show();
-                const zoomImage = document.querySelector('#zoom-image');
+                const zoomImage = document.querySelector('#zoom-map');
                 const panzoom = Panzoom(zoomImage, {
                 maxScale: 3,
                 minScale: 0.5,
