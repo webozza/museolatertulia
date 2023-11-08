@@ -783,6 +783,19 @@ p.parent_menu {
   width: 300px;
 }
 
+.map_container {
+  height: 400px;
+}
+
+svg#america {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -20%);
+}
+svg#america path {
+  scale: .4;
+}
 }
 
 
