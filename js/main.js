@@ -191,12 +191,28 @@ jQuery(document).ready(function ($) {
                 });
             }
         });
+
+        $.ajax({
+          url: restApiUrl,
+              type: 'GET',
+              success: function(post) {
+                  var categoriaData = [];
+                  $.each(post.categoria, function(index, categoryId) {
+                      $.ajax({
+                          url: '/wp-json/wp/v2/categoria/' + categoryId,
+                          type: 'GET',
+                          success: function(taxonomy) {
+                              categoriaData.push(taxonomy.name);
+                              console.log('categoryId',taxonomy.name)
+                              if (categoriaData.length === post.categoria.length) {
+                                  $(".info .tags").text(categoriaData.join(', '));
+                              }
+                          }
+                      });
+                  });
+              }
+          });
         
-
-
-          // $(".info .categories").text();
-          $(".info .tags").text();
-
           $(".info .documents").text(data.acf["obra-documentos"]);
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
 
