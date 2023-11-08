@@ -175,12 +175,12 @@ jQuery(document).ready(function ($) {
                 url: 'restApiUrl',
                 type: 'GET',
                 success: function(post) {
-                    var categories = [];
-                    $.each(post.categories, function(index, categoryId) {
-                        var category = post._embedded['wp:term'][0][index].name;
-                        categories.push(category);
+                    var categoriaData = [];
+                    $.each(post.categoria, function(index, categoryId) {
+                        var categoriaTerm = post._embedded['wp:term'][2][index].name;
+                        categoriaData.push(categoriaTerm);
                     });
-                    $(".info .categories").text(categories.join(', '));
+                    $(".info .categoria-data").text(categoriaData.join(', '));
                 }
             });
 
