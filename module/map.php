@@ -62,22 +62,21 @@
             fill: #a4fffa;
         }
 
-        .map_container{
-            /* position: relative; */
+        .map_container {
+            position: relative;
+            height: 100%;
+            width: 100%;
         }
         .map_container #zoom-image {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .map_close{
             position: absolute;
             top: 0;
             right:0;
         }
-
-
 
    </style>
 
