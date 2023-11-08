@@ -193,25 +193,27 @@ jQuery(document).ready(function ($) {
         });
 
         $.ajax({
-          url: restApiUrl,
-              type: 'GET',
-              success: function(post) {
-                  var categoriaData = [];
-                  $.each(post.categoria, function(index, categoryId) {
-                      $.ajax({
-                          url: '/wp-json/wp/v2/categoria/' + categoryId,
-                          type: 'GET',
-                          success: function(taxonomy) {
-                              categoriaData.push(taxonomy.name);
-                              console.log('categoryId',taxonomy.name)
-                              if (categoriaData.length === post.categoria.length) {
-                                  $(".info .tags").text(categoriaData.join(', '));
-                              }
-                          }
-                      });
-                  });
-              }
-          });
+            url: restApiUrl,
+            type: 'GET',
+            success: function(post) {
+                var etiquetaData = [];
+                $.each(post.etiqueta, function(index, tagId) {
+                    // Fetch the tag name based on the tag ID
+                    $.ajax({
+                        url: '/wp-json/wp/v2/etiqueta/' + tagId, // Adjust the URL to your taxonomy endpoint
+                        type: 'GET',
+                        success: function(tag) {
+                            etiquetaData.push(tag.name);
+                            // Update the content when all names are fetched
+                            if (etiquetaData.length === post.etiqueta.length) {
+                                $(".info .tags").text(etiquetaData.join(', '));
+                            }
+                        }
+                    });
+                });
+            }
+        });
+      
         
           $(".info .documents").text(data.acf["obra-documentos"]);
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
