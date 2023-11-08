@@ -362,6 +362,7 @@ $query = new WP_Query($args);
                     action: 'filterData',
                     key: key,
                     value: value,
+                    year: selectedYear,
                 },
                 success: function(response) {
                     $('.my-masonry-grid').html(response)
@@ -394,6 +395,7 @@ $query = new WP_Query($args);
             data : {
               action : 'catagoryFilter',
               id : id,
+              year: selectedYear,
             },
             success : function(response){
                     $('.my-masonry-grid').html(response)
@@ -430,6 +432,7 @@ $query = new WP_Query($args);
                     action: 'filterData',
                     key: key,
                     value: value,
+                    year: selectedYear,
                 },
                 success: function(response) {
                     $('.my-masonry-grid').html(response)
@@ -465,6 +468,7 @@ $query = new WP_Query($args);
                     action: 'filterData',
                     key: key,
                     value: value,
+                    year: selectedYear,
                 },
                 success: function(response) {
                     $('.my-masonry-grid').html(response)

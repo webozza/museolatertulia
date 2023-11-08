@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
   
   //============================
-  //            PopUp
+  //                                PopUp
   //============================
 
   function ImgPopupFunction() {
@@ -175,9 +175,9 @@ jQuery(document).ready(function ($) {
   ImgPopupFunction();
   window.ImgPopupFunction = ImgPopupFunction;
 
-  //========================================================
-  //                                      document single image window popup
-  //========================================================
+  //=========================================
+  //                          document single image window popup
+  //=========================================
 
   async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {

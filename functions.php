@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.50');
+    define('_T_VERSION', '1.0.51');
 }
 
 
@@ -64,7 +64,6 @@ add_shortcode('map', 'map');
 //                              Filter Home Grid 
 //===================================
 
-
 function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
     $menuId_with_underscore = $_POST['id'];
@@ -108,15 +107,10 @@ function my_ajax_action() {
     wp_die();
 }
 
-
-
 add_action('wp_ajax_my_ajax_action', 'my_ajax_action');
 add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
 
-
-
 // 
-
 
 function mapData() {
     $date = $_POST['date'];
@@ -158,22 +152,18 @@ function mapData() {
     wp_die();
 }
 
-
-
 add_action('wp_ajax_mapData', 'mapData');
 add_action('wp_ajax_nopriv_mapData', 'mapData');
-
-
 
 //===================================
 //             Filter map Grid 
 //===================================
 
-
 function filterData() {
     $key = $_POST['key'];
     $menuId_with_underscore = $_POST['value'];
     $value = str_replace( '_' , ' ' , $menuId_with_underscore);
+    $year = $_POST['year'];
 
     $data = 'Data fetched from the server'; 
 
@@ -184,6 +174,11 @@ function filterData() {
             array(
                 'key' => $key,
                 'value' => $value,
+                'compare' => '=',
+            ),
+            array(
+                'key' => 'obra-fecha',
+                'value' => $year,
                 'compare' => '=',
             ),
         ),
@@ -213,11 +208,8 @@ function filterData() {
     wp_die();
 }
 
-
-
 add_action('wp_ajax_filterData', 'filterData');
 add_action('wp_ajax_nopriv_filterData', 'filterData');
-
 
 // back to default grid 
 
@@ -252,14 +244,12 @@ function defaultGrid() {
     wp_die();
 }
 
-
-
 add_action('wp_ajax_defaultGrid', 'defaultGrid');
 add_action('wp_ajax_nopriv_defaultGrid', 'defaultGrid');
 
-
 function catagoryFilter(){
     $id = $_POST['id'];
+    $year = $_POST['year'];
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
@@ -268,6 +258,11 @@ function catagoryFilter(){
                 'taxonomy' => 'categoria',
                 'field' =>'term_id',  
                 'terms' => $id,
+            ),
+            array(
+                'key' => 'obra-fecha',
+                'value' => $year,
+                'compare' => '=',
             ),
         ),
     );

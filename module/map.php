@@ -91,7 +91,7 @@
             <img style="width:35px;height: 35px !important; padding: 5px;" src="https://bienales.museolatertulia.com/wp-content/uploads/2023/10/but-zoomout.png" />
             </button>
             <button id="map_close">
-            <img style="width:35px;height: 35px !important; padding: 5px;" src="<?= get_stylesheet_directory_uri();?>/popUpIcon/icono-x.png" />
+            <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-x.png" alt="" />
             </button>
         </div>
     </div>
