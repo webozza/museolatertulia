@@ -102,14 +102,15 @@
 
 
     <script>
-        jQuery(document).ready(functon($){
-            let mapZoom= () =>{
+        jQuery(document).ready(function($){
+                let mapZoom = () =>{
                 $(".zoom").show();
                 const zoomImage = $(".map_container #zoom-image");
                 const panzoom = Panzoom(zoomImage, {
                 maxScale: 3,
                 minScale: 0.5,
                 });
+                
 
                 $(".zoom").on("click", () => {
                 panzoom.pan(0, 0, { animate: true });
