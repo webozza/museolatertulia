@@ -172,7 +172,7 @@ jQuery(document).ready(function ($) {
           // Fetch post categories  here leter*****
 
           $.ajax({
-                url: 'restApiUrl',
+                url: restApiUrl,
                 type: 'GET',
                 success: function(post) {
                     var categoriaData = [];
@@ -242,8 +242,6 @@ jQuery(document).ready(function ($) {
                   },
                 });
               });
-            } else {
-              console.error(`"${imageIds}" is not an array of image IDs.`);
             }
           };
 
