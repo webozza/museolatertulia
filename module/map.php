@@ -90,10 +90,10 @@
         </div>
 
         <div id="zoom-controls">
-            <button class="zoom">
+            <button class="map-zoom">
                 <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-lupa+.png" alt="" />
             </button>
-            <button class="zoomOut">
+            <button class="map-zoomOut">
                 <img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-minus.png" alt="" />
             </button>
             <button id="map_close">
@@ -105,8 +105,9 @@
 
     <script>
         jQuery(document).ready(function($){
+            $(".map-zoomOut").hide();
                 let mapZoom = () =>{
-                $(".zoom").show();
+                $(".map-zoom").show();
                 const zoomImage = document.querySelector('#zoom-image');
                 const panzoom = Panzoom(zoomImage, {
                 maxScale: 3,
@@ -114,19 +115,19 @@
                 });
                 
 
-                $(".zoom").on("click", () => {
+                $(".map-zoom").on("click", () => {
                 panzoom.pan(0, 0, { animate: true });
                 panzoom.zoom(3, { animate: true });
-                $(".zoom").hide();
-                $(".zoomOut").show();
+                $(".map-zoom").hide();
+                $(".map-zoomOut").show();
                 });
 
-                $(".zoomOut").on("click", () => {
+                $(".map-zoomOut").on("click", () => {
                 panzoom.zoom(1, { animate: true });
                 panzoom.pan(0, 0, { animate: true });
 
-                $(".zoom").show();
-                $(".zoomOut").hide();
+                $(".map-zoom").show();
+                $(".map-zoomOut").hide();
                 });
             }
             mapZoom()
