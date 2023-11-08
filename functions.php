@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 function my_theme_enqueue_styles() {
-    $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
+    $parenthandle = 'parent-style'; 
     $theme = wp_get_theme();
     wp_enqueue_style($parenthandle,
         get_template_directory_uri() . '/style.css',
@@ -39,6 +39,11 @@ function mainJs() {
     wp_enqueue_script('mainJs', get_stylesheet_directory_uri() . '/js/main.js', array('jquery'), _T_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'mainJs');
+
+function gridJs() {
+    wp_enqueue_script('gridJs', get_stylesheet_directory_uri() . '/js/grid.js', array('jquery'), _T_VERSION, true);
+}
+add_action('wp_enqueue_scripts', 'gridJs');
 
 
 //===================================

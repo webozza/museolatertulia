@@ -515,6 +515,5 @@ $query = new WP_Query($args);
                 }
             });
         })
-        console.log(selectedYear);
     });
 </script>
