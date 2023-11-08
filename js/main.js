@@ -243,7 +243,7 @@ jQuery(document).ready(function ($) {
                 });
               });
             } else {
-              console.error(`"${fieldName}" is not an array of image IDs.`);
+              console.error(`"${imageIds}" is not an array of image IDs.`);
             }
           };
 
