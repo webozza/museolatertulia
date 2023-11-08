@@ -177,15 +177,14 @@ jQuery(document).ready(function ($) {
             success: function(post) {
                 var categoriaData = [];
                 $.each(post.categoria, function(index, categoryId) {
-                    // Fetch the taxonomy name based on the category ID
                     $.ajax({
-                        url: '/wp-json/wp/v2/categoria/' + categoryId, // Adjust the URL to your taxonomy endpoint
+                        url: '/wp-json/wp/v2/categoria/' + categoryId,
                         type: 'GET',
                         success: function(taxonomy) {
                             categoriaData.push(taxonomy.name);
-                            // Update the content when all names are fetched
+                            console.log('categoryId',taxonomy.name)
                             if (categoriaData.length === post.categoria.length) {
-                                $(".info .categoria-data").text(categoriaData.join(', '));
+                                $(".info .catagories").text(categoriaData.join(', '));
                             }
                         }
                     });
