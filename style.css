@@ -399,6 +399,10 @@ p.menu_date {
   padding: 10px 30px 10px 30px;
 }
 
+.zoom-controls > button:hover{
+  background-color: transparent !important;
+}
+
 
 
 #left-menu > div > ul > li > ul > li:first-child {
