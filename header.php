@@ -155,9 +155,9 @@ function querry_menu($menu_category){
                 </ul>
             </li>
             <li class="menu-item">
-            <p class="parent_menu" id='obra-nombre_completo'>Artistas</p>
+            <p class="parent_menu" id='obra-nombre_completo_an'>Artistas</p>
                 <ul class="submenu">
-                    <?php querry_menu('obra-nombre_completo')?> 
+                    <?php querry_menu('obra-nombre_completo_an')?> 
                 </ul>
             </li>
             <li class="menu-item">
