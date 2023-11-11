@@ -44,7 +44,6 @@ body {
 }
 
 .my-masonry-grid-item {
-  margin: 10px;
   z-index: 99;
   cursor: pointer;
 }
@@ -136,7 +135,7 @@ body {
 }
 
 .gallerie > div > div {
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .documentData {
@@ -191,7 +190,7 @@ body {
 
 
 .documentImg.sidebar-grid-item.masonry-grid-item {
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 /* info tab  */
