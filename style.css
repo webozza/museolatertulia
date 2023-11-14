@@ -389,8 +389,19 @@ p.menu_date {
   list-style: none;
   padding: 10px 0px;
 }
+#left-menu > div > ul > ul {
+  list-style: none;
+  padding: 10px 0px;
+}
 
 #left-menu > div > ul > li {
+  text-transform: capitalize;
+  font-family: BLAA-alt-Bold;
+  font-weight: 500;
+  font-size: 22px;
+  padding: 10px 30px 10px 30px;
+}
+#left-menu > div > ul >ul > li {
   text-transform: capitalize;
   font-family: BLAA-alt-Bold;
   font-weight: 500;
@@ -747,6 +758,15 @@ p.parent_menu {
     font-size: 22px;
     padding: 10px;
   }
+
+  #left-menu > div > ul> ul > li {
+    text-transform: capitalize;
+    font-family: BLAA-alt-Bold;
+    font-weight: 500;
+    font-size: 22px;
+    padding: 10px;
+  }
+
   .artists,
   .categories,
   .biennial {
