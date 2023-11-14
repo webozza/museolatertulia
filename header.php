@@ -73,6 +73,7 @@ function querry_menu($menu_category){
             <div id="left-menu">
 
             <div class="test-menu">
+                <h2>Test menu</h2>
                 <?php 
                     class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
                         function start_lvl(&$output, $depth = 0, $args = null) {
@@ -88,6 +89,7 @@ function querry_menu($menu_category){
                     );
                     
                     wp_nav_menu($menu_args);
+                    echo var_dam(wp_nav_menu($menu_args));
                  ?>
             </div>
 
