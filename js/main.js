@@ -303,16 +303,17 @@ jQuery(document).ready(function ($) {
     $(".backArrow").show();
     $(".documentImgZoom").show();
     let sidebarImg = document.getElementsByClassName("sidebar-single-image");
-    let sidebarContainer = document.querySelector('.documentSingleImage');
+    let zoomContainer = document.getElementsByClassName('documentSingleImage');
   
-    if (sidebarImg.length > 0 && sidebarContainer) {
+    if (sidebarImg.length > 0) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
         contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
   
-      sidebarContainer.panzoom = sidebarImgZoom;
+      // Corrected assignment
+      zoomContainer.panzoom = sidebarImgZoom;
   
       $(".documentImgZoom").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
@@ -331,7 +332,6 @@ jQuery(document).ready(function ($) {
       });
     }
   };
-  
 
   //====================================
   //                                Window Close
