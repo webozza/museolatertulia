@@ -449,7 +449,7 @@ function handleHeader(){
 // run the function
 closeWindow();
 handleHeader();
-handlePageMenu();
+// handlePageMenu();
 handledocumentWindow();
 hidePage();
 
