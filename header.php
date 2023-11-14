@@ -87,10 +87,11 @@ function querry_menu($menu_category){
                                 $item_title = $menu_item->title;
                                 $item_url = $menu_item->url;
                                 $menu_parent = $menu_item->menu_item_parent;
+                                $item_id = str_replace(' ','_',$item_title);
 
                                 if ($menu_parent == $parent_id) {
                                     echo "<li class='top-level-menu '>";
-                                    echo "<a href='$item_url'>$item_title</a>";
+                                    echo "<a class='$item_id' href='$item_url'>$item_title</a>";
                                     generate_menu($items, $menu_item->ID);
                                     echo '</li>';
                                 }
