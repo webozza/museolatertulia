@@ -75,7 +75,7 @@ function querry_menu($menu_category){
             <div class="test-menu">
             <?php
 // Specify the menu location or the menu name
-$menu_location = 'primary-menu';
+$menu_location = 'main-menu';
 
 // Get the menu items for the specified location or name
 $menu_items = wp_get_nav_menu_items($menu_location);
