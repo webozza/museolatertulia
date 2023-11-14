@@ -759,20 +759,19 @@ p.parent_menu {
     padding: 10px;
   }
 
-  #left-menu > div > ul> ul > li {
-    text-transform: capitalize;
-    font-family: BLAA-alt-Bold;
-    font-weight: 500;
-    font-size: 22px;
-    padding: 10px;
+  .date-menu > ul > ul > li > a{
+    padding-bottom:20px !important;
+}
+  .top-level-menu > ul{
+    list-style: none !important;
+    font-size: 17px !important;
+    padding-left:0px;
   }
+
   #left-menu a {
     color: #1e1e1e !important;
   }
-  .top-level-menu > ul{
-    list-style: none !important;
-    font-size: 20px !important;
-  }
+
 
 
 
