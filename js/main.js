@@ -305,7 +305,7 @@ jQuery(document).ready(function ($) {
     let sidebarImg = document.getElementsByClassName("sidebar-single-image");
     let zoomContainer = document.getElementsByClassName('documentSingleImage');
   
-    if (sidebarImg.length > 0) {
+    if (sidebarImg.length > 0 && zoomContainer.length > 0) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
         contain: "outside",
         maxScale: 3,
@@ -313,7 +313,7 @@ jQuery(document).ready(function ($) {
       });
   
       // Corrected assignment
-      zoomContainer.panzoom = sidebarImgZoom;
+      zoomContainer[0].panzoom = sidebarImgZoom;
   
       $(".documentImgZoom").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
@@ -332,6 +332,7 @@ jQuery(document).ready(function ($) {
       });
     }
   };
+  
 
   //====================================
   //                                Window Close
