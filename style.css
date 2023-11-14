@@ -883,4 +883,11 @@ svg#america path {
 .date-menu > ul > ul > li  > ul{
   display: none;
   color: #393939 !important;
+  padding:12px;
+} 
+
+
+.date-menu > ul > ul > li  > ul a font{
+  font-family: "BLAA-alt-Regular";
+  color: #383838 !important;
 } 
