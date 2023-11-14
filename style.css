@@ -759,18 +759,6 @@ p.parent_menu {
     padding: 10px;
   }
 
-  .date-menu > ul > ul > li > a{
-    padding-bottom:20px !important;
-}
-  .top-level-menu > ul{
-    list-style: none !important;
-    font-size: 17px !important;
-    padding-left:0px;
-  }
-
-  #left-menu a {
-    color: #1e1e1e !important;
-  }
 
 
 
@@ -875,3 +863,19 @@ svg#america path {
 
 /* You can customize the styles further based on your design preferences */
 
+
+
+
+
+.date-menu > ul > ul > li > a{
+  padding-bottom:20px !important;
+}
+.top-level-menu > ul{
+  list-style: none !important;
+  font-size: 17px !important;
+  padding-left:0px;
+}
+
+#left-menu a {
+  color: #1e1e1e !important;
+}
