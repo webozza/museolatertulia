@@ -81,12 +81,13 @@ function querry_menu($menu_category){
 
                     // Check if there are any menu items
                     if ($menu_items) {
-                        echo '<div class="date-menu"><ul>';
+                        echo '<div class="date-menu">';
 
                         $current_year = null;
 
                         // Function to recursively generate menu items
                         function generate_menu($items, $parent_id = 0) {
+                            echo '<ul>';
                             foreach ($items as $menu_item) {
                                 // Access menu item properties
                                 $item_title = $menu_item->title;
@@ -100,7 +101,7 @@ function querry_menu($menu_category){
                                     if ($menu_date !== $current_year) {
                                         // If it has, close the previous year's submenu and open a new one
                                         if ($current_year !== null) {
-                                            echo '</li>';
+                                            echo '</ul></li>';
                                         }
                                         echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p>";
                                         $current_year = $menu_date;
@@ -115,7 +116,6 @@ function querry_menu($menu_category){
                                     echo '</li>';
                                 }
                             }
-                            echo '</ul>';
                         }
 
                         // Call the recursive function with the top-level menu items
