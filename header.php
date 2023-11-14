@@ -80,7 +80,7 @@ function querry_menu($menu_category){
 
                     // Check if there are any menu items
                     if ($menu_items) {
-                        echo '<div class="date-menu"><ul>';
+                        echo '<div class="date-menu">';
 
                         $current_year = null;
 
@@ -112,7 +112,7 @@ function querry_menu($menu_category){
                                     echo '</li>';
                                 }
                             }
-                            echo '</ul>';
+                            // echo '</ul>';
                         }
 
                         // Call the recursive function with the top-level menu items
