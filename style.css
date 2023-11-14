@@ -353,7 +353,7 @@ img.sidebar-single-image {
 }
 
 #left-menu {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   padding: 10px;
   position: absolute;
   left: -97px;
