@@ -234,7 +234,7 @@ $query = new WP_Query($args);
         var selectedYear
 
         selector.click(function () {
-          let key =  returnMenuData()[1];
+          let key =  returnMenuData()[1].toLowerCase();
           let date = returnMenuData()[0];
           console.log('key =',key ,'-------------', 'date =' , date)
           selectedYear = date
