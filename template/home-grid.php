@@ -173,6 +173,7 @@ $query = new WP_Query($args);
             });
         });
 
+
         //============================
         //         Filter from right menu  on mobile
         //============================
