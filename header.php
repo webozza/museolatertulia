@@ -72,6 +72,31 @@ function querry_menu($menu_category){
 
             <div id="left-menu">
 
+            <div class="test-menu">
+                <?php
+                // Specify the menu location or the menu name
+                $menu_location = 'main-menu';
+                
+                // Get the menu items for the specified location or name
+                $menu_items = wp_get_nav_menu_items($menu_location);
+                
+                // Check if there are any menu items
+                if ($menu_items) {
+                    foreach ($menu_items as $menu_item) {
+                        // Access menu item properties
+                        $item_id = $menu_item->ID;
+                        $item_title = $menu_item->title;
+                        $item_url = $menu_item->url;
+                
+                        // Output or process the data as needed
+                        echo "ID: $item_id - Title: $item_title - URL: $item_url <br>";
+                    }
+                } else {
+                    echo "No menu items found.";
+                }
+                ?>
+            </div>
+
 
 
                   <!------------------------------------------------------------------ -->
