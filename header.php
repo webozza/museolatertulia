@@ -82,8 +82,6 @@ $menu_items = wp_get_nav_menu_items($menu_location);
 if ($menu_items) {
     echo '<div class="date-menu"><ul>';
 
-    $current_year = null;
-
     // Function to recursively generate menu items
     function generate_menu($items, $parent_id = 0) {
         echo '<ul class="submenu">';
