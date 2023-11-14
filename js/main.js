@@ -302,8 +302,8 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    let sidebarImg = $(".sidebar-single-image");
-    let sidebarContainer = $('.documentSingleImage')
+    let sidebarImg =document.getElementsByClassName("sidebar-single-image");
+    let sidebarContainer = document.getElementsByClassName('documentSingleImage')
 
     if (sidebarImg.length > 0) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
