@@ -72,26 +72,18 @@ function querry_menu($menu_category){
 
             <div id="left-menu">
 
-            <div class="test-menu">
-                <h2>Test menu</h2>
-                <?php 
-                    class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
-                        function start_lvl(&$output, $depth = 0, $args = null) {
-                            $output .= '<ul class="submenu">';
-                        }
-                    }
-                    
-                    $menu_args = array(
-                        'theme_location' => 'main-menu',
-                        'container' => '',
-                        'menu_class' => '',
-                        'walker' => new Custom_Walker_Nav_Menu(),
-                    );
-                    
-                    wp_nav_menu($menu_args);
-                    echo var_dam(wp_nav_menu($menu_args));
-                 ?>
-            </div>
+                    <div class="test-menu">
+                        <h2>Test menu</h2>
+                        <?php 
+                            $menu_args = array(
+                                'theme_location' => 'main-menu',
+                                'container' => '',
+                                'menu_class' => '',
+                            );
+                            wp_nav_menu($menu_args);
+                            echo var_dam(wp_nav_menu($menu_args));
+                        ?>
+                    </div>
 
                   <!------------------------------------------------------------------ -->
 
