@@ -103,12 +103,9 @@ function querry_menu($menu_category){
                                         if ($current_year !== null) {
                                             echo '</ul></li>';
                                         }
-                                        echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p>";
-                                        $current_year = $menu_date;
                                     }
-
                                     // Output the menu item in the specified format
-                                    echo "<li><a href='$item_url'>$item_title</a>";
+                                    echo "<li  class='top-level-menu'><a href='$item_url'>$item_title</a>";
 
                                     // Recursively call the function for child items
                                     generate_menu($items, $menu_item->ID);
