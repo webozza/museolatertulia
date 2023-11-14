@@ -74,6 +74,7 @@ function querry_menu($menu_category){
 
                   <!------------------------------------------------------------------ -->
 
+
                   <?php
 $menu_location = 'main-menu';
 $menu_items = wp_get_nav_menu_items($menu_location);
@@ -86,6 +87,7 @@ if ($menu_items) {
 
     // Function to recursively generate menu items
     function generate_menu($items, $parent_id = 0) {
+        echo '<ul>';
         foreach ($items as $menu_item) {
             // Access menu item properties
             $item_title = $menu_item->title;
@@ -114,18 +116,18 @@ if ($menu_items) {
                 echo '</li>';
             }
         }
+        echo '</ul>';
     }
 
     // Call the recursive function with the top-level menu items
     generate_menu($menu_items);
 
     // Close the last submenu and the overall list
-    echo '</ul></li></ul></div>';
+    echo '</div>';
 } else {
     echo "No menu items found.";
 }
 ?>
-
 
 
                   <!------------------------------------------------------------------ -->
