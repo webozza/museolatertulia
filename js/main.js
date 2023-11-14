@@ -302,16 +302,18 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    let sidebarImg =document.getElementsByClassName("sidebar-single-image");
-    let sidebarContainer = document.getElementsByClassName('documentSingleImage')
-
-    if (sidebarImg.length > 0) {
+    let sidebarImg = document.getElementsByClassName("sidebar-single-image");
+    let sidebarContainer = document.querySelector('.documentSingleImage');
+  
+    if (sidebarImg.length > 0 && sidebarContainer) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
-      contain: "outside",
+        contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
-      sidebarContainer.panzoom = panzoom;
+  
+      sidebarContainer.panzoom = sidebarImgZoom;
+  
       $(".documentImgZoom").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(3, { animate: true });
@@ -319,7 +321,7 @@ jQuery(document).ready(function ($) {
         $(".documentImgZoom").hide();
         $(".documentWindowZoomout").show();
       });
-
+  
       $(".documentWindowZoomout").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(1, { animate: true });
@@ -329,6 +331,7 @@ jQuery(document).ready(function ($) {
       });
     }
   };
+  
 
   //====================================
   //                                Window Close
