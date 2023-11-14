@@ -387,7 +387,14 @@ function handleHeader(){
     $('#left-menu').fadeToggle(300);
     })
 
-    // Menu Toggler
+    // Right Menu Toggler
+
+    $('.menu-item').click(function() {
+        $('.menu-item').not(this).find('.submenu').slideUp(300);
+        $(this).find('.submenu').slideToggle(300);
+    });
+
+    // left Menu Toggler
 
     $('.date-menu > ul > ul > .top-level-menu').click(function(){
       $('.date-menu > ul > ul > .top-level-menu').not(this).children('ul').slideUp(300);
