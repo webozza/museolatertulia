@@ -125,8 +125,19 @@ $query = new WP_Query($args);
 
 <script>
     jQuery(document).ready(function($) {
-      
 
+      let selector = $('.top-level-menu .top-level-menu');
+      let selected;
+
+      selector.click(function() {
+          selected = $(this);
+      })
+
+      let returnMenuData = () => {
+          let parentMenu = selected.parent().parent().children('a').text()
+          let menu = selected.find('a').text()
+          return [parentMenu, menu];
+      }
 
         let nonce = '<?=  wp_create_nonce('get_filtered_img'); ?>';
         let preLoader = '<div class="pre-loader-filtered">' +
@@ -221,9 +232,9 @@ $query = new WP_Query($args);
         //============================
 
         var selectedYear
-        $('.top-level-menu .submenu li').click(function () {
-          let key =  $(this).text();
-          let date = $(this).parent().parent().find('.menu_date').text();
+        submenu.click(function () {
+          let key =  returnMenuData()[1];
+          let date = returnMenuData()[0];
 
           selectedYear = date
           // console.log(key);
