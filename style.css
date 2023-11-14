@@ -883,7 +883,7 @@ svg#america path {
 .date-menu > ul > ul > li  > ul{
   display: none;
   color: #393939 !important;
-  padding:12px;
+  padding-top:12px;
 } 
 
 

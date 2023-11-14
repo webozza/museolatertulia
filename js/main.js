@@ -388,22 +388,11 @@ function handleHeader(){
         $(this).next('.submenu').slideToggle(300);
     });
 
-
     // menu toggler 
+    
     $('.date-menu > ul > ul > .top-level-menu').click(function(){
       $('.date-menu > ul > ul > .top-level-menu').not(this).children('ul').slideUp(300);
       $(this).children('ul').slideToggle(300);
-
-
-
-      // $(this).toggleClass('sub-menu-active');
-  
-      // if ($(this).hasClass('sub-menu-active')) {
-      //     $('.date-menu > ul > ul > .top-level-menu').not(this).removeClass('sub-menu-active').children('ul').slideUp();
-      //     $(this).children('ul').slideDown();
-      // } else {
-      //     $(this).children('ul').slideUp();
-      // }
   });
   
     $('.menu-item').click(function() {
