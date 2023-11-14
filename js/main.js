@@ -388,7 +388,11 @@ function handleHeader(){
         $(this).next('.submenu').slideToggle(300);
     });
 
+
+    // menu toggler 
+
     $('.date-menu > ul > ul > .top-level-menu').click(function(){
+      $('.date-menu > ul > ul > .top-level-menu').children('ul').slideUp()
       console.log($(this).children('ul').slideToggle())
   })
 
