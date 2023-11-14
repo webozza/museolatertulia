@@ -84,9 +84,9 @@ function querry_menu($menu_category){
                 if ($menu_items) {
                     foreach ($menu_items as $menu_item) {
                         // Access menu item properties
-                        $item_id = $menu_item->ID;
+                        // $item_id = $menu_item->ID;
                         $item_title = $menu_item->title;
-                        $item_url = $menu_item->url;
+                        // $item_url = $menu_item->url;
                 
                         // Output or process the data as needed
                         echo "ID: $item_id - Title: $item_title - URL: $item_url <br>";
