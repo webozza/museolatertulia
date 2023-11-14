@@ -390,12 +390,11 @@ function handleHeader(){
 
 
     // menu toggler 
-
     $('.date-menu > ul > ul > .top-level-menu').click(function(){
-      $('.date-menu > ul > ul > .top-level-menu').children('ul').slideUp()
-      console.log($(this).children('ul').slideToggle())
-  })
-
+      $('.date-menu > ul > ul > .top-level-menu').not(this).removeClass('sub-menu-active').children('ul').slideUp();
+      $(this).children('ul').slideUp();
+  });
+  
     $('.menu-item').click(function() {
         $('.menu-item').not(this).find('.submenu').slideUp(300);
         $(this).find('.submenu').slideToggle(300);
