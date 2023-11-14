@@ -407,8 +407,7 @@ function handleHeader(){
 
   function handlePageMenu(){
     $('.date-menu > ul > ul > .top-level-menu').click(function(){
-      if($(this).children('a').class() == 'El_Projecto'){
-        console.log($(this).attr('class'))
+      if($(this).children('a').attr('class') == 'El_Projecto'){
         $('.home_section').fadeOut()
         $('.equipo_page_popup').hide()
         $('.la_porjecto_page_popup').fadeIn()
@@ -416,8 +415,7 @@ function handleHeader(){
         closeMenu()
         scrollToTop()
       }
-      if($(this).children('a').class() == 'Epuipo'){
-        console.log($(this).attr('class'))
+      if($(this).children('a').attr('class') == 'Epuipo'){
         $('.home_section').fadeOut()
         $('.la_porjecto_page_popup').hide()
         $('.equipo_page_popup').fadeIn()
@@ -449,7 +447,7 @@ function handleHeader(){
 // run the function
 closeWindow();
 handleHeader();
-// handlePageMenu();
+handlePageMenu();
 handledocumentWindow();
 hidePage();
 
