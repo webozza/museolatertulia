@@ -312,7 +312,7 @@ let documentImgZoom = () => {
     });
 
     // Corrected assignment
-    zoomContainer.panzoom = sidebarImgZoom;
+    // zoomContainer.panzoom = sidebarImgZoom;
 
     $(".documentImgZoom").on("click", () => {
       sidebarImgZoom.pan(0, 0, { animate: true });
