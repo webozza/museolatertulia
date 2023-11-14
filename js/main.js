@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
   async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {
       let sidebarLoader = `<div class="sidebarLoader">
-      <img src="${themeDir}/con/popUpIcon/loading.gif" alt="">
+      <img src="${themeDir}/icon/popUpIcon/loading.gif" alt="">
       </div>`;
       $(".documentSingleImage").show();
 
