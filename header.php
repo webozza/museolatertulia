@@ -73,45 +73,49 @@ function querry_menu($menu_category){
             <div id="left-menu">
 
             <div class="test-menu">
+
+
+
             <?php
-                    // Specify the menu location or the menu name
-                    $menu_location = 'main-menu';
+// Specify the menu location or the menu name
+$menu_location = 'main-menu';
 
-                    // Get the menu items for the specified location or name
-                    $menu_items = wp_get_nav_menu_items($menu_location);
+// Get the menu items for the specified location or name
+$menu_items = wp_get_nav_menu_items($menu_location);
 
-                    // Check if there are any menu items
-                    if ($menu_items) {
-                        echo '<div class="date-menu"><ul>';
+// Check if there are any menu items
+if ($menu_items) {
+    echo '<div class="date-menu"><ul>';
 
-                        $current_year = null;
+    $current_year = null;
 
-                        foreach ($menu_items as $menu_item) {
-                            // Access menu item properties
-                            $item_title = $menu_item->title;
-                            $item_url = $menu_item->url;
-                            $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
+    foreach ($menu_items as $menu_item) {
+        // Access menu item properties
+        $item_title = $menu_item->title;
+        $item_url = $menu_item->url;
+        $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
 
-                            // Check if the year has changed
-                            if ($menu_date !== $current_year) {
-                                // If it has, close the previous year's submenu and open a new one
-                                if ($current_year !== null) {
-                                    echo '</ul></li>';
-                                }
-                                echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p><ul class='submenu'>";
-                                $current_year = $menu_date;
-                            }
+        // Check if the year has changed
+        if ($menu_date !== $current_year) {
+            // If it has, close the previous year's submenu and open a new one
+            if ($current_year !== null) {
+                echo '</ul></li>';
+            }
+            echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p><ul class='submenu'>";
+            $current_year = $menu_date;
+        }
 
-                            // Output the menu item in the specified format
-                            echo "<li><a href='$item_url'>$item_title</a></li>";
-                        }
+        // Output the menu item in the specified format
+        echo "<li><a href='$item_url'>$item_title</a></li>";
+    }
 
-                        // Close the last submenu and the overall list
-                        echo '</ul></li></ul></div>';
-                    } else {
-                        echo "No menu items found.";
-                    }
-                    ?>
+    // Close the last submenu and the overall list
+    echo '</ul></li></ul></div>';
+} else {
+    echo "No menu items found.";
+}
+?>
+
 
             </div>
 
