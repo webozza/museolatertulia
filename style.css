@@ -891,3 +891,7 @@ svg#america path {
   font-family: "BLAA-alt-Regular";
   color: #383838 !important;
 } 
+
+.date-menu > ul > ul > li  > ul a font:hover{
+  opacity: .7;
+}
