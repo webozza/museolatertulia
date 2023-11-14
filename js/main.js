@@ -388,8 +388,9 @@ function handleHeader(){
         $(this).next('.submenu').slideToggle(300);
     });
 
-
-    
+    $('.date-menu > ul > ul > .top-level-menu').click(function(){
+      console.log($(this).children('ul').slideToggle())
+  })
 
     $('.menu-item').click(function() {
         $('.menu-item').not(this).find('.submenu').slideUp(300);

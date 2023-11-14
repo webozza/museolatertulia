@@ -881,5 +881,5 @@ svg#america path {
 }
 
 .date-menu > ul > ul > li  > ul{
-  padding-top:10px !important;
+  display: none;
 }
