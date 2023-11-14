@@ -299,40 +299,39 @@ jQuery(document).ready(function ($) {
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
 
-  let documentImgZoom = () => {
-    $(".backArrow").show();
-    $(".documentImgZoom").show();
-    let sidebarImg = document.getElementsByClassName("sidebar-single-image");
-    let zoomContainer = document.getElementsByClassName('documentSingleImage');
+let documentImgZoom = () => {
+  $(".backArrow").show();
+  $(".documentImgZoom").show();
+  let sidebarImg = document.getElementsByClassName("sidebar-single-image");
+  let zoomContainer = document.getElementsByClassName('documentSingleImage');
+
+    const sidebarImgZoom = Panzoom(sidebarImg[0], {
+      contain: "outside",
+      maxScale: 3,
+      minScale: 0.5,
+    });
+
+    // Corrected assignment
+    zoomContainer.panzoom = sidebarImgZoom;
+
+    $(".documentImgZoom").on("click", () => {
+      sidebarImgZoom.pan(0, 0, { animate: true });
+      sidebarImgZoom.zoom(3, { animate: true });
+      console.log("Zoomed in");
+      $(".documentImgZoom").hide();
+      $(".documentWindowZoomout").show();
+    });
+
+    $(".documentWindowZoomout").on("click", () => {
+      sidebarImgZoom.pan(0, 0, { animate: true });
+      sidebarImgZoom.zoom(1, { animate: true });
+      console.log("Zoomed out");
+      $(".documentWindowZoomout").hide();
+      $(".documentImgZoom").show();
+    });
   
-    if (sidebarImg.length > 0 && zoomContainer.length > 0) {
-      const sidebarImgZoom = Panzoom(sidebarImg[0], {
-        contain: "outside",
-        maxScale: 3,
-        minScale: 0.5,
-      });
-  
-      // Corrected assignment
-      zoomContainer[0].panzoom = sidebarImgZoom;
-  
-      $(".documentImgZoom").on("click", () => {
-        sidebarImgZoom.pan(0, 0, { animate: true });
-        sidebarImgZoom.zoom(3, { animate: true });
-        console.log("Zoomed in");
-        $(".documentImgZoom").hide();
-        $(".documentWindowZoomout").show();
-      });
-  
-      $(".documentWindowZoomout").on("click", () => {
-        sidebarImgZoom.pan(0, 0, { animate: true });
-        sidebarImgZoom.zoom(1, { animate: true });
-        console.log("Zoomed out");
-        $(".documentWindowZoomout").hide();
-        $(".documentImgZoom").show();
-      });
-    }
-  };
-  
+};
+
 
   //====================================
   //                                Window Close
