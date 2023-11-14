@@ -303,17 +303,14 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    const zoomContainer = document.getElementsByClassName('documentSingleImage');
     let sidebarImg = $(".sidebar-single-image");
 
     if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg[0], {
-        contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
 
-    zoomContainer.panzoom = panzoom;
 
 
       $(".documentImgZoom").on("click", () => {
