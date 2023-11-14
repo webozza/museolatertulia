@@ -766,6 +766,15 @@ p.parent_menu {
     font-size: 22px;
     padding: 10px;
   }
+  #left-menu a {
+    color: #1e1e1e;
+  }
+  .top-level-menu > ul{
+    list-style: none;
+    font-size: 20px;
+  }
+
+
 
   .artists,
   .categories,
