@@ -235,7 +235,7 @@ $query = new WP_Query($args);
         submenu.click(function () {
           let key =  returnMenuData()[1];
           let date = returnMenuData()[0];
-
+          console.log('key =',key ,'-------------', 'date =' , date)
           selectedYear = date
           // console.log(key);
 
