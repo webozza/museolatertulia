@@ -72,109 +72,40 @@ function querry_menu($menu_category){
 
             <div id="left-menu">
 
-                  <!------------------------------------------------------------------ -->
+                  <!--------------------------------------------------- -->
 
                   <?php
                     $menu_location = 'main-menu';
                     $menu_items = wp_get_nav_menu_items($menu_location);
-
-                    // Check if there are any menu items
+                    
                     if ($menu_items) {
                         echo '<div class="date-menu"><ul>';
-
                         $current_year = null;
-
-                        // Function to recursively generate menu items
                         function generate_menu($items, $parent_id = 0) {
                             echo '<ul>';
                             foreach ($items as $menu_item) {
-                                // Access menu item properties
                                 $item_title = $menu_item->title;
                                 $item_url = $menu_item->url;
-                                $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
                                 $menu_parent = $menu_item->menu_item_parent;
 
-                                // Check if the item is a child of the current parent
                                 if ($menu_parent == $parent_id) {
-                                    // Output the menu item in the specified format
-                                    echo "<li class='top-level-menu'>";
-
-                                    // Output menu_date if available
-                                    if ($menu_date) {
-                                        echo "<p class='menu_date'>$menu_date</p>";
-                                    }
-
+                                    echo "<li class='top-level-menu '>";
                                     echo "<a href='$item_url'>$item_title</a>";
-
-                                    // Recursively call the function for child items
                                     generate_menu($items, $menu_item->ID);
-
                                     echo '</li>';
                                 }
                             }
                             echo '</ul>';
                         }
-
-                        // Call the recursive function with the top-level menu items
                         generate_menu($menu_items);
-
-                        // Close the last submenu and the overall list
                         echo '</div>';
                     } else {
                         echo "No menu items found.";
                     }
                     ?>
 
-                 
+<!------------------------------------------------------------------>      
 
-<!------------------------------------------------------------------ -->
-
-                <!-- <div class="date-menu">
-                    <ul>
-                        <li class="top-level-menu">
-                            <a href="<?= site_url();?>">Start</a>
-                        </li>
-
-                        <li class="top-level-menu">
-                        <p class='menu_date'>1971</p>
-                            <ul class="submenu">
-                                <li>map</li>
-                                <li>biennial</li>
-                                <li>categories</li>
-                                <li>artists</li>
-                            </ul>
-                        </li>
-
-                        <li class="top-level-menu">
-                        <p class='menu_date'>1973</p>
-                            <ul class="submenu">
-                                <li>map</li>
-                                <li>biennial</li>
-                                <li>categories</li>
-                                <li>artists</li>
-                            </ul>
-                        </li>
-                        <li class="top-level-menu">
-                            <p class='menu_date'>1976</p>
-                            <ul  class="submenu">
-                                <li>map</li>
-                                <li>biennial</li>
-                                <li>categories</li>
-                                <li>artists</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div> -->
-
-                  <!-------------------------------------------------------------------->
-
-                <div class="page_link">
-                    <ul>
-                        <li class='el_projecto'>El Projecto</li>
-                        <li class='equipo'>Epuipo</li>
-                    </ul>
-                </div>
-                
                 <div class="right-menu-for-mobile">
                         <ul class="mobile-menu">
                             <li class="mobile-menu-item">
