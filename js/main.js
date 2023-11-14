@@ -303,25 +303,30 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
+    const zoomContainer = document.getElementsByClassName('documentSingleImage');
     let sidebarImg = $(".sidebar-single-image");
 
     if (sidebarImg.length > 0) {
-      const sidebarImgZoom = Panzoom(sidebarImg[0], {
+      const panzoom = Panzoom(sidebarImg[0], {
+        contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
 
+    zoomContainer.panzoom = panzoom;
+
+
       $(".documentImgZoom").on("click", () => {
-        sidebarImgZoom.pan(0, 0, { animate: true });
-        sidebarImgZoom.zoom(3, { animate: true });
+        panzoom.pan(0, 0, { animate: true });
+        panzoom.zoom(3, { animate: true });
         console.log("Zoomed in");
         $(".documentImgZoom").hide();
         $(".documentWindowZoomout").show();
       });
 
       $(".documentWindowZoomout").on("click", () => {
-        sidebarImgZoom.pan(0, 0, { animate: true });
-        sidebarImgZoom.zoom(1, { animate: true });
+        panzoom.pan(0, 0, { animate: true });
+        panzoom.zoom(1, { animate: true });
         console.log("Zoomed out");
         $(".documentWindowZoomout").hide();
         $(".documentImgZoom").show();
