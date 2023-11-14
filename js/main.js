@@ -303,18 +303,18 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    const zoomContainer = document.getElementsByClassName('documentWindow');
+    // const zoomContainer = document.getElementsByClassName('documentWindow');
     const sidebarImg = document.getElementsByClassName("sidebar-single-image");
-    console.log('zoomContainer ---> ',zoomContainer)
-    console.log('sidebarImg --->',sidebarImg)
+    // console.log('zoomContainer ---> ',zoomContainer)
+    // console.log('sidebarImg --->',sidebarImg)
     if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg[0], {
-        contain: "outside",
+        // contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
 
-    zoomContainer.panzoom = panzoom;
+    // zoomContainer.panzoom = panzoom;
 
 
       $(".documentImgZoom").on("click", () => {
