@@ -81,6 +81,8 @@ body {
   /* height: 100% !important; */
   width: 100% !important;
   object-fit: contain;
+  position: absolute;
+  top: 0;
 }
 .pre-loader {
   z-index: 0;

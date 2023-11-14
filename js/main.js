@@ -267,33 +267,6 @@ jQuery(document).ready(function ($) {
       $(".zoom").show();
       $(".zoomOut").hide();
     });
-  
-    // Custom logic to restrict drag within the container
-    // panzoom.on("pan", (event) => {
-    //   const containerRect = zoomContainer.getBoundingClientRect();
-    //   const imageRect = zoomImage.getBoundingClientRect();
-  
-    //   const minX = containerRect.left;
-    //   const minY = containerRect.top;
-    //   const maxX = containerRect.right - imageRect.width;
-    //   const maxY = containerRect.bottom - imageRect.height;
-  
-    //   if (imageRect.left < minX) {
-    //     panzoom.pan({ x: minX - imageRect.left, y: 0, animate: false });
-    //   }
-  
-    //   if (imageRect.top < minY) {
-    //     panzoom.pan({ x: 0, y: minY - imageRect.top, animate: false });
-    //   }
-  
-    //   if (imageRect.right > maxX) {
-    //     panzoom.pan({ x: maxX - imageRect.right, y: 0, animate: false });
-    //   }
-  
-    //   if (imageRect.bottom > maxY) {
-    //     panzoom.pan({ x: 0, y: maxY - imageRect.bottom, animate: false });
-    //   }
-    // }); 
   };
   
   // let makeZoom = () => {
@@ -330,13 +303,15 @@ jQuery(document).ready(function ($) {
     $(".backArrow").show();
     $(".documentImgZoom").show();
     let sidebarImg = $(".sidebar-single-image");
+    let sidebarContainer = $('.documentSingleImage')
 
     if (sidebarImg.length > 0) {
       const sidebarImgZoom = Panzoom(sidebarImg[0], {
+      contain: "outside",
         maxScale: 3,
         minScale: 0.5,
       });
-
+      sidebarContainer.panzoom = panzoom;
       $(".documentImgZoom").on("click", () => {
         sidebarImgZoom.pan(0, 0, { animate: true });
         sidebarImgZoom.zoom(3, { animate: true });
