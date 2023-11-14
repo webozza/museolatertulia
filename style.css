@@ -767,11 +767,11 @@ p.parent_menu {
     padding: 10px;
   }
   #left-menu a {
-    color: #1e1e1e;
+    color: #1e1e1e !important;
   }
   .top-level-menu > ul{
-    list-style: none;
-    font-size: 20px;
+    list-style: none !important;
+    font-size: 20px !important;
   }
 
 
