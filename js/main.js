@@ -176,7 +176,7 @@ jQuery(document).ready(function ($) {
   window.ImgPopupFunction = ImgPopupFunction;
 
   //=========================================
-  //                          document single image window popup
+  //                  document single image window popup
   //=========================================
 
   async function handleDocumentSingleImage() {
@@ -235,29 +235,89 @@ jQuery(document).ready(function ($) {
 
   $(".zoomOut").hide();
 
+
+
   let makeZoom = () => {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
+    const zoomContainer = document.getElementsByClassName('zoom-container')[0];
     const panzoom = Panzoom(zoomImage, {
+      contain: "outside",
       maxScale: 3,
       minScale: 0.5,
     });
-
+  
+    // Add the panzoom instance to the zoom container
+    zoomContainer.panzoom = panzoom;
+  
     $(".zoom").on("click", () => {
       panzoom.pan(0, 0, { animate: true });
       panzoom.zoom(3, { animate: true });
       $(".zoom").hide();
       $(".zoomOut").show();
     });
-
+  
     $(".zoomOut").on("click", () => {
       panzoom.zoom(1, { animate: true });
       panzoom.pan(0, 0, { animate: true });
-
+  
       $(".zoom").show();
       $(".zoomOut").hide();
     });
+  
+    // Custom logic to restrict drag within the container
+    panzoom.on("pan", (event) => {
+      const containerRect = zoomContainer.getBoundingClientRect();
+      const imageRect = zoomImage.getBoundingClientRect();
+  
+      const minX = containerRect.left;
+      const minY = containerRect.top;
+      const maxX = containerRect.right - imageRect.width;
+      const maxY = containerRect.bottom - imageRect.height;
+  
+      if (imageRect.left < minX) {
+        panzoom.pan({ x: minX - imageRect.left, y: 0, animate: false });
+      }
+  
+      if (imageRect.top < minY) {
+        panzoom.pan({ x: 0, y: minY - imageRect.top, animate: false });
+      }
+  
+      if (imageRect.right > maxX) {
+        panzoom.pan({ x: maxX - imageRect.right, y: 0, animate: false });
+      }
+  
+      if (imageRect.bottom > maxY) {
+        panzoom.pan({ x: 0, y: maxY - imageRect.bottom, animate: false });
+      }
+    });
   };
+  
+  // let makeZoom = () => {
+  //   $(".zoom").show();
+  //   const zoomImage = document.getElementById("zoom-image");
+  //   const zoomContainer = document.getElementsByClassName('zoom-container')
+  //   const panzoom = Panzoom(zoomImage, {
+  //     contain: "zoomContainer",
+  //     maxScale: 3,
+  //     minScale: 0.5,
+  //   });
+
+  //   $(".zoom").on("click", () => {
+  //     panzoom.pan(0, 0, { animate: true });
+  //     panzoom.zoom(3, { animate: true });
+  //     $(".zoom").hide();
+  //     $(".zoomOut").show();
+  //   });
+
+  //   $(".zoomOut").on("click", () => {
+  //     panzoom.zoom(1, { animate: true });
+  //     panzoom.pan(0, 0, { animate: true });
+
+  //     $(".zoom").show();
+  //     $(".zoomOut").hide();
+  //   });
+  // };
 
   $(".documentWindowZoomout").hide();
   $(".documentImgZoom").hide();
@@ -395,8 +455,6 @@ function handleHeader(){
   function scrollToTop(){
     $('html, body').animate({ scrollTop: 0 }, 'slow');
   }
-
-
 
 // run the function
 closeWindow();

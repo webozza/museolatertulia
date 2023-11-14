@@ -69,12 +69,36 @@ function querry_menu($menu_category){
                     <span></span>
                 </a>
             </div>
+
             <div id="left-menu">
+
+            <div class="test-menu">
+                <?php 
+                    class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+                        function start_lvl(&$output, $depth = 0, $args = null) {
+                            $output .= '<ul class="submenu">';
+                        }
+                    }
+                    
+                    $menu_args = array(
+                        'theme_location' => 'main-menu',
+                        'container' => '',
+                        'menu_class' => '',
+                        'walker' => new Custom_Walker_Nav_Menu(),
+                    );
+                    
+                    wp_nav_menu($menu_args);
+                 ?>
+            </div>
+
+                  <!------------------------------------------------------------------ -->
+
                 <div class="date-menu">
                     <ul>
                         <li class="top-level-menu">
                             <a href="<?= site_url();?>">Start</a>
                         </li>
+
                         <li class="top-level-menu">
                         <p class='menu_date'>1971</p>
                             <ul class="submenu">
@@ -85,6 +109,7 @@ function querry_menu($menu_category){
                                 <!-- <li>resources</li> -->
                             </ul>
                         </li>
+
                         <li class="top-level-menu">
                         <p class='menu_date'>1973</p>
                             <ul class="submenu">
@@ -107,6 +132,9 @@ function querry_menu($menu_category){
                         </li>
                     </ul>
                 </div>
+
+                  <!-------------------------------------------------------------------->
+
                 <div class="page_link">
                     <ul>
                         <li class='el_projecto'>El Projecto</li>
@@ -142,9 +170,12 @@ function querry_menu($menu_category){
                         </ul>
                     </div>
             </div>
+
         </div>
     </div>
 </div>
+
+
 <div class="header-right">
     <div class="menu-right">
         <ul>
