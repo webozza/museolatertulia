@@ -174,6 +174,7 @@ function querry_menu($menu_category){
                         <li class='equipo'>Epuipo</li>
                     </ul>
                 </div>
+                
                 <div class="right-menu-for-mobile">
                         <ul class="mobile-menu">
                             <li class="mobile-menu-item">

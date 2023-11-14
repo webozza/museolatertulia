@@ -406,8 +406,8 @@ function handleHeader(){
   //====================================
 
   function handlePageMenu(){
-    $('.page_link ul li').click(function(){
-      if($(this).attr('class') == 'el_projecto'){
+    $('.date-menu > ul > ul > .top-level-menu').click(function(){
+      if($(this).children('a').text() == 'The projecto'){
         console.log($(this).attr('class'))
         $('.home_section').fadeOut()
         $('.equipo_page_popup').hide()
@@ -416,7 +416,7 @@ function handleHeader(){
         closeMenu()
         scrollToTop()
       }
-      if($(this).attr('class') == 'equipo'){
+      if($(this).children('a').text() == 'Epupip'){
         console.log($(this).attr('class'))
         $('.home_section').fadeOut()
         $('.la_porjecto_page_popup').hide()
