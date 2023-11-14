@@ -72,18 +72,7 @@ function querry_menu($menu_category){
 
             <div id="left-menu">
 
-                    <div class="test-menu">
-                        <h2>Test menu</h2>
-                        <?php 
-                            $menu_args = array(
-                                'theme_location' => 'main-menu',
-                                'container' => '',
-                                'menu_class' => '',
-                            );
-                            wp_nav_menu($menu_args);
-                            echo var_dam(wp_nav_menu($menu_args));
-                        ?>
-                    </div>
+
 
                   <!------------------------------------------------------------------ -->
 
