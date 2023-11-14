@@ -91,18 +91,10 @@ function querry_menu($menu_category){
                                 // Access menu item properties
                                 $item_title = $menu_item->title;
                                 $item_url = $menu_item->url;
-                                $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
                                 $menu_parent = $menu_item->menu_item_parent;
 
                                 // Check if the item is a child of the current parent
                                 if ($menu_parent == $parent_id) {
-                                    // Check if the year has changed
-                                    if ($menu_date !== $current_year) {
-                                        // If it has, close the previous year's submenu and open a new one
-                                        if ($current_year !== null) {
-                                            echo '</ul></li>';
-                                        }
-                                    }
                                     // Output the menu item in the specified format
                                     echo "<li  class='top-level-menu'><a href='$item_url'>$item_title</a>";
 
