@@ -72,10 +72,9 @@ function querry_menu($menu_category){
 
             <div id="left-menu">
 
-            <div class="test-menu">
+                  <!------------------------------------------------------------------ -->
 
-
-            <?php
+                  <?php
                     $menu_location = 'main-menu';
                     $menu_items = wp_get_nav_menu_items($menu_location);
 
@@ -126,12 +125,7 @@ function querry_menu($menu_category){
                     }
                     ?>
 
-            </div>
-
-
-
-                  <!------------------------------------------------------------------ -->
-
+                    
                 <div class="date-menu">
                     <ul>
                         <li class="top-level-menu">
