@@ -326,8 +326,8 @@ jQuery(document).ready(function ($) {
       });
 
       $(".documentWindowZoomout").on("click", () => {
-        panzoom.pan(0, 0, { animate: true });
         panzoom.zoom(1, { animate: true });
+        panzoom.pan(0, 0, { animate: true });
         console.log("Zoomed out");
         $(".documentWindowZoomout").hide();
         $(".documentImgZoom").show();
