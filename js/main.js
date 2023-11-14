@@ -269,31 +269,31 @@ jQuery(document).ready(function ($) {
     });
   
     // Custom logic to restrict drag within the container
-    panzoom.on("pan", (event) => {
-      const containerRect = zoomContainer.getBoundingClientRect();
-      const imageRect = zoomImage.getBoundingClientRect();
+    // panzoom.on("pan", (event) => {
+    //   const containerRect = zoomContainer.getBoundingClientRect();
+    //   const imageRect = zoomImage.getBoundingClientRect();
   
-      const minX = containerRect.left;
-      const minY = containerRect.top;
-      const maxX = containerRect.right - imageRect.width;
-      const maxY = containerRect.bottom - imageRect.height;
+    //   const minX = containerRect.left;
+    //   const minY = containerRect.top;
+    //   const maxX = containerRect.right - imageRect.width;
+    //   const maxY = containerRect.bottom - imageRect.height;
   
-      if (imageRect.left < minX) {
-        panzoom.pan({ x: minX - imageRect.left, y: 0, animate: false });
-      }
+    //   if (imageRect.left < minX) {
+    //     panzoom.pan({ x: minX - imageRect.left, y: 0, animate: false });
+    //   }
   
-      if (imageRect.top < minY) {
-        panzoom.pan({ x: 0, y: minY - imageRect.top, animate: false });
-      }
+    //   if (imageRect.top < minY) {
+    //     panzoom.pan({ x: 0, y: minY - imageRect.top, animate: false });
+    //   }
   
-      if (imageRect.right > maxX) {
-        panzoom.pan({ x: maxX - imageRect.right, y: 0, animate: false });
-      }
+    //   if (imageRect.right > maxX) {
+    //     panzoom.pan({ x: maxX - imageRect.right, y: 0, animate: false });
+    //   }
   
-      if (imageRect.bottom > maxY) {
-        panzoom.pan({ x: 0, y: maxY - imageRect.bottom, animate: false });
-      }
-    });
+    //   if (imageRect.bottom > maxY) {
+    //     panzoom.pan({ x: 0, y: maxY - imageRect.bottom, animate: false });
+    //   }
+    // }); 
   };
   
   // let makeZoom = () => {
