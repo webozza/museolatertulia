@@ -75,7 +75,6 @@ function querry_menu($menu_category){
             <div class="test-menu">
 
 
-
             <?php
 // Specify the menu location or the menu name
 $menu_location = 'main-menu';
@@ -89,33 +88,49 @@ if ($menu_items) {
 
     $current_year = null;
 
-    foreach ($menu_items as $menu_item) {
-        // Access menu item properties
-        $item_title = $menu_item->title;
-        $item_url = $menu_item->url;
-        $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
+    // Function to recursively generate menu items
+    function generate_menu($items, $parent_id = 0) {
+        echo '<ul>';
+        foreach ($items as $menu_item) {
+            // Access menu item properties
+            $item_title = $menu_item->title;
+            $item_url = $menu_item->url;
+            $menu_date = get_post_meta($menu_item->ID, '_menu_item_menu_date', true); // Assuming there is a custom field named '_menu_item_menu_date'
+            $menu_parent = $menu_item->menu_item_parent;
 
-        // Check if the year has changed
-        if ($menu_date !== $current_year) {
-            // If it has, close the previous year's submenu and open a new one
-            if ($current_year !== null) {
-                echo '</ul></li>';
+            // Check if the item is a child of the current parent
+            if ($menu_parent == $parent_id) {
+                // Check if the year has changed
+                if ($menu_date !== $current_year) {
+                    // If it has, close the previous year's submenu and open a new one
+                    if ($current_year !== null) {
+                        echo '</ul></li>';
+                    }
+                    echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p>";
+                    $current_year = $menu_date;
+                }
+
+                // Output the menu item in the specified format
+                echo "<li><a href='$item_url'>$item_title</a>";
+
+                // Recursively call the function for child items
+                generate_menu($items, $menu_item->ID);
+
+                echo '</li>';
             }
-            echo "<li class='top-level-menu'><p class='menu_date'>$menu_date</p><ul class='submenu'>";
-            $current_year = $menu_date;
         }
-
-        // Output the menu item in the specified format
-        echo "<li><a href='$item_url'>$item_title</a></li>";
+        echo '</ul>';
     }
 
+    // Call the recursive function with the top-level menu items
+    generate_menu($menu_items);
+
     // Close the last submenu and the overall list
-    echo '</ul></li></ul></div>';
+    echo '</div>';
 } else {
     echo "No menu items found.";
 }
 ?>
-
 
             </div>
 
