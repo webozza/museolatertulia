@@ -306,7 +306,7 @@ let documentImgZoom = () => {
   let zoomContainer = document.getElementsByClassName('documentSingleImage');
 
     const sidebarImgZoom = Panzoom(sidebarImg[0], {
-      contain: "outside",
+      // contain: "outside",
       maxScale: 3,
       minScale: 0.5,
     });
