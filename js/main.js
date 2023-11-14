@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
   async function handleDocumentSingleImage() {
     $(".documentImg").on("click", async function () {
       let sidebarLoader = `<div class="sidebarLoader">
-      <img src="${themeDir}/icon/popUpIcon/loading.gif" alt="">
+      <img src="${themeDir}/popUpIcon/loading.gif" alt="">
       </div>`;
       $(".documentSingleImage").show();
 
@@ -267,6 +267,7 @@ jQuery(document).ready(function ($) {
       $(".zoom").show();
       $(".zoomOut").hide();
     });
+
   };
   
   // let makeZoom = () => {
@@ -299,39 +300,34 @@ jQuery(document).ready(function ($) {
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
 
-let documentImgZoom = () => {
-  $(".backArrow").show();
-  $(".documentImgZoom").show();
-  let sidebarImg = document.getElementsByClassName("sidebar-single-image");
-  let zoomContainer = document.getElementsByClassName('documentSingleImage');
+  let documentImgZoom = () => {
+    $(".backArrow").show();
+    $(".documentImgZoom").show();
+    let sidebarImg = $(".sidebar-single-image");
 
-    const sidebarImgZoom = Panzoom(sidebarImg[0], {
-      // contain: "outside",
-      maxScale: 3,
-      minScale: 0.5,
-    });
+    if (sidebarImg.length > 0) {
+      const sidebarImgZoom = Panzoom(sidebarImg[0], {
+        maxScale: 3,
+        minScale: 0.5,
+      });
 
-    // Corrected assignment
-    // zoomContainer.panzoom = sidebarImgZoom;
+      $(".documentImgZoom").on("click", () => {
+        sidebarImgZoom.pan(0, 0, { animate: true });
+        sidebarImgZoom.zoom(3, { animate: true });
+        console.log("Zoomed in");
+        $(".documentImgZoom").hide();
+        $(".documentWindowZoomout").show();
+      });
 
-    $(".documentImgZoom").on("click", () => {
-      sidebarImgZoom.pan(0, 0, { animate: true });
-      sidebarImgZoom.zoom(3, { animate: true });
-      console.log("Zoomed in");
-      $(".documentImgZoom").hide();
-      $(".documentWindowZoomout").show();
-    });
-
-    $(".documentWindowZoomout").on("click", () => {
-      sidebarImgZoom.pan(0, 0, { animate: true });
-      sidebarImgZoom.zoom(1, { animate: true });
-      console.log("Zoomed out");
-      $(".documentWindowZoomout").hide();
-      $(".documentImgZoom").show();
-    });
-  
-};
-
+      $(".documentWindowZoomout").on("click", () => {
+        sidebarImgZoom.pan(0, 0, { animate: true });
+        sidebarImgZoom.zoom(1, { animate: true });
+        console.log("Zoomed out");
+        $(".documentWindowZoomout").hide();
+        $(".documentImgZoom").show();
+      });
+    }
+  };
 
   //====================================
   //                                Window Close
