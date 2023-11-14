@@ -304,8 +304,9 @@ jQuery(document).ready(function ($) {
     $(".backArrow").show();
     $(".documentImgZoom").show();
     const zoomContainer = document.getElementsByClassName('documentWindow');
-    let sidebarImg = document.getElementsByClassName("sidebar-single-image");
-
+    const sidebarImg = document.getElementsByClassName("sidebar-single-image");
+    console.log('zoomContainer ---> ',zoomContainer)
+    console.log('sidebarImg --->',sidebarImg)
     if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg[0], {
         contain: "outside",
