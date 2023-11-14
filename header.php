@@ -75,47 +75,48 @@ function querry_menu($menu_category){
                   <!------------------------------------------------------------------ -->
 
                   <?php
-                    $menu_location = 'main-menu';
-                    $menu_items = wp_get_nav_menu_items($menu_location);
+$menu_location = 'main-menu';
+$menu_items = wp_get_nav_menu_items($menu_location);
 
-                    // Check if there are any menu items
-                    if ($menu_items) {
-                        echo '<div class="date-menu"><ul>';
+// Check if there are any menu items
+if ($menu_items) {
+    echo '<div class="date-menu"><ul>';
 
-                        $current_year = null;
+    $current_year = null;
 
-                        // Function to recursively generate menu items
-                        function generate_menu($items, $parent_id = 0) {
-                            echo '<ul>';
-                            foreach ($items as $menu_item) {
-                                // Access menu item properties
-                                $item_title = $menu_item->title;
-                                $item_url = $menu_item->url;
-                                $menu_parent = $menu_item->menu_item_parent;
+    // Function to recursively generate menu items
+    function generate_menu($items, $parent_id = 0) {
+        echo '<ul class="submenu">';
+        foreach ($items as $menu_item) {
+            // Access menu item properties
+            $item_title = $menu_item->title;
+            $item_url = $menu_item->url;
+            $menu_parent = $menu_item->menu_item_parent;
 
-                                // Check if the item is a child of the current parent
-                                if ($menu_parent == $parent_id) {
-                                    // Output the menu item in the specified format
-                                    echo "<li  class='top-level-menu'><a href='$item_url'>$item_title</a>";
+            // Check if the item is a child of the current parent
+            if ($menu_parent == $parent_id) {
+                // Output the menu item in the specified format
+                echo "<li class='top-level-menu'><a href='$item_url'>$item_title</a>";
 
-                                    // Recursively call the function for child items
-                                    generate_menu($items, $menu_item->ID);
+                // Recursively call the function for child items
+                generate_menu($items, $menu_item->ID);
 
-                                    echo '</li>';
-                                }
-                            }
-                            echo '</ul>';
-                        }
+                echo '</li>';
+            }
+        }
+        echo '</ul>';
+    }
 
-                        // Call the recursive function with the top-level menu items
-                        generate_menu($menu_items);
+    // Call the recursive function with the top-level menu items
+    generate_menu($menu_items);
 
-                        // Close the last submenu and the overall list
-                        echo '</div>';
-                    } else {
-                        echo "No menu items found.";
-                    }
-                    ?>
+    // Close the last submenu and the overall list
+    echo '</div>';
+} else {
+    echo "No menu items found.";
+}
+?>
+
                  
 
 <!------------------------------------------------------------------ -->

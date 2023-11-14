@@ -388,6 +388,9 @@ function handleHeader(){
         $(this).next('.submenu').slideToggle(300);
     });
 
+
+    
+
     $('.menu-item').click(function() {
         $('.menu-item').not(this).find('.submenu').slideUp(300);
         $(this).find('.submenu').slideToggle(300);
