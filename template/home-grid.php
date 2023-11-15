@@ -23,8 +23,7 @@ $query = new WP_Query($args);
         <ul id="artist-list"></ul>
     </div>
     <div class="categories">
-      <ul id='categories-list'></ul>
-      <!-- <?php include get_stylesheet_directory( ) . '/module/categories.php'?> -->
+       <?php include get_stylesheet_directory( ) . '/module/categories.php'?> 
     </div>
     <div class="biennial">
       <?php include get_stylesheet_directory(  ) . '/module/biennial.php'?>
