@@ -369,10 +369,13 @@ jQuery(document).ready(function ($) {
     // left Menu Toggler
 
     $(".date-menu > ul > ul > .top-level-menu").click(function () {
-      closeMenu()
       $(".date-menu > ul > ul > .top-level-menu").not(this).children("ul").slideUp(300);
       $(this).children("ul").slideToggle(300);
     });
+
+    $('.top-level-menu .top-level-menu').click(()=>{
+      closeMenu()
+    })
 
     $(".mobile-parent_menu").click(function () {
       $(".mobile-parent_menu").not(this).next(".mobile-submenu").slideUp(300);
