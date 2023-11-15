@@ -214,10 +214,17 @@ add_action('wp_ajax_nopriv_filterData', 'filterData');
 // back to default grid 
 
 function defaultGrid() {
-
+    $value = $_POST['value'];
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'obra-fecha',
+                'value' => $value,
+                'compare' => '=',
+            )
+        )
     );
     $query = new WP_Query($args);
 

@@ -249,100 +249,126 @@ $query = new WP_Query($args);
 
           $('.logo h1').text(date)
 
-          if (key === 'map') {
-            $('.biennial, .categories, .artists').hide()
-            $('.map').show()
-            $('#zoom-controls').css('width','fit-content')
-            $('.my-masonry-grid').html('')
-            // ajax request 
-            $.ajax({
-              url: '/wp-admin/admin-ajax.php',
-              methode: 'POST',
-              data : {
-                action: 'mapData',
-                key : key,
-                date : date,
-              },
-              success : function(response){
-                    $('.my-masonry-grid').html(response)
-                    $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
-                    });
+          // if (key === 'map') {
+          //   $('.biennial, .categories, .artists').hide()
+          //   $('.map').show()
+          //   $('#zoom-controls').css('width','fit-content')
+          //   $('.my-masonry-grid').html('')
+          //   // ajax request 
+          //   $.ajax({
+          //     url: '/wp-admin/admin-ajax.php',
+          //     methode: 'POST',
+          //     data : {
+          //       action: 'mapData',
+          //       key : key,
+          //       date : date,
+          //     },
+          //     success : function(response){
+          //           $('.my-masonry-grid').html(response)
+          //           $(".my-masonry-grid").masonryGrid({
+          //               columns: 3,
+          //           });
                     
-                    $('.my-masonry-grid').prepend(preLoader)
-                    $('.pre-loader-filtered').css('position','absolute')
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
-                    ImgPopupFunction()
-              }
+          //           $('.my-masonry-grid').prepend(preLoader)
+          //           $('.pre-loader-filtered').css('position','absolute')
+          //           setTimeout(() => {
+          //               $('.pre-loader-filtered').fadeOut()
+          //           }, 2000);
+          //           ImgPopupFunction()
+          //     }
 
-            })
-            $('.masonry-grid-column').css('width','33.33%')
+          //   })
+          //   $('.masonry-grid-column').css('width','33.33%')
 
-          }
+          // }
 
-          if (key === 'artists') {
-            $('.biennial, .categories, .map').hide()
-            $('.artists').show()
-            $('.my-masonry-grid').html('')
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php', 
-                type: 'POST',
-                data: {
-                    action: 'defaultGrid',
-                },
-                success: function(response) {
-                    $('.my-masonry-grid').html(response)
-                    $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
-                    });
-                    $('.my-masonry-grid').prepend(preLoader)
-                    $('.pre-loader-filtered').css('position','absolute')
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
-                    ImgPopupFunction()
-                }
-            });
-            $('.masonry-grid-column').css('width','33.33%')
-          }
+          // if (key === 'artists') {
+          //   $('.biennial, .categories, .map').hide()
+          //   $('.artists').show()
+          //   $('.my-masonry-grid').html('')
+          //   $.ajax({
+          //       url: '/wp-admin/admin-ajax.php', 
+          //       type: 'POST',
+          //       data: {
+          //           action: 'defaultGrid',
+          //       },
+          //       success: function(response) {
+          //           $('.my-masonry-grid').html(response)
+          //           $(".my-masonry-grid").masonryGrid({
+          //               columns: 3,
+          //           });
+          //           $('.my-masonry-grid').prepend(preLoader)
+          //           $('.pre-loader-filtered').css('position','absolute')
+          //           setTimeout(() => {
+          //               $('.pre-loader-filtered').fadeOut()
+          //           }, 2000);
+          //           ImgPopupFunction()
+          //       }
+          //   });
+          //   $('.masonry-grid-column').css('width','33.33%')
+          // }
 
-          if (key === 'categories') {
-            $('.biennial, .map, .artists').hide()
-            $('.categories').show()
+          // if (key === 'categories') {
+          //   $('.biennial, .map, .artists').hide()
+          //   $('.categories').show()
 
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php', 
-                type: 'POST',
-                data: {
-                    action: 'defaultGrid',
-                },
-                success: function(response) {
-                    $('.my-masonry-grid').html(response)
-                    $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
-                    });
-                    $('.my-masonry-grid').prepend(preLoader)
-                    $('.pre-loader-filtered').css('position','absolute')
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
-                    ImgPopupFunction()
-                }
-            });
-            $('.masonry-grid-column').css('width','33.33%')
+          //   $.ajax({
+          //       url: '/wp-admin/admin-ajax.php', 
+          //       type: 'POST',
+          //       data: {
+          //           action: 'defaultGrid',
+          //       },
+          //       success: function(response) {
+          //           $('.my-masonry-grid').html(response)
+          //           $(".my-masonry-grid").masonryGrid({
+          //               columns: 3,
+          //           });
+          //           $('.my-masonry-grid').prepend(preLoader)
+          //           $('.pre-loader-filtered').css('position','absolute')
+          //           setTimeout(() => {
+          //               $('.pre-loader-filtered').fadeOut()
+          //           }, 2000);
+          //           ImgPopupFunction()
+          //       }
+          //   });
+          //   $('.masonry-grid-column').css('width','33.33%')
 
-          }
+          // }
 
-          if (key === 'biennial') {
-            $('.map, .artists, .categories').hide()
+          // if (key === 'biennial') {
+          //   $('.map, .artists, .categories').hide()
+          //   $('.biennial').show()
+          //   $.ajax({
+          //       url: '/wp-admin/admin-ajax.php', 
+          //       type: 'POST',
+          //       data: {
+          //           action: 'defaultGrid',
+          //       },
+          //       success: function(response) {
+          //           $('.my-masonry-grid').html(response)
+          //           $(".my-masonry-grid").masonryGrid({
+          //               columns: 3,
+          //           });
+          //           $('.my-masonry-grid').prepend(preLoader)
+          //           $('.pre-loader-filtered').css('position','absolute')
+          //           setTimeout(() => {
+          //               $('.pre-loader-filtered').fadeOut()
+          //           }, 2000);
+          //           ImgPopupFunction()
+          //       }
+          //   });
+          //   $('.masonry-grid-column').css('width','33.33%')
+
+          // }
+
+          $('.map, .artists, .categories').hide()
             $('.biennial').show()
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
                 data: {
                     action: 'defaultGrid',
+                    value: selectedYear,
                 },
                 success: function(response) {
                     $('.my-masonry-grid').html(response)
@@ -358,8 +384,6 @@ $query = new WP_Query($args);
                 }
             });
             $('.masonry-grid-column').css('width','33.33%')
-
-          }
 
         });
 
