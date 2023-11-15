@@ -304,7 +304,7 @@ $query = new WP_Query($args);
                 },
                 success: function (data) {
                   console.log(data)
-                  $('#artist-list').append(data);
+                  $('#artist-list').html(data);
                     // if (data.length > 0) {
                         // data.forEach(function (item) {
                         //     $('#artist-list').append(item);
