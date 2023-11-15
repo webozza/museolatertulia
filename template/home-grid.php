@@ -20,7 +20,7 @@ $query = new WP_Query($args);
     <?php include get_stylesheet_directory() . '/module/map.php'?>
     </div>
     <div class="artists">
-      <?php include get_stylesheet_directory() . '/module/artists.php'?>
+        <ul id="artist-list"></ul>
     </div>
     <div class="categories">
       <?php include get_stylesheet_directory( ) . '/module/categories.php'?>
@@ -53,12 +53,15 @@ $query = new WP_Query($args);
 
 
 <div class="popup-box  zoom-container">
+
         <div class="pre-loader">
             <img src="<?= get_stylesheet_directory_uri(  )?>/icon/popUpIcon/loading.gif" alt="">
         </div>
+
         <div class="img ">
             <img class="main_image" src="" alt="" id="zoom-image">
         </div>
+
       <div class="navigation">
             <div class="plus"><img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-plus.png" alt="" /></div>
             <div class="cross"><img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-x.png" alt="" /></div>
@@ -66,6 +69,7 @@ $query = new WP_Query($args);
             <div class="zoomOut"><img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-minus.png" alt="" /></div>
             <div class="document"><img src="<?= get_stylesheet_directory_uri();?>/icon/popUpIcon/icono-documentos.png" alt="" /></div>
       </div>
+
       <div class="info">
             <p ><strong> <span class="title"></span></strong></p>
             <p ><strong> <span class="author"></span></strong></p>
@@ -300,6 +304,26 @@ $query = new WP_Query($args);
             $('.map, .artists, .categories').hide()
             $('.biennial').show()
           }
+
+              $.ajax({
+                  url: 'get_artists.php',
+                  type: 'GET',
+                  dataType: 'json',
+                  success: function (data) {
+                      if (data.length > 0) {
+                          data.forEach(function (item) {
+                              var id = item.value.replace(' ', '_');
+                              $('#artist-list').append('<li class="artists_name" id="' + id + '">' + item.value + (item.count > 1 ? ' (' + item.count + ')' : '') + '</li>');
+                          });
+                      } else {
+                          $('#artist-list').append('<li>No artists found</li>');
+                      }
+                  },
+                  error: function () {
+                      $('#artist-list').append('<li>Error fetching data</li>');
+                  }
+              });
+
         });
 
        //============================
@@ -474,5 +498,11 @@ $query = new WP_Query($args);
                 }
             });
         })
+
+        
+
+
+
+
     });
 </script>
