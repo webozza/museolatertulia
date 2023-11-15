@@ -254,9 +254,7 @@ $query = new WP_Query($args);
             $('.map').show()
             $('#zoom-controls').css('width','fit-content')
             $('.my-masonry-grid').html('')
-            // ajax request 
             gridData()
-            $('.masonry-grid-column').css('width','33.33%')
 
           }
 
@@ -270,7 +268,6 @@ $query = new WP_Query($args);
           if (key === 'categories') {
             $('.biennial, .map, .artists').hide()
             $('.categories').show()
-            $('.my-masonry-grid').html('')
             gridData()
 
           }
@@ -278,7 +275,6 @@ $query = new WP_Query($args);
           if (key === 'biennial') {
             $('.map, .artists, .categories').hide()
             $('.biennial').show()
-            $('.my-masonry-grid').html('')
             gridData()
           }
 
