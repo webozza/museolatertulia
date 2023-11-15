@@ -327,7 +327,7 @@ function getMenu() {
             if ($query->have_posts()) {
                 while ($query->have_posts()) {
                     $query->the_post();
-                    $field_value = get_field('$menu_filter');
+                    $field_value = get_field($menu_filter);
                     if (!empty($field_value)) {
                         $values[] = $field_value;
                     }
