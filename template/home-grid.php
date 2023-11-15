@@ -306,7 +306,7 @@ $query = new WP_Query($args);
                     if (data.length > 0) {
                         data.forEach(function (item) {
                             var id = item.id.replace(' ', '_');
-                            $('#artist-list').append('<li class="artists_name" id="' + id + '">' + item.label + (item.count > 1 ? ' (' + item.count + ')' : '') + '</li>');
+                            $('#artist-list').append('<li class="artists_name" id="' + id + '"> '+ item +' </li>');
                         });
                     } else {
                         $('#artist-list').append('<li>No artists found</li>');
