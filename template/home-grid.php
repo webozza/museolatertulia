@@ -299,7 +299,8 @@ $query = new WP_Query($args);
                 type: 'POST',
                 data: {
                     action: 'getMenu',
-                    year: selectedYear, // Assuming 'year' is the correct parameter name
+                    year: selectedYear,
+                    menuFilter : 'obra-nombre_completo',
                 },
                 success: function (data) {
                     if (data.length > 0) {
@@ -315,7 +316,6 @@ $query = new WP_Query($args);
                     $('#artist-list').append('<li>Error fetching data</li>');
                 }
             });
-
 
 
             }
