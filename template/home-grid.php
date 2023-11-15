@@ -303,10 +303,10 @@ $query = new WP_Query($args);
                     menuFilter : 'obra-nombre_completo',
                 },
                 success: function (data) {
+                  artist-list
                     // if (data.length > 0) {
                         data.forEach(function (item) {
-                            var id = item.id.replace(' ', '_');
-                            $('#artist-list').append('<li class="artists_name" id="' + id + '"> '+ item +' </li>');
+                            $('#artist-list').append(item);
                         });
                     // } else {
                     //     $('#artist-list').append('<li>No artists found</li>');
