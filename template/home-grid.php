@@ -305,13 +305,7 @@ $query = new WP_Query($args);
                 success: function (data) {
                   console.log(data)
                   $('#artist-list').html(data);
-                    // if (data.length > 0) {
-                        // data.forEach(function (item) {
-                        //     $('#artist-list').append(item);
-                        // });
-                    // } else {
-                    //     $('#artist-list').append('<li>No artists found</li>');
-                    // }
+                  getArtists()
                 },
                 error: function () {
                     $('#artist-list').append('<li>Error fetching data</li>');
@@ -443,36 +437,42 @@ $query = new WP_Query($args);
         //            Filter Data for Artists name 
         //============================
 
-        $('.artists_name').click(function(){
-          let key = 'obra-nombre_completo'
-          let value = $(this).attr('id')
-          $(this).css('fill', '#a4fffa');
+        getArtists = () =>{
 
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php', 
-                type: 'POST',
-                data: {
-                    action: 'filterData',
-                    key: key,
-                    value: value,
-                    year: selectedYear,
-                },
-                success: function(response) {
-                    $('.my-masonry-grid').html(response)
-                    $(".my-masonry-grid").masonryGrid({
-                        columns: 3,
-                    });
-                    $('.my-masonry-grid').prepend(preLoader)
-                    $('.pre-loader-filtered').css('position','absolute')
-                    setTimeout(() => {
-                        $('.pre-loader-filtered').fadeOut()
-                    }, 2000);
-                    ImgPopupFunction()
-                }
-            });
+            $('.artists_name').click(function(){
+            let key = 'obra-nombre_completo'
+            let value = $(this).attr('id')
+            console.log(value)
+            $(this).css('fill', '#a4fffa');
 
-            $('.masonry-grid-column').css('width','33.33%')
-        })
+              $.ajax({
+                  url: '/wp-admin/admin-ajax.php', 
+                  type: 'POST',
+                  data: {
+                      action: 'filterData',
+                      key: key,
+                      value: value,
+                      year: selectedYear,
+                  },
+                  success: function(response) {
+                      $('.my-masonry-grid').html(response)
+                      $(".my-masonry-grid").masonryGrid({
+                          columns: 3,
+                      });
+                      $('.my-masonry-grid').prepend(preLoader)
+                      $('.pre-loader-filtered').css('position','absolute')
+                      setTimeout(() => {
+                          $('.pre-loader-filtered').fadeOut()
+                      }, 2000);
+                      ImgPopupFunction()
+                  }
+              });
+
+              $('.masonry-grid-column').css('width','33.33%')
+          })
+
+        }
+
 
 
         //============================
