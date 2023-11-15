@@ -248,6 +248,32 @@ $query = new WP_Query($args);
           // console.log(key);
 
           $('.logo h1').text(date)
+          
+          gridData = () =>{
+              $.ajax({
+                      url: '/wp-admin/admin-ajax.php', 
+                      type: 'POST',
+                      data: {
+                          action: 'defaultGrid',
+                          value: selectedYear,
+                      },
+                      success: function(response) {
+                          $('.my-masonry-grid').html(response)
+                          $(".my-masonry-grid").masonryGrid({
+                              columns: 3,
+                          });
+                          $('.my-masonry-grid').prepend(preLoader)
+                          $('.pre-loader-filtered').css('position','absolute')
+                          setTimeout(() => {
+                              $('.pre-loader-filtered').fadeOut()
+                          }, 2000);
+                          ImgPopupFunction()
+                      }
+                });
+                $('.masonry-grid-column').css('width','33.33%')
+            }
+
+
 
           if (key === 'map') {
             $('.biennial, .categories, .artists').hide()
@@ -277,33 +303,6 @@ $query = new WP_Query($args);
             $('.biennial').show()
             gridData()
           }
-
-
-            gridData = () =>{
-              $.ajax({
-                      url: '/wp-admin/admin-ajax.php', 
-                      type: 'POST',
-                      data: {
-                          action: 'defaultGrid',
-                          value: selectedYear,
-                      },
-                      success: function(response) {
-                          $('.my-masonry-grid').html(response)
-                          $(".my-masonry-grid").masonryGrid({
-                              columns: 3,
-                          });
-                          $('.my-masonry-grid').prepend(preLoader)
-                          $('.pre-loader-filtered').css('position','absolute')
-                          setTimeout(() => {
-                              $('.pre-loader-filtered').fadeOut()
-                          }, 2000);
-                          ImgPopupFunction()
-                      }
-                });
-                $('.masonry-grid-column').css('width','33.33%')
-            }
-
-
         });
 
        //============================
