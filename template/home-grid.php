@@ -23,7 +23,8 @@ $query = new WP_Query($args);
         <ul id="artist-list"></ul>
     </div>
     <div class="categories">
-      <?php include get_stylesheet_directory( ) . '/module/categories.php'?>
+      <ul id='categories-list'></ul>
+      <!-- <?php include get_stylesheet_directory( ) . '/module/categories.php'?> -->
     </div>
     <div class="biennial">
       <?php include get_stylesheet_directory(  ) . '/module/biennial.php'?>
@@ -290,41 +291,57 @@ $query = new WP_Query($args);
           }
 
           if (key === 'artists') {
-            $('.biennial, .categories, .map').hide()
-            $('.artists').show()
-            $('.my-masonry-grid').html('')
+                $('.biennial, .categories, .map').hide()
+                $('.artists').show()
+                $('.my-masonry-grid').html('')
 
-            $.ajax({
-                url: '/wp-admin/admin-ajax.php',
-                type: 'POST',
-                data: {
-                    action: 'getMenu',
-                    year: selectedYear,
-                    menuFilter : 'obra-nombre_completo',
-                },
-                success: function (data) {
-                  console.log(data)
-                  $('#artist-list').html(data);
-                  getArtists()
-                },
-                error: function () {
-                    $('#artist-list').append('<li>Error fetching data</li>');
-                }
-            });
-
-
-            }
+                $.ajax({
+                    url: '/wp-admin/admin-ajax.php',
+                    type: 'POST',
+                    data: {
+                        action: 'getMenu',
+                        year: selectedYear,
+                        menuFilter : 'obra-nombre_completo',
+                    },
+                    success: function (data) {
+                      console.log(data)
+                      $('#artist-list').html(data);
+                      getArtists()
+                    },
+                    error: function () {
+                        $('#artist-list').append('<li>Error fetching data</li>');
+                    }
+                });
+          }
 
           if (key === 'categories') {
             $('.biennial, .map, .artists').hide()
             $('.categories').show()
+
+            $.ajax({
+                    url: '/wp-admin/admin-ajax.php',
+                    type: 'POST',
+                    data: {
+                        action: 'getMenu',
+                        year: selectedYear,
+                        menuFilter : 'categoria',
+                    },
+                    success: function (data) {
+                      console.log(data)
+                      $('#categories-list').html(data);
+                      getArtists()
+                    },
+                    error: function () {
+                        $('#categories-list').append('<li>Error fetching data</li>');
+                    }
+            });
+
           }
 
           if (key === 'biennial') {
             $('.map, .artists, .categories').hide()
             $('.biennial').show()
           }
-
 
         });
 
