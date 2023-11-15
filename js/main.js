@@ -1,8 +1,4 @@
 jQuery(document).ready(function ($) {
-  
-
-
-
   //============================
   //                                PopUp
   //============================
@@ -49,7 +45,7 @@ jQuery(document).ready(function ($) {
         type: "GET",
         dataType: "json",
         success: function async(data) {
-          console.log('data',data);
+          console.log("data", data);
           // Populate the info elements
           $(".info .title").text(data.acf["obra-titulo_denominacion"]);
           $(".info .author").text(data.acf["obra-nombre_completo"]);
@@ -62,48 +58,47 @@ jQuery(document).ready(function ($) {
 
           $.ajax({
             url: restApiUrl,
-            type: 'GET',
-            success: function(post) {
-                var categoriaData = [];
-                $.each(post.categoria, function(index, categoryId) {
-                    $.ajax({
-                        url: '/wp-json/wp/v2/categoria/' + categoryId,
-                        type: 'GET',
-                        success: function(taxonomy) {
-                            categoriaData.push(taxonomy.name);
-                            console.log('categoryId',taxonomy.name)
-                            if (categoriaData.length === post.categoria.length) {
-                                $(".info .catagories").text(categoriaData.join(', '));
-                            }
-                        }
-                    });
+            type: "GET",
+            success: function (post) {
+              var categoriaData = [];
+              $.each(post.categoria, function (index, categoryId) {
+                $.ajax({
+                  url: "/wp-json/wp/v2/categoria/" + categoryId,
+                  type: "GET",
+                  success: function (taxonomy) {
+                    categoriaData.push(taxonomy.name);
+                    console.log("categoryId", taxonomy.name);
+                    if (categoriaData.length === post.categoria.length) {
+                      $(".info .catagories").text(categoriaData.join(", "));
+                    }
+                  },
                 });
-            }
-        });
+              });
+            },
+          });
 
-        $.ajax({
+          $.ajax({
             url: restApiUrl,
-            type: 'GET',
-            success: function(post) {
-                var etiquetaData = [];
-                $.each(post.etiqueta, function(index, tagId) {
-                    // Fetch the tag name based on the tag ID
-                    $.ajax({
-                        url: '/wp-json/wp/v2/etiqueta/' + tagId, // Adjust the URL to your taxonomy endpoint
-                        type: 'GET',
-                        success: function(tag) {
-                            etiquetaData.push(tag.name);
-                            // Update the content when all names are fetched
-                            if (etiquetaData.length === post.etiqueta.length) {
-                                $(".info .tags").text(etiquetaData.join(', '));
-                            }
-                        }
-                    });
+            type: "GET",
+            success: function (post) {
+              var etiquetaData = [];
+              $.each(post.etiqueta, function (index, tagId) {
+                // Fetch the tag name based on the tag ID
+                $.ajax({
+                  url: "/wp-json/wp/v2/etiqueta/" + tagId, // Adjust the URL to your taxonomy endpoint
+                  type: "GET",
+                  success: function (tag) {
+                    etiquetaData.push(tag.name);
+                    // Update the content when all names are fetched
+                    if (etiquetaData.length === post.etiqueta.length) {
+                      $(".info .tags").text(etiquetaData.join(", "));
+                    }
+                  },
                 });
-            }
-        });
-      
-        
+              });
+            },
+          });
+
           $(".info .documents").text(data.acf["obra-documentos"]);
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
 
@@ -137,8 +132,7 @@ jQuery(document).ready(function ($) {
                     $imageContainer.append(imgTag);
                     loadedImages++;
                     if (loadedImages === imageCount) {
-
-                      let windowWidthCalc = $('.documentWindow ').width() / $('body').width();
+                      let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
                       let grid;
                       if (windowWidthCalc == 1) {
                         grid = 1;
@@ -146,10 +140,8 @@ jQuery(document).ready(function ($) {
                         grid = 3;
                       }
                       $imageContainer.masonryGrid({
-                        columns: grid
+                        columns: grid,
                       });
-
-
                     }
                     handleDocumentSingleImage();
                   },
@@ -162,8 +154,12 @@ jQuery(document).ready(function ($) {
           };
 
           appnedSidebarGalleries("obra-documentos", ".obra-documentos");
-
           appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
+          appnedSidebarGalleries("obra-obra_participante_2", ".obra-obra_participante_2");
+          appnedSidebarGalleries("obra-obra_participante_3", ".obra-obra_participante_3");
+          appnedSidebarGalleries("obra-obra_asociada_1", ".obra-obra_asociada_1");
+          appnedSidebarGalleries("obra-obra_asociada_2", ".obra-obra_asociada_2");
+          appnedSidebarGalleries("obra-obra_asociada_3", ".obra-obra_asociada_3");
 
           //------------------------------------------------------
         },
@@ -231,45 +227,42 @@ jQuery(document).ready(function ($) {
       $(".backArrow").hide();
     });
   };
- 
+
   //=========================================
   //                                    zoom effect
   //=========================================
 
   $(".zoomOut").hide();
 
-
-
   let makeZoom = () => {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
-    const zoomContainer = document.getElementsByClassName('zoom-container')[0];
+    const zoomContainer = document.getElementsByClassName("zoom-container")[0];
     const panzoom = Panzoom(zoomImage, {
       contain: "outside",
       maxScale: 3,
       minScale: 0.5,
     });
-  
+
     // Add the panzoom instance to the zoom container
     zoomContainer.panzoom = panzoom;
-  
+
     $(".zoom").on("click", () => {
       panzoom.pan(0, 0, { animate: true });
       panzoom.zoom(3, { animate: true });
       $(".zoom").hide();
       $(".zoomOut").show();
     });
-  
+
     $(".zoomOut").on("click", () => {
       panzoom.zoom(1, { animate: true });
       panzoom.pan(0, 0, { animate: true });
-  
+
       $(".zoom").show();
       $(".zoomOut").hide();
     });
-
   };
-  
+
   // let makeZoom = () => {
   //   $(".zoom").show();
   //   const zoomImage = document.getElementById("zoom-image");
@@ -314,8 +307,7 @@ jQuery(document).ready(function ($) {
         minScale: 0.5,
       });
 
-    // zoomContainer.panzoom = panzoom;
-
+      // zoomContainer.panzoom = panzoom;
 
       $(".documentImgZoom").on("click", () => {
         panzoom.pan(0, 0, { animate: true });
@@ -360,82 +352,79 @@ jQuery(document).ready(function ($) {
   //                                Header Handler
   //====================================
 
-function handleHeader(){
-  $('.left-toggle-container').click(function(){
-    $('.toggle-menu').toggleClass('on')
-    $('#left-menu').toggleClass('active')
-    $('#left-menu').fadeToggle(300);
-    })
+  function handleHeader() {
+    $(".left-toggle-container").click(function () {
+      $(".toggle-menu").toggleClass("on");
+      $("#left-menu").toggleClass("active");
+      $("#left-menu").fadeToggle(300);
+    });
 
     // Right Menu Toggler
 
-    $('.menu-item').click(function() {
-        $('.menu-item').not(this).find('.submenu').slideUp(300);
-        $(this).find('.submenu').slideToggle(300);
+    $(".menu-item").click(function () {
+      $(".menu-item").not(this).find(".submenu").slideUp(300);
+      $(this).find(".submenu").slideToggle(300);
     });
 
     // left Menu Toggler
 
-    $('.date-menu > ul > ul > .top-level-menu').click(function(){
-      $('.date-menu > ul > ul > .top-level-menu').not(this).children('ul').slideUp(300);
-      $(this).children('ul').slideToggle(300);
-     });
-
-    $('.mobile-parent_menu').click(function() {
-        $('.mobile-parent_menu').not(this).next('.mobile-submenu').slideUp(300);
-        $(this).next('.mobile-submenu').slideToggle(300);
+    $(".date-menu > ul > ul > .top-level-menu").click(function () {
+      $(".date-menu > ul > ul > .top-level-menu").not(this).children("ul").slideUp(300);
+      $(this).children("ul").slideToggle(300);
     });
 
-}
+    $(".mobile-parent_menu").click(function () {
+      $(".mobile-parent_menu").not(this).next(".mobile-submenu").slideUp(300);
+      $(this).next(".mobile-submenu").slideToggle(300);
+    });
+  }
 
   //====================================
-  //                           Page template controle 
+  //                           Page template controle
   //====================================
 
-  function handlePageMenu(){
-    $('.date-menu > ul > ul > .top-level-menu').click(function(){
-      if($(this).children('a').attr('class') == 'El_Projecto'){
-        $('.home_section').fadeOut()
-        $('.equipo_page_popup').hide()
-        $('.la_porjecto_page_popup').fadeIn()
-        $('.la_porjecto_page_popup').css('display','flex')
-        closeMenu()
-        scrollToTop()
+  function handlePageMenu() {
+    $(".date-menu > ul > ul > .top-level-menu").click(function () {
+      if ($(this).children("a").attr("class") == "El_Projecto") {
+        $(".home_section").fadeOut();
+        $(".equipo_page_popup").hide();
+        $(".la_porjecto_page_popup").fadeIn();
+        $(".la_porjecto_page_popup").css("display", "flex");
+        closeMenu();
+        scrollToTop();
       }
-      if($(this).children('a').attr('class') == 'Epuipo'){
-        $('.home_section').fadeOut()
-        $('.la_porjecto_page_popup').hide()
-        $('.equipo_page_popup').fadeIn()
-        $('.equipo_page_popup').css('display','flex')
-        closeMenu()
-        scrollToTop()
+      if ($(this).children("a").attr("class") == "Epuipo") {
+        $(".home_section").fadeOut();
+        $(".la_porjecto_page_popup").hide();
+        $(".equipo_page_popup").fadeIn();
+        $(".equipo_page_popup").css("display", "flex");
+        closeMenu();
+        scrollToTop();
       }
-    })
-
+    });
   }
 
-  function closeMenu(){
-    $('.left-toggle-container').click()
+  function closeMenu() {
+    $(".left-toggle-container").click();
   }
 
-  function hidePage(){
-    $('.top-level-menu li, .mobile-submenu li').click(()=>{
-      $('.home_section').fadeIn()
-      $('.equipo_page_popup').fadeOut()
-      $('.la_porjecto_page_popup').fadeOut()
-      scrollToTop()
-    })
+  function hidePage() {
+    $(".top-level-menu li, .mobile-submenu li").click(() => {
+      $(".home_section").fadeIn();
+      $(".equipo_page_popup").fadeOut();
+      $(".la_porjecto_page_popup").fadeOut();
+      scrollToTop();
+    });
   }
 
-  function scrollToTop(){
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
+  function scrollToTop() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
-// run the function
-closeWindow();
-handleHeader();
-handlePageMenu();
-handledocumentWindow();
-hidePage();
-
+  // run the function
+  closeWindow();
+  handleHeader();
+  handlePageMenu();
+  handledocumentWindow();
+  hidePage();
 });

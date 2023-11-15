@@ -87,27 +87,34 @@ $query = new WP_Query($args);
             <h3 ></h3>
             <div class="gallerie"></div>
           </div>
-          <div class="obra-obra_participante_1">            
+          <br>
+          <div class="obra-obra_participante_1">
             <h3 ></h3>
-            <div class="gallerie"></div></div>
+            <div class="gallerie"></div>
+          </div>
+          <br>
           <div class="obra-obra_participante_2">
-          <h3 ></h3>
+            <h3 ></h3>
             <div class="gallerie"></div>
           </div>
+          <br>
           <div class="obra-obra_participante_3">
-          <h3 ></h3>
+            <h3 ></h3>
             <div class="gallerie"></div>
           </div>
+          <br>
           <div class="obra-obra_asociada_1">
-          <h3 ></h3>
+            <h3 ></h3>
             <div class="gallerie"></div>
           </div>
+          <br>
           <div class="obra-obra_asociada_2">
-          <h3 ></h3>
+            <h3 ></h3>
             <div class="gallerie"></div>
           </div>
+          <br>
           <div class="obra-obra_asociada_3">
-          <h3 ></h3>
+            <h3 ></h3>
             <div class="gallerie"></div>
           </div>
         </div>
