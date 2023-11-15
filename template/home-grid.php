@@ -304,10 +304,11 @@ $query = new WP_Query($args);
                 },
                 success: function (data) {
                   conssole.log(data)
+                  $('#artist-list').append(data);
                     // if (data.length > 0) {
-                        data.forEach(function (item) {
-                            $('#artist-list').append(item);
-                        });
+                        // data.forEach(function (item) {
+                        //     $('#artist-list').append(item);
+                        // });
                     // } else {
                     //     $('#artist-list').append('<li>No artists found</li>');
                     // }
