@@ -248,7 +248,7 @@ $query = new WP_Query($args);
           // console.log(key);
 
           $('.logo h1').text(date)
-          
+
           gridData = () =>{
               $.ajax({
                       url: '/wp-admin/admin-ajax.php', 
@@ -272,36 +272,29 @@ $query = new WP_Query($args);
                 });
                 $('.masonry-grid-column').css('width','33.33%')
             }
-
-
+          gridData()
 
           if (key === 'map') {
             $('.biennial, .categories, .artists').hide()
             $('.map').show()
             $('#zoom-controls').css('width','fit-content')
             $('.my-masonry-grid').html('')
-            gridData()
-
           }
 
           if (key === 'artists') {
             $('.biennial, .categories, .map').hide()
             $('.artists').show()
             $('.my-masonry-grid').html('')
-            gridData()
           }
 
           if (key === 'categories') {
             $('.biennial, .map, .artists').hide()
             $('.categories').show()
-            gridData()
-
           }
 
           if (key === 'biennial') {
             $('.map, .artists, .categories').hide()
             $('.biennial').show()
-            gridData()
           }
         });
 
