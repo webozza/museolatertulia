@@ -369,6 +369,7 @@ jQuery(document).ready(function ($) {
     // left Menu Toggler
 
     $(".date-menu > ul > ul > .top-level-menu").click(function () {
+      closeMenu()
       $(".date-menu > ul > ul > .top-level-menu").not(this).children("ul").slideUp(300);
       $(this).children("ul").slideToggle(300);
     });
