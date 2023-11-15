@@ -303,7 +303,7 @@ $query = new WP_Query($args);
                     menuFilter : 'obra-nombre_completo',
                 },
                 success: function (data) {
-                  conssole.log(data)
+                  console.log(data)
                   $('#artist-list').append(data);
                     // if (data.length > 0) {
                         // data.forEach(function (item) {
