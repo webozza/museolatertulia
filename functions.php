@@ -68,20 +68,40 @@ function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
     $menuId_with_underscore = $_POST['id'];
     $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
-
+    $year = $_POST['year'];
     $data = 'Data fetched from the server'; 
 
-    $args = array(
-        'post_type' => 'obra',
-        'posts_per_page' => -1,
-        'meta_query' => array(
-            array(
-                'key' => $parentMenu,
-                'value' => $menuId,
-                'compare' => '=',
+    if($year){
+        $args = array( 
+            'post_type' => 'obra',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => $parentMenu,
+                    'value' => $menuId,
+                    'compare' => '=',
+                ),
+                array(
+                    'key' => 'obra-fecha',
+                    'value' => $year,
+                    'compare' => '=',
+                ),
             ),
-        ),
-    );
+        );
+    } else {
+        $args = array( 
+            'post_type' => 'obra',
+            'posts_per_page' => -1,
+            'meta_query' => array(
+                array(
+                    'key' => $parentMenu,
+                    'value' => $menuId,
+                    'compare' => '=',
+                )
+            ),
+        );
+    }
+
     $query = new WP_Query($args);
 
     ?>

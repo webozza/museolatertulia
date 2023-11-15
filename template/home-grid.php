@@ -137,6 +137,9 @@ $query = new WP_Query($args);
 <script>
     jQuery(document).ready(function($) {
 
+      var selectedYear
+      var selectedCountry
+
       let selector = $('.top-level-menu .top-level-menu');
       let selected;
 
@@ -172,6 +175,7 @@ $query = new WP_Query($args);
                     action: 'my_ajax_action',
                     parentMenu: parentMenu,
                     id: id,
+                    year: selectedYear,
                     security: nonce, 
                 },
                 success: function(response) {
@@ -245,8 +249,6 @@ $query = new WP_Query($args);
         //============================
         //          Filter from left menu  on initial load
         //============================
-
-        var selectedYear
 
         selector.click(function () {
           let key =  returnMenuData()[1].toLowerCase();
@@ -421,7 +423,7 @@ $query = new WP_Query($args);
           let key = 'obra-nacionalidad'
           let value = $(this).attr('id')
           $(this).css('fill', '#a4fffa');
-
+          selectedCountry = value;
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
@@ -488,8 +490,6 @@ $query = new WP_Query($args);
           })
 
         }
-
-
 
         //============================
         //                            Map close 
