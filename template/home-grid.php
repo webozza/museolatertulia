@@ -155,8 +155,10 @@ $query = new WP_Query($args);
         //============================
 
         $('.menu-right ul .menu-item .submenu li').on('click', function() {
+          $('.popup_page').fadeOut()
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
+
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 
                 type: 'POST',
