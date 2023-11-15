@@ -301,3 +301,61 @@ add_action('wp_ajax_catagoryFilter', 'catagoryFilter');
 add_action('wp_ajax_nopriv_catagoryFilter', 'catagoryFilter');
 
  
+
+
+
+function getMenu() {
+            $year = $_POST['year'];
+            $menu_filter = $_POST['menuFilter'];
+
+            $args = array(
+                'post_type'      => 'obra',
+                'posts_per_page' => -1,
+                'meta_query'     => array(
+                    'relation' => 'AND', // Add this line for AND relation
+                    array(
+                        'key'     => $menu_filter,
+                        'compare' => 'EXISTS', // Check if the field exists
+                    ),
+                    array(
+                        'key'     => 'obra-fecha',
+                        'value'   => $year,
+                        'compare' => '=',
+                    ),
+                ),
+            );
+
+            $query = new WP_Query($args);
+
+            $values = array();
+
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $field_value = get_field('$menu_filter');
+                    if (!empty($field_value)) {
+                        $values[] = $field_value;
+                    }
+                }
+            }
+
+            wp_reset_postdata();
+
+            $value_counts = array_count_values($values);
+            ksort($value_counts);
+
+            foreach ($value_counts as $value => $count) {
+                $id = str_replace(' ', '_', $value);
+                echo '<li class="artists_name" id="' . $id . '">' . $value;
+                if ($count > 1) {
+                    echo ' (' . $count . ')';
+                }
+                echo '</li>';
+            }
+        }
+
+
+add_action('wp_ajax_getMenu', 'getMenu');
+add_action('wp_ajax_nopriv_getMenu', 'getMenu');
+
+ 

@@ -293,7 +293,32 @@ $query = new WP_Query($args);
             $('.biennial, .categories, .map').hide()
             $('.artists').show()
             $('.my-masonry-grid').html('')
-          }
+
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php',
+                type: 'POST',
+                data: {
+                    action: 'getMenu',
+                    year: selectedYear,
+                    menuFilter : 'obra-nombre_completo',
+                },
+                success: function (data) {
+                    if (data.length > 0) {
+                        data.forEach(function (item) {
+                            var id = item.id.replace(' ', '_');
+                            $('#artist-list').append('<li class="artists_name" id="' + id + '">' + item.label + (item.count > 1 ? ' (' + item.count + ')' : '') + '</li>');
+                        });
+                    } else {
+                        $('#artist-list').append('<li>No artists found</li>');
+                    }
+                },
+                error: function () {
+                    $('#artist-list').append('<li>Error fetching data</li>');
+                }
+            });
+
+
+            }
 
           if (key === 'categories') {
             $('.biennial, .map, .artists').hide()
@@ -305,24 +330,6 @@ $query = new WP_Query($args);
             $('.biennial').show()
           }
 
-              $.ajax({
-                  url: 'get_artists.php',
-                  type: 'GET',
-                  dataType: 'json',
-                  success: function (data) {
-                      if (data.length > 0) {
-                          data.forEach(function (item) {
-                              var id = item.value.replace(' ', '_');
-                              $('#artist-list').append('<li class="artists_name" id="' + id + '">' + item.value + (item.count > 1 ? ' (' + item.count + ')' : '') + '</li>');
-                          });
-                      } else {
-                          $('#artist-list').append('<li>No artists found</li>');
-                      }
-                  },
-                  error: function () {
-                      $('#artist-list').append('<li>Error fetching data</li>');
-                  }
-              });
 
         });
 
