@@ -390,6 +390,7 @@ jQuery(document).ready(function ($) {
   function handlePageMenu() {
     $(".date-menu > ul > ul > .top-level-menu").click(function () {
       if ($(this).children("a").attr("class") == "El_Projecto") {
+        $('.popup_page').show()
         $(".home_section").fadeOut();
         $(".equipo_page_popup").hide();
         $(".la_porjecto_page_popup").fadeIn();
@@ -398,6 +399,7 @@ jQuery(document).ready(function ($) {
         scrollToTop();
       }
       if ($(this).children("a").attr("class") == "Epuipo") {
+        $('.popup_page').show()
         $(".home_section").fadeOut();
         $(".la_porjecto_page_popup").hide();
         $(".equipo_page_popup").fadeIn();

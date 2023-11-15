@@ -155,6 +155,7 @@ $query = new WP_Query($args);
         //============================
 
         $('.menu-right ul .menu-item .submenu li').on('click', function() {
+          $('.my-masonry-grid').html('')
           $('.home_section').fadeIn()
           $('.popup_page').fadeOut()
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
