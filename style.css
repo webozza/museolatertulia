@@ -701,6 +701,10 @@ p.parent_menu {
   color: #565656;
 }
 
+/* ============================
+                          For mobile  
+=============================*/
+
 @media (max-width: 768px) {
 
   .popup_page > div {
@@ -829,6 +833,25 @@ svg#america path {
   scale: .4;
 }
 }
+
+
+/* ===========================
+                       For Laptop 
+ ===========================*/
+
+@media (max-width: 1440px) {
+  svg#america path {
+    scale: .7;
+}
+
+svg#america {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-41%, -32%);
+}
+}
+
 
 
 /* Add this CSS to style the mobile menu and submenus */
