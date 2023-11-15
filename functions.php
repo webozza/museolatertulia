@@ -260,7 +260,7 @@ function catagoryFilter(){
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
-        'tax_query' => array(  // Use 'tax_query' instead of 'meta_query'
+        'tax_query' => array(
             array(
                 'taxonomy' => 'categoria',
                 'field' =>'term_id',  
@@ -312,11 +312,6 @@ function getMenu() {
                 'post_type'      => 'obra',
                 'posts_per_page' => -1,
                 'meta_query'     => array(
-                    'relation' => 'AND', // Add this line for AND relation
-                    array(
-                        'key'     => $menu_filter,
-                        'compare' => 'EXISTS', // Check if the field exists
-                    ),
                     array(
                         'key'     => 'obra-fecha',
                         'value'   => $year,
