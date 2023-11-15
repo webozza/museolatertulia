@@ -155,7 +155,7 @@ $query = new WP_Query($args);
         //============================
 
         $('.menu-right ul .menu-item .submenu li').on('click', function() {
-          $('.home_section').show()
+          $('.home_section').fadeIn()
           $('.popup_page').fadeOut()
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
