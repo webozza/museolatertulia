@@ -70,7 +70,19 @@ function my_ajax_action() {
     $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
     $year = $_POST['year'];
 
-    $data = 'Data fetched from the server'; 
+    switch($year){
+        case "1971":
+            $biennial = 'I Bienal';
+            break;
+         case "1973" : 
+            $biennial = 'II Bienal';
+            break;
+         case "1976" : 
+            $biennial = 'III Bienal';
+            break; 
+         default:
+         $biennial = '';
+    }
 
     if($year){
         $args = array( 
@@ -83,8 +95,8 @@ function my_ajax_action() {
                     'compare' => '=',
                 ),
                 array(
-                    'key' => 'obra-fecha',
-                    'value' => $year,
+                    'key' => 'obra-bienal',
+                    'value' => $biennial,
                     'compare' => '=',
                 ),
             ),
@@ -186,7 +198,19 @@ function filterData() {
     $value = str_replace( '_' , ' ' , $menuId_with_underscore);
     $year = $_POST['year'];
 
-    $data = 'Data fetched from the server'; 
+    switch($year){
+        case "1971":
+            $biennial = 'I Bienal';
+            break;
+         case "1973" : 
+            $biennial = 'II Bienal';
+            break;
+         case "1976" : 
+            $biennial = 'III Bienal';
+            break; 
+         default:
+         $biennial = '';
+    }
 
     $args = array(
         'post_type' => 'obra',
@@ -198,8 +222,8 @@ function filterData() {
                 'compare' => '=',
             ),
             array(
-                'key' => 'obra-fecha',
-                'value' => $year,
+                'key' => 'obra-bienal',
+                'value' => $biennial,
                 'compare' => '=',
             ),
         ),
@@ -293,6 +317,21 @@ add_action('wp_ajax_nopriv_defaultGrid', 'defaultGrid');
 function catagoryFilter(){
     $id = $_POST['id'];
     $year = $_POST['year'];
+
+    switch($year){
+        case "1971":
+            $biennial = 'I Bienal';
+            break;
+         case "1973" : 
+            $biennial = 'II Bienal';
+            break;
+         case "1976" : 
+            $biennial = 'III Bienal';
+            break; 
+         default:
+         $biennial = '';
+    }
+
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
@@ -303,8 +342,8 @@ function catagoryFilter(){
                 'terms' => $id,
             ),
             array(
-                'key' => 'obra-fecha',
-                'value' => $year,
+                'key' => 'obra-bienal',
+                'value' => $biennial,
                 'compare' => '=',
             ),
         ),
@@ -344,13 +383,27 @@ function getMenu() {
             $year = $_POST['year'];
             $menu_filter = $_POST['menuFilter'];
 
+            switch($year){
+                case "1971":
+                    $biennial = 'I Bienal';
+                    break;
+                 case "1973" : 
+                    $biennial = 'II Bienal';
+                    break;
+                 case "1976" : 
+                    $biennial = 'III Bienal';
+                    break; 
+                 default:
+                 $biennial = '';
+            }
+
             $args = array(
                 'post_type'      => 'obra',
                 'posts_per_page' => -1,
                 'meta_query'     => array(
                     array(
-                        'key'     => 'obra-fecha',
-                        'value'   => $year,
+                        'key'     => 'obra-bienal',
+                        'value'   => $biennial,
                         'compare' => '=',
                     ),
                 ),
