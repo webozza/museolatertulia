@@ -69,6 +69,7 @@ function my_ajax_action() {
     $menuId_with_underscore = $_POST['id'];
     $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
     $year = $_POST['year'];
+
     $data = 'Data fetched from the server'; 
 
     if($year){
@@ -234,14 +235,29 @@ add_action('wp_ajax_nopriv_filterData', 'filterData');
 // back to default grid 
 
 function defaultGrid() {
-    $value = $_POST['value'];
+    $year = $_POST['value'];
+
+    switch($year){
+        case "1971":
+            $biennial = 'I Bienal';
+            break;
+         case "1973" : 
+            $biennial = 'II Bienal';
+            break;
+         case "1976" : 
+            $biennial = 'III Bienal';
+            break; 
+         default:
+         $biennial = '';
+    }
+
     $args = array(
         'post_type' => 'obra',
         'posts_per_page' => -1,
         'meta_query' => array(
             array(
-                'key' => 'obra-fecha',
-                'value' => $value,
+                'key' => 'obra-bienal',
+                'value' => $biennial,
                 'compare' => '=',
             )
         )

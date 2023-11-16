@@ -263,32 +263,6 @@ jQuery(document).ready(function ($) {
     });
   };
 
-  // let makeZoom = () => {
-  //   $(".zoom").show();
-  //   const zoomImage = document.getElementById("zoom-image");
-  //   const zoomContainer = document.getElementsByClassName('zoom-container')
-  //   const panzoom = Panzoom(zoomImage, {
-  //     contain: "zoomContainer",
-  //     maxScale: 3,
-  //     minScale: 0.5,
-  //   });
-
-  //   $(".zoom").on("click", () => {
-  //     panzoom.pan(0, 0, { animate: true });
-  //     panzoom.zoom(3, { animate: true });
-  //     $(".zoom").hide();
-  //     $(".zoomOut").show();
-  //   });
-
-  //   $(".zoomOut").on("click", () => {
-  //     panzoom.zoom(1, { animate: true });
-  //     panzoom.pan(0, 0, { animate: true });
-
-  //     $(".zoom").show();
-  //     $(".zoomOut").hide();
-  //   });
-  // };
-
   $(".documentWindowZoomout").hide();
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
