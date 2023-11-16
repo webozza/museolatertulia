@@ -92,7 +92,7 @@ $query = new WP_Query($args);
             <div class="gallerie"></div>
           </div>
           <br>
-          <div class="obra-obra_participante_1">
+          <div  class="obra-obra_participante_1">
             <h3 ></h3>
             <div class="gallerie"></div>
           </div>

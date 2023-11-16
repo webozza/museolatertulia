@@ -106,8 +106,8 @@ jQuery(document).ready(function ($) {
 
           let appnedSidebarGalleries = (fieldName, containerClass) => {
             const imageIds = data.acf[fieldName];
-            const $imageContainer = $(containerClass).find(".gallerie");
-            console.log("imageContainer", $imageContainer);
+            const imageContainer = $(containerClass).find(".gallerie");
+            console.log("imageContainer", imageContainer);
 
             if (Array.isArray(imageIds)) {
               const imageCount = imageIds.length;
@@ -120,16 +120,16 @@ jQuery(document).ready(function ($) {
                   dataType: "json",
                   success: function (imageData) {
                     console.log("imageData", imageData);
-                    const semiHighResURL = imageData.media_details.sizes.large.source_url;
+                    // const semiHighResURL = imageData.media_details.sizes.large.source_url;
                     const highResImgURL = imageData.source_url;
                     const imgTag = `<div class="documentImg sidebar-grid-item">
                       <img
-                        src="${semiHighResURL}" 
+                        src="${highResImgURL}" 
                         data-highres="${highResImgURL}"
                         id="${imageData.id}">
                     </div>`;
-                    $imageContainer.find("h3").text("Heading"); // Use $imageContainer to find elements
-                    $imageContainer.append(imgTag);
+                    imageContainer.find("h3").text("Heading"); 
+                    imageContainer.append(imgTag);
                     loadedImages++;
                     if (loadedImages === imageCount) {
                       let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
@@ -139,7 +139,7 @@ jQuery(document).ready(function ($) {
                       } else {
                         grid = 3;
                       }
-                      $imageContainer.masonryGrid({
+                      imageContainer.masonryGrid({
                         columns: grid,
                       });
                     }
