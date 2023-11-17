@@ -209,6 +209,10 @@ jQuery(document).ready(function ($) {
         $(".sidebarLoader").fadeOut();
       });
     }
+    setTimeout(function () {
+      $(".sidebarLoader").fadeOut();
+      },4000)
+      
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
@@ -273,6 +277,7 @@ jQuery(document).ready(function ($) {
     $(".documentImgZoom").show();
     const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
     let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
+
       const panzoom = Panzoom(sidebarImg, {
         maxScale: zoomScale,
         minScale: 0.5,
