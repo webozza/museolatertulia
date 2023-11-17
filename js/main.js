@@ -238,9 +238,10 @@ jQuery(document).ready(function ($) {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const zoomContainer = document.getElementsByClassName("zoom-container")[0];
+    let zoomScale = zoomImage.naturalWidth / $('.main_image')[0].clientWidth
     const panzoom = Panzoom(zoomImage, {
       contain: "outside",
-      maxScale: 3,
+      maxScale: zoomScale,
       minScale: 0.5,
     });
 
@@ -249,7 +250,7 @@ jQuery(document).ready(function ($) {
 
     $(".zoom").on("click", () => {
       panzoom.pan(0, 0, { animate: true });
-      panzoom.zoom(3, { animate: true });
+      panzoom.zoom(zoomScale,{ animate: true });
       $(".zoom").hide();
       $(".zoomOut").show();
     });
@@ -270,22 +271,19 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    // const zoomContainer = document.getElementsByClassName('documentWindow');
     const sidebarImg = document.getElementsByClassName("sidebar-single-image");
-    // console.log('zoomContainer ---> ',zoomContainer)
-    // console.log('sidebarImg --->',sidebarImg)
+    let zoomScale = sidebarImg.naturalWidth / $('.main_image')[0].clientWidth
+
     if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg[0], {
         // contain: "outside",
-        maxScale: 3,
+        maxScale: zoomScale,
         minScale: 0.5,
       });
 
-      // zoomContainer.panzoom = panzoom;
-
       $(".documentImgZoom").on("click", () => {
         panzoom.pan(0, 0, { animate: true });
-        panzoom.zoom(3, { animate: true });
+        panzoom.zoom(zoomScale, { animate: true });
         console.log("Zoomed in");
         $(".documentImgZoom").hide();
         $(".documentWindowZoomout").show();
