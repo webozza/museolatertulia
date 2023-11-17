@@ -275,7 +275,7 @@ jQuery(document).ready(function ($) {
     let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
 
     if (sidebarImg.length > 0) {
-      const panzoom = Panzoom(sidebarImg[0], {
+      const panzoom = Panzoom(sidebarImg, {
         maxScale: zoomScale,
         minScale: 0.5,
       });
