@@ -273,8 +273,6 @@ jQuery(document).ready(function ($) {
     $(".documentImgZoom").show();
     const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
     let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
-
-    if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg, {
         maxScale: zoomScale,
         minScale: 0.5,
@@ -295,7 +293,7 @@ jQuery(document).ready(function ($) {
         $(".documentWindowZoomout").hide();
         $(".documentImgZoom").show();
       });
-    }
+    
   };
 
   //====================================
