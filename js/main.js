@@ -212,7 +212,7 @@ jQuery(document).ready(function ($) {
     setTimeout(function () {
       $(".sidebarLoader").fadeOut();
       },4000)
-      
+
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
       $(".documentSingleImage").fadeOut();
@@ -276,16 +276,16 @@ jQuery(document).ready(function ($) {
     $(".backArrow").show();
     $(".documentImgZoom").show();
     const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
-    let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
+    // let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
 
       const panzoom = Panzoom(sidebarImg, {
-        maxScale: zoomScale,
+        maxScale: 3,
         minScale: 0.5,
       });
 
       $(".documentImgZoom").on("click", () => {
         panzoom.pan(0, 0, { animate: true });
-        panzoom.zoom(zoomScale, { animate: true });
+        panzoom.zoom(3, { animate: true });
         console.log("Zoomed in");
         $(".documentImgZoom").hide();
         $(".documentWindowZoomout").show();
