@@ -271,7 +271,7 @@ jQuery(document).ready(function ($) {
   let documentImgZoom = () => {
     $(".backArrow").show();
     $(".documentImgZoom").show();
-    const sidebarImg = document.getElementsByClassName("sidebar-single-image");
+    const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
     let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
 
     if (sidebarImg.length > 0) {
