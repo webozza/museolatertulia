@@ -208,10 +208,10 @@ jQuery(document).ready(function ($) {
       $(".documentSingleImage").click(() => {
         $(".sidebarLoader").fadeOut();
       });
+      setTimeout(function () {
+        $(".sidebarLoader").fadeOut();
+        },4000)
     }
-    setTimeout(function () {
-      $(".sidebarLoader").fadeOut();
-      },4000)
 
     $(".backArrow").on("click", () => {
       $(".documentSingleImage").html("");
