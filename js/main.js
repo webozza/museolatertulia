@@ -238,7 +238,7 @@ jQuery(document).ready(function ($) {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const zoomContainer = document.getElementsByClassName("zoom-container")[0];
-    let zoomScale = zoomImage.naturalWidth / $('.main_image')[0].clientWidth
+    let zoomScale = zoomImage.naturalWidth / zoomImage.clientWidth
     const panzoom = Panzoom(zoomImage, {
       contain: "outside",
       maxScale: zoomScale,
@@ -272,11 +272,10 @@ jQuery(document).ready(function ($) {
     $(".backArrow").show();
     $(".documentImgZoom").show();
     const sidebarImg = document.getElementsByClassName("sidebar-single-image");
-    let zoomScale = sidebarImg.naturalWidth / $('.main_image')[0].clientWidth
+    let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
 
     if (sidebarImg.length > 0) {
       const panzoom = Panzoom(sidebarImg[0], {
-        // contain: "outside",
         maxScale: zoomScale,
         minScale: 0.5,
       });
