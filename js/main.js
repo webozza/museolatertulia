@@ -130,7 +130,6 @@ jQuery(document).ready(function ($) {
                     </div>`;
                     imageContainer.find("h3").text("Heading"); 
                     imageContainer.append(imgTag);
-                    // hideEmptyDocumentHeader();
                     loadedImages++;
                     if (loadedImages === imageCount) {
                       let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
@@ -150,6 +149,7 @@ jQuery(document).ready(function ($) {
                     console.error("Error fetching image data:", error);
                   },
                 });
+                hideEmptyDocumentHeader();
               });
             }
           };
@@ -161,7 +161,7 @@ jQuery(document).ready(function ($) {
           appnedSidebarGalleries("obra-obra_asociada_1", ".obra-obra_asociada_1");
           appnedSidebarGalleries("obra-obra_asociada_2", ".obra-obra_asociada_2");
           appnedSidebarGalleries("obra-obra_asociada_3", ".obra-obra_asociada_3");
-          hideEmptyDocumentHeader();
+
           //------------------------------------------------------
         },
 
