@@ -130,6 +130,7 @@ jQuery(document).ready(function ($) {
                     </div>`;
                     imageContainer.find("h3").text("Heading"); 
                     imageContainer.append(imgTag);
+                    hideEmptyDocumentHeader();
                     loadedImages++;
                     if (loadedImages === imageCount) {
                       let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
@@ -149,7 +150,6 @@ jQuery(document).ready(function ($) {
                     console.error("Error fetching image data:", error);
                   },
                 });
-                hideEmptyDocumentHeader();
               });
             }
           };
