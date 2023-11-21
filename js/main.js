@@ -130,7 +130,9 @@ jQuery(document).ready(function ($) {
                     </div>`;
                     imageContainer.find("h3").text("Heading"); 
                     imageContainer.append(imgTag);
-                    hideEmptyDocumentHeader();
+                    setTimeout(()=>{
+                      hideEmptyDocumentHeader();
+                    },2000)
                     loadedImages++;
                     if (loadedImages === imageCount) {
                       let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
