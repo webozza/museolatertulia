@@ -108,7 +108,7 @@ jQuery(document).ready(function ($) {
             const imageIds = data.acf[fieldName];
             const imageContainer = $(containerClass).find(".gallerie");
             console.log("imageContainer", imageContainer);
-
+            $('.gallerie-heading').show()
             if (Array.isArray(imageIds)) {
               const imageCount = imageIds.length;
               let loadedImages = 0;
