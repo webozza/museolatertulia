@@ -88,37 +88,37 @@ $query = new WP_Query($args);
       <div class="documentWindow">
         <div class="documentData">
           <div class="obra-documentos">
-            <h3 >Documentos</h3>
+            <h3 class="gallerie-heading">Documentos</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div  class="obra-obra_participante_1">
-            <h3 >Obra participante 1</h3>
+            <h3 class="gallerie-heading">Obra participante 1</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div class="obra-obra_participante_2">
-            <h3 >Obra participante 2</h3>
+            <h3 class="gallerie-heading">Obra participante 2</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div class="obra-obra_participante_3">
-            <h3 >Obra participante 3</h3>
+            <h3 class="gallerie-heading">Obra participante 3</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div class="obra-obra_asociada_1">
-            <h3 >Obra asociada 1</h3>
+            <h3 class="gallerie-heading">Obra asociada 1</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div class="obra-obra_asociada_2">
-            <h3 >Obra asociada 2</h3>
+            <h3 class="gallerie-heading">Obra asociada 2</h3>
             <div class="gallerie"></div>
           </div>
           <br>
           <div class="obra-obra_asociada_3">
-            <h3 >Obra asociada 2</h3>
+            <h3 class="gallerie-heading">Obra asociada 2</h3>
             <div class="gallerie"></div>
           </div>
         </div>
