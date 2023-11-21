@@ -130,6 +130,7 @@ jQuery(document).ready(function ($) {
                     </div>`;
                     imageContainer.find("h3").text("Heading"); 
                     imageContainer.append(imgTag);
+                    hideEmptyDocumentHeader();
                     loadedImages++;
                     if (loadedImages === imageCount) {
                       let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
@@ -164,13 +165,25 @@ jQuery(document).ready(function ($) {
           //------------------------------------------------------
         },
 
+
+
+
+
         error: function (error) {
           console.error("Error fetching post data:", error);
         },
       });
     });
   }
-
+  function hideEmptyDocumentHeader(){
+    $('.gallerie-heading').each(function() {
+      // Check if the next sibling (.gallerie) has no child elements
+      if ($(this).next('.gallerie').children().length === 0) {
+        // Hide the corresponding .gallerie-heading
+        $(this).hide();
+      }
+    });
+  }
   ImgPopupFunction();
   window.ImgPopupFunction = ImgPopupFunction;
 
