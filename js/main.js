@@ -112,7 +112,6 @@ jQuery(document).ready(function ($) {
             if (Array.isArray(imageIds)) {
               const imageCount = imageIds.length;
               let loadedImages = 0;
-              imageIds.reverse();
               imageIds.forEach((imageId) => {
                 $.ajax({
                   url: `/wp-json/wp/v2/media/${imageId}`,
