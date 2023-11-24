@@ -84,15 +84,47 @@ function my_ajax_action() {
          $biennial = '';
     }
 
-    if($year){
-        $args = array( 
+    if($parentMenu == 'categoria'){
+
+        if($year){
+            $args = array( 
+                'post_type' => 'obra',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'taxonomy' => 'categoria',
+                        'field' =>'term_id',  
+                        'terms' => $id,
+                    ),
+                    array(
+                        'key' => 'obra-bienal',
+                        'value' => $biennial,
+                        'compare' => '=',
+                    ),
+                ),
+            );
+        } else {
+            $args = array( 
+                'post_type' => 'obra',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'taxonomy' => 'categoria',
+                        'field' =>'term_id',  
+                        'terms' => $id,
+                    )
+                ),
+            );
+        }
+    
+        $args = array(
             'post_type' => 'obra',
             'posts_per_page' => -1,
-            'meta_query' => array(
+            'tax_query' => array(
                 array(
-                    'key' => $parentMenu,
-                    'value' => $menuId,
-                    'compare' => '=',
+                    'taxonomy' => 'categoria',
+                    'field' =>'term_id',  
+                    'terms' => $id,
                 ),
                 array(
                     'key' => 'obra-bienal',
@@ -101,19 +133,40 @@ function my_ajax_action() {
                 ),
             ),
         );
-    } else {
-        $args = array( 
-            'post_type' => 'obra',
-            'posts_per_page' => -1,
-            'meta_query' => array(
-                array(
-                    'key' => $parentMenu,
-                    'value' => $menuId,
-                    'compare' => '=',
-                )
-            ),
-        );
+    } else{
+        if($year){
+            $args = array( 
+                'post_type' => 'obra',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'key' => $parentMenu,
+                        'value' => $menuId,
+                        'compare' => '=',
+                    ),
+                    array(
+                        'key' => 'obra-bienal',
+                        'value' => $biennial,
+                        'compare' => '=',
+                    ),
+                ),
+            );
+        } else {
+            $args = array( 
+                'post_type' => 'obra',
+                'posts_per_page' => -1,
+                'meta_query' => array(
+                    array(
+                        'key' => $parentMenu,
+                        'value' => $menuId,
+                        'compare' => '=',
+                    )
+                ),
+            );
+        }
+    
     }
+
 
     $query = new WP_Query($args);
 
