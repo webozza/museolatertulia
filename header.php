@@ -56,6 +56,49 @@ function querry_menu($menu_category){
 }
 
 
+function query_menu_from_category($menu_category){
+    $args = array(
+        'post_type' => 'orba', 
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'categoria', 
+                'field'    => 'slug', 
+                'terms'    => $menu_category,
+            ),
+        ),
+    );
+    
+    $query = new WP_Query($args);
+    
+    $values = array();
+    
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $field_value = get_field('your_custom_field_name'); // Replace 'your_custom_field_name' with the actual field name you want to retrieve
+            if (!empty($field_value)) {
+                $values[] = $field_value;
+            }
+        }
+    }
+    
+    wp_reset_postdata();
+    
+    $value_counts = array_count_values($values);
+    ksort($value_counts);
+    
+    foreach ($value_counts as $value => $count) {
+        $id = str_replace(' ', '_', $value);
+        echo '<li class="drop_down_menu" id="' . $id . '">' . $value;        
+        if ($count > 1) {
+            echo ' (' . $count . ')';
+        }
+        echo '</li>';
+    }
+}
+
+
 ?>
 
 <div class="header-left">
@@ -124,7 +167,7 @@ function querry_menu($menu_category){
                             <li class="mobile-menu-item">
                                 <p class="mobile-parent_menu" id="obra-tecnica_materiales">Técnicas</p>
                                 <ul class="mobile-submenu">
-                                    <?php querry_menu('obra-tecnica_materiales')?>
+                                    <?php querry_menu_from_category('obra-tecnica_materiales')?>
                                 </ul>
                             </li>
                             <li class="mobile-menu-item">
