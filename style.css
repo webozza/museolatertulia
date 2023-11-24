@@ -372,6 +372,10 @@ img.sidebar-single-image {
   min-width: 230px;
 }
 
+a.toggle-menu {
+  padding-top: 10px;
+}
+
 .submenu {
   padding: 0px;
   padding-top: 15px;
@@ -848,6 +852,22 @@ svg#america {
 svg#america path {
   scale: .4;
 }
+
+
+.logo {
+  display: flex;
+  column-gap: 10px;
+  align-content: center;
+}
+.toggle-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-top: 5px;
+}
+
 }
 
 
