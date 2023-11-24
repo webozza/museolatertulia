@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.86');
+    define('_T_VERSION', '1.0.87');
 }
 
 
@@ -94,7 +94,7 @@ function my_ajax_action() {
                     array(
                         'taxonomy' => 'categoria',
                         'field' =>'term_id',  
-                        'terms' => $id,
+                        'terms' => $menuId_with_underscore,
                     ),
                     array(
                         'key' => 'obra-bienal',
@@ -111,28 +111,11 @@ function my_ajax_action() {
                     array(
                         'taxonomy' => 'categoria',
                         'field' =>'term_id',  
-                        'terms' => $id,
+                        'terms' => $menuId_with_underscore,
                     )
                 ),
             );
         }
-    
-        $args = array(
-            'post_type' => 'obra',
-            'posts_per_page' => -1,
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'categoria',
-                    'field' =>'term_id',  
-                    'terms' => $id,
-                ),
-                array(
-                    'key' => 'obra-bienal',
-                    'value' => $biennial,
-                    'compare' => '=',
-                ),
-            ),
-        );
     } else{
         if($year){
             $args = array( 
