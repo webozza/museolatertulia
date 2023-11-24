@@ -358,7 +358,7 @@ img.sidebar-single-image {
 .left-toggle-container {
   height: 100%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 #left-menu {
@@ -452,7 +452,7 @@ p.menu_date {
   padding: 24px;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
 }
 .logo {
   cursor: pointer;
