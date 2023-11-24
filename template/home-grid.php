@@ -509,7 +509,7 @@ $query = new WP_Query($args);
                       success: function(response) {
                           $('.my-masonry-grid').html(response)
                           $(".my-masonry-grid").masonryGrid({
-                              columns: 3,
+                              columns: 6,
                           });
                           $('.my-masonry-grid').prepend(preLoader)
                           $('.pre-loader-filtered').css('position','absolute')
