@@ -492,6 +492,38 @@ $query = new WP_Query($args);
         }
 
         //============================
+        //                            logo Filter 
+        //============================
+
+
+        $('.logo h1').click(function(){
+            $selectedYear = $(this).text();
+            $.ajax({
+                      url: '/wp-admin/admin-ajax.php', 
+                      type: 'POST',
+                      data: {
+                          action: 'logoFilter',
+                          value: selectedYear,
+                      },
+                      success: function(response) {
+                          $('.my-masonry-grid').html(response)
+                          $(".my-masonry-grid").masonryGrid({
+                              columns: 3,
+                          });
+                          $('.my-masonry-grid').prepend(preLoader)
+                          $('.pre-loader-filtered').css('position','absolute')
+                          setTimeout(() => {
+                              $('.pre-loader-filtered').fadeOut()
+                          }, 2000);
+                          ImgPopupFunction()
+                      }
+                });
+                // $('.masonry-grid-column').css('width','33.33%')
+        })
+
+
+
+        //============================
         //                            Map close 
         //============================
 
