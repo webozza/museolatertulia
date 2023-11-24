@@ -84,25 +84,22 @@ function my_ajax_action() {
             $biennial = '';
     }
 
+    $tax_query = array();
+    $meta_query = array();
+
     if ($parentMenu == 'categoria') {
-        $tax_query = array(
-            array(
-                'taxonomy' => 'categoria',
-                'field' => 'term_id',
-                'terms' => $menuId_with_underscore,
-            ),
+        $tax_query[] = array(
+            'taxonomy' => 'categoria',
+            'field' => 'term_id',
+            'terms' => $menuId_with_underscore,
         );
     } else {
-        $tax_query = array(
-            array(
-                'key' => $parentMenu,
-                'value' => $menuId,
-                'compare' => '=',
-            ),
+        $meta_query[] = array(
+            'key' => $parentMenu, // Assuming $parentMenu is the correct custom field key
+            'value' => $menuId,
+            'compare' => '=',
         );
     }
-
-    $meta_query = array();
 
     if ($year) {
         $meta_query[] = array(
