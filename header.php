@@ -56,49 +56,19 @@ function querry_menu($menu_category){
 }
 
 
-// function query_menu_from_category($menu_category){
-//     $args = array(
-//         'post_type' => 'orba', 
-//         'posts_per_page' => -1,
-//         'tax_query' => array(
-//             array(
-//                 'taxonomy' => 'categoria', 
-//                 'field'    => 'term_id', 
-//                 'terms'    => $menu_category,
-//             ),
-//         ),
-//     );
+function query_menu_from_category(){
+    $custom_post_type = 'orba';
+    $taxonomy = 'categoria';
+    $terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false, 
+    ));
     
-//     $query = new WP_Query($args);
-    
-//     $values = array();
-    
-//     if ($query->have_posts()) {
-//         while ($query->have_posts()) {
-//             $query->the_post();
-//             $field_value = get_field('your_custom_field_name'); // Replace 'your_custom_field_name' with the actual field name you want to retrieve
-//             if (!empty($field_value)) {
-//                 $values[] = $field_value;
-//             }
-//         }
-//     }
-    
-//     wp_reset_postdata();
-    
-//     $value_counts = array_count_values($values);
-//     ksort($value_counts);
-    
-//     foreach ($value_counts as $value => $count) {
-//         $id = str_replace(' ', '_', $value);
-//         echo '<li class="drop_down_menu" id="' . $id . '">' . $value;        
-//         if ($count > 1) {
-//             echo ' (' . $count . ')';
-//         }
-//         echo '</li>';
-//     }
-// }
-
-
+    foreach ($terms as $term) {
+        $post_count = $term->count;
+        echo '<li class="drop_down_menu">' . $term->name . ' (' . $post_count . ')</li>';
+    }
+}
 ?>
 
 <div class="header-left">
@@ -201,9 +171,9 @@ function querry_menu($menu_category){
                 </ul>
             </li>
             <li class="menu-item">
-            <p class="parent_menu" id='obra-tecnica_materiales'>Técnicas</p>
+            <p class="parent_menu" id='categoria'>Categorías</p>
                 <ul class="submenu">
-                    <?php querry_menu('obra-tecnica_materiales')?>
+                    <?php query_menu_from_category()?>
                 </ul>
             </li>
             <li class="menu-item">       
