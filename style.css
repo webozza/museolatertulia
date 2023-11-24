@@ -22,7 +22,7 @@ Text Domain:  helloelementorchild
 @font-face {
   font-family: "BLAA-alt-Bold";
   src: url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff") format("woff"), url("/wp-content/themes/museolatertulia/fonts/BLAA-alt-Bold.woff2") format("woff2");
-  font-weight: bold;
+  /* font-weight: bold; */
   font-style: normal;
 }
 
@@ -459,12 +459,13 @@ p.menu_date {
 }
 .logo > h1 {
   color: #1e1e1e;
-  font-size: 48px;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 200;
-  line-height: normal;
+  font-weight: 800;
   margin: auto !important;
   padding-top: 7px;
+  line-height: 14px;
+  font-family: "BLAA-alt-Bold";
 }
 .log > h1 > font {
   display: flex;
