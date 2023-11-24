@@ -497,7 +497,8 @@ $query = new WP_Query($args);
 
 
         $('.logo h1').click(function(){
-            $selectedYear = $(this).text();
+            let selectedYear = $(this).text();
+            
             $.ajax({
                       url: '/wp-admin/admin-ajax.php', 
                       type: 'POST',
