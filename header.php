@@ -175,9 +175,12 @@ function query_menu_from_category() {
             </li>
             <li class="menu-item">
             <p class="parent_menu" id='categoria'>Categorías</p>
-                <ul class="submenu">
+            <div class='categories'>
+                <ul>
                     <?php query_menu_from_category()?>
                 </ul>
+            </div>
+
             </li>
             <li class="menu-item">       
             <p class="parent_menu" id='obra-nacionalidad'>Nacionalidad</p>
