@@ -257,7 +257,7 @@ $query = new WP_Query($args);
           selectedYear = date
           // console.log(key);
 
-          $('.logo h1').text(date)
+          // $('.logo h1').text(date)
 
           gridData = () =>{
               $.ajax({

@@ -76,7 +76,7 @@ function query_menu_from_category() {
 
 <div class="header-left">
     <div class="logo-container">
-        <a href="<?= site_url();?>">
+        <a href="#">
             <div class="logo">
                 <h1>1971</h1>
                 <h1>1973</h1>
