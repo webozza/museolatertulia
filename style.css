@@ -538,6 +538,14 @@ p.parent_menu {
   min-width: 160px;
 }
 
+
+.submenu > .drop_down_menu-category {
+  padding: 5px 10px;
+  min-width: 160px;
+}
+
+
+
 .menu-item .submenu::-webkit-scrollbar {
   width: 0px;
 }
