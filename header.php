@@ -62,12 +62,12 @@ function query_menu_from_category() {
     
     $terms = get_terms(array(
         'taxonomy' => $taxonomy,
-        'hide_empty' => true, // Set to true to exclude categories with no posts
+        'hide_empty' => true,
     ));
     
     foreach ($terms as $term) {
         $post_count = $term->count;
-        echo '<li class="drop_down_menu-category" data-id="' . $term->term_id . '">' . $term->name . ' (' . $post_count . ')</li>';
+        echo '<li class="drop_down_menu-category" id="' . $term->term_id . '">' . $term->name . ' (' . $post_count . ')</li>';
     }
 }
 

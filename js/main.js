@@ -355,6 +355,8 @@ jQuery(document).ready(function ($) {
       $(this).find(".submenu").slideToggle(300);
     });
 
+    
+
     // left Menu Toggler
 
     $(".date-menu > ul > ul > .top-level-menu").click(function () {
