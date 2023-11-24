@@ -56,12 +56,13 @@ function querry_menu($menu_category){
 }
 
 
-function query_menu_from_category(){
+function query_menu_from_category() {
     $custom_post_type = 'orba';
     $taxonomy = 'categoria';
+    
     $terms = get_terms(array(
         'taxonomy' => $taxonomy,
-        'hide_empty' => false, 
+        'hide_empty' => true, // Set to true to exclude categories with no posts
     ));
     
     foreach ($terms as $term) {
@@ -69,6 +70,7 @@ function query_menu_from_category(){
         echo '<li class="drop_down_menu">' . $term->name . ' (' . $post_count . ')</li>';
     }
 }
+
 ?>
 
 <div class="header-left">
