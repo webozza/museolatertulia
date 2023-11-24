@@ -523,6 +523,33 @@ $query = new WP_Query($args);
         })
 
 
+        $('.top-level-menu a').click(function(){
+          if($(this).text() == '1971' || $(this).text() == '1973' || $(this).text() == '1976'){
+            let selectedYear = $(this).text()
+            $.ajax({
+                      url: '/wp-admin/admin-ajax.php', 
+                      type: 'POST',
+                      data: {
+                          action: 'logoFilter',
+                          value: selectedYear,
+                      },
+                      success: function(response) {
+                          $('.my-masonry-grid').html(response)
+                          $(".my-masonry-grid").masonryGrid({
+                              columns: 6,
+                          });
+                          $('.my-masonry-grid').prepend(preLoader)
+                          $('.pre-loader-filtered').css('position','absolute')
+                          setTimeout(() => {
+                              $('.pre-loader-filtered').fadeOut()
+                          }, 2000);
+                          ImgPopupFunction()
+                      }
+                });
+          }
+      })
+
+
 
         //============================
         //                            Map close 
