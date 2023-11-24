@@ -868,6 +868,10 @@ svg#america path {
   padding-top: 5px;
 }
 
+a.toggle-menu {
+  padding-top: 0px;
+}
+
 }
 
 
