@@ -176,7 +176,7 @@ function query_menu_from_category() {
             <li class="menu-item">
             <p class="parent_menu" id='categoria'>Categorías</p>
             <div class='categories'>
-                <ul>
+                <ul class="submenu">
                     <?php query_menu_from_category()?>
                 </ul>
             </div>
