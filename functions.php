@@ -95,9 +95,9 @@ function my_ajax_action() {
     } else {
         $tax_query = array(
             array(
-                'taxonomy' => 'categoria', // Change this to the appropriate taxonomy if needed
-                'field' => 'term_id',
-                'terms' => $menuId_with_underscore,
+                'key' => $parentMenu,
+                'value' => $menuId,
+                'compare' => '=',
             ),
         );
     }
