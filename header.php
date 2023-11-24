@@ -63,7 +63,7 @@ function query_menu_from_category($menu_category){
         'tax_query' => array(
             array(
                 'taxonomy' => 'categoria', 
-                'field'    => 'slug', 
+                'field'    => 'term_id', 
                 'terms'    => $menu_category,
             ),
         ),
@@ -167,7 +167,7 @@ function query_menu_from_category($menu_category){
                             <li class="mobile-menu-item">
                                 <p class="mobile-parent_menu" id="obra-tecnica_materiales">Técnicas</p>
                                 <ul class="mobile-submenu">
-                                    <?php querry_menu_from_category('obra-tecnica_materiales')?>
+                                    <?php querry_menu('obra-tecnica_materiales')?>
                                 </ul>
                             </li>
                             <li class="mobile-menu-item">
