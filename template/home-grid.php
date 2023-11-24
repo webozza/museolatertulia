@@ -167,6 +167,7 @@ $query = new WP_Query($args);
           $('.popup_page').fadeOut()
             let parentMenu = $(this).parent().parent().find('.parent_menu').attr('id');
             let id = $(this).attr('id');
+            
 
             $.ajax({
                 url: '/wp-admin/admin-ajax.php', 

@@ -67,111 +67,74 @@ add_shortcode('map', 'map');
 function my_ajax_action() {
     $parentMenu = $_POST['parentMenu'];
     $menuId_with_underscore = $_POST['id'];
-    $menuId = str_replace( '_' , ' ' , $menuId_with_underscore);
+    $menuId = str_replace('_', ' ', $menuId_with_underscore);
     $year = $_POST['year'];
 
-    switch($year){
+    switch ($year) {
         case "1971":
             $biennial = 'I Bienal';
             break;
-         case "1973" : 
+        case "1973":
             $biennial = 'II Bienal';
             break;
-         case "1976" : 
+        case "1976":
             $biennial = 'III Bienal';
-            break; 
-         default:
-         $biennial = '';
+            break;
+        default:
+            $biennial = '';
     }
 
-    if($parentMenu == 'categoria'){
-
-        if($year){
-            $args = array( 
-                'post_type' => 'obra',
-                'posts_per_page' => -1,
-                'meta_query' => array(
-                    array(
-                        'taxonomy' => 'categoria',
-                        'field' =>'term_id',  
-                        'terms' => $menuId_with_underscore,
-                    ),
-                    array(
-                        'key' => 'obra-bienal',
-                        'value' => $biennial,
-                        'compare' => '=',
-                    ),
-                ),
-            );
-        } else {
-            $args = array( 
-                'post_type' => 'obra',
-                'posts_per_page' => -1,
-                'meta_query' => array(
-                    array(
-                        'taxonomy' => 'categoria',
-                        'field' =>'term_id',  
-                        'terms' => $menuId_with_underscore,
-                    )
-                ),
-            );
-        }
-    } else{
-        if($year){
-            $args = array( 
-                'post_type' => 'obra',
-                'posts_per_page' => -1,
-                'meta_query' => array(
-                    array(
-                        'key' => $parentMenu,
-                        'value' => $menuId,
-                        'compare' => '=',
-                    ),
-                    array(
-                        'key' => 'obra-bienal',
-                        'value' => $biennial,
-                        'compare' => '=',
-                    ),
-                ),
-            );
-        } else {
-            $args = array( 
-                'post_type' => 'obra',
-                'posts_per_page' => -1,
-                'meta_query' => array(
-                    array(
-                        'key' => $parentMenu,
-                        'value' => $menuId,
-                        'compare' => '=',
-                    )
-                ),
-            );
-        }
-    
+    if ($parentMenu == 'categoria') {
+        $tax_query = array(
+            array(
+                'taxonomy' => 'categoria',
+                'field' => 'term_id',
+                'terms' => $menuId_with_underscore,
+            ),
+        );
+    } else {
+        $tax_query = array(
+            array(
+                'taxonomy' => 'categoria', // Change this to the appropriate taxonomy if needed
+                'field' => 'term_id',
+                'terms' => $menuId_with_underscore,
+            ),
+        );
     }
 
+    $meta_query = array();
+
+    if ($year) {
+        $meta_query[] = array(
+            'key' => 'obra-bienal',
+            'value' => $biennial,
+            'compare' => '=',
+        );
+    }
+
+    $args = array(
+        'post_type' => 'obra',
+        'posts_per_page' => -1,
+        'tax_query' => $tax_query,
+        'meta_query' => $meta_query,
+    );
 
     $query = new WP_Query($args);
 
-    ?>
-            <?php if ($query->have_posts()) : ?>
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
-            <?php $post_id = get_the_ID();?>
-                    <div class="my-masonry-grid-item">
-                        <?php the_post_thumbnail('large',
-                            array(
-                                        'class' => 'clickable-thumbnail',
-                                        'data-post-id' => $post_id, 
-                            ));
-                        ?>
-                    </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-            <?php else : ?>
-            <p>No posts found.</p>
-            <?php endif; ?>
-    <?php
-
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            $post_id = get_the_ID(); ?>
+            <div class="my-masonry-grid-item">
+                <?php the_post_thumbnail('large', array(
+                    'class' => 'clickable-thumbnail',
+                    'data-post-id' => $post_id,
+                )); ?>
+            </div>
+        <?php endwhile;
+        wp_reset_postdata();
+    else : ?>
+        <p>No posts found.</p>
+    <?php endif;
 
     wp_die();
 }
