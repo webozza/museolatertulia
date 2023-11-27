@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
 
           //------------------------------------------------------
-
+          
           let appnedSidebarGalleries = (fieldName, containerClass) => {
             const imageIds = data.acf[fieldName];
             const imageContainer = $(containerClass).find(".gallerie");
@@ -112,6 +112,7 @@ jQuery(document).ready(function ($) {
             $('.gallerie-heading').show()
             if (Array.isArray(imageIds)) {
               const imageCount = imageIds.length;
+              console.log(imageCount)
               let loadedImages = 0;
               imageIds.forEach((imageId) => {
                 $.ajax({
