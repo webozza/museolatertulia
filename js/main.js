@@ -312,34 +312,50 @@ jQuery(document).ready(function ($) {
   $(".documentImgZoom").hide();
   $(".backArrow").hide();
 
-  let documentImgZoom = () => {
-    $(".backArrow").show();
-    $(".documentImgZoom").show();
-    const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
-    // let zoomScale = sidebarImg.naturalWidth / sidebarImg.clientWidth
 
-      const panzoom = Panzoom(sidebarImg, {
-        maxScale: 3,
-        minScale: 0.5,
-      });
 
-      $(".documentImgZoom").on("click", () => {
-        panzoom.pan(0, 0, { animate: true });
-        panzoom.zoom(3, { animate: true });
-        console.log("Zoomed in");
-        $(".documentImgZoom").hide();
-        $(".documentWindowZoomout").show();
-      });
+let documentImgZoom = () => {
+  $(".backArrow").show();
+  $(".documentImgZoom").show();
+  const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
 
-      $(".documentWindowZoomout").on("click", () => {
-        panzoom.zoom(1, { animate: true });
-        panzoom.pan(0, 0, { animate: true });
-        console.log("Zoomed out");
-        $(".documentWindowZoomout").hide();
-        $(".documentImgZoom").show();
-      });
-    
+  const panzoom = Panzoom(sidebarImg, {
+    maxScale: 3,
+    minScale: 0.5,
+  });
+
+  // Function to handle zooming with the scroll event
+  const handleScrollZoom = (event) => {
+    event.preventDefault();
+
+    const delta = event.deltaY || event.detail || event.wheelDelta;
+    const scaleMultiplier = delta > 0 ? 1.1 : 0.9;
+
+    const currentScale = panzoom.getScale();
+    const newScale = currentScale * scaleMultiplier;
+
+    panzoom.zoom(newScale, { animate: false });
   };
+
+  // Attach the scroll event listener to the sidebarImg
+  sidebarImg.addEventListener('wheel', handleScrollZoom);
+
+  $(".documentImgZoom").on("click", () => {
+    panzoom.pan(0, 0, { animate: true });
+    panzoom.zoom(3, { animate: true });
+    console.log("Zoomed in");
+    $(".documentImgZoom").hide();
+    $(".documentWindowZoomout").show();
+  });
+
+  $(".documentWindowZoomout").on("click", () => {
+    panzoom.zoom(1, { animate: true });
+    panzoom.pan(0, 0, { animate: true });
+    console.log("Zoomed out");
+    $(".documentWindowZoomout").hide();
+    $(".documentImgZoom").show();
+  });
+};
 
   //====================================
   //                                Window Close
