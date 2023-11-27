@@ -529,15 +529,7 @@ function tagsFilter() {
                 ),
             ),
         );
-
-        // Debugging: Print out the generated query
-        var_dump($args);
-
         $query = new WP_Query($args);
-
-        // Debugging: Print out the number of posts found
-        echo 'Number of posts found: ' . $query->found_posts;
-
         // Display the retrieved posts
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
