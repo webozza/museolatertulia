@@ -124,7 +124,7 @@ jQuery(document).ready(function ($) {
                   success: function (imageData) {
                     console.log("imageData", imageData);
                     const semiHighResURL = imageData.media_details.sizes.large.source_url;
-                    const highResImgURL = imageData.source_url;
+                    const highResImgURL = imageData.media_details.sizes.full.source_url;
                     const imgTag = `<div class="documentImg sidebar-grid-item">
                       <img
                         src="${semiHighResURL}" 
