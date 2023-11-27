@@ -526,6 +526,7 @@ $query = new WP_Query($args);
          
         $('.top-level-menu a').click(function(){
           if($(this).text() == '1971' || $(this).text() == '1973' || $(this).text() == '1976'){
+            $('.map, .artists, .categories, .biennial').hide()
             let selectedYear = $(this).text()
             $.ajax({
                       url: '/wp-admin/admin-ajax.php', 
