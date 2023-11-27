@@ -523,9 +523,9 @@ function tagsFilter() {
             'posts_per_page' => -1,
             'meta_query'     => array(
                 array(
-                    'key'     => 'etiqueta',
-                    'value'   => $tag_id,
-                    'compare' => '=',
+                    'taxonomy' => 'etiqueta',
+                    'field'    => 'id',
+                    'terms'    => $tag_id,
                 ),
             ),
         );
