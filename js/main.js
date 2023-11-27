@@ -84,7 +84,6 @@ jQuery(document).ready(function ($) {
             success: function (post) {
               var etiquetaData = [];
               $.each(post.etiqueta, function (index, tagId) {
-                // Fetch the tag name and category ID based on the tag ID
                 $.ajax({
                   url: "/wp-json/wp/v2/etiqueta/" + tagId,
                   type: "GET",
@@ -99,14 +98,13 @@ jQuery(document).ready(function ($) {
                       // Clear the existing content
                       $(".info .tags").empty();
           
-                      // Append each tag name with a span, data-id, and a comma
                       $.each(etiquetaData, function (i, tagInfo) {
                         $(".info .tags").append(`<span data-id="${tagInfo.categoryId}">${tagInfo.name},</span> `);
                       });
           
                       // Remove the trailing comma
                       $(".info .tags span:last-child").prev().text(function (_, text) {
-                        return text.slice(0, -2); // Remove the last two characters (comma and space)
+                        return text.slice(0, -2);
                       });
                       tagsFilter()
                     }
@@ -486,6 +484,7 @@ let documentImgZoom = () => {
 
 
   function tagsFilter() { 
+    $('.my-masonry-grid').html('')
     $('.info .tags span').click(function(){
       $('.navigation .cross').click()
       console.log($(this).data('id'))
