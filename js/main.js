@@ -86,19 +86,32 @@ jQuery(document).ready(function ($) {
               $.each(post.etiqueta, function (index, tagId) {
                 // Fetch the tag name based on the tag ID
                 $.ajax({
-                  url: "/wp-json/wp/v2/etiqueta/" + tagId, // Adjust the URL to your taxonomy endpoint
+                  url: "/wp-json/wp/v2/etiqueta/" + tagId,
                   type: "GET",
                   success: function (tag) {
                     etiquetaData.push(tag.name);
+          
                     // Update the content when all names are fetched
                     if (etiquetaData.length === post.etiqueta.length) {
-                      $(".info .tags").text(etiquetaData.join(", "));
+                      // Clear the existing content
+                      $(".info .tags").empty();
+          
+                      // Append each tag name with a span and a comma
+                      $.each(etiquetaData, function (i, tagName) {
+                        $(".info .tags").append(`<span>${tagName}</span>, `);
+                      });
+          
+                      // Remove the trailing comma
+                      $(".info .tags span:last-child").prev().text(function (_, text) {
+                        return text.slice(0, -2); // Remove the last two characters (comma and space)
+                      });
                     }
                   },
                 });
               });
             },
           });
+          
 
           $(".info .documents").text(data.acf["obra-documentos"]);
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
