@@ -473,6 +473,28 @@ let documentImgZoom = () => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
+
+  let poppyMenu = () => {
+		$('.top-level-menu a').click(function(e) {
+			
+			e.preventDefault();
+			let menu = $(this);
+			let menuHref = menu.attr('href');
+			if(menuHref !== "#" ) {
+				$('.poppy').hide();
+				$('.poppy').empty();
+				$('.poppy').load(`${menuHref} #content`);
+				$('.poppy').fadeIn().css('display','flex');
+			} else {
+				$('.poppy').hide();
+			}
+		})
+	}
+
+	poppyMenu();
+
+  
+
   // run the function
   closeWindow();
   handleHeader();
