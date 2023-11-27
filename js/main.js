@@ -178,6 +178,8 @@ jQuery(document).ready(function ($) {
       });
     });
   }
+
+
   function hideEmptyDocumentHeader(){
     $('.gallerie-heading').each(function() {
       // Check if the next sibling (.gallerie) has no child elements
@@ -207,6 +209,7 @@ jQuery(document).ready(function ($) {
         type: "GET",
         dataType: "json",
         success: function (imageData) {
+          console.log(imageData);
           let imgURL = imageData.source_url;
           let imgTag = `<img class='sidebar-single-image' src='${imgURL}'> </img>`;
           $(".documentSingleImage").html(imgTag);
