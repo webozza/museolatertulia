@@ -120,11 +120,11 @@ jQuery(document).ready(function ($) {
                   dataType: "json",
                   success: function (imageData) {
                     console.log("imageData", imageData);
-                    // const semiHighResURL = imageData.media_details.sizes.large.source_url;
+                    const semiHighResURL = imageData.media_details.sizes.large.source_url;
                     const highResImgURL = imageData.source_url;
                     const imgTag = `<div class="documentImg sidebar-grid-item">
                       <img
-                        src="${highResImgURL}" 
+                        src="${semiHighResURL}" 
                         data-highres="${highResImgURL}"
                         id="${imageData.id}">
                     </div>`;
@@ -136,7 +136,7 @@ jQuery(document).ready(function ($) {
                     // hideEmptyDocumentHeader();
                     loadedImages++;
                     if (loadedImages === imageCount) {
-                      let windowWidthCalc = $(".documentWindow ").width() / $("body").width();
+                      let windowWidthCalc = $(".documentWindow").width() / $("body").width();
                       let grid;
                       if (windowWidthCalc == 1) {
                         grid = 1;
