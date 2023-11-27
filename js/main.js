@@ -478,6 +478,42 @@ let documentImgZoom = () => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
+  //====================================
+  //                           Search from ctegory
+  //====================================
+
+
+  $('.info .tags span').click(function(){
+    $('.navigation .cross').click()
+    console.log($(this).data('id'))
+    let tagId = $(this).data('id')
+    $.ajax({
+      url : '/wp-admin/admin-ajax.php',
+      type : 'POST',
+     data : {
+      action:  'tagsFilter',
+      tagId : tagId,
+     },
+
+      success: function(response) {
+        $('.my-masonry-grid').html(response)
+        $(".my-masonry-grid").masonryGrid({
+            columns: 6,
+        });
+        $('.my-masonry-grid').prepend(preLoader)
+        $('.pre-loader-filtered').css('position','absolute')
+        setTimeout(() => {
+            $('.pre-loader-filtered').fadeOut()
+        }, 2000);
+        ImgPopupFunction()
+    }
+    })
+})
+
+  //====================================
+  //                           Page data append 
+  //====================================
+
 
   let poppyMenu = () => {
 		$('.top-level-menu a').click(function(e) {

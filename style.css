@@ -992,3 +992,13 @@ input[name="search"] {
 	justify-content: center;
 	align-items: center;
 }
+
+
+.info .tags span{
+  cursor: pointer;
+  transition: .1s;
+}
+
+.info .tags span:hover{
+  opacity:.6;
+}
