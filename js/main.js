@@ -264,31 +264,49 @@ jQuery(document).ready(function ($) {
     $(".zoom").show();
     const zoomImage = document.getElementById("zoom-image");
     const zoomContainer = document.getElementsByClassName("zoom-container")[0];
-    let zoomScale = zoomImage.naturalWidth / zoomImage.clientWidth
+    let zoomScale = zoomImage.naturalWidth / zoomImage.clientWidth;
+  
     const panzoom = Panzoom(zoomImage, {
       contain: "outside",
       maxScale: zoomScale,
       minScale: 0.5,
     });
-
+  
     // Add the panzoom instance to the zoom container
     zoomContainer.panzoom = panzoom;
-
+  
+    // Function to handle zooming with the scroll event
+    const handleScrollZoom = (event) => {
+      event.preventDefault();
+      
+      const delta = event.deltaY || event.detail || event.wheelDelta;
+      const scaleMultiplier = delta > 0 ? 1.1 : 0.9;
+  
+      const currentScale = panzoom.getScale();
+      const newScale = currentScale * scaleMultiplier;
+      
+      panzoom.zoom(newScale, { animate: false });
+    };
+  
+    // Attach the scroll event listener to the zoom container
+    zoomContainer.addEventListener('wheel', handleScrollZoom);
+  
     $(".zoom").on("click", () => {
       panzoom.pan(0, 0, { animate: true });
-      panzoom.zoom(zoomScale,{ animate: true });
+      panzoom.zoom(zoomScale, { animate: true });
       $(".zoom").hide();
       $(".zoomOut").show();
     });
-
+  
     $(".zoomOut").on("click", () => {
       panzoom.zoom(1, { animate: true });
       panzoom.pan(0, 0, { animate: true });
-
+  
       $(".zoom").show();
       $(".zoomOut").hide();
     });
   };
+  
 
   $(".documentWindowZoomout").hide();
   $(".documentImgZoom").hide();
