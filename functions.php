@@ -135,7 +135,7 @@ function my_ajax_action() {
 
     wp_die();
 }
-
+ 
 add_action('wp_ajax_my_ajax_action', 'my_ajax_action');
 add_action('wp_ajax_nopriv_my_ajax_action', 'my_ajax_action');
 
