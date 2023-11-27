@@ -193,7 +193,7 @@ function query_menu_from_category() {
     </div>
     <div class="inputBox">
             <input name='search' type="text">
-            <i></i>
+            <i aria-hidden="true" class="fas fa-search"></i>
     </div>
 </div>
     <script>
