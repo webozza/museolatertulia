@@ -318,6 +318,7 @@ let documentImgZoom = () => {
   $(".backArrow").show();
   $(".documentImgZoom").show();
   const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
+  const sidebarImgContainer = document.getElementsByClassName('documentSingleImage')
 
   const panzoom = Panzoom(sidebarImg, {
     maxScale: 3,
@@ -338,7 +339,7 @@ let documentImgZoom = () => {
   };
 
   // Attach the scroll event listener to the sidebarImg
-  sidebarImg.addEventListener('wheel', handleScrollZoom);
+  sidebarImgContainer.addEventListener('wheel', handleScrollZoom);
 
   $(".documentImgZoom").on("click", () => {
     panzoom.pan(0, 0, { animate: true });
