@@ -289,7 +289,7 @@ jQuery(document).ready(function ($) {
     };
   
     // Attach the scroll event listener to the zoom container
-    zoomContainer.addEventListener('wheel', handleScrollZoom);
+    zoomImage.addEventListener('wheel', handleScrollZoom);
   
     $(".zoom").on("click", () => {
       panzoom.pan(0, 0, { animate: true });
