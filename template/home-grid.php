@@ -495,7 +495,7 @@ $query = new WP_Query($args);
 
 
         $('.logo h1').click(function(){
-            $('.map, .artists, .categories, .biennial').hide()
+            $('.map, .artists, .categories, .biennial, .popup-box').hide()
             let selectedYear = $(this).text();
             $.ajax({
                       url: '/wp-admin/admin-ajax.php', 
