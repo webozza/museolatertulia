@@ -184,13 +184,17 @@ function query_menu_from_category() {
                 </ul>
             </li>
             <li class="menu-item">       
-            <p class="parent_menu" id='obra-nacionalidad'>Nacionalidadsdsdsdsdsdsdsdsdsd</p>
+            <p class="parent_menu" id='obra-nacionalidad'>Nacionalidad</p>
                 <ul class="submenu">
                     <?php querry_menu('obra-nacionalidad')?>
                 </ul>
             </li>
         </ul>
-        <input name='search' type="text">
+
+        <div class="inputBox">
+                <input name='search' type="text">
+                <i></i>
+        </div>
     </div>
 </div>
     <script>
