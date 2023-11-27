@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
         type: "GET",
         dataType: "json",
         success: function (postData) {
-          console.log("post data", postData);
+          // console.log("post data", postData);
 
           if (postData._embedded && postData._embedded["wp:featuredmedia"] && postData._embedded["wp:featuredmedia"][0]) {
             const featuredMedia = postData._embedded["wp:featuredmedia"][0];
@@ -104,7 +104,9 @@ jQuery(document).ready(function ($) {
           $(".info .source").text(data.acf["obra-fuente_y_notas"]);
 
           //------------------------------------------------------
-          
+          //             Append Sideber Gallary 
+          //------------------------------------------------------
+
           let appnedSidebarGalleries = (fieldName, containerClass) => {
             const imageIds = data.acf[fieldName];
             const imageContainer = $(containerClass).find(".gallerie");
