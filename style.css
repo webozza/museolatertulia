@@ -969,3 +969,8 @@ input[name="search"] {
   height: 30px;
   border-radius: 20px;
 }
+
+
+.icon {
+  margin-left: -30px;
+}
