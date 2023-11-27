@@ -108,6 +108,7 @@ jQuery(document).ready(function ($) {
                       $(".info .tags span:last-child").prev().text(function (_, text) {
                         return text.slice(0, -2); // Remove the last two characters (comma and space)
                       });
+                      tagsFilter()
                     }
                   },
                 });
@@ -483,32 +484,35 @@ let documentImgZoom = () => {
   //====================================
 
 
-  $('.info .tags span').click(function(){
-    $('.navigation .cross').click()
-    console.log($(this).data('id'))
-    let tagId = $(this).data('id')
-    $.ajax({
-      url : '/wp-admin/admin-ajax.php',
-      type : 'POST',
-     data : {
-      action:  'tagsFilter',
-      tagId : tagId,
-     },
 
-      success: function(response) {
-        $('.my-masonry-grid').html(response)
-        $(".my-masonry-grid").masonryGrid({
-            columns: 6,
-        });
-        $('.my-masonry-grid').prepend(preLoader)
-        $('.pre-loader-filtered').css('position','absolute')
-        setTimeout(() => {
-            $('.pre-loader-filtered').fadeOut()
-        }, 2000);
-        ImgPopupFunction()
-    }
-    })
-})
+  function tagsFilter() { 
+    $('.info .tags span').click(function(){
+      $('.navigation .cross').click()
+      console.log($(this).data('id'))
+      let tagId = $(this).data('id')
+      $.ajax({
+        url : '/wp-admin/admin-ajax.php',
+        type : 'POST',
+       data : {
+        action:  'tagsFilter',
+        tagId : tagId,
+       },
+  
+        success: function(response) {
+          $('.my-masonry-grid').html(response)
+          $(".my-masonry-grid").masonryGrid({
+              columns: 6,
+          });
+          $('.my-masonry-grid').prepend(preLoader)
+          $('.pre-loader-filtered').css('position','absolute')
+          setTimeout(() => {
+              $('.pre-loader-filtered').fadeOut()
+          }, 2000);
+          ImgPopupFunction()
+      }
+      })
+  })  
+   }
 
   //====================================
   //                           Page data append 
