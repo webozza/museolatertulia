@@ -1,6 +1,6 @@
 <?php
 if (!defined('_T_VERSION')) {
-    define('_T_VERSION', '1.0.93');
+    define('_T_VERSION', '1.0.94');
 }
 
 
@@ -525,7 +525,7 @@ function tagsFilter() {
                 array(
                     'key'     => 'etiqueta',
                     'value'   => $tag_id,
-                    'compare' => 'IN',
+                    'compare' => '=',
                 ),
             ),
         );
