@@ -161,12 +161,12 @@ jQuery(document).ready(function ($) {
           };
 
           appnedSidebarGalleries("obra-documentos", ".obra-documentos");
-          // appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
-          // appnedSidebarGalleries("obra-obra_participante_2", ".obra-obra_participante_2");
-          // appnedSidebarGalleries("obra-obra_participante_3", ".obra-obra_participante_3");
-          // appnedSidebarGalleries("obra-obra_asociada_1", ".obra-obra_asociada_1");
-          // appnedSidebarGalleries("obra-obra_asociada_2", ".obra-obra_asociada_2");
-          // appnedSidebarGalleries("obra-obra_asociada_3", ".obra-obra_asociada_3");
+          appnedSidebarGalleries("obra-obra_participante_1", ".obra-obra_participante_1");
+          appnedSidebarGalleries("obra-obra_participante_2", ".obra-obra_participante_2");
+          appnedSidebarGalleries("obra-obra_participante_3", ".obra-obra_participante_3");
+          appnedSidebarGalleries("obra-obra_asociada_1", ".obra-obra_asociada_1");
+          appnedSidebarGalleries("obra-obra_asociada_2", ".obra-obra_asociada_2");
+          appnedSidebarGalleries("obra-obra_asociada_3", ".obra-obra_asociada_3");
 
           //------------------------------------------------------
         },
