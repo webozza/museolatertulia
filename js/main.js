@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
           
                       // Append each tag name with a span, data-id, and a comma
                       $.each(etiquetaData, function (i, tagInfo) {
-                        $(".info .tags").append(`<span data-id="${tagInfo.categoryId}">${tagInfo.name} .','</span> `);
+                        $(".info .tags").append(`<span data-id="${tagInfo.categoryId}">${tagInfo.name},</span> `);
                       });
           
                       // Remove the trailing comma
