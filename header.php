@@ -190,11 +190,10 @@ function query_menu_from_category() {
                 </ul>
             </li>
         </ul>
-
-        <div class="inputBox">
-                <input name='search' type="text">
-                <i></i>
-        </div>
+    </div>
+    <div class="inputBox">
+            <input name='search' type="text">
+            <i></i>
     </div>
 </div>
     <script>
