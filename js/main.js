@@ -84,21 +84,24 @@ jQuery(document).ready(function ($) {
             success: function (post) {
               var etiquetaData = [];
               $.each(post.etiqueta, function (index, tagId) {
-                // Fetch the tag name based on the tag ID
+                // Fetch the tag name and category ID based on the tag ID
                 $.ajax({
                   url: "/wp-json/wp/v2/etiqueta/" + tagId,
                   type: "GET",
                   success: function (tag) {
-                    etiquetaData.push(tag.name);
+                    etiquetaData.push({
+                      name: tag.name,
+                      categoryId: tag.parent, // Assuming category ID is available in the 'parent' property
+                    });
           
                     // Update the content when all names are fetched
                     if (etiquetaData.length === post.etiqueta.length) {
                       // Clear the existing content
                       $(".info .tags").empty();
           
-                      // Append each tag name with a span and a comma
-                      $.each(etiquetaData, function (i, tagName) {
-                        $(".info .tags").append(`<span>${tagName}</span>, `);
+                      // Append each tag name with a span, data-id, and a comma
+                      $.each(etiquetaData, function (i, tagInfo) {
+                        $(".info .tags").append(`<span data-id="${tagInfo.categoryId}">${tagInfo.name}</span>, `);
                       });
           
                       // Remove the trailing comma
@@ -111,6 +114,7 @@ jQuery(document).ready(function ($) {
               });
             },
           });
+          
           
 
           $(".info .documents").text(data.acf["obra-documentos"]);
@@ -493,7 +497,7 @@ let documentImgZoom = () => {
 
 	poppyMenu();
 
-  
+
 
   // run the function
   closeWindow();
