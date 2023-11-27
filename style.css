@@ -957,3 +957,15 @@ svg#america {
 .date-menu > ul > ul > li  > ul a font:hover{
   opacity: .7;
 }
+
+.inputBox {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 0px 35px 0px 0px;
+}
+
+input[name="search"] {
+  height: 30px;
+  border-radius: 20px;
+}
