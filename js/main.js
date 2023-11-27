@@ -91,7 +91,7 @@ jQuery(document).ready(function ($) {
                   success: function (tag) {
                     etiquetaData.push({
                       name: tag.name,
-                      categoryId: tag.parent, // Assuming category ID is available in the 'parent' property
+                      categoryId: tag.id, // Use 'id' property for category ID
                     });
           
                     // Update the content when all names are fetched
@@ -114,6 +114,7 @@ jQuery(document).ready(function ($) {
               });
             },
           });
+          
           
           
 
