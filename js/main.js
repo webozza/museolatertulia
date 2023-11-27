@@ -318,7 +318,7 @@ let documentImgZoom = () => {
   $(".backArrow").show();
   $(".documentImgZoom").show();
   const sidebarImg = document.getElementsByClassName("sidebar-single-image")[0];
-  const sidebarImgContainer = document.getElementsByClassName('documentSingleImage')
+  const sidebarImgContainer = document.getElementsByClassName('documentSingleImage')[0]
 
   const panzoom = Panzoom(sidebarImg, {
     maxScale: 3,
