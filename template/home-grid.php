@@ -29,31 +29,26 @@ $query = new WP_Query($args);
     <div class="biennial">
       <?php include get_stylesheet_directory(  ) . '/module/biennial.php'?>
     </div>
-    
     <div class="my-masonry-grid">  
-    <?php if ($query->have_posts()) : ?>
-        <?php
-        // Get the posts and shuffle the array
-        $posts = $query->get_posts();
-        shuffle($posts);
-        
-        foreach ($posts as $post) : setup_postdata($post);
-            $post_id = get_the_ID();
-        ?>
-            <div class="my-masonry-grid-item">
-                <?php the_post_thumbnail('large', 
-                    array(
-                        'class'         => 'clickable-thumbnail',
-                        'data-post-id'  => $post_id, 
-                    ));
-                ?>
-            </div>
-        <?php endforeach; ?>
+        <?php if ($query->have_posts()) : ?>
+        <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <?php
+                $post_id = get_the_ID();
+            ?>
+        <div class="my-masonry-grid-item">
+            <?php the_post_thumbnail('large', 
+              array(
+                  'class' => 'clickable-thumbnail',
+                  'data-post-id' => $post_id, 
+              ));
+            ?>
+        </div>
+        <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
-    <?php else : ?>
+        <?php else : ?>
         <p>No posts found.</p>
-    <?php endif; ?>
-</div>
+        <?php endif; ?>
+    </div>
 </div>
 
 <div class="popup-box  zoom-container">
