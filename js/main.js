@@ -481,8 +481,6 @@ let documentImgZoom = () => {
   //                           Search from ctegory
   //====================================
 
-
-
   function tagsFilter() { 
     $('.my-masonry-grid').html('')
     $('.info .tags span').click(function(){
