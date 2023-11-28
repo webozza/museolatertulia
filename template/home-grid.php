@@ -1,7 +1,6 @@
 <?php
 $args = array(
     'post_type' => 'obra',
-    'orderby'        => 'rand',
     'posts_per_page' => -1,
 );
 $query = new WP_Query($args);
