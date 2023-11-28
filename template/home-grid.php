@@ -1,6 +1,7 @@
 <?php
 $args = array(
     'post_type' => 'obra',
+    'orderby'        => 'rand',
     'posts_per_page' => -1,
 );
 $query = new WP_Query($args);
@@ -28,7 +29,7 @@ $query = new WP_Query($args);
     <div class="biennial">
       <?php include get_stylesheet_directory(  ) . '/module/biennial.php'?>
     </div>
-
+    
     <div class="my-masonry-grid">  
     <?php if ($query->have_posts()) : ?>
         <?php
@@ -53,8 +54,6 @@ $query = new WP_Query($args);
         <p>No posts found.</p>
     <?php endif; ?>
 </div>
-
-
 </div>
 
 <div class="popup-box  zoom-container">
